@@ -14,6 +14,7 @@ public enum MuscleGroup {
     Calf,
     Glute,
     Lower_Chest,
+    Middle_Chest,
     Upper_Chest,
     Anterior_Deltoid,
     Lateral_Deltoid,

@@ -1,6 +1,5 @@
 package tracker.repository;
 
-import tracker.model.Exercise;
 import tracker.model.ExerciseResult;
 
 public interface ExerciseResultRepository {
