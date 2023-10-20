@@ -32,6 +32,7 @@ public class Exercise {
         if(exerciseResults == null){
             exerciseResults = new ArrayList<>();
         }
+        exerciseResult.setExercise(this);
         exerciseResults.add(exerciseResult);
     }
 }

@@ -9,18 +9,49 @@ import java.time.LocalDate;
 @Setter
 public class ExerciseResult {
     private int id;
-    private int exercise_id;
     private LocalDate date;
-    private int set_count;
-    private Set []sets;
+    private Exercise exercise;
+    private Set[] sets;
 
-    public ExerciseResult(int set_count, int exercise_id){
-        this.set_count=set_count;
-        this.exercise_id=exercise_id;
-        sets = new Set[set_count];
+    public void setExercise(Exercise exercise){
+        this.exercise = exercise;
+        sets = new Set[exercise.getSet_count()];
     }
 
     public void addResult(int index, Set result){
         sets[index]=result;
+    }
+
+    public double getWeightByIndex(int index){
+        return sets[index].getWeight();
+    }
+
+    public int getRepCountByIndex(int index){
+        return sets[index].getRepetition_count();
+    }
+
+    public double findPrWithinSets(){
+        double maxWeight = 0;
+
+        for(int i=0; i < exercise.getSet_count(); i++){
+            double curWeight = getWeightByIndex(i);
+            maxWeight = (maxWeight < curWeight)? curWeight : maxWeight;
+        }
+
+        return maxWeight;
+    }
+
+    public Set findMaxVolumeWithinSets(){
+        Set maxVolume = new Set(0, 0);
+
+        for(int i=0; i < exercise.getSet_count(); i++){
+            double curWeight = getWeightByIndex(i);
+            int repCount = getRepCountByIndex(i);
+            if(maxVolume.getWeight() < curWeight && repCount >= exercise.getRepetition_count()){
+                maxVolume = sets[i];
+            }
+        }
+
+        return maxVolume;
     }
 }
