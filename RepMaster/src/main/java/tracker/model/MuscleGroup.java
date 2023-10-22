@@ -1,22 +1,22 @@
 package tracker.model;
 
 public enum MuscleGroup {
-    Forearm_Muscles,
+    Forearms,
     Biceps,
     Triceps,
     Abdominals,
     Obliques,
     Upper_Back,
     Lower_Back,
-    Lat,
-    Hamstring,
+    Lats,
+    Hamstrings,
     Quadriceps,
-    Calf,
-    Glute,
+    Calfs,
+    Glutes,
     Lower_Chest,
     Middle_Chest,
     Upper_Chest,
-    Anterior_Deltoid,
-    Lateral_Deltoid,
-    Posterior_Deltoid
+    Anterior_Deltoids,
+    Lateral_Deltoids,
+    Posterior_Deltoids
 }

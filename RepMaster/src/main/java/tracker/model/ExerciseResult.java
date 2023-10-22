@@ -12,6 +12,7 @@ public class ExerciseResult {
     private LocalDate date;
     private Exercise exercise;
     private Set[] sets;
+    private double totalVolume;
 
     public void setExercise(Exercise exercise){
         this.exercise = exercise;
@@ -30,28 +31,29 @@ public class ExerciseResult {
         return sets[index].getRepetition_count();
     }
 
-    public double findPrWithinSets(){
+    public double findPrWithinSets() {
         double maxWeight = 0;
-
-        for(int i=0; i < exercise.getSet_count(); i++){
-            double curWeight = getWeightByIndex(i);
-            maxWeight = (maxWeight < curWeight)? curWeight : maxWeight;
-        }
-
+        for(Set s : sets)
+            if(s.getWeight() > maxWeight)
+                maxWeight = s.getWeight();
         return maxWeight;
     }
 
-    public Set findMaxVolumeWithinSets(){
-        Set maxVolume = new Set(0, 0);
-
-        for(int i=0; i < exercise.getSet_count(); i++){
-            double curWeight = getWeightByIndex(i);
-            int repCount = getRepCountByIndex(i);
-            if(maxVolume.getWeight() < curWeight && repCount >= exercise.getRepetition_count()){
-                maxVolume = sets[i];
+    public Set findMaxVolumeWithinSets() {
+        double maxVolume = 0;
+        Set maxVolumeSet = new Set(0, 0);
+        for(Set s : sets) {
+            if(s.getVolume() > maxVolume) {
+                maxVolume = s.getVolume();
+                maxVolumeSet = s;
             }
         }
+        return maxVolumeSet;
+    }
 
-        return maxVolume;
+    private void calculateTotalVolume() {
+        for(Set s : sets) {
+            totalVolume += s.getVolume();
+        }
     }
 }
