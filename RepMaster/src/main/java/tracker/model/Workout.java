@@ -10,8 +10,7 @@ import java.util.List;
 public class Workout {
     private int id;
     private String name;
-    private List<Integer> allRatings;
-    private double rating;
+    private Rating rating;
     private List<Exercise> exercises;
     private List<MuscleGroup> muscleGroups;
 
@@ -29,19 +28,7 @@ public class Workout {
         muscleGroups.add(m);
     }
 
-    public void addRating(int rating) {
-        if(allRatings == null) allRatings = new ArrayList<>();
-        allRatings.add(rating);
-        calculateRating();
-    }
-
-    public void calculateRating() {
-        int ratingsCnt = 0;
-        int sum = 0;
-        for(Integer currentRating : allRatings) {
-            ratingsCnt++;
-            sum += currentRating;
-        }
-        this.rating = sum / (double)ratingsCnt;
+    public void addRating(int r, String comment) {
+        rating.addRating(r, comment);
     }
 }

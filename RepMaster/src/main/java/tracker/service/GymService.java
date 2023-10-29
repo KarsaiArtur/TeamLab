@@ -1,5 +1,6 @@
 package tracker.service;
 
+import tracker.model.Equipment;
 import tracker.model.Gym;
 import tracker.model.Split;
 import tracker.model.Workout;
@@ -16,5 +17,10 @@ public class GymService {
     public void setSplitOfGym(int id, Split split){
         Gym gym = gymRepository.findByID(id);
         gym.setSplit(split);
+    }
+
+    public void setHowEquipped(int id, Equipment equipped){
+        Gym gym = gymRepository.findByID(id);
+        gym.setHowEquipped(equipped);
     }
 }

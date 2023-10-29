@@ -18,9 +18,9 @@ public class RegisteredUserService {
         registeredUser.addWorkoutToUser(workout);
     }
 
-    public void rateWorkout(int id, Workout workout, int rating) {
+    public void rateWorkout(int id, Workout workout, int rating, String comment) {
         RegisteredUser registeredUser = registeredUserRepository.findByID(id);
-        registeredUser.rateWorkout(workout, rating);
+        registeredUser.rateWorkout(workout, rating, comment);
     }
 
 }

@@ -11,6 +11,9 @@ public class Gym {
     private int id;
     private String name;
     private Split split;
+    private Rating rating;
+    private Equipment howEquipped;
+    private String location;
     private List<Workout> workouts;
 
     public void addWorkout(Workout w){

@@ -40,8 +40,8 @@ public class RegisteredUser extends User {
         }
     }
 
-    public void rateWorkout(Workout w, int rating) {
-        w.addRating(rating);
+    public void rateWorkout(Workout w, int rating, String comment) {
+        w.addRating(rating, comment);
     }
 
 }
