@@ -13,6 +13,8 @@ public class Exercise {
     private int id;
     private int set_count;
     private int repetition_count;
+    private boolean isCompound;
+    private Rating rating;
     private MuscleGroup primaryMuscleGroup;
     private List<MuscleGroup> secondaryMuscleGroup;
     private List<ExerciseResult> exerciseResults;

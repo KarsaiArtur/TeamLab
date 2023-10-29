@@ -11,7 +11,7 @@ public enum MuscleGroup {
     Lats,
     Hamstrings,
     Quadriceps,
-    Calfs,
+    Calves,
     Glutes,
     Lower_Chest,
     Middle_Chest,
