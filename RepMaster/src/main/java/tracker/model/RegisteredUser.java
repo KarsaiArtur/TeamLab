@@ -52,8 +52,22 @@ public class RegisteredUser extends User {
         }
     }*/
 
-    public void rateWorkout(Workout w, int rating, String comment) {
+    /*public void rateWorkout(Workout w, double rating, String comment) {
         w.addRating(rating, comment);
+    }
+    public void rateGym(Gym g, double rating, String comment) {
+        g.addRating(rating, comment);
+    }
+
+    public void rateExercise(Exercise e, double rating, String comment) {
+        e.addRating(rating, comment);
+    }*/
+
+    public void rate(Object o, double rating, String comment) throws Exception{
+        if(o instanceof Exercise) ((Exercise) o).addRating(rating, comment);
+        else if(o instanceof Workout) ((Workout) o).addRating(rating,comment);
+        else if(o instanceof Gym) ((Gym) o).addRating(rating, comment);
+        else throw new Exception("What kind of object is this?");
     }
 
 }

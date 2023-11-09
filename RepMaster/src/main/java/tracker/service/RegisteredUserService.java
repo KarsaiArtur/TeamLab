@@ -19,14 +19,32 @@ public class RegisteredUserService {
         //registeredUser.get().addWorkoutsFromUsersGyms();
     }
 
-    public void copyWorkoutToUser(int id, Workout workout) {
+    /*public void copyWorkoutToUser(int id, Workout workout) {
         Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(id);
         //registeredUser.get().addWorkoutToUser(workout);
-    }
+    }*/
 
-    public void rateWorkout(int id, Workout workout, int rating, String comment) {
+    /*public void rateWorkout(int id, Workout workout, int rating, String comment) {
         Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(id);
         registeredUser.get().rateWorkout(workout, rating, comment);
+    }
+
+    public void rateGym(int id, Gym gym, int rating, String comment) {
+        Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(id);
+        registeredUser.get().rateGym(gym, rating, comment);
+    }
+    public void rateExercise(int id, Exercise exercise, int rating, String comment) {
+        Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(id);
+        registeredUser.get().rateExercise(exercise, rating, comment);
+    }*/
+
+    public void rate(int id, Object o, int rating, String comment) {
+        Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(id);
+        try {
+            registeredUser.get().rate(o, rating, comment);
+        } catch (Exception ex) {
+            // TODO
+        }
     }
 
 }

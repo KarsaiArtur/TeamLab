@@ -42,4 +42,8 @@ public class Gym {
 
         workouts.add(w);
     }
+
+    public void addRating(double r, String comment) {
+        ratings.add(new Rating(r, comment));
+    }
 }

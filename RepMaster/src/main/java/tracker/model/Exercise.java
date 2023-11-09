@@ -2,9 +2,7 @@ package tracker.model;
 
 
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +10,18 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Exercise {
     @Id
     @GeneratedValue
     private int id;
 
+    //nem kéne ide egy string name?
+
+    private String name;
     private int set_count;
     private int repetition_count;
     private boolean isCompound;
@@ -39,10 +43,6 @@ public class Exercise {
     @ManyToOne
     private Workout workout;
 
-    public Exercise(){
-
-    }
-
     public Exercise(int set_count) {
         this.set_count = set_count;
     }
@@ -60,5 +60,9 @@ public class Exercise {
         }
         exerciseResult.setExercise(this);
         exerciseResults.add(exerciseResult);
+    }
+
+    public void addRating(double r, String comment) {
+        ratings.add(new Rating(r, comment));
     }
 }
