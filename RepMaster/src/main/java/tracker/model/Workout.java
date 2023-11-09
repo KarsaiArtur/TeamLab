@@ -48,4 +48,5 @@ public class Workout {
     public void addRating(double r, String comment) {
         ratings.add(new Rating(r, comment));
     }
+
 }
