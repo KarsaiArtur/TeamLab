@@ -1,12 +1,8 @@
 package tracker.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import tracker.model.Exercise;
 
-public interface ExerciseRepository {
-
-    public Exercise findById(int id);
-    public Exercise create(Exercise e);
-    public Exercise update(Exercise e);
-    public boolean delete(Exercise e);
+public interface ExerciseRepository extends JpaRepository<Exercise, Integer> {
 
 }

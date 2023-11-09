@@ -1,5 +1,7 @@
 package tracker.model;
 
+import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,19 +10,42 @@ import java.util.List;
 
 @Getter
 @Setter
+@EqualsAndHashCode(of = "id")
+@Entity
 public class Rating {
+    @Id
+    @GeneratedValue
+    private int id;
+    @OneToMany(mappedBy = "rating_")
     private List<RatingComment> allRatings;
     private double rating;
+    @OneToOne
+    private Exercise exercise;
+    @OneToOne
+    private Gym gym;
+    @OneToOne
+    private Workout workout;
 
     @Getter
     @Setter
-    private class RatingComment{
+    @EqualsAndHashCode(of = "id")
+    @Entity
+    public class RatingComment{
+        @Id
+        @GeneratedValue
+        private int id;
         String comment;
         int rating;
+        @ManyToOne
+        private Rating rating_;
 
         public RatingComment(String comment, int rating){
             this.comment = comment;
             this.rating = rating;
+        }
+
+        public RatingComment() {
+
         }
     }
 

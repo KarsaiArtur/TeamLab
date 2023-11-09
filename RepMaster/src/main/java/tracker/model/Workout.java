@@ -1,18 +1,35 @@
 package tracker.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
+@EqualsAndHashCode(of = "id")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
 public class Workout {
+    @Id
+    @GeneratedValue
     private int id;
     private String name;
-    private Rating rating;
+    @OneToMany(mappedBy = "workout")
+    private List<Rating> ratings;
+    @OneToMany(mappedBy = "workout")
     private List<Exercise> exercises;
+    @ManyToMany(mappedBy = "workouts")
     private List<MuscleGroup> muscleGroups;
+    @ManyToMany(mappedBy = "workouts")
+    private List<Gym> gyms;
+    /*????????????????????????
+    @ManyToMany(mappedBy = "userWorkouts")
+    private List<RegisteredUser> registeredUsers;*/
+
 
     public void addExercise(Exercise e){
         if(exercises == null)
@@ -28,7 +45,7 @@ public class Workout {
         muscleGroups.add(m);
     }
 
-    public void addRating(int r, String comment) {
-        rating.addRating(r, comment);
+    public void addRating(double r, String comment) {
+        ratings.add(new Rating(r, comment));
     }
 }

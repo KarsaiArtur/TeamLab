@@ -1,34 +1,44 @@
 package tracker.model;
 
+import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
+@EqualsAndHashCode(of = "id")
+@Entity
 public class ExerciseResult {
+    @Id
+    @GeneratedValue
     private int id;
     private LocalDate date;
+    @ManyToOne
     private Exercise exercise;
-    private Set[] sets;
+    @OneToMany(mappedBy = "exerciseResult")
+    private List<Set> sets;
     private double totalVolume;
 
     public void setExercise(Exercise exercise){
         this.exercise = exercise;
-        sets = new Set[exercise.getSet_count()];
+        sets = new ArrayList<>();
     }
 
     public void addResult(int index, Set result){
-        sets[index]=result;
+        sets.add(result);
     }
 
     public double getWeightByIndex(int index){
-        return sets[index].getWeight();
+        return sets.get(index).getWeight();
     }
 
     public int getRepCountByIndex(int index){
-        return sets[index].getRepetition_count();
+        return sets.get(index).getRepetition_count();
     }
 
     public double findPrWithinSets() {

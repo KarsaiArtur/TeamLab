@@ -1,26 +1,32 @@
 package tracker.service;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import tracker.model.*;
 import tracker.repository.RegisteredUserRepository;
 
+import java.util.Optional;
+
+@RequiredArgsConstructor
+@Service
 public class RegisteredUserService {
 
     private RegisteredUserRepository registeredUserRepository;
 
     public void addGymToUser(int id, Gym gym) {
-        RegisteredUser registeredUser = registeredUserRepository.findByID(id);
-        registeredUser.addGym(gym);
-        registeredUser.addWorkoutsFromUsersGyms();
+        Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(id);
+        registeredUser.get().addGym(gym);
+        //registeredUser.get().addWorkoutsFromUsersGyms();
     }
 
     public void copyWorkoutToUser(int id, Workout workout) {
-        RegisteredUser registeredUser = registeredUserRepository.findByID(id);
-        registeredUser.addWorkoutToUser(workout);
+        Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(id);
+        //registeredUser.get().addWorkoutToUser(workout);
     }
 
     public void rateWorkout(int id, Workout workout, int rating, String comment) {
-        RegisteredUser registeredUser = registeredUserRepository.findByID(id);
-        registeredUser.rateWorkout(workout, rating, comment);
+        Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(id);
+        registeredUser.get().rateWorkout(workout, rating, comment);
     }
 
 }

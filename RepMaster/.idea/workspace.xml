@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/tracker/TrackerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/RatingRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/SetRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/SplitRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tracker/service/InitDbService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Equipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Exercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Exercise.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/ExerciseResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/ExerciseResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Gym.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Gym.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/MuscleGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/MuscleGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Rating.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Rating.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/RegisteredUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/RegisteredUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Search.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Set.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Set.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Split.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Split.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/repository/ExerciseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/ExerciseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/repository/ExerciseResultRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/ExerciseResultRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/repository/GymRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/GymRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/repository/RegisteredUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/RegisteredUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/repository/WorkoutRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/WorkoutRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/GymService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/GymService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Exercise.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Exercise.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/ExerciseResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/ExerciseResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Gym.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Gym.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/MuscleGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/MuscleGroup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/RatingSearch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/RegisteredUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/RegisteredUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Search.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Search.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Set.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Set.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Split.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Split.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Workout.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Workout.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/repository/ExerciseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/repository/ExerciseRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/repository/ExerciseResultRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/repository/ExerciseResultRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/repository/GymRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/repository/GymRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/repository/RegisteredUserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/repository/RegisteredUserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/repository/VisitorRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/repository/WorkoutRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/repository/WorkoutRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/ExerciseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/ExerciseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/GymService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/GymService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/RegisteredUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/RegisteredUserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/VisitorService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService.class" afterDir="false" />
+    </list>
+    <list id="2aaffac0-ec3d-4794-9b6a-4c3104a99dc6" name="Changes by latix" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java" afterDir="false" />
+    </list>
+    <list id="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" name="Changes by szilva07" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Rating.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Rating.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/tracker/model/Rating.java">
+      <ranges>
+        <range start1="0" end1="1" start2="0" end2="1" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+        <range start1="2" end1="2" start2="2" end2="4" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="10" end1="10" start2="12" end2="14" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="11" end1="11" start2="15" end2="19" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="13" end1="13" start2="21" end2="27" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="16" end1="17" start2="30" end2="36" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="19" end1="19" start2="38" end2="40" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="24" end1="24" start2="45" end2="49" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="41" end1="42" start2="66" end2="138" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java">
+      <ranges>
+        <range start1="2" end1="4" start2="2" end2="5" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="9" end1="9" start2="10" end2="15" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="10" end1="10" start2="16" end2="18" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="12" end1="13" start2="20" end2="23" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="14" end1="14" start2="24" end2="25" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="15" end1="15" start2="26" end2="32" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="30" end1="32" start2="47" end2="49" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="33" end1="33" start2="50" end2="51" changelist="2aaffac0-ec3d-4794-9b6a-4c3104a99dc6" />
+      </ranges>
+    </file>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2XwOo11qTRRxXXG7OhNhrePVvA8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "last_opened_file_path": "C:/Users/artur/Desktop/egyetem/5.felev/témalab/TemaLab/RepMaster/pom.xml",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "spring.configuration.checksum": "ff4f702de67a1b253fa049521ea62868"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="" />
+      <created>1699536848624</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1699536848624</updated>
+      <workItem from="1699536850067" duration="601000" />
+      <workItem from="1699547323736" duration="828000" />
+      <workItem from="1699548272398" duration="4419000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
