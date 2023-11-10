@@ -17,12 +17,15 @@ public class ExerciseResult {
     @Id
     @GeneratedValue
     private int id;
+
     private LocalDate date;
+    private double totalVolume;
+
     @ManyToOne
     private Exercise exercise;
+
     @OneToMany(mappedBy = "exerciseResult")
     private List<Set> sets;
-    private double totalVolume;
 
     public void setExercise(Exercise exercise){
         this.exercise = exercise;

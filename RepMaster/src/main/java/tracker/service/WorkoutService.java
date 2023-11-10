@@ -7,6 +7,7 @@ import tracker.model.Exercise;
 import tracker.model.Workout;
 import tracker.repository.WorkoutRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -14,12 +15,12 @@ import java.util.Optional;
 public class WorkoutService {
     private final WorkoutRepository workoutRepository;
 
-    @Transactional
+    /*@Transactional
     public void addExerciseToWorkout(int id, Exercise exercise){
-        Optional<Workout> workout = workoutRepository.findById(id);
-        addMuscleGroupToWorkout(workout.get(), exercise);
-        workout.get().addExercise(exercise);
-    }
+        List<Workout> workout = workoutRepository.findById(id);
+        addMuscleGroupToWorkout(workout.get(0), exercise);
+        workout.get(0).addExercise(exercise);
+    }*/
 
     public void addMuscleGroupToWorkout(Workout workout, Exercise exercise){
         if(!workout.getMuscleGroups().contains(exercise.getPrimaryMuscleGroup()))

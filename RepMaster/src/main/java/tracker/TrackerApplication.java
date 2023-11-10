@@ -13,7 +13,7 @@ public class TrackerApplication implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception{
-        initDbService.initDb();
+
     }
     public static void main(String[] args){
         SpringApplication.run(TrackerApplication.class, args);

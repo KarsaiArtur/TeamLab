@@ -14,17 +14,16 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Exercise {
+public class Exercise implements Rateable{
     @Id
     @GeneratedValue
     private int id;
-
-    //nem kéne ide egy string name?
 
     private String name;
     private int set_count;
     private int repetition_count;
     private boolean isCompound;
+
     @ManyToOne
     private MuscleGroup primaryMuscleGroup;
 
@@ -38,8 +37,10 @@ public class Exercise {
             inverseJoinColumns = @JoinColumn(name = "muscle_group_id")
     )
     private List<MuscleGroup> secondaryMuscleGroups;
+
     @OneToMany(mappedBy = "exercise")
     private List<ExerciseResult> exerciseResults;
+
     @ManyToOne
     private Workout workout;
 
@@ -62,6 +63,7 @@ public class Exercise {
         exerciseResults.add(exerciseResult);
     }
 
+    @Override
     public void addRating(double r, String comment) {
         ratings.add(new Rating(r, comment));
     }

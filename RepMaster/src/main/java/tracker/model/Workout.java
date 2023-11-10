@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Workout {
+public class Workout implements Rateable{
     @Id
     @GeneratedValue
     private int id;
@@ -45,6 +45,7 @@ public class Workout {
         muscleGroups.add(m);
     }
 
+    @Override
     public void addRating(double r, String comment) {
         ratings.add(new Rating(r, comment));
     }

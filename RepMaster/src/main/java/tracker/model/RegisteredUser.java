@@ -39,6 +39,7 @@ public class RegisteredUser extends User {
         userGyms.add(g);
     }
 
+
     /*public void addWorkoutToUser(Workout w) {
         createWorkoutListIfEmpty();
         userWorkouts.add(w);
@@ -63,11 +64,8 @@ public class RegisteredUser extends User {
         e.addRating(rating, comment);
     }*/
 
-    public void rate(Object o, double rating, String comment) throws Exception{
-        if(o instanceof Exercise) ((Exercise) o).addRating(rating, comment);
-        else if(o instanceof Workout) ((Workout) o).addRating(rating,comment);
-        else if(o instanceof Gym) ((Gym) o).addRating(rating, comment);
-        else throw new Exception("What kind of object is this?");
+    public void rate(Rateable r, double rating, String comment) throws Exception{
+        r.addRating(rating, comment);
     }
 
 }

@@ -84,9 +84,6 @@ public class Rating {
     @GeneratedValue
     private int id;
 
-    //@OneToMany(mappedBy = "rating_")
-    //private List<RatingComment> allRatings;
-
     private double rating;
     private String comment;
 
@@ -102,28 +99,6 @@ public class Rating {
         this.rating = rating;
         this.comment = comment;
     }
-    /*@Getter
-    @Setter
-    @EqualsAndHashCode(of = "id")
-    @Entity
-    public class RatingComment{
-        @Id
-        @GeneratedValue
-        private int id;
-        String comment;
-        int rating;
-        @ManyToOne
-        private Rating rating_;
-
-        public RatingComment(String comment, int rating){
-            this.comment = comment;
-            this.rating = rating;
-        }
-
-        public RatingComment() {
-
-        }
-    }*/
 
     /*public void calculateRating() {
         int ratingsCnt = 0;

@@ -38,7 +38,7 @@ public class RegisteredUserService {
         registeredUser.get().rateExercise(exercise, rating, comment);
     }*/
 
-    public void rate(int id, Object o, int rating, String comment) {
+    public void rate(int id, Rateable r, int rating, String comment) {
         Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(id);
         try {
             registeredUser.get().rate(o, rating, comment);
