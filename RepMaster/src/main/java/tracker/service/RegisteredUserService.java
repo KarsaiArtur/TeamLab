@@ -1,10 +1,13 @@
 package tracker.service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import tracker.model.*;
+import tracker.repository.RatingRepository;
 import tracker.repository.RegisteredUserRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -12,6 +15,7 @@ import java.util.Optional;
 public class RegisteredUserService {
 
     private RegisteredUserRepository registeredUserRepository;
+    private RatingRepository ratingRepository;
 
     public void addGymToUser(int id, Gym gym) {
         Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(id);
@@ -32,14 +36,5 @@ public class RegisteredUserService {
         Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(id);
         registeredUser.get().rateExercise(exercise, rating, comment);
     }*/
-
-    public void rate(int id, Rateable r, int rating, String comment) {
-        Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(id);
-        try {
-            registeredUser.get().rate(r, rating, comment);
-        } catch (Exception ex) {
-            // TODO
-        }
-    }
 
 }

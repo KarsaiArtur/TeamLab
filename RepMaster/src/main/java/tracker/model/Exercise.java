@@ -24,20 +24,18 @@ public class Exercise implements Rateable{
     private int repetition_count;
     private boolean isCompound;
 
-    @ManyToOne
+    @Enumerated(EnumType.STRING)
     private MuscleGroup primaryMuscleGroup;
+
+
+    @ElementCollection
+    @CollectionTable(name="secondary_muscle_groups")
+    @Column(name="muscle_group")
+    @Enumerated(EnumType.STRING)
+    private List<MuscleGroup> secondaryMuscleGroups;
 
     @OneToMany(mappedBy = "exercise")
     private List<Rating> ratings;
-
-    @ManyToMany
-    @JoinTable(
-            name = "secondary_musclegroup_exercise_connection",
-            joinColumns = @JoinColumn(name = "exercise_id"),
-            inverseJoinColumns = @JoinColumn(name = "muscle_group_id")
-    )
-    private List<MuscleGroup> secondaryMuscleGroups;
-
     @OneToMany(mappedBy = "exercise")
     private List<ExerciseResult> exerciseResults;
 
@@ -64,7 +62,12 @@ public class Exercise implements Rateable{
     }
 
     @Override
-    public void addRating(double r, String comment) {
-        ratings.add(new Rating(r, comment));
+    public void addRating(Rating r) {
+        ratings.add(r);
+    }
+
+    @Override
+    public void removeRating(Rating r) {
+        ratings.remove(r);
     }
 }

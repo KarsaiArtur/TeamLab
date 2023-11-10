@@ -1,10 +1,6 @@
 package tracker.model;
 
-import jakarta.persistence.*;
 
-import java.util.List;
-
-@Entity
 public enum MuscleGroup {
     Forearms,
     Biceps,
@@ -24,22 +20,4 @@ public enum MuscleGroup {
     Anterior_Deltoids,
     Lateral_Deltoids,
     Posterior_Deltoids;
-
-    @Id
-    @GeneratedValue
-    private int id;
-
-    @ManyToMany(mappedBy = "secondaryMuscleGroups")
-    private List<Exercise> secondaryExercises;
-
-    @ManyToMany
-    @JoinTable(
-            name = "muscle_group_workout_connection",
-            joinColumns = @JoinColumn(name = "workout_id"),
-            inverseJoinColumns = @JoinColumn(name = "muscle_group_id")
-    )
-    private List<Workout> workouts;
-
-    @OneToMany(mappedBy = "primaryMuscleGroup")
-    private List<Exercise> primaryExercises;
-    }
+}

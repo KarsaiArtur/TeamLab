@@ -13,16 +13,18 @@ import java.util.List;
 @Setter
 @Entity
 public class RegisteredUser extends User {
+    private String userName;
     private String password;
     @OneToMany(mappedBy = "registeredUser")
     private List<Gym> userGyms;
+    @OneToMany(mappedBy = "registeredUser")
+    private List<Rating> ratings;
 
     /*????????????????????????????
     @ManyToMany(mappedBy = "registeredUsers")
     private List<Workout> userWorkouts;*/
 
     public RegisteredUser(String username, String password) {
-        super(username);
         this.password = password;
     }
 
@@ -53,19 +55,12 @@ public class RegisteredUser extends User {
         }
     }*/
 
-    /*public void rateWorkout(Workout w, double rating, String comment) {
-        w.addRating(rating, comment);
-    }
-    public void rateGym(Gym g, double rating, String comment) {
-        g.addRating(rating, comment);
+    public void addRating(Rating r){
+        ratings.add(r);
     }
 
-    public void rateExercise(Exercise e, double rating, String comment) {
-        e.addRating(rating, comment);
-    }*/
-
-    public void rate(Rateable r, double rating, String comment) throws Exception{
-        r.addRating(rating, comment);
+    public void removeRating(Rating rating) throws Exception{
+        ratings.remove(rating);
     }
 
 }

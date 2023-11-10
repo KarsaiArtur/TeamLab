@@ -27,7 +27,7 @@ public class Gym implements Rateable{
     @OneToMany(mappedBy = "gym")
     private List<Rating> ratings;
 
-    @ManyToOne
+    @Enumerated(EnumType.STRING)
     private Equipment howEquipped;
 
     @ManyToMany
@@ -52,15 +52,13 @@ public class Gym implements Rateable{
         workouts.remove(w);
     }
 
-    public void editGym(Gym editedGym){
-        name = editedGym.getName();
-        location = editedGym.getLocation();
-        split = editedGym.getSplit();
-        howEquipped = editedGym.getHowEquipped();
+    @Override
+    public void addRating(Rating r) {
+        ratings.add(r);
     }
 
     @Override
-    public void addRating(double r, String comment) {
-        ratings.add(new Rating(r, comment));
+    public void removeRating(Rating r) {
+        ratings.remove(r);
     }
 }

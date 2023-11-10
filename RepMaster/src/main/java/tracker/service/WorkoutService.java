@@ -4,7 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tracker.model.Exercise;
+import tracker.model.Gym;
+import tracker.model.Rating;
 import tracker.model.Workout;
+import tracker.repository.ExerciseRepository;
+import tracker.repository.GymRepository;
+import tracker.repository.RatingRepository;
 import tracker.repository.WorkoutRepository;
 
 import java.util.List;
@@ -14,16 +19,24 @@ import java.util.Optional;
 @Service
 public class WorkoutService {
     private final WorkoutRepository workoutRepository;
+    private final ExerciseRepository exerciseRepository;
+    private final RatingRepository ratingRepository;
 
-    /*@Transactional
-    public void addExerciseToWorkout(int id, Exercise exercise){
-        List<Workout> workout = workoutRepository.findById(id);
-        addMuscleGroupToWorkout(workout.get(0), exercise);
-        workout.get(0).addExercise(exercise);
-    }*/
-
-    public void addMuscleGroupToWorkout(Workout workout, Exercise exercise){
-        if(!workout.getMuscleGroups().contains(exercise.getPrimaryMuscleGroup()))
-            workout.addMuscleGroup(exercise.getPrimaryMuscleGroup());
+    @Transactional
+    public void saveWorkout(Workout workout){
+        workoutRepository.save(workout);
     }
+
+    @Transactional
+    public void deleteWorkout(Workout workout){
+        workoutRepository.delete(workout);
+    }
+
+    public List<Exercise> listExercises(String id){
+        List<Workout> workout = workoutRepository.findByName(id);
+        return workout.get(0).getExercises();
+    }
+
+
+
 }

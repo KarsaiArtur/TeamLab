@@ -17,8 +17,8 @@ public class GymService {
     private final WorkoutRepository workoutRepository;
 
     @Transactional
-    public void saveGym(Gym gym){
-        gymRepository.save(gym);
+    public Gym saveGym(Gym gym){
+        return gymRepository.save(gym);
     }
     @Transactional
     public void deleteGym(Gym gym){
@@ -43,20 +43,13 @@ public class GymService {
         gym.get(0).removeWorkout(workout.get(0));
     }
 
+    public List<Workout> listWorkouts(String id){
+        List<Gym> gym = gymRepository.findByName(id);
+        return gym.get(0).getWorkouts();
+    }
+
     public void deleteAll(){
         workoutRepository.deleteAllInBatch();
         gymRepository.deleteAllInBatch();
     }
-
-
-
-    /*public void setSplitOfGym(int id, Split split){
-        List<Gym> gym = gymRepository.findById(id);
-        gym.get(0).setSplit(split);
-    }
-
-    public void setHowEquipped(int id, Equipment equipped){
-        List<Gym> gym = gymRepository.findById(id);
-        gym.get(0).setHowEquipped(equipped);
-    }*/
 }

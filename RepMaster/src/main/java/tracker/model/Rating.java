@@ -8,6 +8,8 @@ import java.util.List;
 
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @Entity

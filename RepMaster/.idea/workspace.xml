@@ -4,42 +4,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="5.0">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Rateable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tracker/service/GymServiceTestIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="gymservice tesztelgetés">
+      <change afterPath="$PROJECT_DIR$/src/test/java/tracker/service/GymServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tracker/TrackerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/TrackerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Equipment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Exercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Exercise.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/ExerciseResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/ExerciseResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Gym.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Gym.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/MuscleGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/MuscleGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Rateable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Rateable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Rating.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Rating.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/RegisteredUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/RegisteredUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Split.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Split.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/repository/GymRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/GymRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/repository/WorkoutRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/WorkoutRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/repository/RegisteredUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/RegisteredUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/GymService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/GymService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/GymServiceTestIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/GymServiceTestIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/TrackerApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/TrackerApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Equipment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Equipment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Exercise.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Exercise.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/ExerciseResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/ExerciseResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Gym$GymBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Gym$GymBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Gym.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Gym.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/MuscleGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/MuscleGroup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Rating.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Rating.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/RegisteredUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/RegisteredUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Workout$WorkoutBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Workout$WorkoutBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Split$SplitType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Split$SplitType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Split.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Split.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Workout.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Workout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/repository/ExerciseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/repository/ExerciseRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/repository/GymRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/repository/GymRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/repository/WorkoutRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/repository/WorkoutRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/repository/RegisteredUserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/repository/RegisteredUserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/ExerciseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/ExerciseService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/GymService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/GymService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/RegisteredUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/RegisteredUserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tracker/service/GymServiceTestIT.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tracker/service/GymServiceTestIT.class" afterDir="false" />
     </list>
     <list id="2aaffac0-ec3d-4794-9b6a-4c3104a99dc6" name="Changes by latix" comment="5.1" />
-    <list id="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" name="Changes by szilva07" comment="5.2">
+    <list id="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" name="Changes by szilva07" comment="gymservice tesztelgetés">
       <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Rating.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Rating.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Split.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Split.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/GymService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/GymService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,18 +71,65 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java">
+    <file path="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java">
       <ranges>
-        <range start1="20" end1="25" start2="20" end2="20" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
-        <range start1="40" end1="41" start2="35" end2="36" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="43" end1="44" start2="38" end2="39" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+        <range start1="24" end1="25" start2="24" end2="29" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+        <range start1="28" end1="32" start2="32" end2="32" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="39" end1="39" start2="39" end2="43" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="46" end1="46" start2="50" end2="54" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+        <range start1="48" end1="50" start2="56" end2="58" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="51" end1="51" start2="59" end2="64" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java">
+      <ranges>
+        <range start1="5" end1="8" start2="5" end2="6" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="18" end1="18" start2="16" end2="17" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+        <range start1="19" end1="19" start2="18" end2="31" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="20" end1="24" start2="32" end2="35" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="25" end1="27" start2="36" end2="38" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="29" end1="29" start2="40" end2="41" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="55" end1="56" start2="67" end2="74" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
       </ranges>
     </file>
     <file path="$PROJECT_DIR$/src/main/java/tracker/model/Rating.java">
       <ranges>
-        <range start1="0" end1="68" start2="0" end2="0" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
-        <range start1="85" end1="88" start2="17" end2="17" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="104" end1="126" start2="33" end2="33" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="10" end1="10" start2="10" end2="12" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="27" end1="27" start2="29" end2="31" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="3" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+        <range start1="6" end1="6" start2="7" end2="9" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="7" end1="7" start2="10" end2="13" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="12" end1="12" start2="18" end2="19" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+        <range start1="16" end1="16" start2="23" end2="30" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="17" end1="23" start2="31" end2="35" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="24" end1="27" start2="36" end2="39" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="28" end1="28" start2="40" end2="43" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/tracker/service/GymService.java">
+      <ranges>
+        <range start1="7" end1="7" start2="7" end2="8" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+        <range start1="17" end1="17" start2="18" end2="19" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+        <range start1="19" end1="21" start2="21" end2="23" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="22" end1="22" start2="24" end2="25" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+        <range start1="26" end1="26" start2="29" end2="30" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+        <range start1="32" end1="32" start2="36" end2="37" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+        <range start1="38" end1="38" start2="43" end2="44" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+        <range start1="44" end1="44" start2="50" end2="55" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="49" end1="61" start2="60" end2="60" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/tracker/model/Split.java">
+      <ranges>
+        <range start1="2" end1="9" start2="2" end2="4" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+        <range start1="13" end1="13" start2="8" end2="11" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="18" end1="18" start2="16" end2="20" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
+        <range start1="19" end1="20" start2="21" end2="22" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="23" end1="24" start2="25" end2="26" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
       </ranges>
     </file>
   </component>
@@ -90,27 +149,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "last_opened_file_path": "C:/Users/artur/Desktop/egyetem/5.felev/témalab/TemaLab/RepMaster/pom.xml",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "spring.configuration.checksum": "3c4ca491e52cb68b31137e567139f64e"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/artur/Desktop/egyetem/5.felev/témalab/TemaLab/RepMaster/pom.xml&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;ff4f702de67a1b253fa049521ea62868&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -135,6 +194,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WorkoutServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webshop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tracker.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tracker.service" />
+      <option name="MAIN_CLASS_NAME" value="tracker.service.WorkoutServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TrackerApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="webshop" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="tracker.TrackerApplication" />
@@ -152,6 +226,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.GymServiceTestIT" />
+        <item itemvalue="JUnit.WorkoutServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -169,7 +244,31 @@
       <workItem from="1699556409864" duration="385000" />
       <workItem from="1699557008580" duration="905000" />
       <workItem from="1699557931403" duration="5383000" />
+      <workItem from="1699611804557" duration="11472000" />
+      <workItem from="1699623657408" duration="33000" />
     </task>
+    <task id="LOCAL-00001" summary="gymservice tesztelgetés">
+      <created>1699576647373</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1699576647373</updated>
+    </task>
+    <task id="LOCAL-00002" summary="gymservice tesztelgetés">
+      <created>1699576662666</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699576662666</updated>
+    </task>
+    <task id="LOCAL-00003" summary="gymservice tesztelgetés">
+      <created>1699576670755</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699576670755</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,5 +284,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="gymservice tesztelgetés" />
+    <option name="LAST_COMMIT_MESSAGE" value="gymservice tesztelgetés" />
   </component>
 </project>

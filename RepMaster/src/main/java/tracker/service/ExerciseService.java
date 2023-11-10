@@ -3,9 +3,7 @@ package tracker.service;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import tracker.model.Exercise;
-import tracker.model.ExerciseResult;
-import tracker.model.Set;
+import tracker.model.*;
 import tracker.repository.ExerciseRepository;
 
 import java.time.LocalDate;
@@ -18,15 +16,28 @@ public class ExerciseService {
     private final ExerciseRepository exerciseRepository;
 
     @Transactional
-    public void addNewResults(int id, List<Set> sets) {
-        Optional<Exercise> exercise = exerciseRepository.findById(id);
-        ExerciseResult newResult = new ExerciseResult();
-        exercise.get().addNewResult(newResult);
+    public void saveExercise(Exercise exercise){
+        exerciseRepository.save(exercise);
+    }
+    @Transactional
+    public void deleteExercise(Exercise exercise){
+        exerciseRepository.delete(exercise);
+    }
 
-        for(int i = 0; i < exercise.get().getSet_count(); i++){
-            newResult.addResult(i, sets.get(i));     
+    public List<ExerciseResult> listExerciseResults(String id){
+        List<Exercise> exercise = exerciseRepository.findByName(id);
+        return exercise.get(0).getExerciseResults();
+    }
+    @Transactional
+    public void addNewResults(String id, List<Set> sets) {
+        List<Exercise> exercise = exerciseRepository.findByName(id);
+        ExerciseResult newResult = ExerciseResult.builder().build();
+
+        for(int i = 0; i < exercise.get(0).getSet_count(); i++){
+            newResult.addResult(sets.get(i));
         }
         newResult.setDate(LocalDate.now());
+        exercise.get(0).addNewResult(newResult);
     }
 
     public double findPR(int id) {

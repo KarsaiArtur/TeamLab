@@ -1,9 +1,7 @@
 package tracker.model;
 
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,6 +10,9 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class ExerciseResult {
     @Id
@@ -32,7 +33,7 @@ public class ExerciseResult {
         sets = new ArrayList<>();
     }
 
-    public void addResult(int index, Set result){
+    public void addResult(Set result){
         sets.add(result);
     }
 

@@ -26,16 +26,16 @@ public class Workout implements Rateable{
     private List<MuscleGroup> muscleGroups;
     @ManyToMany(mappedBy = "workouts")
     private List<Gym> gyms;
-    /*????????????????????????
-    @ManyToMany(mappedBy = "userWorkouts")
-    private List<RegisteredUser> registeredUsers;*/
-
 
     public void addExercise(Exercise e){
         if(exercises == null)
             exercises = new ArrayList<>();
 
         exercises.add(e);
+    }
+
+    public void removeExercise(Exercise e){
+        exercises.remove(e);
     }
 
     public void addMuscleGroup(MuscleGroup m){
@@ -46,8 +46,8 @@ public class Workout implements Rateable{
     }
 
     @Override
-    public void addRating(double r, String comment) {
-        ratings.add(new Rating(r, comment));
+    public void addRating(Rating r) {
+        ratings.add(r);
     }
 
 }
