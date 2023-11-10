@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import tracker.model.*;
 import tracker.repository.ExerciseRepository;
+import tracker.repository.ExerciseResultRepository;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -14,11 +15,23 @@ import java.util.Optional;
 @Service
 public class ExerciseService {
     private final ExerciseRepository exerciseRepository;
+    private final ExerciseResultRepository exerciseResultRepository;
+
+    @Transactional
+    public void saveExerciseResultInExercise(Exercise exercise) {
+        List<Exercise> exercises = exerciseRepository.findByName(exercise.getName());
+        exercises.forEach(e -> {
+            e.getExerciseResults().forEach(r -> exerciseResultRepository.save(r));
+        });
+    }
 
     @Transactional
     public void saveExercise(Exercise exercise){
-        exerciseRepository.save(exercise);
+        List<Exercise> exercises = exerciseRepository.findByName(exercise.getName());
+        for(Exercise e: exercises)
+            exerciseRepository.save(exercise);
     }
+
     @Transactional
     public void deleteExercise(Exercise exercise){
         exerciseRepository.delete(exercise);

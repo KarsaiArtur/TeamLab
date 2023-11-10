@@ -11,9 +11,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import tracker.model.Exercise;
 import tracker.model.ExerciseResult;
 import tracker.model.Set;
+import tracker.model.Workout;
 import tracker.repository.ExerciseRepository;
+import tracker.repository.ExerciseResultRepository;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +30,9 @@ public class ExerciseServiceTest {
 
     @Mock
     ExerciseRepository exerciseRepository;
+
+    @Mock
+    ExerciseResultRepository exerciseResultRepository;
 
     List<Set> sets1;
     List<Set> sets2;
@@ -93,5 +99,55 @@ public class ExerciseServiceTest {
         when(exerciseRepository.findById(id)).thenReturn(Optional.of(exercise));
         ExerciseResult maxVolumeResult = exerciseService.findMaxTotalVolumeExerciseResult(id);
         assertThat(maxVolumeResult).isEqualTo(result2);
+    }
+
+    @Test
+    void testSaveExerciseResultInExercise() {
+
+        Exercise ex = Exercise.builder()
+                .name("Bench Press")
+                .build();
+
+        ExerciseResult res = ExerciseResult.builder()
+                .exercise(ex)
+                .build();
+
+        ex.setExerciseResults(Arrays.asList(res));
+
+        when(exerciseRepository.findByName("Bench Press")).thenReturn(
+                Arrays.asList(ex)
+        );
+
+        when(exerciseResultRepository.save(any())).thenAnswer(inv -> inv.getArguments()[0]);
+
+        exerciseService.saveExerciseResultInExercise(ex);
+
+        assertThat(ex.getExerciseResults().get(0).getExercise().getName()).isEqualTo("Bench Press");
+        verify(exerciseResultRepository, times(1)).save(any());
+    }
+
+    @Test
+    void testSaveExercise() {
+
+        Exercise ex = Exercise.builder()
+                .name("Bench Press")
+                .build();
+
+        ExerciseResult res = ExerciseResult.builder()
+                .exercise(ex)
+                .build();
+
+        ex.setExerciseResults(Arrays.asList(res));
+
+        when(exerciseRepository.findByName("Bench Press")).thenReturn(
+                Arrays.asList(ex)
+        );
+
+        when(exerciseRepository.save(any())).thenAnswer(inv -> inv.getArguments()[0]);
+
+        exerciseService.saveExercise(ex);
+
+        assertThat(ex.getExerciseResults().get(0).getExercise().getName()).isEqualTo("Bench Press");
+        verify(exerciseRepository, times(1)).save(any());
     }
 }
