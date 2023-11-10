@@ -65,6 +65,35 @@ public class ExerciseService {
         return maxVolume;
     }
 
+    public double findMaxTotalVolume(int id) {
+        Optional<Exercise> exercise = exerciseRepository.findById(id);
+        double max = 0;
+
+        for(ExerciseResult e: exercise.get().getExerciseResults()) {
+            e.calculateTotalVolume();
+            double current = e.getTotalVolume();
+            max = Math.max(current, max);
+        }
+        return max;
+    }
+
+    public ExerciseResult findMaxTotalVolumeExerciseResult(int id) {
+        Optional<Exercise> exercise = exerciseRepository.findById(id);
+        double max = 0;
+        ExerciseResult maxResult = new ExerciseResult();
+
+        for(ExerciseResult e: exercise.get().getExerciseResults()) {
+            e.calculateTotalVolume();
+            double current = e.getTotalVolume();
+            if(current > max) {
+                max = current;
+                maxResult = e;
+            }
+
+        }
+        return maxResult;
+    }
+
 
 
 }

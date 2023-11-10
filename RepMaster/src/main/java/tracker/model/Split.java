@@ -4,9 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
@@ -20,7 +18,7 @@ public class Split {
     @GeneratedValue
     private int id;
     private SplitType name;
-
+    int numberOfDays;
     @OneToOne(mappedBy = "split")
     private Gym gym;
 

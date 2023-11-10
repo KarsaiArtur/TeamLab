@@ -65,7 +65,7 @@ public class ExerciseResult {
         return maxVolumeSet;
     }
 
-    private void calculateTotalVolume() {
+    public void calculateTotalVolume() {
         for(Set s : sets) {
             totalVolume += s.getVolume();
         }
