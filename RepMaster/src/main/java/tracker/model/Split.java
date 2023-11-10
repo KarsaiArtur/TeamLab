@@ -1,12 +1,7 @@
 package tracker.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Getter
 @Setter
@@ -19,6 +14,10 @@ public class Split {
     @Id
     @GeneratedValue
     private int id;
+
+    private int numberOfDays;
+
+    @Enumerated(EnumType.STRING)
     private SplitType name;
 
     @OneToOne(mappedBy = "split")

@@ -27,6 +27,8 @@ public class Rating {
     private Gym gym;
     @ManyToOne
     private Workout workout;
+    @ManyToOne
+    private RegisteredUser registeredUser;
 
 
     public Rating(double rating, String comment){

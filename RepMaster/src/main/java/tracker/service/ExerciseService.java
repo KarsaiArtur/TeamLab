@@ -14,6 +14,7 @@ import java.util.Optional;
 @Service
 public class ExerciseService {
     private final ExerciseRepository exerciseRepository;
+    //private final ExerciseRepository exerciseRepository;
 
     @Transactional
     public void saveExercise(Exercise exercise){
@@ -64,7 +65,13 @@ public class ExerciseService {
 
         return maxVolume;
     }
-
+    /*@Transactional
+    public void addNewSecondaryMuscleGroupToExercise(String id, String secondaryMuscleGroupId){
+        List<Exercise> exercise = exerciseRepository.findByName(id);
+        List<MuscleGroup> muscleGroup = muscleGroupRepository.findByName(secondaryMuscleGroupId);
+        addMuscleGroupToWorkout(workout.get(0), exercise);
+        workout.get(0).addExercise(exercise);
+    }*/
 
 
 }

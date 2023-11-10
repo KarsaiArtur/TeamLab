@@ -22,7 +22,11 @@ public class Workout implements Rateable{
     private List<Rating> ratings;
     @OneToMany(mappedBy = "workout")
     private List<Exercise> exercises;
-    @ManyToMany(mappedBy = "workouts")
+
+    @ElementCollection
+    @CollectionTable(name="muscle_groups")
+    @Column(name="muscle_group")
+    @Enumerated(EnumType.STRING)
     private List<MuscleGroup> muscleGroups;
     @ManyToMany(mappedBy = "workouts")
     private List<Gym> gyms;
@@ -45,9 +49,18 @@ public class Workout implements Rateable{
         muscleGroups.add(m);
     }
 
+    public void removeMuscleGroup(MuscleGroup m){
+        muscleGroups.remove(m);
+    }
+
     @Override
     public void addRating(Rating r) {
         ratings.add(r);
+    }
+
+    @Override
+    public void removeRating(Rating r) {
+        ratings.remove(r);
     }
 
 }
