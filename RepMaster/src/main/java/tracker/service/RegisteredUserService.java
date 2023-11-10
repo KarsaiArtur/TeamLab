@@ -19,11 +19,6 @@ public class RegisteredUserService {
         //registeredUser.get().addWorkoutsFromUsersGyms();
     }
 
-    /*public void copyWorkoutToUser(int id, Workout workout) {
-        Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(id);
-        //registeredUser.get().addWorkoutToUser(workout);
-    }*/
-
     /*public void rateWorkout(int id, Workout workout, int rating, String comment) {
         Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(id);
         registeredUser.get().rateWorkout(workout, rating, comment);
@@ -41,7 +36,7 @@ public class RegisteredUserService {
     public void rate(int id, Rateable r, int rating, String comment) {
         Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(id);
         try {
-            registeredUser.get().rate(o, rating, comment);
+            registeredUser.get().rate(r, rating, comment);
         } catch (Exception ex) {
             // TODO
         }
