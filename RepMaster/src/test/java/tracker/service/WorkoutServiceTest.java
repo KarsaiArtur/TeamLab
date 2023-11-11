@@ -38,7 +38,7 @@ public class WorkoutServiceTest {
         when(workoutRepository.save(any())).thenAnswer(inv -> inv.getArguments()[0]);
 
         //Act
-        workoutService.saveWorkout(pushWorkout);
+        workoutService.saveWorkout(pushWorkout.getId());
 
         //Assert
         assertThat(pushWorkout.getExercises().get(0).getName()).isEqualTo("Bench Press");

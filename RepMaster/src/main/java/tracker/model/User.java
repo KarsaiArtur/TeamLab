@@ -1,21 +1,11 @@
 package tracker.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
+
+import static jakarta.persistence.InheritanceType.SINGLE_TABLE;
 
 
-@Getter
-@Setter
-@EqualsAndHashCode(of = "id")
-@Entity
-public class User {
-    @Id
-    @GeneratedValue
-    private int id;
 
-    public User(){}
+interface User {
 }

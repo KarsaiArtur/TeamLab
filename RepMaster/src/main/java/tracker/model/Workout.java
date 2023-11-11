@@ -28,7 +28,8 @@ public class Workout implements Rateable{
     @Column(name="muscle_group")
     @Enumerated(EnumType.STRING)
     private List<MuscleGroup> muscleGroups;
-    @ManyToMany(mappedBy = "workouts")
+
+    @ManyToMany(mappedBy = "workouts", fetch = FetchType.EAGER)
     private List<Gym> gyms;
 
     public void addExercise(Exercise e){

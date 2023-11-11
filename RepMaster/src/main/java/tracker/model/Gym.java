@@ -30,7 +30,7 @@ public class Gym implements Rateable{
     @Enumerated(EnumType.STRING)
     private Equipment howEquipped;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "gym_workout_connection",
             joinColumns = @JoinColumn(name = "gym_id"),

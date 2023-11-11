@@ -29,29 +29,29 @@ public class GymService {
     }
 
     @Transactional
-    public void addNewWorkoutToGym(String id, Workout workout){
-        List<Gym> gym = gymRepository.findByName(id);
+    public void addNewWorkoutToGym(int id, Workout workout){
+        Optional<Gym> gym = gymRepository.findById(id);
         workoutRepository.save(workout);
-        gym.get(0).addWorkout(workout);
+        gym.get().addWorkout(workout);
     }
 
     @Transactional
-    public void addExistingWorkoutToGym(String id, String workout_id){
-        List<Gym> gym = gymRepository.findByName(id);
-        List<Workout> workout = workoutRepository.findByName(workout_id);
-        gym.get(0).addWorkout(workout.get(0));
+    public void addExistingWorkoutToGym(int id, int workout_id){
+        Optional<Gym> gym = gymRepository.findById(id);
+        Optional<Workout> workout = workoutRepository.findById(workout_id);
+        gym.get().addWorkout(workout.get());
     }
 
     @Transactional
-    public void removeWorkoutFromGym(String id, String workout_id){
-        List<Gym> gym = gymRepository.findByName(id);
-        List<Workout> workout = workoutRepository.findByName(workout_id);
-        gym.get(0).removeWorkout(workout.get(0));
+    public void removeWorkoutFromGym(int id, int workout_id){
+        Optional<Gym> gym = gymRepository.findById(id);
+        Optional<Workout> workout = workoutRepository.findById(workout_id);
+        gym.get().removeWorkout(workout.get());
     }
 
-    public List<Workout> listWorkouts(String id){
-        List<Gym> gym = gymRepository.findByName(id);
-        return gym.get(0).getWorkouts();
+    public List<Workout> listWorkouts(int id){
+        Optional<Gym> gym = gymRepository.findById(id);
+        return gym.get().getWorkouts();
     }
 
     public void deleteAll(){

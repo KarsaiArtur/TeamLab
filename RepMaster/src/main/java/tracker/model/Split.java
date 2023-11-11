@@ -1,9 +1,6 @@
 package tracker.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -17,8 +14,11 @@ public class Split {
     @Id
     @GeneratedValue
     private int id;
+
+    private int numberOfDays;
+
+    @Enumerated(EnumType.STRING)
     private SplitType name;
-    int numberOfDays;
     @OneToOne(mappedBy = "split")
     private Gym gym;
 

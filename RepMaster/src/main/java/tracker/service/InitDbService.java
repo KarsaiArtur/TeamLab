@@ -5,8 +5,10 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import tracker.model.Gym;
+import tracker.model.RegisteredUser;
 import tracker.model.Workout;
 import tracker.repository.GymRepository;
+import tracker.repository.RegisteredUserRepository;
 import tracker.repository.WorkoutRepository;
 
 @RequiredArgsConstructor
@@ -14,6 +16,7 @@ import tracker.repository.WorkoutRepository;
 public class InitDbService {
     private final GymRepository gymRepository;
     private final WorkoutRepository workoutRepository;
+    private final RegisteredUserRepository registeredUserRepository;
 
     @Transactional
     public void initDb(){

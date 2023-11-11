@@ -1,18 +1,22 @@
 package tracker.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
+@EqualsAndHashCode(of = "id")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-public class RegisteredUser extends User {
+public class RegisteredUser implements User{
+    @Id
+    @GeneratedValue
+    private int id;
     private String userName;
     private String password;
     @OneToMany(mappedBy = "registeredUser")
@@ -26,10 +30,6 @@ public class RegisteredUser extends User {
 
     public RegisteredUser(String username, String password) {
         this.password = password;
-    }
-
-    public RegisteredUser() {
-        super();
     }
 
     /*private void createWorkoutListIfEmpty() {
