@@ -25,10 +25,9 @@ public class WorkoutService {
     private final RatingRepository ratingRepository;
 
     @Transactional
-    public void saveWorkout(Workout workout){
-        List<Workout> workouts = workoutRepository.findByName(workout.getName());
-        for(Workout w: workouts)
-            workoutRepository.save(workout);
+    public void saveWorkout(int id){
+        Optional<Workout> workout = workoutRepository.findById(id);
+        workoutRepository.save(workout.get());
     }
 
     @Transactional
@@ -36,9 +35,9 @@ public class WorkoutService {
         workoutRepository.delete(workout);
     }
 
-    public List<Exercise> listExercises(String id){
-        List<Workout> workout = workoutRepository.findByName(id);
-        return workout.get(0).getExercises();
+    public List<Exercise> listExercises(int id){
+        Optional<Workout> workout = workoutRepository.findById(id);
+        return workout.get().getExercises();
     }
 
 
