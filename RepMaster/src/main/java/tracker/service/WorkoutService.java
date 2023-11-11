@@ -26,7 +26,9 @@ public class WorkoutService {
 
     @Transactional
     public void saveWorkout(Workout workout){
-        workoutRepository.save(workout);
+        List<Workout> workouts = workoutRepository.findByName(workout.getName());
+        for(Workout w: workouts)
+            workoutRepository.save(workout);
     }
 
     @Transactional

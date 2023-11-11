@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RepMaster/RepMaster.iml" filepath="$PROJECT_DIR$/RepMaster/RepMaster.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/TemaLab.iml" filepath="$PROJECT_DIR$/.idea/TemaLab.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RepMaster/webshop.iml" filepath="$PROJECT_DIR$/RepMaster/webshop.iml" />
     </modules>
   </component>
 </project>

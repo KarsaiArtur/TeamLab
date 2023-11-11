@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import tracker.model.*;
 import tracker.repository.ExerciseRepository;
+import tracker.repository.ExerciseResultRepository;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -14,12 +15,23 @@ import java.util.Optional;
 @Service
 public class ExerciseService {
     private final ExerciseRepository exerciseRepository;
-    //private final ExerciseRepository exerciseRepository;
+    private final ExerciseResultRepository exerciseResultRepository;
+
+    @Transactional
+    public void saveExerciseResultInExercise(Exercise exercise) {
+        List<Exercise> exercises = exerciseRepository.findByName(exercise.getName());
+        exercises.forEach(e -> {
+            e.getExerciseResults().forEach(r -> exerciseResultRepository.save(r));
+        });
+    }
 
     @Transactional
     public void saveExercise(Exercise exercise){
-        exerciseRepository.save(exercise);
+        List<Exercise> exercises = exerciseRepository.findByName(exercise.getName());
+        for(Exercise e: exercises)
+            exerciseRepository.save(exercise);
     }
+
     @Transactional
     public void deleteExercise(Exercise exercise){
         exerciseRepository.delete(exercise);
@@ -65,13 +77,36 @@ public class ExerciseService {
 
         return maxVolume;
     }
-    /*@Transactional
-    public void addNewSecondaryMuscleGroupToExercise(String id, String secondaryMuscleGroupId){
-        List<Exercise> exercise = exerciseRepository.findByName(id);
-        List<MuscleGroup> muscleGroup = muscleGroupRepository.findByName(secondaryMuscleGroupId);
-        addMuscleGroupToWorkout(workout.get(0), exercise);
-        workout.get(0).addExercise(exercise);
-    }*/
+
+    public double findMaxTotalVolume(int id) {
+        Optional<Exercise> exercise = exerciseRepository.findById(id);
+        double max = 0;
+
+        for(ExerciseResult e: exercise.get().getExerciseResults()) {
+            e.calculateTotalVolume();
+            double current = e.getTotalVolume();
+            max = Math.max(current, max);
+        }
+        return max;
+    }
+
+    public ExerciseResult findMaxTotalVolumeExerciseResult(int id) {
+        Optional<Exercise> exercise = exerciseRepository.findById(id);
+        double max = 0;
+        ExerciseResult maxResult = new ExerciseResult();
+
+        for(ExerciseResult e: exercise.get().getExerciseResults()) {
+            e.calculateTotalVolume();
+            double current = e.getTotalVolume();
+            if(current > max) {
+                max = current;
+                maxResult = e;
+            }
+
+        }
+        return maxResult;
+    }
+
 
 
 }

@@ -24,10 +24,12 @@ public class WorkoutServiceTest {
     @Test
     void testSaveWorkout() {
         //Arrange
-        Workout pushWorkout = Workout.builder().name("Push").exercises(Arrays.asList(
-                Exercise.builder().name("Bench Press").build(),
-                Exercise.builder().name("Shoulder Press").build()
-        )).build();
+        Workout pushWorkout = Workout.builder()
+                .name("Push")
+                .exercises(Arrays.asList(
+                    Exercise.builder().name("Bench Press").build(),
+                    Exercise.builder().name("Shoulder Press").build()
+                )).build();
 
         when(workoutRepository.findByName("Push")).thenReturn(
                 Arrays.asList(pushWorkout)
