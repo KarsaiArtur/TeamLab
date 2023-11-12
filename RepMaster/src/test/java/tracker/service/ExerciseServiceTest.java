@@ -41,8 +41,7 @@ public class ExerciseServiceTest {
     List<ExerciseResult> results;
     Exercise exercise;
 
-    @BeforeEach
-    private void initTests() {
+    private void initSets() {
         sets1 = new ArrayList<>();
         sets1.add(new Set(10, 70));
         sets1.add(new Set(8, 80));
@@ -54,7 +53,9 @@ public class ExerciseServiceTest {
         sets2.add(new Set(12, 60));
         sets2.add(new Set(12, 70));
         sets2.add(new Set(10, 70));
+    }
 
+    private void initResults() {
         result1 = new ExerciseResult();
         result1.setSets(sets1);
 
@@ -64,8 +65,13 @@ public class ExerciseServiceTest {
         results = new ArrayList<>();
         results.add(result1);
         results.add(result2);
+    }
 
-        exercise = Exercise.builder().id(20).exerciseResults(results).build();
+    @BeforeEach
+    private void initTests() {
+        initSets();
+        initResults();
+        exercise = Exercise.builder().exerciseResults(results).build();
     }
 
     @Test
@@ -145,7 +151,7 @@ public class ExerciseServiceTest {
 
         when(exerciseRepository.save(any())).thenAnswer(inv -> inv.getArguments()[0]);
 
-        exerciseService.saveExercise(ex);
+        exerciseService.saveExercise(ex.getName());
 
         assertThat(ex.getExerciseResults().get(0).getExercise().getName()).isEqualTo("Bench Press");
         verify(exerciseRepository, times(1)).save(any());

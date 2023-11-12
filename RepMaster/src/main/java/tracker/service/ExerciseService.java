@@ -26,10 +26,15 @@ public class ExerciseService {
     }
 
     @Transactional
-    public void saveExercise(Exercise exercise){
-        List<Exercise> exercises = exerciseRepository.findByName(exercise.getName());
+    public void saveExercise(String name){
+        List<Exercise> exercises = exerciseRepository.findByName(name);
         for(Exercise e: exercises)
-            exerciseRepository.save(exercise);
+            exerciseRepository.save(e);
+    }
+
+    @Transactional
+    public Exercise saveExercise(Exercise ex){
+        return exerciseRepository.save(ex);
     }
 
     @Transactional
@@ -37,8 +42,13 @@ public class ExerciseService {
         exerciseRepository.delete(exercise);
     }
 
-    public List<ExerciseResult> listExerciseResults(String id){
-        List<Exercise> exercise = exerciseRepository.findByName(id);
+    public void deleteAll(){
+        exerciseResultRepository.deleteAllInBatch();
+        exerciseRepository.deleteAllInBatch();
+    }
+
+    public List<ExerciseResult> listExerciseResults(String name){
+        List<Exercise> exercise = exerciseRepository.findByName(name);
         return exercise.get(0).getExerciseResults();
     }
     @Transactional
@@ -51,6 +61,32 @@ public class ExerciseService {
         }
         newResult.setDate(LocalDate.now());
         exercise.get(0).addNewResult(newResult);
+    }
+
+    @Transactional
+    public void addNewResult(int id, ExerciseResult result){
+        Optional<Exercise> exercise = exerciseRepository.findById(id);
+        exerciseResultRepository.save(result);
+        exercise.get().addNewResult(result);
+    }
+
+    @Transactional
+    public void addExistingResultToExercise(int id, int result_id){
+        Optional<Exercise> exercise = exerciseRepository.findById(id);
+        Optional<ExerciseResult> result = exerciseResultRepository.findById(result_id);
+        exercise.get().addNewResult(result.get());
+    }
+
+    @Transactional
+    public void removeResultFromExercise(int id, int result_id){
+        Optional<Exercise> exercise = exerciseRepository.findById(id);
+        Optional<ExerciseResult> result = exerciseResultRepository.findById(result_id);
+        exercise.get().removeResult(result.get());
+    }
+
+    public List<ExerciseResult> listResults(int id){
+        Optional<Exercise> exercise = exerciseRepository.findById(id);
+        return exercise.get().getExerciseResults();
     }
 
     public double findPR(int id) {

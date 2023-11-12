@@ -61,6 +61,10 @@ public class Exercise implements Rateable{
         exerciseResults.add(exerciseResult);
     }
 
+    public void removeResult(ExerciseResult r){
+        exerciseResults.remove(r);
+    }
+
     @Override
     public void addRating(Rating r) {
         ratings.add(r);
