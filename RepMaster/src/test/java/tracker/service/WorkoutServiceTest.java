@@ -1,6 +1,8 @@
 package tracker.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -23,18 +25,21 @@ public class WorkoutServiceTest {
     @Mock
     WorkoutRepository workoutRepository;
 
+    private Workout pushWorkout;
+
+    @BeforeEach
+    public void createWorkout(){
+        pushWorkout = Workout.builder()
+                .name("Push")
+                .exercises(Arrays.asList(
+                        Exercise.builder().name("Bench Press").build(),
+                        Exercise.builder().name("Shoulder Press").build()
+                )).build();
+    }
+
     @Test
     void testSaveWorkout() {
         //Arrange
-        Workout pushWorkout = Workout.builder()
-                .name("Push")
-                .exercises(Arrays.asList(
-                    Exercise.builder().name("Bench Press").build(),
-                    Exercise.builder().name("Shoulder Press").build()
-                )).build();
-
-        when(workoutRepository.findById(pushWorkout.getId())).thenReturn(Optional.of(pushWorkout));
-
         when(workoutRepository.save(any())).thenAnswer(inv -> inv.getArguments()[0]);
 
         //Act
@@ -49,13 +54,6 @@ public class WorkoutServiceTest {
     @Test
     void testListExercises(){
         //Arrange
-        Workout pushWorkout = Workout.builder()
-                .name("Push")
-                .exercises(Arrays.asList(
-                        Exercise.builder().name("Bench Press").build(),
-                        Exercise.builder().name("Shoulder Press").build()
-                )).build();
-
         when(workoutRepository.findById(pushWorkout.getId())).thenReturn(Optional.of(pushWorkout));
 
         //Act
@@ -66,7 +64,4 @@ public class WorkoutServiceTest {
         assertThat(pushExercises.get(1).getName()).isEqualTo("Shoulder Press");
         assertThat(pushExercises.size()).isEqualTo(2);
     }
-
-
-
 }

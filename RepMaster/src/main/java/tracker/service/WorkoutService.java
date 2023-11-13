@@ -35,11 +35,18 @@ public class WorkoutService {
         workoutRepository.delete(workout.get());
     }
 
+    public List<Workout> listWorkouts() {
+        return workoutRepository.findAll();
+    }
+
     public List<Exercise> listExercises(int id){
         Optional<Workout> workout = workoutRepository.findById(id);
         return workout.get().getExercises();
     }
 
-
+    @Transactional
+    public void deleteAll(){
+        workoutRepository.deleteAllInBatch();
+    }
 
 }

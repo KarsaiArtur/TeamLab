@@ -42,6 +42,7 @@ public class ExerciseService {
         exerciseRepository.delete(exercise);
     }
 
+    @Transactional
     public void deleteAll(){
         exerciseResultRepository.deleteAllInBatch();
         exerciseRepository.deleteAllInBatch();
