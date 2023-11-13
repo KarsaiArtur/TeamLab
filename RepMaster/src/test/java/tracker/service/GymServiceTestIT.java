@@ -2,9 +2,6 @@ package tracker.service;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatException;
-
-import org.junit.Ignore;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,6 +20,8 @@ import java.util.List;
 public class GymServiceTestIT {
     @Autowired
     private GymService gymService;
+    @Autowired
+    private WorkoutService workoutService;
 
     private Gym gym;
     private Gym gym2;
@@ -32,13 +31,36 @@ public class GymServiceTestIT {
 
     @BeforeEach
     public void clearAndInitDb() {
+        workoutService.deleteAll();
         gymService.deleteAll();
+
+        //ARRANGE
         initGyms();
         initWorkouts();
     }
 
+    @Test()
+    void testCreateGyms() throws Exception{
+        //ASSERT
+        List<Gym> gyms = gymService.listGyms();
+        assertThat(gyms.size()).isEqualTo(2);
+        assertThat(gyms.get(0).getId()).isEqualTo(gym.getId());
+        assertThat(gyms.get(1).getId()).isEqualTo(gym2.getId());
+    }
+
+    @Test()
+    void testDeleteGym() throws Exception{
+        gymService.deleteGym(gym.getId());
+
+        //ASSERT
+        List<Gym> gyms = gymService.listGyms();
+        assertThat(gyms.size()).isEqualTo(1);
+        assertThat(gyms.get(0).getId()).isEqualTo(gym2.getId());
+        assertThat(gymService.findGym(gym.getId())).isNull();
+    }
+
     @Test
-    void addNewWorkoutsToGyms() throws Exception{
+    void testAddNewWorkoutsToGyms() throws Exception{
         //ACT
         gymService.addNewWorkoutToGym(gym.getId(), workout1);
         gymService.addNewWorkoutToGym(gym.getId(), workout2);
@@ -56,7 +78,7 @@ public class GymServiceTestIT {
     }
 
     @Test
-    void addExistingWorkoutsToGyms() {
+    void testAddExistingWorkoutsToGyms() {
         //ACT
         gymService.addNewWorkoutToGym(gym.getId(), workout1);
         gymService.addNewWorkoutToGym(gym.getId(), workout2);
@@ -75,11 +97,11 @@ public class GymServiceTestIT {
         assertThat(gym2Workouts.get(0).getId()).isEqualTo(workout3.getId());
         assertThat(gym2Workouts.get(1).getId()).isEqualTo(workout1.getId());
         assertThat(gym2Workouts.get(2).getId()).isEqualTo(workout2.getId());
-
     }
 
     @Test()
-    void deleteWorkout () throws Exception{
+    void testRemoveWorkoutFromGym () throws Exception{
+        //ACT
         gymService.addNewWorkoutToGym(gym.getId(), workout1);
         gymService.addNewWorkoutToGym(gym.getId(), workout2);
         gymService.addNewWorkoutToGym(gym2.getId(), workout3);
@@ -97,8 +119,6 @@ public class GymServiceTestIT {
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
             gym1Workouts.get(1).getId();
         });
-
-
     }
 
     void initGyms(){

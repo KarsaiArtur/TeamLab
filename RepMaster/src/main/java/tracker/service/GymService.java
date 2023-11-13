@@ -24,8 +24,18 @@ public class GymService {
     }
 
     @Transactional
-    public void deleteGym(Gym gym){
-        gymRepository.delete(gym);
+    public void deleteGym(int id){
+        Optional<Gym> gym = gymRepository.findById(id);
+        gymRepository.delete(gym.get());
+    }
+
+
+    public Gym findGym(int id) {
+        return gymRepository.findById(id).isEmpty() ? null : gymRepository.findById(id).get();
+    }
+
+    public List<Gym> listGyms() {
+        return gymRepository.findAll();
     }
 
     @Transactional
@@ -54,8 +64,8 @@ public class GymService {
         return gym.get().getWorkouts();
     }
 
+    @Transactional
     public void deleteAll(){
-        workoutRepository.deleteAllInBatch();
         gymRepository.deleteAllInBatch();
     }
 }
