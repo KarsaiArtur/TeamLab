@@ -28,9 +28,12 @@ public class RegisteredUserService {
         registeredUserRepository.save(rUser);
     }
 
-    @Transactional
     public RegisteredUser findUserByName(String userName) {
         return registeredUserRepository.findByUserName(userName).size()==0 ? null : registeredUserRepository.findByUserName(userName).get(0);
+    }
+
+    public String loginUser(String userName, String password) {
+        return "Login successful as "+userName;
     }
 
     public void deleteAll(){

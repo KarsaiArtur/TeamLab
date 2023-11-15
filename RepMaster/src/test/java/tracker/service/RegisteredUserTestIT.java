@@ -18,7 +18,7 @@ public class RegisteredUserTestIT {
     @BeforeEach
     public void clearAndInitDb() {
         registeredUserService.deleteAll();
-        RegisteredUser rUser = RegisteredUser.builder().userName("TestUser").password("abc123").build();
+        rUser = RegisteredUser.builder().userName("TestUser").password("abc123").build();
         registeredUserService.addRegisteredUser(rUser);
     }
 
@@ -33,7 +33,7 @@ public class RegisteredUserTestIT {
     public void loginAnExistingUser() throws Exception{
         String loginMessage = registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
 
-        assertThat(loginMessage).isEqualTo("Login successful as +"+rUser.getUserName());
+        assertThat(loginMessage).isEqualTo("Login successful as "+rUser.getUserName());
     }
 
 
