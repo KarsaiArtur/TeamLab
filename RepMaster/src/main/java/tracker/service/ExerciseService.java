@@ -17,6 +17,9 @@ public class ExerciseService {
     private final ExerciseRepository exerciseRepository;
     private final ExerciseResultRepository exerciseResultRepository;
 
+    public Exercise findExercise(int id) {
+        return exerciseRepository.findById(id).isEmpty() ? null : exerciseRepository.findById(id).get();
+    }
     @Transactional
     public void saveExerciseResultInExercise(Exercise exercise) {
         List<Exercise> exercises = exerciseRepository.findByName(exercise.getName());

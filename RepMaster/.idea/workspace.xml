@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="tdd23">
+    <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="tdd24">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/RegisteredUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/RegisteredUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/RegisteredUserTestIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/RegisteredUserTestIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/RegisteredUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/RegisteredUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Workout.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Workout.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/ExerciseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/ExerciseService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/RegisteredUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/RegisteredUserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService$WorkoutServiceBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService$WorkoutServiceBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/tracker/service/RegisteredUserTestIT.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tracker/service/RegisteredUserTestIT.class" afterDir="false" />
     </list>
     <list id="2aaffac0-ec3d-4794-9b6a-4c3104a99dc6" name="Changes by latix" comment="5.1" />
@@ -92,7 +91,7 @@
       <recent name="tracker.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RegisteredUserTestIT.rateAWorkout">
+  <component name="RunManager" selected="JUnit.RegisteredUserTestIT">
     <configuration name="ExerciseServiceIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webshop" />
       <extension name="coverage">
@@ -186,8 +185,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RegisteredUserTestIT.rateAWorkout" />
         <item itemvalue="JUnit.RegisteredUserTestIT" />
+        <item itemvalue="JUnit.RegisteredUserTestIT.rateAWorkout" />
         <item itemvalue="JUnit.RegisteredUserTestIT.createUserWithExistingName" />
         <item itemvalue="JUnit.ExerciseServiceIT" />
         <item itemvalue="JUnit.GymServiceTestIT" />
@@ -216,7 +215,7 @@
       <workItem from="1700001314889" duration="112000" />
       <workItem from="1700001435446" duration="2721000" />
       <workItem from="1700044714417" duration="1807000" />
-      <workItem from="1700046531601" duration="8819000" />
+      <workItem from="1700046531601" duration="9570000" />
     </task>
     <task id="LOCAL-00001" summary="gymservice tesztelgetés">
       <created>1699576647373</created>
@@ -463,7 +462,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700052547447</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="tdd24">
+      <created>1700055533554</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1700055533554</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,7 +487,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="workoutit még tdd kell" />
     <MESSAGE value="test commit" />
     <MESSAGE value="tdd" />
     <MESSAGE value="tdd2" />
@@ -506,7 +511,8 @@
     <MESSAGE value="tdd21" />
     <MESSAGE value="tdd22" />
     <MESSAGE value="tdd23" />
-    <option name="LAST_COMMIT_MESSAGE" value="tdd23" />
+    <MESSAGE value="tdd24" />
+    <option name="LAST_COMMIT_MESSAGE" value="tdd24" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

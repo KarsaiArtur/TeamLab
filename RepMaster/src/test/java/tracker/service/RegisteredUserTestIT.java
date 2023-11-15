@@ -9,9 +9,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import tracker.TrackerApplication;
 import tracker.model.Exercise;
+import tracker.model.MuscleGroup;
 import tracker.model.RegisteredUser;
 import tracker.model.Workout;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 @SpringBootTest
@@ -20,6 +22,8 @@ public class RegisteredUserTestIT {
     private RegisteredUserService registeredUserService;
     @Autowired
     private WorkoutService workoutService;
+    @Autowired
+    private ExerciseService exerciseService;
     private RegisteredUser rUser;
 
     @BeforeEach
@@ -95,6 +99,24 @@ public class RegisteredUserTestIT {
         assertThat(TrackerApplication.getInstance().getLoggedInUser().getRatings().get(0).getComment()).isEqualTo("nem rossz, lehetne jobb");
         assertThat(workoutService.findWorkout(workout.getId()).getRatings().size()).isEqualTo(1);
         assertThat(workoutService.findWorkout(workout.getId()).getRatings().get(0).getComment()).isEqualTo("nem rossz, lehetne jobb");
+    }
+
+    @Test
+    public void rateAnExercise() throws Exception{
+        registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
+        Exercise exercise = Exercise.builder().name("Bench Press")
+                .isCompound(true)
+                .primaryMuscleGroup(MuscleGroup.Middle_Chest)
+                .secondaryMuscleGroups(new ArrayList<>(Arrays.asList(MuscleGroup.Upper_Chest, MuscleGroup.Lower_Chest)))
+                .build();
+        exerciseService.saveExercise(exercise);
+
+        registeredUserService.rate(exercise.getId(), 5, "best");
+
+        assertThat(TrackerApplication.getInstance().getLoggedInUser().getRatings().size()).isEqualTo(1);
+        assertThat(TrackerApplication.getInstance().getLoggedInUser().getRatings().get(0).getComment()).isEqualTo("best");
+        assertThat(exerciseService.findExercise(exercise.getId()).getRatings().size()).isEqualTo(1);
+        assertThat(exerciseService.findExercise(exercise.getId()).getRatings().get(0).getComment()).isEqualTo("best");
     }
 
 

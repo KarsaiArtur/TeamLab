@@ -65,8 +65,8 @@ public class RegisteredUserService {
     }
 
     public void deleteAll(){
+        ratingRepository.deleteAllInBatch();
         registeredUserRepository.deleteAllInBatch();
         workoutService.deleteAll();
-        ratingRepository.deleteAllInBatch();
     }
 }
