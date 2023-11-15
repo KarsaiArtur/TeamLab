@@ -57,6 +57,8 @@ public class WorkoutService {
         exerciseRepository.save(exercise);
         workout.get().addExercise(exercise);
         exercise.setWorkout(workout.get());
+        if(!workout.get().getMuscleGroups().contains(exercise.getPrimaryMuscleGroup()))
+            workout.get().addMuscleGroup(exercise.getPrimaryMuscleGroup());
     }
 
     @Transactional
