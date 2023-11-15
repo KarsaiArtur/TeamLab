@@ -43,6 +43,13 @@ public class RegisteredUserTestIT {
         assertThat(loginMessage).isEqualTo("Login failed: no User with such username");
     }
 
+    @Test
+    public void loginWithWrongPassword() throws Exception{
+        String loginMessage = registeredUserService.loginUser(rUser.getUserName(), "");
+
+        assertThat(loginMessage).isEqualTo("Login failed: wrong password");
+    }
+
 
 
 }
