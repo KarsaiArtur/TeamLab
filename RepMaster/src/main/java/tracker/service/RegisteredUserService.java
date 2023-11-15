@@ -25,8 +25,9 @@ public class RegisteredUserService {
         return !registeredUserRepository.findByUserName(userName).get(0).getPassword().equals(password);
     }
     @Transactional
-    public void addRegisteredUser(RegisteredUser rUser) {
+    public String addRegisteredUser(RegisteredUser rUser) {
         registeredUserRepository.save(rUser);
+        return "Account creation failed: username already exists";
     }
 
     public RegisteredUser findUserByName(String userName) {
