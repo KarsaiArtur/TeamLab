@@ -32,6 +32,8 @@ public class RegisteredUserService {
     public String loginUser(String userName, String password) {
         if(userNameDoesntExist(userName))
             return "Login failed: no User with such username";
+        if(!registeredUserRepository.findByUserName(userName).get(0).getPassword().equals(password))
+            return "Login failed: wrong password";
         return "Login successful as "+userName;
     }
 
