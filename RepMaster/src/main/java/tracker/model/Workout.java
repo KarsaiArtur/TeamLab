@@ -20,7 +20,7 @@ public class Workout implements Rateable{
     private String name;
     @OneToMany(mappedBy = "workout")
     private List<Rating> ratings;
-    @OneToMany(mappedBy = "workout")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "workout")
     private List<Exercise> exercises;
 
     @ElementCollection

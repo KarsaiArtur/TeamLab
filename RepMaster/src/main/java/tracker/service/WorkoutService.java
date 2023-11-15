@@ -49,4 +49,12 @@ public class WorkoutService {
         workoutRepository.deleteAllInBatch();
     }
 
+    @Transactional
+    public void addNewExerciseToWorkout(int workoutId, Exercise exercise){
+        Optional<Workout> workout = workoutRepository.findById(workoutId);
+        exerciseRepository.save(exercise);
+        workout.get().addExercise(exercise);
+        exercise.setWorkout(workout.get());
+    }
+
 }
