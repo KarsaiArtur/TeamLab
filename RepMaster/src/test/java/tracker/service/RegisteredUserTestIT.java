@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import tracker.TrackerApplication;
@@ -64,6 +66,13 @@ public class RegisteredUserTestIT {
         registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
 
         assertThat(TrackerApplication.getInstance().getLoggedInUser().getUserName()).isEqualTo(rUser.getUserName());
+    }
+
+    @Test
+    public void signOutUser() throws Exception{
+        registeredUserService.singOutUser();
+
+        assertThat(TrackerApplication.getInstance().getLoggedInUser().getUserName()).isNull();
     }
 
 
