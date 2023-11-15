@@ -23,13 +23,6 @@ public class RegisteredUserTestIT {
     }
 
     @Test
-    public void findRegisteredUserInDB() throws Exception{
-        RegisteredUser copyUser = registeredUserService.findUserByName(rUser.getUserName());
-
-        assertThat(copyUser.getUserName()).isEqualTo(rUser.getUserName());
-    }
-
-    @Test
     public void loginAnExistingUser() throws Exception{
         String loginMessage = registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
 

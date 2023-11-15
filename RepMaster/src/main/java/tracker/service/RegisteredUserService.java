@@ -26,8 +26,10 @@ public class RegisteredUserService {
     }
     @Transactional
     public String addRegisteredUser(RegisteredUser rUser) {
+        if(!userNameDoesntExist(rUser.getUserName()))
+            return "Account creation failed: username already exists";
         registeredUserRepository.save(rUser);
-        return "Account creation failed: username already exists";
+        return "Account created, welcome "+rUser.getUserName();
     }
 
     public RegisteredUser findUserByName(String userName) {
