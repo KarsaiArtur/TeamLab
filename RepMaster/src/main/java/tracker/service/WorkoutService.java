@@ -62,7 +62,8 @@ public class WorkoutService {
     @Transactional
     public void addMuscleGroupToWorkout(int workoutId, MuscleGroup muscleGroup){
         Optional<Workout> workout = workoutRepository.findById(workoutId);
-        workout.get().addMuscleGroup(muscleGroup);
+        if(!workout.get().getMuscleGroups().contains(muscleGroup))
+            workout.get().addMuscleGroup(muscleGroup);
     }
 
 }
