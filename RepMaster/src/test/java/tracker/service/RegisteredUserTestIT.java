@@ -5,18 +5,21 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
-
 import tracker.TrackerApplication;
+import tracker.model.Exercise;
 import tracker.model.RegisteredUser;
+import tracker.model.Workout;
+
+import java.util.Arrays;
 
 @SpringBootTest
 @AutoConfigureTestDatabase
 public class RegisteredUserTestIT {
     @Autowired
     private RegisteredUserService registeredUserService;
+    @Autowired
+    private WorkoutService workoutService;
     private RegisteredUser rUser;
 
     @BeforeEach
@@ -74,6 +77,27 @@ public class RegisteredUserTestIT {
 
         assertThat(TrackerApplication.getInstance().getLoggedInUser().getUserName()).isNull();
     }
+
+    @Test
+    public void rateAWorkout() throws Exception{
+        registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
+        Workout workout = Workout.builder()
+                .name("Push")
+                .exercises(Arrays.asList(
+                        Exercise.builder().name("Bench Press").build(),
+                        Exercise.builder().name("Shoulder Press").build()
+                )).build();
+        workoutService.saveWorkout(workout);
+
+        registeredUserService.rate(workout, 4, "nem rossz, lehetne jobb");
+
+        assertThat(TrackerApplication.getInstance().getLoggedInUser().getRatings().size()).isEqualTo(1);
+        assertThat(TrackerApplication.getInstance().getLoggedInUser().getRatings().get(0).getComment()).isEqualTo("nem rossz, lehetne jobb");
+        assertThat(workoutService.findWorkout(workout.getId()).getRatings().size()).isEqualTo(1);
+        assertThat(workoutService.findWorkout(workout.getId()).getRatings().get(0).getComment()).isEqualTo("nem rossz, lehetne jobb");
+    }
+
+
 
 
 
