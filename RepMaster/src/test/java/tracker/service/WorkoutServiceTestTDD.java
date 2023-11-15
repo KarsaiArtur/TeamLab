@@ -24,21 +24,26 @@ public class WorkoutServiceTestTDD {
     @Autowired
     private ExerciseService exerciseService;
 
+    private Workout pushWorkout;
+    private Exercise Bench_Press;
+
     @BeforeEach
-    public void clearDb(){
+    public void initDb(){
         exerciseService.deleteAll();
         workoutService.deleteAll();
+
+        pushWorkout = Workout.builder().name("Push").build();
+        Bench_Press = Exercise.builder().name("Bench Press")
+                .isCompound(true)
+                .primaryMuscleGroup(MuscleGroup.Middle_Chest)
+                .secondaryMuscleGroups(new ArrayList<>(Arrays.asList(MuscleGroup.Upper_Chest, MuscleGroup.Lower_Chest, MuscleGroup.Anterior_Deltoids, MuscleGroup.Triceps)))
+                .build();
     }
 
     @Test
     void testAddNewExerciseToWorkout(){
         //Arrange
-        Workout pushWorkout = Workout.builder().name("Push").build();
-        Exercise Bench_Press = Exercise.builder().name("Bench Press")
-                .isCompound(true)
-                .primaryMuscleGroup(MuscleGroup.Middle_Chest)
-                .secondaryMuscleGroups(new ArrayList<>(Arrays.asList(MuscleGroup.Upper_Chest, MuscleGroup.Lower_Chest, MuscleGroup.Anterior_Deltoids, MuscleGroup.Triceps)))
-                .build();
+
 
         //Act
         workoutService.saveWorkout(pushWorkout);
@@ -51,12 +56,6 @@ public class WorkoutServiceTestTDD {
     @Test
     void testAddNewExerciseWithMuscleGroupToWorkout(){
         //Arrange
-        Workout pushWorkout = Workout.builder().name("Push").build();
-        Exercise Bench_Press = Exercise.builder().name("Bench Press")
-                .isCompound(true)
-                .primaryMuscleGroup(MuscleGroup.Middle_Chest)
-                .secondaryMuscleGroups(new ArrayList<>(Arrays.asList(MuscleGroup.Upper_Chest, MuscleGroup.Lower_Chest, MuscleGroup.Anterior_Deltoids, MuscleGroup.Triceps)))
-                .build();
 
         //Act
         workoutService.saveWorkout(pushWorkout);
