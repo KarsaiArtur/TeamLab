@@ -73,4 +73,11 @@ public class WorkoutService {
             workout.addMuscleGroup(muscleGroup);
     }
 
+    @Transactional
+    public void removeExerciseFromWorkout(int workoutId, int exerciseId){
+        Optional<Workout> workout = workoutRepository.findById(workoutId);
+        Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
+        workout.get().removeExercise(exercise.get());
+    }
+
 }
