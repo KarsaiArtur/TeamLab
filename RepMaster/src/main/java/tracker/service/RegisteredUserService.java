@@ -19,12 +19,17 @@ public class RegisteredUserService {
     private RatingRepository ratingRepository;
 
     private boolean userNameDoesntExist(String userName){
-        return registeredUserRepository.findByUserName(userName).size()==0;
+        return findUserByName(userName) == null;
     }
 
     private boolean wrongPassword(String userName, String password) {
-        return !registeredUserRepository.findByUserName(userName).get(0).getPassword().equals(password);
+        return !findUserByName(userName).getPassword().equals(password);
     }
+
+    public RegisteredUser findUserByName(String userName){
+        return registeredUserRepository.findByUserName(userName).size()==0 ? null : registeredUserRepository.findByUserName(userName).get(0);
+    }
+
     @Transactional
     public String addRegisteredUser(RegisteredUser rUser) {
         if(!userNameDoesntExist(rUser.getUserName()))
@@ -38,7 +43,7 @@ public class RegisteredUserService {
             return "Login failed: no User with such username";
         if(wrongPassword(userName, password))
             return "Login failed: wrong password";
-        TrackerApplication.getInstance().setLoggedInUser(registeredUserRepository.findByUserName(userName).get(0));
+        TrackerApplication.getInstance().setLoggedInUser(findUserByName(userName));
         return "Login successful as "+userName;
     }
 
