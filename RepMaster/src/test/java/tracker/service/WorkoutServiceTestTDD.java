@@ -107,4 +107,22 @@ public class WorkoutServiceTestTDD {
         //Assert
         assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).size()).isEqualTo(0);
     }
+
+    @Test
+    void testRemoveExerciseWithMuscleGroupCorrectlyFromWorkout(){
+        //Arrange
+        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Bench_Press);
+        Exercise Pec_deck_Machine = Exercise.builder().name("Pec Deck Machine")
+                .isCompound(false)
+                .primaryMuscleGroup(MuscleGroup.Middle_Chest)
+                .secondaryMuscleGroups(new ArrayList<>(Arrays.asList(MuscleGroup.Upper_Chest, MuscleGroup.Lower_Chest, MuscleGroup.Anterior_Deltoids)))
+                .build();
+        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Pec_deck_Machine);
+
+        //Act
+        workoutService.removeExerciseFromWorkout(pushWorkout.getId(), Bench_Press.getId());
+
+        //Assert
+        assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).size()).isEqualTo(1);
+    }
 }
