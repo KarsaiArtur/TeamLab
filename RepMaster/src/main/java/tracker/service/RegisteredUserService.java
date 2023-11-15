@@ -24,7 +24,12 @@ public class RegisteredUserService {
     }
 
     @Transactional
-    public void addRegistereduser(RegisteredUser rUser) {
+    public void addRegisteredUser(RegisteredUser rUser) {
         registeredUserRepository.save(rUser);
+    }
+
+    @Transactional
+    public RegisteredUser findUserByName(String userName) {
+        return registeredUserRepository.findByUserName(userName).size()==0 ? null : registeredUserRepository.findByUserName(userName).get(0);
     }
 }

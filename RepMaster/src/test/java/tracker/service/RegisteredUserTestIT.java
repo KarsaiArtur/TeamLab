@@ -16,13 +16,13 @@ public class RegisteredUserTestIT {
     @Test
     public void canAddRegisteredUserToDB() throws Exception{
         RegisteredUser rUser = new RegisteredUser();
-        registeredUserService.addRegistereduser(rUser);
+        registeredUserService.addRegisteredUser(rUser);
     }
 
     @Test
     public void findRegisteredUserInDB() throws Exception{
         RegisteredUser rUser = RegisteredUser.builder().userName("TestUser").password("abc123").build();
-        registeredUserService.addRegistereduser(rUser);
+        registeredUserService.addRegisteredUser(rUser);
 
         RegisteredUser copyUser = registeredUserService.findUserByName(rUser.getUserName());
 
