@@ -38,6 +38,8 @@ public class WorkoutServiceTestTDD {
                 .primaryMuscleGroup(MuscleGroup.Middle_Chest)
                 .secondaryMuscleGroups(new ArrayList<>(Arrays.asList(MuscleGroup.Upper_Chest, MuscleGroup.Lower_Chest, MuscleGroup.Anterior_Deltoids, MuscleGroup.Triceps)))
                 .build();
+
+        workoutService.saveWorkout(pushWorkout);
     }
 
     @Test
@@ -46,7 +48,6 @@ public class WorkoutServiceTestTDD {
 
 
         //Act
-        workoutService.saveWorkout(pushWorkout);
         workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Bench_Press);
 
         //Assert
@@ -58,11 +59,27 @@ public class WorkoutServiceTestTDD {
         //Arrange
 
         //Act
-        workoutService.saveWorkout(pushWorkout);
         workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Bench_Press);
 
         //Assert
         assertThat(workoutService.listExercises(pushWorkout.getId()).get(0).getName()).isEqualTo("Bench Press");
         assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).get(0)).isEqualTo(MuscleGroup.Middle_Chest);
+    }
+
+    @Test
+    void testAddExistingExerciseWithMuscleGroupToWorkout(){
+        //Arrange
+        Exercise Lateral_raise = Exercise.builder().name("Lateral Raise")
+                .isCompound(false)
+                .primaryMuscleGroup(MuscleGroup.Lateral_Deltoids)
+                .secondaryMuscleGroups(new ArrayList<>(Arrays.asList(MuscleGroup.Anterior_Deltoids)))
+                .build();
+
+        //Act
+        workoutService.addExistingExerciseToWorkout(pushWorkout.getId(), Lateral_raise.getId());
+
+        //Assert
+        assertThat(workoutService.listExercises(pushWorkout.getId()).get(0).getName()).isEqualTo("Lateral Raise");
+        assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).get(0)).isEqualTo(MuscleGroup.Anterior_Deltoids);
     }
 }
