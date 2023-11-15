@@ -18,4 +18,5 @@ public class RegisteredUserTestIT {
         RegisteredUser rUser = new RegisteredUser();
         registeredUserService.addRegistereduser(rUser);
     }
+
 }
