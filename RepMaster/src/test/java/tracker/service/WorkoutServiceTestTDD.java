@@ -83,4 +83,16 @@ public class WorkoutServiceTestTDD {
         assertThat(workoutService.listExercises(pushWorkout.getId()).get(0).getName()).isEqualTo("Lateral Raise");
         assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).get(0)).isEqualTo(MuscleGroup.Lateral_Deltoids);
     }
+
+    @Test
+    void testRemoveExerciseFromWorkout(){
+        //Arrange
+        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Bench_Press);
+
+        //Act
+        workoutService.removeExerciseFromWorkout(pushWorkout.getId(), Bench_Press.getId());
+
+        //Assert
+        assertThat(workoutService.listExercises(pushWorkout.getId()).size()).isEqualTo(0);
+    }
 }
