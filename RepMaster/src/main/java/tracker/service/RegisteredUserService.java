@@ -14,7 +14,7 @@ import java.util.Optional;
 @Service
 public class RegisteredUserService {
 
-    private RegisteredUserRepository registeredUserRepository;
+    private final RegisteredUserRepository registeredUserRepository;
     private RatingRepository ratingRepository;
 
     public void addGymToUser(int id, Gym gym) {
@@ -23,6 +23,8 @@ public class RegisteredUserService {
         //registeredUser.get().addWorkoutsFromUsersGyms();
     }
 
-
-
+    @Transactional
+    public void addRegistereduser(RegisteredUser rUser) {
+        registeredUserRepository.save(rUser);
+    }
 }

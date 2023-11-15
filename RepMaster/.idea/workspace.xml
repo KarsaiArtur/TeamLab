@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="test commit">
+    <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="tdd">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/RegisteredUserTestIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/RegisteredUserTestIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Gym$GymBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Gym$GymBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Gym.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Gym.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/repository/GymRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/GymRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/repository/RegisteredUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/RegisteredUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/repository/WorkoutRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/WorkoutRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Rating$RatingBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Rating$RatingBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Rating.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Rating.class" afterDir="false" />
     </list>
     <list id="2aaffac0-ec3d-4794-9b6a-4c3104a99dc6" name="Changes by latix" comment="5.1" />
     <list id="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" name="Changes by szilva07" comment="workoutit még tdd kell" />
@@ -207,7 +210,7 @@
       <workItem from="1699826819918" duration="7965000" />
       <workItem from="1700001314889" duration="112000" />
       <workItem from="1700001435446" duration="2721000" />
-      <workItem from="1700044714417" duration="1048000" />
+      <workItem from="1700044714417" duration="1669000" />
     </task>
     <task id="LOCAL-00001" summary="gymservice tesztelgetés">
       <created>1699576647373</created>
@@ -286,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700045378298</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="tdd">
+      <created>1700046009548</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1700046009548</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,7 +321,8 @@
     <MESSAGE value="gymservicetest még tdd kell" />
     <MESSAGE value="workoutit még tdd kell" />
     <MESSAGE value="test commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="test commit" />
+    <MESSAGE value="tdd" />
+    <option name="LAST_COMMIT_MESSAGE" value="tdd" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
