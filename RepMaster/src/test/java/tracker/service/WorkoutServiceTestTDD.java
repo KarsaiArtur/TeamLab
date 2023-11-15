@@ -60,4 +60,23 @@ public class WorkoutServiceTestTDD {
         //Assert
         assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).get(0)).isEqualTo(MuscleGroup.Middle_Chest);
     }
+
+    @Test
+    void testAddNewExerciseWithMuscleGroupToWorkout(){
+        //Arrange
+        Workout pushWorkout = Workout.builder().name("Push").build();
+        Exercise Bench_Press = Exercise.builder().name("Bench Press")
+                .isCompound(true)
+                .primaryMuscleGroup(MuscleGroup.Middle_Chest)
+                .secondaryMuscleGroups(new ArrayList<>(Arrays.asList(MuscleGroup.Upper_Chest, MuscleGroup.Lower_Chest, MuscleGroup.Anterior_Deltoids, MuscleGroup.Triceps)))
+                .build();
+
+        //Act
+        workoutService.saveWorkout(pushWorkout);
+        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Bench_Press);
+
+        //Assert
+        assertThat(workoutService.listExercises(pushWorkout.getId()).get(0).getName()).isEqualTo("Bench Press");
+        assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).get(0)).isEqualTo(MuscleGroup.Middle_Chest);
+    }
 }
