@@ -93,7 +93,7 @@ public class RegisteredUserTestIT {
                 )).build();
         workoutService.saveWorkout(workout);
 
-        registeredUserService.rate(workout.getId(), 4.1, "nem rossz, lehetne jobb");
+        registeredUserService.rate(workout, 4.1, "nem rossz, lehetne jobb");
 
         assertThat(TrackerApplication.getInstance().getLoggedInUser().getRatings().size()).isEqualTo(1);
         assertThat(TrackerApplication.getInstance().getLoggedInUser().getRatings().get(0).getComment()).isEqualTo("nem rossz, lehetne jobb");
@@ -111,7 +111,7 @@ public class RegisteredUserTestIT {
                 .build();
         exerciseService.saveExercise(exercise);
 
-        registeredUserService.rate(exercise.getId(), 5, "best");
+        registeredUserService.rate(exercise, 5, "best");
 
         assertThat(TrackerApplication.getInstance().getLoggedInUser().getRatings().size()).isEqualTo(1);
         assertThat(TrackerApplication.getInstance().getLoggedInUser().getRatings().get(0).getComment()).isEqualTo("best");

@@ -32,12 +32,6 @@ public class WorkoutService {
         workoutRepository.delete(workout.get());
     }
 
-    @Transactional
-    public void addRating(int id, Rating rating){
-        Optional<Workout> workout = workoutRepository.findById(id);
-        workout.get().addRating(rating);
-    }
-
     public Workout findWorkout(int id) {
         return workoutRepository.findById(id).isEmpty() ? null : workoutRepository.findById(id).get();
     }

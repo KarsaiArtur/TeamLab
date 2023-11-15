@@ -28,12 +28,6 @@ public class Rating {
     @ManyToOne
     private RegisteredUser registeredUser;
 
-
-    public Rating(double rating, String comment){
-        this.rating = rating;
-        this.comment = comment;
-    }
-
     /*public void calculateRating() {
         int ratingsCnt = 0;
         int sum = 0;

@@ -55,13 +55,12 @@ public class RegisteredUserService {
     }
 
     @Transactional
-    public void rate(int workout_id, double rating, String comment){
+    public void rate(Rateable rateable, double rating, String comment){
         RegisteredUser rUser = TrackerApplication.getInstance().getLoggedInUser();
         Rating new_rating = Rating.builder().rating(rating).comment(comment).build();
 
         ratingRepository.save(new_rating);
-        rUser.addRating(new_rating);
-        workoutService.addRating(workout_id, new_rating);
+        rUser.addRating(rateable, new_rating);
     }
 
     public void deleteAll(){

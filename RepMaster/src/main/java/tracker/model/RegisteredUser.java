@@ -55,11 +55,12 @@ public class RegisteredUser implements User{
         }
     }*/
 
-    public void addRating(Rating r){
+    public void addRating(Rateable rateable, Rating r){
         if(ratings == null)
             ratings = new ArrayList<>();
         ratings.add(r);
         r.setRegisteredUser(this);
+        rateable.addRating(r);
     }
 
     public void removeRating(Rating rating) throws Exception{
