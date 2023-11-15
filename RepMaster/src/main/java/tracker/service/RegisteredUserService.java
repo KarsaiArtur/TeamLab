@@ -47,6 +47,10 @@ public class RegisteredUserService {
         return "Login successful as "+userName;
     }
 
+    public void singOutUser(){
+        TrackerApplication.getInstance().setLoggedInUser(RegisteredUser.builder().build());
+    }
+
     public void deleteAll(){
         registeredUserRepository.deleteAllInBatch();
     }
