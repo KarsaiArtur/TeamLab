@@ -39,8 +39,8 @@ public class Exercise implements Rateable{
     @OneToMany(mappedBy = "exercise")
     private List<ExerciseResult> exerciseResults;
 
-    @ManyToOne
-    private Workout workout;
+    @ManyToMany(mappedBy = "exercises", fetch = FetchType.EAGER)
+    private List<Workout> workouts;
 
     public Exercise(int set_count) {
         this.set_count = set_count;

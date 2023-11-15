@@ -56,8 +56,15 @@ public class WorkoutService {
         Optional<Workout> workout = workoutRepository.findById(workoutId);
         exerciseRepository.save(exercise);
         workout.get().addExercise(exercise);
-        exercise.setWorkout(workout.get());
         addMuscleGroupToWorkout(workout.get(), exercise.getPrimaryMuscleGroup());
+    }
+
+    @Transactional
+    public void addExistingExerciseToWorkout(int workoutId, int exerciseId){
+        Optional<Workout> workout = workoutRepository.findById(workoutId);
+        Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
+        workout.get().addExercise(exercise.get());
+        addMuscleGroupToWorkout(workout.get(), exercise.get().getPrimaryMuscleGroup());
     }
 
     @Transactional

@@ -20,7 +20,12 @@ public class Workout implements Rateable{
     private String name;
     @OneToMany(mappedBy = "workout")
     private List<Rating> ratings;
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "workout")
+    @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinTable(
+            name = "workout_exercise_connection",
+            joinColumns = @JoinColumn(name = "workout_id"),
+            inverseJoinColumns = @JoinColumn(name = "exercise_id")
+    )
     private List<Exercise> exercises;
 
     @ElementCollection(fetch = FetchType.EAGER)

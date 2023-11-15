@@ -76,10 +76,11 @@ public class WorkoutServiceTestTDD {
                 .build();
 
         //Act
+        exerciseService.saveExercise(Lateral_raise);
         workoutService.addExistingExerciseToWorkout(pushWorkout.getId(), Lateral_raise.getId());
 
         //Assert
         assertThat(workoutService.listExercises(pushWorkout.getId()).get(0).getName()).isEqualTo("Lateral Raise");
-        assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).get(0)).isEqualTo(MuscleGroup.Anterior_Deltoids);
+        assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).get(0)).isEqualTo(MuscleGroup.Lateral_Deltoids);
     }
 }
