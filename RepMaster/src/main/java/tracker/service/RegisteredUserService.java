@@ -17,7 +17,9 @@ public class RegisteredUserService {
     private final RegisteredUserRepository registeredUserRepository;
     private RatingRepository ratingRepository;
 
-
+    private boolean userNameDoesntExist(String userName){
+        return registeredUserRepository.findByUserName(userName).size()==0;
+    }
     @Transactional
     public void addRegisteredUser(RegisteredUser rUser) {
         registeredUserRepository.save(rUser);
@@ -28,8 +30,9 @@ public class RegisteredUserService {
     }
 
     public String loginUser(String userName, String password) {
-        String message = registeredUserRepository.findByUserName(userName).size()==0 ? "Login failed: no User with such username" : "Login successful as "+userName;
-        return message;
+        if(userNameDoesntExist(userName))
+            return "Login failed: no User with such username";
+        return "Login successful as "+userName;
     }
 
     public void deleteAll(){
