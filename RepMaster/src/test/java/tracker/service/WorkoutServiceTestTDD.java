@@ -55,9 +55,9 @@ public class WorkoutServiceTestTDD {
 
         //Act
         workoutService.saveWorkout(pushWorkout);
-        workoutService.addMuscleGroup(MuscleGroup.Middle_Chest);
+        workoutService.addMuscleGroupToWorkout(pushWorkout.getId(), MuscleGroup.Middle_Chest);
 
         //Assert
-        assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).get(0).getMuscleGroup).isEqualTo(MuscleGroup.Middle_Chest);
+        assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).get(0)).isEqualTo(MuscleGroup.Middle_Chest);
     }
 }

@@ -23,7 +23,7 @@ public class Workout implements Rateable{
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "workout")
     private List<Exercise> exercises;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name="muscle_groups")
     @Column(name="muscle_group")
     @Enumerated(EnumType.STRING)
