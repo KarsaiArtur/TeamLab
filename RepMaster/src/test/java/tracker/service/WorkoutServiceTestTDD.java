@@ -95,4 +95,16 @@ public class WorkoutServiceTestTDD {
         //Assert
         assertThat(workoutService.listExercises(pushWorkout.getId()).size()).isEqualTo(0);
     }
+
+    @Test
+    void testRemoveExerciseWithMuscleGroupFromWorkout(){
+        //Arrange
+        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Bench_Press);
+
+        //Act
+        workoutService.removeExerciseFromWorkout(pushWorkout.getId(), Bench_Press.getId());
+
+        //Assert
+        assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).size()).isEqualTo(0);
+    }
 }
