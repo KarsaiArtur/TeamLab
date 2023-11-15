@@ -21,9 +21,6 @@ public class RegisteredUserTestIT {
         RegisteredUser rUser = RegisteredUser.builder().userName("TestUser").password("abc123").build();
         registeredUserService.addRegisteredUser(rUser);
     }
-    @Test
-    public void canAddRegisteredUserToDB() throws Exception{
-    }
 
     @Test
     public void findRegisteredUserInDB() throws Exception{
@@ -31,5 +28,14 @@ public class RegisteredUserTestIT {
 
         assertThat(copyUser.getUserName()).isEqualTo(rUser.getUserName());
     }
+
+    @Test
+    public void loginAnExistingUser() throws Exception{
+        String loginMessage = registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
+
+        assertThat(loginMessage).isEqualTo("Login successful as +"+rUser.getUserName());
+    }
+
+
 
 }

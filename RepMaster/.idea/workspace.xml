@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="tdd4">
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" afterDir="false" />
+    <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="tdd5">
       <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/RegisteredUserTestIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/RegisteredUserTestIT.java" afterDir="false" />
     </list>
     <list id="2aaffac0-ec3d-4794-9b6a-4c3104a99dc6" name="Changes by latix" comment="5.1" />
@@ -206,7 +205,7 @@
       <workItem from="1700001314889" duration="112000" />
       <workItem from="1700001435446" duration="2721000" />
       <workItem from="1700044714417" duration="1807000" />
-      <workItem from="1700046531601" duration="855000" />
+      <workItem from="1700046531601" duration="1195000" />
     </task>
     <task id="LOCAL-00001" summary="gymservice tesztelgetés">
       <created>1699576647373</created>
@@ -320,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700047249367</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="tdd5">
+      <created>1700047394703</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1700047394703</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,7 +355,8 @@
     <MESSAGE value="tdd2" />
     <MESSAGE value="tdd3" />
     <MESSAGE value="tdd4" />
-    <option name="LAST_COMMIT_MESSAGE" value="tdd4" />
+    <MESSAGE value="tdd5" />
+    <option name="LAST_COMMIT_MESSAGE" value="tdd5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
