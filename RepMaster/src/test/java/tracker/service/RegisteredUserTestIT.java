@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
-import tracker.model.Rating;
+import static org.assertj.core.api.Assertions.assertThat;
 import tracker.model.RegisteredUser;
 
 @SpringBootTest
@@ -17,6 +17,16 @@ public class RegisteredUserTestIT {
     public void canAddRegisteredUserToDB() throws Exception{
         RegisteredUser rUser = new RegisteredUser();
         registeredUserService.addRegistereduser(rUser);
+    }
+
+    @Test
+    public void findRegisteredUserInDB() throws Exception{
+        RegisteredUser rUser = RegisteredUser.builder().userName("TestUser").password("abc123").build();
+        registeredUserService.addRegistereduser(rUser);
+
+        RegisteredUser copyUser = registeredUserService.findUserByName(rUser.getUserName());
+
+        assertThat(copyUser.getUserName()).isEqualTo(rUser.getUserName());
     }
 
 }
