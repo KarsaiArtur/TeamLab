@@ -8,7 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import tracker.model.Exercise;
 import tracker.model.MuscleGroup;
 import tracker.model.Workout;
-import tracker.repository.ExerciseRepository;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -109,14 +108,14 @@ public class WorkoutServiceTestTDD {
     }
 
     @Test
-    void testRemoveExerciseWithMuscleGroupCorrectlyFromWorkout(){
+    void testRemoveExerciseWithMuscleGroupCorrectly1FromWorkout(){
         //Arrange
-        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Bench_Press);
         Exercise Pec_deck_Machine = Exercise.builder().name("Pec Deck Machine")
                 .isCompound(false)
                 .primaryMuscleGroup(MuscleGroup.Middle_Chest)
                 .secondaryMuscleGroups(new ArrayList<>(Arrays.asList(MuscleGroup.Upper_Chest, MuscleGroup.Lower_Chest, MuscleGroup.Anterior_Deltoids)))
                 .build();
+        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Bench_Press);
         workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Pec_deck_Machine);
 
         //Act
@@ -124,5 +123,24 @@ public class WorkoutServiceTestTDD {
 
         //Assert
         assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).size()).isEqualTo(1);
+    }
+
+    @Test
+    void testRemoveExerciseWithMuscleGroupCorrectly2FromWorkout(){
+        //Arrange
+        Exercise Pec_deck_Machine = Exercise.builder().name("Pec Deck Machine")
+                .isCompound(false)
+                .primaryMuscleGroup(MuscleGroup.Middle_Chest)
+                .secondaryMuscleGroups(new ArrayList<>(Arrays.asList(MuscleGroup.Upper_Chest, MuscleGroup.Lower_Chest, MuscleGroup.Anterior_Deltoids)))
+                .build();
+        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Bench_Press);
+        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Pec_deck_Machine);
+
+        //Act
+        workoutService.removeExerciseFromWorkout(pushWorkout.getId(), Bench_Press.getId());
+        workoutService.removeExerciseFromWorkout(pushWorkout.getId(), Pec_deck_Machine.getId());
+
+        //Assert
+        assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).size()).isEqualTo(0);
     }
 }
