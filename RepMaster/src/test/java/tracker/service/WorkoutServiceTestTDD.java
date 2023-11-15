@@ -49,19 +49,6 @@ public class WorkoutServiceTestTDD {
     }
 
     @Test
-    void testAddNewMuscleGroupToWorkout(){
-        //Arrange
-        Workout pushWorkout = Workout.builder().name("Push").build();
-
-        //Act
-        workoutService.saveWorkout(pushWorkout);
-        workoutService.addMuscleGroupToWorkout(pushWorkout.getId(), MuscleGroup.Middle_Chest);
-
-        //Assert
-        assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).get(0)).isEqualTo(MuscleGroup.Middle_Chest);
-    }
-
-    @Test
     void testAddNewExerciseWithMuscleGroupToWorkout(){
         //Arrange
         Workout pushWorkout = Workout.builder().name("Push").build();

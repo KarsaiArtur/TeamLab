@@ -57,15 +57,13 @@ public class WorkoutService {
         exerciseRepository.save(exercise);
         workout.get().addExercise(exercise);
         exercise.setWorkout(workout.get());
-        if(!workout.get().getMuscleGroups().contains(exercise.getPrimaryMuscleGroup()))
-            workout.get().addMuscleGroup(exercise.getPrimaryMuscleGroup());
+        addMuscleGroupToWorkout(workout.get(), exercise.getPrimaryMuscleGroup());
     }
 
     @Transactional
-    public void addMuscleGroupToWorkout(int workoutId, MuscleGroup muscleGroup){
-        Optional<Workout> workout = workoutRepository.findById(workoutId);
-        if(!workout.get().getMuscleGroups().contains(muscleGroup))
-            workout.get().addMuscleGroup(muscleGroup);
+    public void addMuscleGroupToWorkout(Workout workout, MuscleGroup muscleGroup){
+        if(!workout.getMuscleGroups().contains(muscleGroup))
+            workout.addMuscleGroup(muscleGroup);
     }
 
 }
