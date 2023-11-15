@@ -24,8 +24,6 @@ public class Rating {
     @ManyToOne
     private Exercise exercise;
     @ManyToOne
-    private Gym gym;
-    @ManyToOne
     private Workout workout;
     @ManyToOne
     private RegisteredUser registeredUser;

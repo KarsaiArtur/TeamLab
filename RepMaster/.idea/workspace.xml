@@ -4,21 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="gymtests">
+    <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="gymservicetest még tdd kell">
+      <change afterPath="$PROJECT_DIR$/src/test/java/tracker/service/RegisteredUserTestIT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/GymService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/GymService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/GymServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/GymServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/GymServiceTestIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/GymServiceTestIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/WorkoutServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/WorkoutServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Gym.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Gym.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Exercise.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Exercise.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Gym.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Gym.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/ExerciseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/ExerciseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/GymService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/GymService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tracker/service/ExerciseServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tracker/service/ExerciseServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tracker/service/GymServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tracker/service/GymServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tracker/service/GymServiceTestIT.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tracker/service/GymServiceTestIT.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tracker/service/WorkoutServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tracker/service/WorkoutServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tracker/service/WorkoutServiceTestIT.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tracker/service/WorkoutServiceTestIT.class" afterDir="false" />
     </list>
     <list id="2aaffac0-ec3d-4794-9b6a-4c3104a99dc6" name="Changes by latix" comment="5.1" />
-    <list id="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" name="Changes by szilva07" comment="workouttests">
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/WorkoutServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/WorkoutServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/WorkoutServiceTestIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/WorkoutServiceTestIT.java" afterDir="false" />
-    </list>
+    <list id="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" name="Changes by szilva07" comment="workoutit még tdd kell" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,27 +44,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="skeleton" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java">
-      <ranges>
-        <range start1="27" end1="30" start2="27" end2="29" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="33" end1="35" start2="32" end2="35" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="37" end1="37" start2="37" end2="41" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
-        <range start1="42" end1="43" start2="46" end2="50" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/test/java/tracker/service/WorkoutServiceTest.java">
-      <ranges>
-        <range start1="3" end1="3" start2="3" end2="5" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
-        <range start1="24" end1="24" start2="26" end2="38" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
-        <range start1="28" end1="37" start2="42" end2="42" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
-        <range start1="40" end1="41" start2="45" end2="46" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="51" end1="58" start2="56" end2="56" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
-        <range start1="68" end1="71" start2="66" end2="66" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -108,7 +96,7 @@
       <recent name="tracker.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GymServiceTest">
+  <component name="RunManager" selected="JUnit.GymServiceTestIT">
     <configuration name="GymServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webshop" />
       <extension name="coverage">
@@ -201,10 +189,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GymServiceTestIT" />
         <item itemvalue="JUnit.GymServiceTest" />
         <item itemvalue="JUnit.WorkoutServiceTestIT" />
         <item itemvalue="JUnit.WorkoutServiceTest" />
-        <item itemvalue="JUnit.GymServiceTestIT" />
         <item itemvalue="JUnit.GymServiceTest.createGyms" />
       </list>
     </recent_temporary>
@@ -227,7 +215,10 @@
       <workItem from="1699623657408" duration="33000" />
       <workItem from="1699623702731" duration="98000" />
       <workItem from="1699740502806" duration="6264000" />
-      <workItem from="1699826819918" duration="7888000" />
+      <workItem from="1699826819918" duration="7965000" />
+      <workItem from="1700001314889" duration="112000" />
+      <workItem from="1700001435446" duration="2721000" />
+      <workItem from="1700044714417" duration="383000" />
     </task>
     <task id="LOCAL-00001" summary="gymservice tesztelgetés">
       <created>1699576647373</created>
@@ -285,7 +276,21 @@
       <option name="project" value="LOCAL" />
       <updated>1699746764358</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="gymservicetest még tdd kell">
+      <created>1699834767338</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699834767338</updated>
+    </task>
+    <task id="LOCAL-00010" summary="workoutit még tdd kell">
+      <created>1699834783517</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699834783517</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +312,9 @@
     <MESSAGE value="gymservice tesztelgetés" />
     <MESSAGE value="gymtests" />
     <MESSAGE value="workouttests" />
-    <option name="LAST_COMMIT_MESSAGE" value="workouttests" />
+    <MESSAGE value="gymservicetest még tdd kell" />
+    <MESSAGE value="workoutit még tdd kell" />
+    <option name="LAST_COMMIT_MESSAGE" value="workoutit még tdd kell" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

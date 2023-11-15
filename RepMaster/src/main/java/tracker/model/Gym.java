@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Gym implements Rateable{
+public class Gym{
     @Id
     @GeneratedValue
     private int id;
@@ -23,9 +23,6 @@ public class Gym implements Rateable{
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "split_id", referencedColumnName = "id")
     private Split split;
-
-    @OneToMany(mappedBy = "gym")
-    private List<Rating> ratings;
 
     @Enumerated(EnumType.STRING)
     private Equipment howEquipped;
@@ -50,15 +47,5 @@ public class Gym implements Rateable{
 
     public void removeWorkout(Workout w){
         workouts.remove(w);
-    }
-
-    @Override
-    public void addRating(Rating r) {
-        ratings.add(r);
-    }
-
-    @Override
-    public void removeRating(Rating r) {
-        ratings.remove(r);
     }
 }
