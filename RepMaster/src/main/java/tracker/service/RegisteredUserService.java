@@ -20,6 +20,10 @@ public class RegisteredUserService {
     private boolean userNameDoesntExist(String userName){
         return registeredUserRepository.findByUserName(userName).size()==0;
     }
+
+    private boolean wrongPassword(String userName, String password) {
+        return !registeredUserRepository.findByUserName(userName).get(0).getPassword().equals(password);
+    }
     @Transactional
     public void addRegisteredUser(RegisteredUser rUser) {
         registeredUserRepository.save(rUser);
@@ -32,7 +36,7 @@ public class RegisteredUserService {
     public String loginUser(String userName, String password) {
         if(userNameDoesntExist(userName))
             return "Login failed: no User with such username";
-        if(!registeredUserRepository.findByUserName(userName).get(0).getPassword().equals(password))
+        if(wrongPassword(userName, password))
             return "Login failed: wrong password";
         return "Login successful as "+userName;
     }
