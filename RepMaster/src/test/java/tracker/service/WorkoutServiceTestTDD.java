@@ -23,7 +23,7 @@ public class WorkoutServiceTestTDD {
 
     @Autowired
     private ExerciseService exerciseService;
-    
+
     @BeforeEach
     public void clearDb(){
         exerciseService.deleteAll();
@@ -46,5 +46,18 @@ public class WorkoutServiceTestTDD {
 
         //Assert
         assertThat(workoutService.listExercises(pushWorkout.getId()).get(0).getName()).isEqualTo("Bench Press");
+    }
+
+    @Test
+    void testAddNewMuscleGroupToWorkout(){
+        //Arrange
+        Workout pushWorkout = Workout.builder().name("Push").build();
+
+        //Act
+        workoutService.saveWorkout(pushWorkout);
+        workoutService.addMuscleGroup(MuscleGroup.Middle_Chest);
+
+        //Assert
+        assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).get(0).getMuscleGroup).isEqualTo(MuscleGroup.Middle_Chest);
     }
 }
