@@ -17,11 +17,6 @@ public class RegisteredUserService {
     private final RegisteredUserRepository registeredUserRepository;
     private RatingRepository ratingRepository;
 
-    public void addGymToUser(int id, Gym gym) {
-        Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(id);
-        registeredUser.get().addGym(gym);
-        //registeredUser.get().addWorkoutsFromUsersGyms();
-    }
 
     @Transactional
     public void addRegisteredUser(RegisteredUser rUser) {
@@ -33,7 +28,8 @@ public class RegisteredUserService {
     }
 
     public String loginUser(String userName, String password) {
-        return "Login successful as "+userName;
+        String message = registeredUserRepository.findByUserName(userName).size()==0 ? "Login failed: no User with such username" : "Login successful as "+userName;
+        return message;
     }
 
     public void deleteAll(){
