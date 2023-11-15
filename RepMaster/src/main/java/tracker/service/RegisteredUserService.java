@@ -3,6 +3,7 @@ package tracker.service;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import tracker.TrackerApplication;
 import tracker.model.*;
 import tracker.repository.RatingRepository;
 import tracker.repository.RegisteredUserRepository;
@@ -37,6 +38,7 @@ public class RegisteredUserService {
             return "Login failed: no User with such username";
         if(wrongPassword(userName, password))
             return "Login failed: wrong password";
+        TrackerApplication.getInstance().setLoggedInUser(registeredUserRepository.findByUserName(userName).get(0));
         return "Login successful as "+userName;
     }
 
