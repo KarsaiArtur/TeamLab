@@ -2,11 +2,13 @@ package tracker.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.jdbc.Work;
 import org.springframework.stereotype.Service;
 import tracker.TrackerApplication;
 import tracker.model.*;
 import tracker.repository.RatingRepository;
 import tracker.repository.RegisteredUserRepository;
+import tracker.repository.WorkoutRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,7 +18,8 @@ import java.util.Optional;
 public class RegisteredUserService {
 
     private final RegisteredUserRepository registeredUserRepository;
-    private RatingRepository ratingRepository;
+    private final WorkoutService workoutService;
+    private final RatingRepository ratingRepository;
 
     private boolean userNameDoesntExist(String userName){
         return findUserByName(userName) == null;
@@ -51,7 +54,19 @@ public class RegisteredUserService {
         TrackerApplication.getInstance().setLoggedInUser(RegisteredUser.builder().build());
     }
 
+    @Transactional
+    public void rate(int workout_id, double rating, String comment){
+        RegisteredUser rUser = TrackerApplication.getInstance().getLoggedInUser();
+        Rating new_rating = Rating.builder().rating(rating).comment(comment).build();
+
+        ratingRepository.save(new_rating);
+        rUser.addRating(new_rating);
+        workoutService.addRating(workout_id, new_rating);
+    }
+
     public void deleteAll(){
         registeredUserRepository.deleteAllInBatch();
+        workoutService.deleteAll();
+        ratingRepository.deleteAllInBatch();
     }
 }

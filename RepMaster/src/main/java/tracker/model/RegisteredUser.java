@@ -21,7 +21,7 @@ public class RegisteredUser implements User{
     private String password;
     @OneToMany(mappedBy = "registeredUser")
     private List<Gym> userGyms;
-    @OneToMany(mappedBy = "registeredUser")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "registeredUser")
     private List<Rating> ratings;
 
     /*????????????????????????????
@@ -56,7 +56,10 @@ public class RegisteredUser implements User{
     }*/
 
     public void addRating(Rating r){
+        if(ratings == null)
+            ratings = new ArrayList<>();
         ratings.add(r);
+        r.setRegisteredUser(this);
     }
 
     public void removeRating(Rating rating) throws Exception{

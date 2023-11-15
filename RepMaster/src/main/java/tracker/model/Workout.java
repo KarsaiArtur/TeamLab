@@ -18,7 +18,7 @@ public class Workout implements Rateable{
     @GeneratedValue
     private int id;
     private String name;
-    @OneToMany(mappedBy = "workout")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "workout")
     private List<Rating> ratings;
     @OneToMany(mappedBy = "workout")
     private List<Exercise> exercises;
@@ -56,7 +56,10 @@ public class Workout implements Rateable{
 
     @Override
     public void addRating(Rating r) {
+        if(ratings == null)
+            ratings = new ArrayList<>();
         ratings.add(r);
+        r.setWorkout(this);
     }
 
     @Override

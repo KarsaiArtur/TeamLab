@@ -1,5 +1,6 @@
 package tracker.service;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,6 @@ import tracker.model.Workout;
 import java.util.Arrays;
 
 @SpringBootTest
-@AutoConfigureTestDatabase
 public class RegisteredUserTestIT {
     @Autowired
     private RegisteredUserService registeredUserService;
@@ -89,7 +89,7 @@ public class RegisteredUserTestIT {
                 )).build();
         workoutService.saveWorkout(workout);
 
-        registeredUserService.rate(workout, 4, "nem rossz, lehetne jobb");
+        registeredUserService.rate(workout.getId(), 4.1, "nem rossz, lehetne jobb");
 
         assertThat(TrackerApplication.getInstance().getLoggedInUser().getRatings().size()).isEqualTo(1);
         assertThat(TrackerApplication.getInstance().getLoggedInUser().getRatings().get(0).getComment()).isEqualTo("nem rossz, lehetne jobb");

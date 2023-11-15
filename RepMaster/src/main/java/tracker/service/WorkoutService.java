@@ -4,10 +4,7 @@ import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import tracker.model.Exercise;
-import tracker.model.Gym;
-import tracker.model.Rating;
-import tracker.model.Workout;
+import tracker.model.*;
 import tracker.repository.ExerciseRepository;
 import tracker.repository.GymRepository;
 import tracker.repository.RatingRepository;
@@ -33,6 +30,12 @@ public class WorkoutService {
     public void deleteWorkout(int id){
         Optional<Workout> workout = workoutRepository.findById(id);
         workoutRepository.delete(workout.get());
+    }
+
+    @Transactional
+    public void addRating(int id, Rating rating){
+        Optional<Workout> workout = workoutRepository.findById(id);
+        workout.get().addRating(rating);
     }
 
     public Workout findWorkout(int id) {
