@@ -50,6 +50,13 @@ public class RegisteredUserTestIT {
         assertThat(loginMessage).isEqualTo("Login failed: wrong password");
     }
 
+    @Test
+    public void createUserWithExistingName() throws Exception{
+        String accountCreateMessage = registeredUserService.addRegisteredUser(RegisteredUser.builder().userName("TestUser").password("abc123").build());
+
+        assertThat(accountCreateMessage).isEqualTo("Account creation failed: username already exists");
+    }
+
 
 
 }
