@@ -78,6 +78,7 @@ public class WorkoutService {
         Optional<Workout> workout = workoutRepository.findById(workoutId);
         Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
         workout.get().removeExercise(exercise.get());
+        workout.get().removeMuscleGroup(exercise.get().getPrimaryMuscleGroup());
     }
 
 }
