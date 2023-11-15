@@ -32,10 +32,6 @@ public class RegisteredUserService {
         return "Account created, welcome "+rUser.getUserName();
     }
 
-    public RegisteredUser findUserByName(String userName) {
-        return registeredUserRepository.findByUserName(userName).size()==0 ? null : registeredUserRepository.findByUserName(userName).get(0);
-    }
-
     public String loginUser(String userName, String password) {
         if(userNameDoesntExist(userName))
             return "Login failed: no User with such username";
