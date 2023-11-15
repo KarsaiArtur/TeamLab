@@ -36,6 +36,13 @@ public class RegisteredUserTestIT {
         assertThat(loginMessage).isEqualTo("Login successful as "+rUser.getUserName());
     }
 
+    @Test
+    public void loginANonExistingUser() throws Exception{
+        String loginMessage = registeredUserService.loginUser("TestUser2", "");
+
+        assertThat(loginMessage).isEqualTo("Login failed: no User with such username");
+    }
+
 
 
 }
