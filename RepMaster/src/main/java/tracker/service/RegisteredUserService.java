@@ -32,4 +32,8 @@ public class RegisteredUserService {
     public RegisteredUser findUserByName(String userName) {
         return registeredUserRepository.findByUserName(userName).size()==0 ? null : registeredUserRepository.findByUserName(userName).get(0);
     }
+
+    public void deleteAll(){
+        registeredUserRepository.deleteAllInBatch();
+    }
 }
