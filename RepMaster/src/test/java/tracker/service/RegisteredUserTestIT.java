@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @SpringBootTest
+@AutoConfigureTestDatabase
 public class RegisteredUserTestIT {
     @Autowired
     private RegisteredUserService registeredUserService;
@@ -83,13 +84,7 @@ public class RegisteredUserTestIT {
     @Test
     public void rateAWorkout() throws Exception{
         registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
-        Workout workout = Workout.builder()
-                .name("Push")
-                .exercises(Arrays.asList(
-                        Exercise.builder().name("Bench Press").build(),
-                        Exercise.builder().name("Shoulder Press").build()
-                )).build();
-        workoutService.saveWorkout(workout);
+        Workout workout = createWorkout();
 
         registeredUserService.rate(workout, 4.1, "nem rossz, lehetne jobb");
 
@@ -102,12 +97,7 @@ public class RegisteredUserTestIT {
     @Test
     public void rateAnExercise() throws Exception{
         registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
-        Exercise exercise = Exercise.builder().name("Bench Press")
-                .isCompound(true)
-                .primaryMuscleGroup(MuscleGroup.Middle_Chest)
-                .secondaryMuscleGroups(new ArrayList<>(Arrays.asList(MuscleGroup.Upper_Chest, MuscleGroup.Lower_Chest)))
-                .build();
-        exerciseService.saveExercise(exercise);
+        Exercise exercise = createExercise("Bench Press" , MuscleGroup.Middle_Chest);
 
         registeredUserService.rate(exercise, 5, "best");
 
@@ -119,13 +109,7 @@ public class RegisteredUserTestIT {
 
     @Test
     public void searchExerciseByMuscleGroup() throws Exception {
-        Exercise exercise = Exercise.builder().name("Bench Press")
-                .isCompound(true)
-                .primaryMuscleGroup(MuscleGroup.Middle_Chest)
-                .secondaryMuscleGroups(new ArrayList<>(Arrays.asList(MuscleGroup.Upper_Chest, MuscleGroup.Lower_Chest)))
-                .build();
-        exerciseService.saveExercise(exercise);
-
+        createExercise("Bench Press" , MuscleGroup.Middle_Chest);
         List<Exercise> exercises = registeredUserService.SearchExerciseByMuscleGroup(MuscleGroup.Middle_Chest);
 
 
@@ -133,7 +117,20 @@ public class RegisteredUserTestIT {
         assertThat(exercises.get(0).getName()).isEqualTo("Bench Press");
     }
 
+    public Exercise createExercise(String name, MuscleGroup muscleGroup){
+        Exercise exercise = Exercise.builder().name(name)
+                .primaryMuscleGroup(muscleGroup)
+                .build();
 
+        exerciseService.saveExercise(exercise);
+        return exercise;
+    }
+
+    private Workout createWorkout() {
+        Workout workout = Workout.builder().build();
+        workoutService.saveWorkout(workout);
+        return workout;
+    }
 
 
 }
