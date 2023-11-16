@@ -86,7 +86,7 @@
       <recent name="tracker.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RegisteredUserTestIT.searchExerciseByDescendingRating">
+  <component name="RunManager" selected="JUnit.RegisteredUserTestIT">
     <configuration name="RegisteredUserTestIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webshop" />
       <extension name="coverage">
@@ -181,8 +181,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RegisteredUserTestIT.searchExerciseByDescendingRating" />
         <item itemvalue="JUnit.RegisteredUserTestIT" />
+        <item itemvalue="JUnit.RegisteredUserTestIT.searchExerciseByDescendingRating" />
         <item itemvalue="JUnit.RegisteredUserTestIT.testRatingCalculation" />
         <item itemvalue="JUnit.RegisteredUserTestIT.searchExerciseByMuscleGroup" />
         <item itemvalue="JUnit.WorkoutServiceTestIT" />

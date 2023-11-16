@@ -121,19 +121,7 @@ public class RegisteredUserTestIT {
     }
 
     @Test
-    public void testRatingCalculation() throws Exception{
-        registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
-        Exercise benchPress = createExercise("Bench Press" , MuscleGroup.Middle_Chest);
-        registeredUserService.rate(benchPress, 4, "almost it");
-        registeredUserService.rate(benchPress, 5, "best");
-
-        double avgRating = Rating.calculateRating(benchPress);
-        assertThat(avgRating).isEqualTo(4.5);
-
-    }
-
-    @Test
-    public void searchExerciseByDescendingRating() throws Exception {
+    public void searchExerciseByMuscleGroupAndDescendingRating() throws Exception {
         registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
         Exercise benchPress = createExercise("Bench Press" , MuscleGroup.Middle_Chest);
         Exercise cableFly = createExercise("Cable Fly" , MuscleGroup.Middle_Chest);
@@ -145,6 +133,33 @@ public class RegisteredUserTestIT {
 
         assertThat(exercises.get(0).getName()).isEqualTo("Cable Fly");
         assertThat(exercises.get(1).getName()).isEqualTo("Bench Press");
+    }
+
+    @Test
+    public void searchExerciseByAnyMuscleGroup() throws Exception {
+        registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
+        Exercise benchPress = createExercise("Bench Press" , MuscleGroup.Middle_Chest);
+        Exercise deadlift = createExercise("Deadlift" , MuscleGroup.Lower_Back);
+
+        registeredUserService.rate(benchPress, 4, "almost it");
+        registeredUserService.rate(deadlift, 5, "best");
+        List<Exercise> exercises = registeredUserService.SearchExerciseByMuscleGroup(null, null);
+
+        assertThat(exercises.size()).isEqualTo(2);
+        assertThat(exercises.get(0).getName()).isEqualTo("Bench Press");
+        assertThat(exercises.get(1).getName()).isEqualTo("Deadlift");
+    }
+
+    @Test
+    public void testRatingCalculation() throws Exception{
+        registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
+        Exercise benchPress = createExercise("Bench Press" , MuscleGroup.Middle_Chest);
+        registeredUserService.rate(benchPress, 4, "almost it");
+        registeredUserService.rate(benchPress, 5, "best");
+
+        double avgRating = Rating.calculateRating(benchPress);
+        assertThat(avgRating).isEqualTo(4.5);
+
     }
 
     public Exercise createExercise(String name, MuscleGroup muscleGroup){
