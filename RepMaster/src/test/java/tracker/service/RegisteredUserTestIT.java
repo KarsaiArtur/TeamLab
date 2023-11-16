@@ -119,6 +119,20 @@ public class RegisteredUserTestIT {
         assertThat(exercises.get(1).getName()).isEqualTo("Cable Fly");
     }
 
+    @Test
+    public void searchExerciseByDescendingRating() throws Exception {
+        Exercise benchPress = createExercise("Bench Press" , MuscleGroup.Middle_Chest);
+        Exercise cableFly = createExercise("Cable Fly" , MuscleGroup.Middle_Chest);
+
+        registeredUserService.rate(benchPress, 4, "almost it");
+        registeredUserService.rate(cableFly, 5, "best");
+        var isDesc = true;
+        List<Exercise> exercises = registeredUserService.SearchExerciseByMuscleGroup(MuscleGroup.Middle_Chest, isDesc);
+
+        assertThat(exercises.get(0).getName()).isEqualTo("Cable Fly");
+        assertThat(exercises.get(1).getName()).isEqualTo("Bench Press");
+    }
+
     public Exercise createExercise(String name, MuscleGroup muscleGroup){
         Exercise exercise = Exercise.builder().name(name)
                 .primaryMuscleGroup(muscleGroup)
