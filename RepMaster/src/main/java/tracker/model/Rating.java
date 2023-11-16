@@ -26,6 +26,8 @@ public class Rating {
     @ManyToOne
     private Workout workout;
     @ManyToOne
+    private Gym gym;
+    @ManyToOne
     private RegisteredUser registeredUser;
 
     /*public void calculateRating() {

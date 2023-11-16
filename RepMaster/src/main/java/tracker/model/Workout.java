@@ -65,6 +65,7 @@ public class Workout implements Rateable{
     @Override
     public void removeRating(Rating r) {
         ratings.remove(r);
+        r.setWorkout(null);
     }
 
 }

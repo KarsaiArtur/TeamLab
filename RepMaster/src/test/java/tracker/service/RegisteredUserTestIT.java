@@ -8,13 +8,11 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import tracker.TrackerApplication;
-import tracker.model.Exercise;
-import tracker.model.MuscleGroup;
-import tracker.model.RegisteredUser;
-import tracker.model.Workout;
+import tracker.model.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @SpringBootTest
 public class RegisteredUserTestIT {
@@ -119,6 +117,21 @@ public class RegisteredUserTestIT {
         assertThat(exerciseService.findExercise(exercise.getId()).getRatings().get(0).getComment()).isEqualTo("best");
     }
 
+    @Test
+    public void searchExerciseByMuscleGroup() throws Exception {
+        Exercise exercise = Exercise.builder().name("Bench Press")
+                .isCompound(true)
+                .primaryMuscleGroup(MuscleGroup.Middle_Chest)
+                .secondaryMuscleGroups(new ArrayList<>(Arrays.asList(MuscleGroup.Upper_Chest, MuscleGroup.Lower_Chest)))
+                .build();
+        exerciseService.saveExercise(exercise);
+
+        List<Exercise> exercises = registeredUserService.SearchExerciseByMuscleGroup(MuscleMuscleGroup.Middle_Chest));
+
+
+        assertThat(exercises.size()).isEqualTo(1);
+        assertThat(exercises.get(0).getName()).isEqualTo("Bench Press");
+    }
 
 
 

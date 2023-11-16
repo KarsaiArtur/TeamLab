@@ -19,7 +19,7 @@ public class RegisteredUser implements User{
     private int id;
     private String userName;
     private String password;
-    @OneToMany(mappedBy = "registeredUser")
+    @ManyToMany(mappedBy = "registeredUsers", fetch = FetchType.EAGER)
     private List<Gym> userGyms;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "registeredUser")
     private List<Rating> ratings;

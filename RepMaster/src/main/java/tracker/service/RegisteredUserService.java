@@ -16,7 +16,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 public class RegisteredUserService {
-
     private final RegisteredUserRepository registeredUserRepository;
     private final WorkoutService workoutService;
     private final RatingRepository ratingRepository;
