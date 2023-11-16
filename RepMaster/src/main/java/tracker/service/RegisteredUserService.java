@@ -65,6 +65,14 @@ public class RegisteredUserService {
 
     public List<Exercise> SearchExerciseByMuscleGroup(MuscleGroup muscleGroup, String sortMode){
         List<Exercise> exercises = exerciseRepository.findByPrimaryMuscleGroup(muscleGroup);
+        if(sortMode == "RatingDesc"){
+            Collections.sort(exercises, new Comparator<Exercise>() {
+                @Override
+                public int compare(Exercise o1, Exercise o2) {
+                    return Rating.calculateRating(o1) > Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) < Rating.calculateRating(o2)) ? 1 : 0;
+                }
+            });
+        }
         return exercises;
     }
 

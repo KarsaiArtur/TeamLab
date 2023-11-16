@@ -132,8 +132,9 @@ public class RegisteredUserTestIT {
 
     }
 
-    @Ignore
+    @Test
     public void searchExerciseByDescendingRating() throws Exception {
+        registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
         Exercise benchPress = createExercise("Bench Press" , MuscleGroup.Middle_Chest);
         Exercise cableFly = createExercise("Cable Fly" , MuscleGroup.Middle_Chest);
 
