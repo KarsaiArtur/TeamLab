@@ -31,6 +31,10 @@ public class WorkoutService {
         workoutRepository.delete(workout.get());
     }
 
+    public Workout findWorkout(int id) {
+        return workoutRepository.findById(id).isEmpty() ? null : workoutRepository.findById(id).get();
+    }
+
     public List<Workout> listWorkouts() {
         return workoutRepository.findAll();
     }

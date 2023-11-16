@@ -18,7 +18,7 @@ public class Workout implements Rateable{
     @GeneratedValue
     private int id;
     private String name;
-    @OneToMany(mappedBy = "workout")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "workout")
     private List<Rating> ratings;
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(
@@ -61,12 +61,21 @@ public class Workout implements Rateable{
 
     @Override
     public void addRating(Rating r) {
+        if(ratings == null)
+            ratings = new ArrayList<>();
         ratings.add(r);
+        r.setWorkout(this);
     }
 
     @Override
     public void removeRating(Rating r) {
         ratings.remove(r);
+        r.setWorkout(null);
+    }
+
+    @Override
+    public List<Rating> getRatings(){
+        return ratings;
     }
 
 }

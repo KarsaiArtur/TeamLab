@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="gymtests">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/GymService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/GymService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/GymServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/GymServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/GymServiceTestIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/GymServiceTestIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/WorkoutServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/WorkoutServiceTest.java" afterDir="false" />
+    <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="tdd35">
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" afterDir="false" />
     </list>
     <list id="2aaffac0-ec3d-4794-9b6a-4c3104a99dc6" name="Changes by latix" comment="5.1" />
-    <list id="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" name="Changes by szilva07" comment="workouttests">
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/WorkoutServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/WorkoutServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/WorkoutServiceTestIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/WorkoutServiceTestIT.java" afterDir="false" />
-    </list>
+    <list id="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" name="Changes by szilva07" comment="workoutit még tdd kell" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit4 Test Class" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -41,27 +31,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="skeleton" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java">
-      <ranges>
-        <range start1="27" end1="30" start2="27" end2="29" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="33" end1="35" start2="32" end2="35" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="37" end1="37" start2="37" end2="41" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
-        <range start1="42" end1="43" start2="46" end2="50" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/test/java/tracker/service/WorkoutServiceTest.java">
-      <ranges>
-        <range start1="3" end1="3" start2="3" end2="5" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
-        <range start1="24" end1="24" start2="26" end2="38" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
-        <range start1="28" end1="37" start2="42" end2="42" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
-        <range start1="40" end1="41" start2="45" end2="46" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="51" end1="58" start2="56" end2="56" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
-        <range start1="68" end1="71" start2="66" end2="66" changelist="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -108,8 +83,8 @@
       <recent name="tracker.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GymServiceTest">
-    <configuration name="GymServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.RegisteredUserTestIT">
+    <configuration name="RegisteredUserTestIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webshop" />
       <extension name="coverage">
         <pattern>
@@ -118,13 +93,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tracker.service" />
-      <option name="MAIN_CLASS_NAME" value="tracker.service.GymServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="tracker.service.RegisteredUserTestIT" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GymServiceTestIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegisteredUserTestIT.searchExerciseByAnyMuscleGroup" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webshop" />
       <extension name="coverage">
         <pattern>
@@ -133,29 +108,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tracker.service" />
-      <option name="MAIN_CLASS_NAME" value="tracker.service.GymServiceTestIT" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GymServiceTest.createGyms" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webshop" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tracker.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tracker.service" />
-      <option name="MAIN_CLASS_NAME" value="tracker.service.GymServiceTest" />
-      <option name="METHOD_NAME" value="createGyms" />
+      <option name="MAIN_CLASS_NAME" value="tracker.service.RegisteredUserTestIT" />
+      <option name="METHOD_NAME" value="searchExerciseByAnyMuscleGroup" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkoutServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegisteredUserTestIT.searchExerciseByDescendingRating" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webshop" />
       <extension name="coverage">
         <pattern>
@@ -164,13 +124,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tracker.service" />
-      <option name="MAIN_CLASS_NAME" value="tracker.service.WorkoutServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="tracker.service.RegisteredUserTestIT" />
+      <option name="METHOD_NAME" value="searchExerciseByDescendingRating" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkoutServiceTestIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegisteredUserTestIT.searchExerciseByMuscleGroup" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webshop" />
       <extension name="coverage">
         <pattern>
@@ -179,8 +140,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tracker.service" />
-      <option name="MAIN_CLASS_NAME" value="tracker.service.WorkoutServiceTestIT" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="tracker.service.RegisteredUserTestIT" />
+      <option name="METHOD_NAME" value="searchExerciseByMuscleGroup" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisteredUserTestIT.testRatingCalculation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webshop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tracker.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tracker.service" />
+      <option name="MAIN_CLASS_NAME" value="tracker.service.RegisteredUserTestIT" />
+      <option name="METHOD_NAME" value="testRatingCalculation" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -201,11 +179,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GymServiceTest" />
-        <item itemvalue="JUnit.WorkoutServiceTestIT" />
-        <item itemvalue="JUnit.WorkoutServiceTest" />
-        <item itemvalue="JUnit.GymServiceTestIT" />
-        <item itemvalue="JUnit.GymServiceTest.createGyms" />
+        <item itemvalue="JUnit.RegisteredUserTestIT" />
+        <item itemvalue="JUnit.RegisteredUserTestIT.searchExerciseByAnyMuscleGroup" />
+        <item itemvalue="JUnit.RegisteredUserTestIT.searchExerciseByDescendingRating" />
+        <item itemvalue="JUnit.RegisteredUserTestIT.testRatingCalculation" />
+        <item itemvalue="JUnit.RegisteredUserTestIT.searchExerciseByMuscleGroup" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +205,13 @@
       <workItem from="1699623657408" duration="33000" />
       <workItem from="1699623702731" duration="98000" />
       <workItem from="1699740502806" duration="6264000" />
-      <workItem from="1699826819918" duration="7888000" />
+      <workItem from="1699826819918" duration="7965000" />
+      <workItem from="1700001314889" duration="112000" />
+      <workItem from="1700001435446" duration="2721000" />
+      <workItem from="1700044714417" duration="1807000" />
+      <workItem from="1700046531601" duration="9925000" />
+      <workItem from="1700081092511" duration="98000" />
+      <workItem from="1700090165987" duration="7214000" />
     </task>
     <task id="LOCAL-00001" summary="gymservice tesztelgetés">
       <created>1699576647373</created>
@@ -285,7 +269,287 @@
       <option name="project" value="LOCAL" />
       <updated>1699746764358</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="gymservicetest még tdd kell">
+      <created>1699834767338</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699834767338</updated>
+    </task>
+    <task id="LOCAL-00010" summary="workoutit még tdd kell">
+      <created>1699834783517</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699834783517</updated>
+    </task>
+    <task id="LOCAL-00011" summary="test commit">
+      <created>1700045378298</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1700045378298</updated>
+    </task>
+    <task id="LOCAL-00012" summary="tdd">
+      <created>1700046009548</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1700046009548</updated>
+    </task>
+    <task id="LOCAL-00013" summary="tdd2">
+      <created>1700046505195</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1700046505195</updated>
+    </task>
+    <task id="LOCAL-00014" summary="tdd2">
+      <created>1700046595199</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1700046595199</updated>
+    </task>
+    <task id="LOCAL-00015" summary="tdd3">
+      <created>1700046875870</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1700046875870</updated>
+    </task>
+    <task id="LOCAL-00016" summary="tdd4">
+      <created>1700047249367</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1700047249367</updated>
+    </task>
+    <task id="LOCAL-00017" summary="tdd5">
+      <created>1700047394703</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1700047394703</updated>
+    </task>
+    <task id="LOCAL-00018" summary="tdd6">
+      <created>1700047765244</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1700047765244</updated>
+    </task>
+    <task id="LOCAL-00019" summary="tdd7">
+      <created>1700048170915</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1700048170915</updated>
+    </task>
+    <task id="LOCAL-00020" summary="tdd8">
+      <created>1700048460329</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1700048460329</updated>
+    </task>
+    <task id="LOCAL-00021" summary="tdd9">
+      <created>1700048688390</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1700048688390</updated>
+    </task>
+    <task id="LOCAL-00022" summary="tdd10">
+      <created>1700049079740</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1700049079740</updated>
+    </task>
+    <task id="LOCAL-00023" summary="tdd11">
+      <created>1700049159769</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1700049159769</updated>
+    </task>
+    <task id="LOCAL-00024" summary="tdd12">
+      <created>1700049260739</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1700049260739</updated>
+    </task>
+    <task id="LOCAL-00025" summary="tdd13">
+      <created>1700049359267</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1700049359267</updated>
+    </task>
+    <task id="LOCAL-00026" summary="tdd14">
+      <created>1700049640499</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1700049640499</updated>
+    </task>
+    <task id="LOCAL-00027" summary="tdd15">
+      <created>1700049705314</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1700049705314</updated>
+    </task>
+    <task id="LOCAL-00028" summary="tdd16">
+      <created>1700049785701</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1700049785701</updated>
+    </task>
+    <task id="LOCAL-00029" summary="tdd17">
+      <created>1700050044637</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1700050044637</updated>
+    </task>
+    <task id="LOCAL-00030" summary="tdd18">
+      <created>1700050631443</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1700050631443</updated>
+    </task>
+    <task id="LOCAL-00031" summary="tdd19">
+      <created>1700050730493</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1700050730493</updated>
+    </task>
+    <task id="LOCAL-00032" summary="tdd20">
+      <created>1700050984229</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1700050984229</updated>
+    </task>
+    <task id="LOCAL-00033" summary="tdd21">
+      <created>1700051191552</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1700051191552</updated>
+    </task>
+    <task id="LOCAL-00034" summary="tdd22">
+      <created>1700051279226</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1700051279226</updated>
+    </task>
+    <task id="LOCAL-00035" summary="tdd23">
+      <created>1700052547447</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1700052547447</updated>
+    </task>
+    <task id="LOCAL-00036" summary="tdd24">
+      <created>1700055533554</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1700055533554</updated>
+    </task>
+    <task id="LOCAL-00037" summary="tdd25">
+      <created>1700056135054</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1700056135054</updated>
+    </task>
+    <task id="LOCAL-00038" summary="tdd26">
+      <created>1700056396904</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1700056396904</updated>
+    </task>
+    <task id="LOCAL-00039" summary="tdd27">
+      <created>1700093680028</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1700093680028</updated>
+    </task>
+    <task id="LOCAL-00040" summary="tdd28">
+      <created>1700094262627</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1700094262627</updated>
+    </task>
+    <task id="LOCAL-00041" summary="tdd29">
+      <created>1700094528531</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1700094528531</updated>
+    </task>
+    <task id="LOCAL-00042" summary="tdd30">
+      <created>1700094967119</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1700094967119</updated>
+    </task>
+    <task id="LOCAL-00043" summary="tdd31">
+      <created>1700095050719</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1700095050719</updated>
+    </task>
+    <task id="LOCAL-00044" summary="tdd32">
+      <created>1700097016119</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1700097016119</updated>
+    </task>
+    <task id="LOCAL-00045" summary="tdd33">
+      <created>1700097088974</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1700097088974</updated>
+    </task>
+    <task id="LOCAL-00046" summary="tdd34">
+      <created>1700097422018</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1700097422018</updated>
+    </task>
+    <task id="LOCAL-00047" summary="tdd35">
+      <created>1700097621516</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1700097621516</updated>
+    </task>
+    <task id="LOCAL-00048" summary="tdd35">
+      <created>1700097629500</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1700097629500</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,11 +567,32 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="servicek írása" />
-    <MESSAGE value="gymservice tesztelgetés" />
-    <MESSAGE value="gymtests" />
-    <MESSAGE value="workouttests" />
-    <option name="LAST_COMMIT_MESSAGE" value="workouttests" />
+    <MESSAGE value="tdd11" />
+    <MESSAGE value="tdd12" />
+    <MESSAGE value="tdd13" />
+    <MESSAGE value="tdd14" />
+    <MESSAGE value="tdd15" />
+    <MESSAGE value="tdd16" />
+    <MESSAGE value="tdd17" />
+    <MESSAGE value="tdd18" />
+    <MESSAGE value="tdd19" />
+    <MESSAGE value="tdd20" />
+    <MESSAGE value="tdd21" />
+    <MESSAGE value="tdd22" />
+    <MESSAGE value="tdd23" />
+    <MESSAGE value="tdd24" />
+    <MESSAGE value="tdd25" />
+    <MESSAGE value="tdd26" />
+    <MESSAGE value="tdd27" />
+    <MESSAGE value="tdd28" />
+    <MESSAGE value="tdd29" />
+    <MESSAGE value="tdd30" />
+    <MESSAGE value="tdd31" />
+    <MESSAGE value="tdd32" />
+    <MESSAGE value="tdd33" />
+    <MESSAGE value="tdd34" />
+    <MESSAGE value="tdd35" />
+    <option name="LAST_COMMIT_MESSAGE" value="tdd35" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

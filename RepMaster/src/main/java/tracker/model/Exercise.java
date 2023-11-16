@@ -34,7 +34,7 @@ public class Exercise implements Rateable{
     @Enumerated(EnumType.STRING)
     private List<MuscleGroup> secondaryMuscleGroups;
 
-    @OneToMany(mappedBy = "exercise")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "exercise")
     private List<Rating> ratings;
     @OneToMany(mappedBy = "exercise")
     private List<ExerciseResult> exerciseResults;
@@ -67,11 +67,20 @@ public class Exercise implements Rateable{
 
     @Override
     public void addRating(Rating r) {
+        if(ratings == null)
+            ratings = new ArrayList<>();
         ratings.add(r);
+        r.setExercise(this);
     }
 
     @Override
     public void removeRating(Rating r) {
         ratings.remove(r);
+        r.setExercise(null);
+    }
+
+    @Override
+    public List<Rating> getRatings(){
+        return ratings;
     }
 }

@@ -6,5 +6,5 @@ import tracker.model.RegisteredUser;
 import java.util.List;
 
 public interface RegisteredUserRepository extends JpaRepository<RegisteredUser, Integer>{
-    List<RegisteredUser> findByUserName(String id);
+    List<RegisteredUser> findByUserName(String userName);
 }

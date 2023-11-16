@@ -20,12 +20,12 @@ public class Gym implements Rateable{
     private String name;
     private String location;
 
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "gym")
+    private List<Rating> ratings;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "split_id", referencedColumnName = "id")
     private Split split;
-
-    @OneToMany(mappedBy = "gym")
-    private List<Rating> ratings;
 
     @Enumerated(EnumType.STRING)
     private Equipment howEquipped;
@@ -38,8 +38,13 @@ public class Gym implements Rateable{
     )
     private List<Workout> workouts;
 
-    @ManyToOne
-    private RegisteredUser registeredUser;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "registered_user_connection",
+            joinColumns = @JoinColumn(name = "ru_id"),
+            inverseJoinColumns = @JoinColumn(name = "gym_id")
+    )
+    private List<RegisteredUser> registeredUsers;
 
     public void addWorkout(Workout w){
         if(workouts == null)
@@ -48,17 +53,26 @@ public class Gym implements Rateable{
         workouts.add(w);
     }
 
-    public void removeWorkout(Workout w){
-        workouts.remove(w);
-    }
-
     @Override
     public void addRating(Rating r) {
+        if(ratings == null)
+            ratings = new ArrayList<>();
         ratings.add(r);
+        r.setGym(this);
     }
 
     @Override
     public void removeRating(Rating r) {
         ratings.remove(r);
+        r.setGym(null);
+    }
+
+    @Override
+    public List<Rating> getRatings(){
+        return ratings;
+    }
+
+    public void removeWorkout(Workout w){
+        workouts.remove(w);
     }
 }

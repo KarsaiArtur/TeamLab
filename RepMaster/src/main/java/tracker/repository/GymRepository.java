@@ -6,5 +6,4 @@ import tracker.model.Gym;
 import java.util.List;
 
 public interface GymRepository extends JpaRepository<Gym, Integer>{
-    List<Gym> findByName(String id);
 }

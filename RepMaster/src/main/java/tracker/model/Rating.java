@@ -24,26 +24,20 @@ public class Rating {
     @ManyToOne
     private Exercise exercise;
     @ManyToOne
-    private Gym gym;
-    @ManyToOne
     private Workout workout;
+    @ManyToOne
+    private Gym gym;
     @ManyToOne
     private RegisteredUser registeredUser;
 
-
-    public Rating(double rating, String comment){
-        this.rating = rating;
-        this.comment = comment;
-    }
-
-    /*public void calculateRating() {
-        int ratingsCnt = 0;
+    public static double calculateRating(Rateable r) {
         int sum = 0;
-        for(RatingComment currentRating : allRatings) {
+        int ratingsCnt = 0;
+        for(Rating currentRating : r.getRatings()) {
             ratingsCnt++;
             sum += currentRating.getRating();
         }
-        this.rating = sum / (double)ratingsCnt;
-    }*/
+        return (sum / (double)ratingsCnt);
+    }
 }
 
