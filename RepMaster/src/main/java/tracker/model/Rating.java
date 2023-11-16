@@ -29,5 +29,15 @@ public class Rating {
     private Gym gym;
     @ManyToOne
     private RegisteredUser registeredUser;
+
+    public static double calculateRating(Rateable r) {
+        int sum = 0;
+        int ratingsCnt = 0;
+        for(Rating currentRating : r.getRatings()) {
+            ratingsCnt++;
+            sum += currentRating.getRating();
+        }
+        return (sum / (double)ratingsCnt);
+    }
 }
 
