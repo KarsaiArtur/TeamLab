@@ -6,6 +6,7 @@ import org.hibernate.jdbc.Work;
 import org.springframework.stereotype.Service;
 import tracker.TrackerApplication;
 import tracker.model.*;
+import tracker.repository.ExerciseRepository;
 import tracker.repository.RatingRepository;
 import tracker.repository.RegisteredUserRepository;
 import tracker.repository.WorkoutRepository;
@@ -17,8 +18,9 @@ import java.util.Optional;
 @Service
 public class RegisteredUserService {
     private final RegisteredUserRepository registeredUserRepository;
-    private final WorkoutService workoutService;
+    private final WorkoutRepository workoutRepository;
     private final RatingRepository ratingRepository;
+    private final ExerciseRepository exerciseRepository;
 
     private boolean userNameDoesntExist(String userName){
         return findUserByName(userName) == null;
@@ -62,9 +64,14 @@ public class RegisteredUserService {
         rUser.addRating(rateable, new_rating);
     }
 
+    public List<Exercise> SearchExerciseByMuscleGroup(MuscleGroup muscleGroup){
+        return exerciseRepository.findByPrimaryMuscleGroup(muscleGroup);
+    }
+
     public void deleteAll(){
         ratingRepository.deleteAllInBatch();
         registeredUserRepository.deleteAllInBatch();
-        workoutService.deleteAll();
+        workoutRepository.deleteAll();
+        exerciseRepository.deleteAllInBatch();
     }
 }

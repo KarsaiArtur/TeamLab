@@ -126,7 +126,7 @@ public class RegisteredUserTestIT {
                 .build();
         exerciseService.saveExercise(exercise);
 
-        List<Exercise> exercises = registeredUserService.SearchExerciseByMuscleGroup(MuscleMuscleGroup.Middle_Chest));
+        List<Exercise> exercises = registeredUserService.SearchExerciseByMuscleGroup(MuscleGroup.Middle_Chest);
 
 
         assertThat(exercises.size()).isEqualTo(1);
