@@ -67,6 +67,11 @@ public class Gym implements Rateable{
         r.setGym(null);
     }
 
+    @Override
+    public List<Rating> getRatings(){
+        return ratings;
+    }
+
     public void removeWorkout(Workout w){
         workouts.remove(w);
     }

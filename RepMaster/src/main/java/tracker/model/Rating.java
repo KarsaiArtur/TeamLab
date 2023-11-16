@@ -29,15 +29,5 @@ public class Rating {
     private Gym gym;
     @ManyToOne
     private RegisteredUser registeredUser;
-
-    /*public void calculateRating() {
-        int ratingsCnt = 0;
-        int sum = 0;
-        for(RatingComment currentRating : allRatings) {
-            ratingsCnt++;
-            sum += currentRating.getRating();
-        }
-        this.rating = sum / (double)ratingsCnt;
-    }*/
 }
 

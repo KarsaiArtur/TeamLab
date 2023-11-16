@@ -78,4 +78,9 @@ public class Exercise implements Rateable{
         ratings.remove(r);
         r.setExercise(null);
     }
+
+    @Override
+    public List<Rating> getRatings(){
+        return ratings;
+    }
 }

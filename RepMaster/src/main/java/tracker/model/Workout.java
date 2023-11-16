@@ -68,4 +68,9 @@ public class Workout implements Rateable{
         r.setWorkout(null);
     }
 
+    @Override
+    public List<Rating> getRatings(){
+        return ratings;
+    }
+
 }

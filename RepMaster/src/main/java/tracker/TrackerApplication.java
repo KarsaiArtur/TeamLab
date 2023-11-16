@@ -7,6 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Service;
+import tracker.model.Rateable;
+import tracker.model.Rating;
 import tracker.model.RegisteredUser;
 import tracker.service.InitDbService;
 
@@ -25,4 +27,5 @@ public class TrackerApplication implements CommandLineRunner{
     public static void main(String[] args){
         SpringApplication.run(TrackerApplication.class, args);
     }
+
 }

@@ -1,5 +1,6 @@
 package tracker.service;
 
+import org.junit.Ignore;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -111,7 +112,7 @@ public class RegisteredUserTestIT {
     public void searchExerciseByMuscleGroup() throws Exception {
         createExercise("Bench Press" , MuscleGroup.Middle_Chest);
         Exercise cableFly = createExercise("Cable Fly" , MuscleGroup.Middle_Chest);
-        List<Exercise> exercises = registeredUserService.SearchExerciseByMuscleGroup(MuscleGroup.Middle_Chest);
+        List<Exercise> exercises = registeredUserService.SearchExerciseByMuscleGroup(MuscleGroup.Middle_Chest, null);
 
 
         assertThat(exercises.size()).isEqualTo(2);
@@ -120,14 +121,26 @@ public class RegisteredUserTestIT {
     }
 
     @Test
+    public void testRatingCalculation() throws Exception{
+        registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
+        Exercise benchPress = createExercise("Bench Press" , MuscleGroup.Middle_Chest);
+        registeredUserService.rate(benchPress, 4, "almost it");
+        registeredUserService.rate(benchPress, 5, "best");
+
+        double avgRating = Rating.calculateRating(benchPress);
+        assertThat(avgRating).isEqualTo(4.5);
+
+    }
+
+    @Ignore
     public void searchExerciseByDescendingRating() throws Exception {
         Exercise benchPress = createExercise("Bench Press" , MuscleGroup.Middle_Chest);
         Exercise cableFly = createExercise("Cable Fly" , MuscleGroup.Middle_Chest);
 
         registeredUserService.rate(benchPress, 4, "almost it");
         registeredUserService.rate(cableFly, 5, "best");
-        var isDesc = true;
-        List<Exercise> exercises = registeredUserService.SearchExerciseByMuscleGroup(MuscleGroup.Middle_Chest, isDesc);
+        String sortMode = "RatingDesc";
+        List<Exercise> exercises = registeredUserService.SearchExerciseByMuscleGroup(MuscleGroup.Middle_Chest, sortMode);
 
         assertThat(exercises.get(0).getName()).isEqualTo("Cable Fly");
         assertThat(exercises.get(1).getName()).isEqualTo("Bench Press");

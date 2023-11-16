@@ -11,8 +11,7 @@ import tracker.repository.RatingRepository;
 import tracker.repository.RegisteredUserRepository;
 import tracker.repository.WorkoutRepository;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @RequiredArgsConstructor
 @Service
@@ -64,8 +63,9 @@ public class RegisteredUserService {
         rUser.addRating(rateable, new_rating);
     }
 
-    public List<Exercise> SearchExerciseByMuscleGroup(MuscleGroup muscleGroup){
-        return exerciseRepository.findByPrimaryMuscleGroup(muscleGroup);
+    public List<Exercise> SearchExerciseByMuscleGroup(MuscleGroup muscleGroup, String sortMode){
+        List<Exercise> exercises = exerciseRepository.findByPrimaryMuscleGroup(muscleGroup);
+        return exercises;
     }
 
     public void deleteAll(){
