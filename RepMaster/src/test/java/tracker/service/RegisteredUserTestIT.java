@@ -110,11 +110,13 @@ public class RegisteredUserTestIT {
     @Test
     public void searchExerciseByMuscleGroup() throws Exception {
         createExercise("Bench Press" , MuscleGroup.Middle_Chest);
+        Exercise cableFly = createExercise("Cable Fly" , MuscleGroup.Middle_Chest);
         List<Exercise> exercises = registeredUserService.SearchExerciseByMuscleGroup(MuscleGroup.Middle_Chest);
 
 
-        assertThat(exercises.size()).isEqualTo(1);
+        assertThat(exercises.size()).isEqualTo(2);
         assertThat(exercises.get(0).getName()).isEqualTo("Bench Press");
+        assertThat(exercises.get(1).getName()).isEqualTo("Cable Fly");
     }
 
     public Exercise createExercise(String name, MuscleGroup muscleGroup){
