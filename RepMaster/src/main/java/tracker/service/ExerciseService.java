@@ -20,6 +20,11 @@ public class ExerciseService {
     public Exercise findExercise(int id) {
         return exerciseRepository.findById(id).isEmpty() ? null : exerciseRepository.findById(id).get();
     }
+
+    public List<Exercise> listExercises() {
+        return exerciseRepository.findAll();
+    }
+
     @Transactional
     public void saveExerciseResultInExercise(Exercise exercise) {
         List<Exercise> exercises = exerciseRepository.findByName(exercise.getName());
@@ -41,8 +46,9 @@ public class ExerciseService {
     }
 
     @Transactional
-    public void deleteExercise(Exercise exercise){
-        exerciseRepository.delete(exercise);
+    public void deleteExercise(int id){
+        Optional<Exercise> exercise = exerciseRepository.findById(id);
+        exerciseRepository.delete(exercise.get());
     }
 
     @Transactional

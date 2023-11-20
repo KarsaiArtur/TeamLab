@@ -36,7 +36,7 @@ public class Exercise implements Rateable{
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "exercise")
     private List<Rating> ratings;
-    @OneToMany(mappedBy = "exercise")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "exercise")
     private List<ExerciseResult> exerciseResults;
 
     @ManyToMany(mappedBy = "exercises", fetch = FetchType.EAGER)
