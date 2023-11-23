@@ -11,7 +11,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import tracker.model.Exercise;
 import tracker.model.ExerciseResult;
 import tracker.model.Set;
-import tracker.model.Workout;
 import tracker.repository.ExerciseRepository;
 import tracker.repository.ExerciseResultRepository;
 

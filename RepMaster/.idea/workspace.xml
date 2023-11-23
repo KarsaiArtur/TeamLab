@@ -5,7 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="tdd35">
+      <change afterPath="$PROJECT_DIR$/src/main/java/tracker/web/GymTLController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tracker/web/RegisteredUserTLController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/TrackerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/TrackerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Equipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Rating.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Rating.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/repository/GymRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/GymRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/repository/WorkoutRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/WorkoutRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/InitDbService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/InitDbService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/ExerciseServiceIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/ExerciseServiceIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/ExerciseServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/ExerciseServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/GymServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/GymServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/RegisteredUserTestIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/RegisteredUserTestIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Equipment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Equipment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Exercise$ExerciseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Exercise$ExerciseBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Exercise.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Exercise.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/ExerciseResult$ExerciseResultBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/ExerciseResult$ExerciseResultBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Gym$GymBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Gym$GymBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Rating$RatingBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Rating$RatingBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Rating.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Rating.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/RegisteredUser$RegisteredUserBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/RegisteredUser$RegisteredUserBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Split$SplitBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Split$SplitBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/Workout$WorkoutBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/Workout$WorkoutBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/ExerciseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/ExerciseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/InitDbService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/InitDbService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/RegisteredUserService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/RegisteredUserService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/RegisteredUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/RegisteredUserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService$WorkoutServiceBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService$WorkoutServiceBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tracker/service/ExerciseServiceIT.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tracker/service/ExerciseServiceIT.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tracker/service/ExerciseServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tracker/service/ExerciseServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tracker/service/GymServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tracker/service/GymServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tracker/service/RegisteredUserTestIT.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tracker/service/RegisteredUserTestIT.class" afterDir="false" />
     </list>
     <list id="2aaffac0-ec3d-4794-9b6a-4c3104a99dc6" name="Changes by latix" comment="5.1" />
     <list id="8ce875e1-af9f-4a08-b8ed-d20857b3ae2e" name="Changes by szilva07" comment="workoutit még tdd kell" />
@@ -18,8 +56,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit4 Test Class" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -54,27 +93,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/artur/Desktop/egyetem/5.felev/témalab/TemaLab/RepMaster/pom.xml&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;ff4f702de67a1b253fa049521ea62868&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "last_opened_file_path": "C:/Users/artur/Desktop/egyetem/5.felev/témalab/TemaLab/TemaLab/RepMaster",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propCompiler",
+    "spring.configuration.checksum": "3c4ca491e52cb68b31137e567139f64e"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -83,9 +123,24 @@
       <recent name="tracker.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RegisteredUserTestIT">
-    <configuration name="RegisteredUserTestIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webshop" />
+  <component name="RunManager" selected="Spring Boot.TrackerApplication">
+    <configuration name="ExerciseServiceIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RepMaster" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tracker.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tracker.service" />
+      <option name="MAIN_CLASS_NAME" value="tracker.service.ExerciseServiceIT" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisteredUserTestIT (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RepMaster" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="tracker.service.*" />
@@ -99,8 +154,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisteredUserTestIT.searchExerciseByAnyMuscleGroup" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webshop" />
+    <configuration name="RegisteredUserTestIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RepMaster" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="tracker.service.*" />
@@ -109,14 +164,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="tracker.service" />
       <option name="MAIN_CLASS_NAME" value="tracker.service.RegisteredUserTestIT" />
-      <option name="METHOD_NAME" value="searchExerciseByAnyMuscleGroup" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisteredUserTestIT.searchExerciseByDescendingRating" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webshop" />
+    <configuration name="WorkoutServiceTestIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RepMaster" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="tracker.service.*" />
@@ -124,44 +178,17 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tracker.service" />
-      <option name="MAIN_CLASS_NAME" value="tracker.service.RegisteredUserTestIT" />
-      <option name="METHOD_NAME" value="searchExerciseByDescendingRating" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="tracker.service.WorkoutServiceTestIT" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisteredUserTestIT.searchExerciseByMuscleGroup" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webshop" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tracker.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tracker.service" />
-      <option name="MAIN_CLASS_NAME" value="tracker.service.RegisteredUserTestIT" />
-      <option name="METHOD_NAME" value="searchExerciseByMuscleGroup" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/RepMaster/templates/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
     </configuration>
-    <configuration name="RegisteredUserTestIT.testRatingCalculation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webshop" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tracker.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tracker.service" />
-      <option name="MAIN_CLASS_NAME" value="tracker.service.RegisteredUserTestIT" />
-      <option name="METHOD_NAME" value="testRatingCalculation" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="registration.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/RepMaster/templates/registration.html" useBuiltInWebServerPort="true">
+      <method v="2" />
     </configuration>
     <configuration name="TrackerApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="webshop" />
@@ -179,11 +206,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RegisteredUserTestIT" />
-        <item itemvalue="JUnit.RegisteredUserTestIT.searchExerciseByAnyMuscleGroup" />
-        <item itemvalue="JUnit.RegisteredUserTestIT.searchExerciseByDescendingRating" />
-        <item itemvalue="JUnit.RegisteredUserTestIT.testRatingCalculation" />
-        <item itemvalue="JUnit.RegisteredUserTestIT.searchExerciseByMuscleGroup" />
+        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.registration.html" />
+        <item itemvalue="JUnit.RegisteredUserTestIT (1)" />
+        <item itemvalue="JUnit.WorkoutServiceTestIT" />
+        <item itemvalue="JUnit.ExerciseServiceIT" />
       </list>
     </recent_temporary>
   </component>
@@ -212,6 +239,11 @@
       <workItem from="1700046531601" duration="9925000" />
       <workItem from="1700081092511" duration="98000" />
       <workItem from="1700090165987" duration="7214000" />
+      <workItem from="1700734374564" duration="3063000" />
+      <workItem from="1700741353277" duration="3710000" />
+      <workItem from="1700746521690" duration="277000" />
+      <workItem from="1700756633180" duration="208000" />
+      <workItem from="1700772351132" duration="9162000" />
     </task>
     <task id="LOCAL-00001" summary="gymservice tesztelgetés">
       <created>1699576647373</created>

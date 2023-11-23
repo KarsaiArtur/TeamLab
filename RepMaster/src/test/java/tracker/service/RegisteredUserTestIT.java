@@ -1,7 +1,5 @@
 package tracker.service;
 
-import org.junit.Ignore;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +9,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import tracker.TrackerApplication;
 import tracker.model.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @SpringBootTest
@@ -44,7 +40,9 @@ public class RegisteredUserTestIT {
     public void createNewUser() throws Exception{
         String accountCreateMessage = registeredUserService.addRegisteredUser(RegisteredUser.builder().userName("TestUser3").password("abc123").build());
 
+        RegisteredUser rU = registeredUserService.findUserByName("TestUser3");
         assertThat(accountCreateMessage).isEqualTo("Account created, welcome TestUser3");
+        assertThat(rU.getPassword()).isEqualTo("abc123");
     }
 
     @Test

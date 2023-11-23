@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login - RepMaster</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+            }
+
+            #login-container {
+                width: 300px;
+                margin: 100px auto;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            input {
+                width: 100%;
+                padding: 10px;
+                margin: 8px 0;
+                box-sizing: border-box;
+            }
+
+            #login-btn {
+                background-color: #4caf50;
+                color: #fff;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            #visit-btn {
+                background-color: #0099ff;
+                color: #fff;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            #registration-btn {
+                background-color: #FFFFFF;
+                color: #000;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 17px;
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="login-container">
+            <h2>Login</h2>
+            <td><span th:text="${msg}" id="msg">1</span></td>
+
+
+            <form th:action="@{/loginUser}" method="post" th:object="${loginUser}">
+                <label for="username">Username:</label>
+                <input th:field="*{userName}" id="username" required><br/>
+
+                <label for="password">Password:</label>
+                <input th:field="*{password}" type="password" id="password" name="password" required>
+
+                <input type="submit" value="Login" id="login-btn">
+            </form>
+
+            <input type="submit" value="Just visit" id="visit-btn">
+
+            <a href="registration">
+                <input type="button" value="Registration" id="registration-btn">
+            </a>
+        </div>
+    </body>
+</html>

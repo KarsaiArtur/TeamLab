@@ -2,7 +2,6 @@ package tracker.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.jdbc.Work;
 import org.springframework.stereotype.Service;
 import tracker.TrackerApplication;
 import tracker.model.*;
@@ -77,6 +76,10 @@ public class RegisteredUserService {
             });
         }
         return exercises;
+    }
+
+    public List<RegisteredUser> listUsers(){
+        return registeredUserRepository.findAll();
     }
 
     public void deleteAll(){

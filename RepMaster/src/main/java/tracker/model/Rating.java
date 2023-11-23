@@ -3,9 +3,6 @@ package tracker.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Getter
 @Setter
 @Builder
@@ -39,5 +36,7 @@ public class Rating {
         }
         return (sum / (double)ratingsCnt);
     }
+
+
 }
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Register - RepMaster</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+            }
+
+            #login-container {
+                width: 300px;
+                margin: 100px auto;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            input {
+                width: 100%;
+                padding: 10px;
+                margin: 8px 0;
+                box-sizing: border-box;
+            }
+
+            #registration-btn {
+                background-color: #4caf50;
+                color: #fff;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            #back-btn {
+                background-color: #FFFFFF;
+                color: #000;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 17px;
+            }
+
+            #msg {
+                font-size: 14px;
+            }
+        </style>
+        <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+    </head>
+    <body>
+        <div id="login-container">
+            <h2>Register</h2>
+            <td><span th:text="${msg}" id="msg">1</span></td>
+
+            <form th:action="@{/newRegisteredUser}" method="post" th:object="${newRegisteredUser}">
+                <label for="username">Username:</label>
+                <input th:field="*{userName}" id="username" required><br/>
+
+                <label for="password">Password:</label>
+                <input th:field="*{password}" type="password" id="password" name="password" required>
+
+                <input type="submit" value="Register" id="registration-btn">
+            </form>
+
+            <a href="/" >
+                <input type="button" value="Back" id="back-btn">
+            </a>
+        </div>
+    </body>
+</html>
