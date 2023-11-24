@@ -39,12 +39,8 @@ public class Exercise implements Rateable{
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "exercise")
     private List<ExerciseResult> exerciseResults;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-    @JoinTable(
-            name = "workout_exercise_connection",
-            joinColumns = @JoinColumn(name = "workout_id"),
-            inverseJoinColumns = @JoinColumn(name = "exercise_id")
-    )
+
+    @ManyToMany(mappedBy = "exercises", fetch = FetchType.EAGER)
     private List<Workout> workouts;
 
     public Exercise(int set_count) {

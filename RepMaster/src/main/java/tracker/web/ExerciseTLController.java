@@ -20,7 +20,7 @@ public class ExerciseTLController {
         userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
         //model.put("exercises", exerciseService.listExercises());
         model.put("userName", userName+"'s exercises");
-        return "exercise";
+        return "exercises";
     }
 
     /*@PostMapping("/open")

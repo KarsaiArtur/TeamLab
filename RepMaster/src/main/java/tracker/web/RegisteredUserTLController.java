@@ -32,7 +32,6 @@ public class RegisteredUserTLController {
     @PostMapping("/newRegisteredUser")
     public String register(RegisteredUser registeredUser) {
         msg = registeredUserService.addRegisteredUser(registeredUser);
-        //System.out.println(workoutService.listExercises(pushWorkout.getId()).get(0).getName());
         return "redirect:/registration";
     }
 

@@ -12,7 +12,7 @@ import tracker.model.*;
 import java.util.List;
 
 @SpringBootTest
-//@AutoConfigureTestDatabase
+@AutoConfigureTestDatabase
 public class RegisteredUserTestIT {
     @Autowired
     private GymService gymService;

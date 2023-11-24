@@ -22,7 +22,12 @@ public class Workout implements Rateable{
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "workout")
     private List<Rating> ratings;
 
-    @ManyToMany(mappedBy = "workouts", fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinTable(
+            name = "workout_exercise_connection",
+            joinColumns = @JoinColumn(name = "exercise_id"),
+            inverseJoinColumns = @JoinColumn(name = "workout_id")
+    )
     private List<Exercise> exercises;
 
     @ElementCollection(fetch = FetchType.EAGER)
@@ -45,8 +50,8 @@ public class Workout implements Rateable{
     public void addExercise(Exercise e){
         if(exercises == null)
             exercises = new ArrayList<>();
-        e.addWorkout(this);
         exercises.add(e);
+        e.addWorkout(this);
     }
 
     public void removeExercise(Exercise e){

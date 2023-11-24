@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import tracker.TrackerApplication;
-import tracker.service.ExerciseService;
+import tracker.service.ExerciseResultService;
 
 import java.util.Map;
 
@@ -20,7 +20,7 @@ public class ExerciseResultTLController {
         userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
         //model.put("results", exerciseResultService.listResults());
         model.put("userName", userName+"'s results");
-        return "exerciseResult";
+        return "exerciseResults";
     }
 
     /*@PostMapping("/open")

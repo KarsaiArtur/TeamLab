@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +37,11 @@
         <table th:each="exercise : ${exercises}">
             <tr>
                 <td><h1 th:text="${exercise.name}">MyExercise</h1></td>
-                <td><input type="button" value="Open" id="open-btn"></td>
+                <td>
+                    <a href="/exerciseResults">
+                        <input type="button" value="Open" id="open-btn">
+                    </a>
+                </td>
             </tr>
             <tr>
                 <td><span>Set count: </span></td>

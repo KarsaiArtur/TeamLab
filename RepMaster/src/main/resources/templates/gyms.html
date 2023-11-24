@@ -18,17 +18,18 @@
             justify-content: space-between;
         }
 
-        .toolbar button {
+        #addButton{
             background-color: lightgreen;
             border: none;
             cursor: pointer;
-        }
-        #addButton{
             color: darkgreen;
             font-size: 25px;
             padding: 20px 30px;
         }
         #searchButton{
+            background-color: lightgreen;
+            border: none;
+            cursor: pointer;
             font-size: 15px;
             padding: 20px 25px;
         }
@@ -52,9 +53,11 @@
         <table th:each="gym : ${gyms}">
             <tr>
                 <td><h1 th:text="${gym.name}">MyGym</h1></td>
-                <a href="/workouts">
-                    <td><input type="button" value="Open" id="open-btn"></td>
-                </a>
+                <td>
+                    <a href="/workouts">
+                        <input type="button" value="Open" id="open-btn">
+                    </a>
+                </td>
             </tr>
             <tr>
                 <td><span>Location: </span></td>

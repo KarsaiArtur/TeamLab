@@ -21,6 +21,8 @@ public class TrackerApplication implements CommandLineRunner{
     private static final TrackerApplication INSTANCE = new TrackerApplication();
     private RegisteredUser loggedInUser = RegisteredUser.builder().build();
     private Gym currentGym = Gym.builder().build();
+    private Workout currentWorkout = Workout.builder().build();
+    private Exercise currentExercise = Exercise.builder().build();
 
     public static TrackerApplication getInstance() { return INSTANCE; }
 

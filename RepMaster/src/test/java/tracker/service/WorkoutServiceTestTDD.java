@@ -15,7 +15,7 @@ import java.util.Arrays;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-//@AutoConfigureTestDatabase
+@AutoConfigureTestDatabase
 public class WorkoutServiceTestTDD {
     @Autowired
     private WorkoutService workoutService;

@@ -36,14 +36,16 @@
         <table th:each="workout : ${workouts}">
             <tr>
                 <td><h1 th:text="${workout.name}">MyWorkout</h1></td>
-                <td><input type="button" value="Open" id="open-btn"></td>
+                <td>
+                    <a href="/exercises">
+                        <input type="button" value="Open" id="open-btn">
+                    </a>
+                </td>
             </tr>
             <tr>
                 <td><span>MuscleGroups: </span></td>
                 <td><span th:text="${workout.muscleGroups}">WorkoutMuscleGroups</span></td>
             </tr>
         </table>
-
-
     </body>
 </html>

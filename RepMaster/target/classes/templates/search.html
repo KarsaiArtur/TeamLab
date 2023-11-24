@@ -1,10 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Radio Buttons</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .input-group-btn .btn-primary {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .input-group-btn .btn-primary.active,
+        .input-group-btn .btn-primary:active,
+        .input-group-btn .btn-primary:focus {
+            border: 2px solid #337ab7;
+            background-color: #337ab7;
+            color: #fff;
+        }
+
+        .input-group-btn .btn-primary input[type="radio"] {
+            display: none;
+        }
+    </style>
 </head>
 <body>
+    <div class="toolbar"></div>
+    <h1>Kereső</h1>
+
+    <form th:action="@{/search}" method="get">
+        <label for="searchQuery">Keresés:</label>
+        <input type="text" id="searchQuery" name="query" th:value="${query}" />
+        <button type="submit">Keresés</button>
+    </form>
+    <div class="input-group-btn" data-toggle="buttons">
+        <label class="btn btn-primary active">
+            <input type="radio" name="options" id="r_desc" checked>Rating Descending
+        </label>
+        <label class="btn btn-primary">
+            <input type="radio" name="options" id="r_asc">Rating Ascending
+        </label>
+        <label class="btn btn-primary">
+            <input type="radio" name="options" id="n_desc">Name Descending
+        </label>
+        <label class="btn btn-primary">
+            <input type="radio" name="options" id="n_asc">Name Descending
+        </label>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.btn-primary').on('click', function () {
+                // Töröljük az összes gombról az 'active' osztályt
+                $('.btn-primary').removeClass('active');
+                // Adjuk hozzá az 'active' osztályt csak a kiválasztott gombhoz
+                $(this).addClass('active');
+            });
+        });
+    </script>
+
+    <table th:each="element : ${elements}">
+        <tr>
+            <td><h1 th:text="${element.name}">MyGym</h1></td>
+        </tr>
+    </table>
 
 </body>
 </html>
