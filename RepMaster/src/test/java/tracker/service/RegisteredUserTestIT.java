@@ -32,7 +32,7 @@ public class RegisteredUserTestIT {
     }
 
     @Test
-    public void createUserWithExistingName() throws Exception{
+    public void createUserWithExistingName() throws Exception {
         String accountCreateMessage = registeredUserService.addRegisteredUser(RegisteredUser.builder().userName("TestUser").password("abc123").build());
 
         assertThat(accountCreateMessage).isEqualTo("Account creation failed: username already exists");

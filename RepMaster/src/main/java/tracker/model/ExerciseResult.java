@@ -37,6 +37,10 @@ public class ExerciseResult {
         sets.add(result);
     }
 
+    public void removeResult(Set result){
+            sets.remove(result);
+    }
+
     public double getWeightByIndex(int index){
         return sets.get(index).getWeight();
     }

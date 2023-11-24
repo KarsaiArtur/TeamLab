@@ -61,6 +61,7 @@ public class ExerciseService {
         List<Exercise> exercise = exerciseRepository.findByName(name);
         return exercise.get(0).getExerciseResults();
     }
+
     @Transactional
     public void addNewResults(String id, List<Set> sets) {
         List<Exercise> exercise = exerciseRepository.findByName(id);
