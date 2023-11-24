@@ -9,8 +9,10 @@ import tracker.repository.ExerciseRepository;
 import tracker.repository.RatingRepository;
 import tracker.repository.WorkoutRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Builder
 @RequiredArgsConstructor
@@ -37,6 +39,12 @@ public class WorkoutService {
 
     public List<Workout> listWorkouts() {
         return workoutRepository.findAll();
+    }
+
+    public List<Workout> listWorkoutsByGymId(int gymId) {
+        List<Workout> workouts = workoutRepository.findAll();
+        workouts= workouts.stream().filter(w -> w.getGyms().contains(gymId)).collect(Collectors.toList());
+        return workouts;
     }
 
     public List<Exercise> listExercises(int id){
@@ -81,6 +89,7 @@ public class WorkoutService {
         Optional<Workout> workout = workoutRepository.findById(workoutId);
         Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
         workout.get().removeExercise(exercise.get());
+        exercise.get().removeWorkout(workout.get());
         removeMuscleGroupFromWorkout(workout.get(), exercise.get().getPrimaryMuscleGroup());
     }
 

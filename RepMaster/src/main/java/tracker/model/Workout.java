@@ -1,6 +1,7 @@
 package tracker.model;
 
 import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -32,6 +33,14 @@ public class Workout implements Rateable{
 
     @ManyToMany(mappedBy = "workouts", fetch = FetchType.EAGER)
     private List<Gym> gyms;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "registered_user_workout_connection",
+            joinColumns = @JoinColumn(name = "ru_id"),
+            inverseJoinColumns = @JoinColumn(name = "workout_id")
+    )
+    private List<RegisteredUser> registeredUsers;
 
     public void addExercise(Exercise e){
         if(exercises == null)

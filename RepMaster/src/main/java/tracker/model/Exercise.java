@@ -65,6 +65,10 @@ public class Exercise implements Rateable{
         workouts.add(workout);
     }
 
+    public void removeWorkout(Workout workout){
+        workouts.remove(workout);
+    }
+
     public void addNewResult(ExerciseResult exerciseResult){
         if(exerciseResults == null){
             exerciseResults = new ArrayList<>();

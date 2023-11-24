@@ -23,15 +23,13 @@ public class RegisteredUser implements User{
     private List<Gym> userGyms;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "registeredUser")
     private List<Rating> ratings;
-
-    /*????????????????????????????
-    @ManyToMany(mappedBy = "registeredUsers")
-    private List<Workout> userWorkouts;*/
+    @ManyToMany(mappedBy = "registeredUsers", fetch = FetchType.EAGER)
+    private List<Workout> userWorkouts;
 
 
-    /*private void createWorkoutListIfEmpty() {
+    private void createWorkoutListIfEmpty() {
         if(userWorkouts == null) userWorkouts = new ArrayList<>();
-    }*/
+    }
 
     public void addGym(Gym g) {
         if(userGyms == null) userGyms = new ArrayList<>();
@@ -40,18 +38,18 @@ public class RegisteredUser implements User{
     }
 
 
-    /*public void addWorkoutToUser(Workout w) {
+    public void addWorkoutToUser(Workout w) {
         createWorkoutListIfEmpty();
         userWorkouts.add(w);
-    }*/
+    }
 
-    /*public void addWorkoutsFromUsersGyms() {
+    public void addWorkoutsFromUsersGyms() {
         createWorkoutListIfEmpty();
         for(Gym g: userGyms) {
             List<Workout> workouts = g.getWorkouts();
             userWorkouts.addAll(workouts);
         }
-    }*/
+    }
 
     public void addRating(Rateable rateable, Rating r){
         if(ratings == null)
