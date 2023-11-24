@@ -12,22 +12,16 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class ExerciseResultTLController {
 
-    //private final ExerciseResultService exerciseResultService;
+    private final ExerciseResultService exerciseResultService;
     private String userName = "";
 
     @GetMapping("/exerciseResults")
     public String results(Map<String, Object> model){
         userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
-        //model.put("results", exerciseResultService.listResults());
+        model.put("results", exerciseResultService.listExerciseResultsByExerciseId(TrackerApplication.getInstance().getCurrentExercise().getId()));
         model.put("userName", userName+"'s results");
         return "exerciseResults";
     }
-
-    /*@PostMapping("/open")
-    public String open(ExerciseResult result) {
-        exerciseResultService.saveExerciseResult(result);
-        return "redirect:/results";
-    }*/
 
     /*@PostMapping("/newExerciseResult")
     public String create(ExerciseResult result) {

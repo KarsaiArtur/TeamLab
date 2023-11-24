@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Result</title>
@@ -37,7 +37,6 @@
     <table th:each="exerciseResult : ${exerciseResults}">
       <tr>
         <td><h1 th:text="${exerciseResult.exercise.name}">MyResult</h1></td>
-        <input type="button" value="Open" id="open-btn">
       </tr>
       <tr>
         <td><span>Date: </span></td>

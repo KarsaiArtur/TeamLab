@@ -12,6 +12,7 @@ import tracker.repository.SetRepository;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -26,6 +27,12 @@ public class ExerciseResultService {
 
     public List<ExerciseResult> listResults() {
         return exerciseResultRepository.findAll();
+    }
+
+    public List<ExerciseResult> listExerciseResultsByExerciseId(int exerciseId) {
+        List<ExerciseResult> exerciseResults = exerciseResultRepository.findAll();
+        exerciseResults = exerciseResults.stream().filter(eR -> eR.getExercise().getId() == exerciseId).collect(Collectors.toList());
+        return exerciseResults;
     }
 
     @Transactional

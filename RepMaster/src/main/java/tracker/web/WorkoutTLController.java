@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import tracker.TrackerApplication;
 import tracker.model.Gym;
+import tracker.model.Workout;
 import tracker.service.GymService;
 import tracker.service.WorkoutService;
 
@@ -16,7 +17,6 @@ import java.util.Objects;
 @Controller
 @RequiredArgsConstructor
 public class WorkoutTLController {
-
     private final WorkoutService workoutService;
     private String userName = "";
 
@@ -26,6 +26,12 @@ public class WorkoutTLController {
         model.put("workouts", workoutService.listWorkoutsByGymId(TrackerApplication.getInstance().getCurrentGym().getId()));
         model.put("userName", userName+"'s workouts");
         return "workouts";
+    }
+
+    @PostMapping("/exercises")
+    public String exercise(Workout workout) {
+        TrackerApplication.getInstance().setCurrentWorkout(workout);
+        return "redirect:/exercises";
     }
 
     /*@PostMapping("/newGym")
