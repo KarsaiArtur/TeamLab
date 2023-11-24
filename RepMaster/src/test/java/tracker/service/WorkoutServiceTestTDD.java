@@ -15,7 +15,7 @@ import java.util.Arrays;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-@AutoConfigureTestDatabase
+//@AutoConfigureTestDatabase
 public class WorkoutServiceTestTDD {
     @Autowired
     private WorkoutService workoutService;
@@ -41,17 +41,7 @@ public class WorkoutServiceTestTDD {
         workoutService.saveWorkout(pushWorkout);
     }
 
-    @Test
-    void testAddNewExerciseToWorkout(){
-        //Arrange
 
-
-        //Act
-        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Bench_Press);
-
-        //Assert
-        assertThat(workoutService.listExercises(pushWorkout.getId()).get(0).getName()).isEqualTo("Bench Press");
-    }
 
     @Test
     void testAddNewExerciseWithMuscleGroupToWorkout(){
@@ -142,5 +132,16 @@ public class WorkoutServiceTestTDD {
 
         //Assert
         assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).size()).isEqualTo(0);
+    }
+
+    @Test
+    void testAddNewExerciseToWorkout(){
+        //Arrange
+
+        //Act
+        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Bench_Press);
+
+        //Assert
+        assertThat(workoutService.listExercises(pushWorkout.getId()).get(0).getName()).isEqualTo("Bench Press");
     }
 }

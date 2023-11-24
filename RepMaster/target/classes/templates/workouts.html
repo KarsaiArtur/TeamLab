@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gyms</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .toolbar {
+                background-color: green;
+                color: white;
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .toolbar button {
+                background-color: lightgreen;
+                color: green;
+                padding: 5px 10px;
+                border: none;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="toolbar">
+            <button id="zoomInButton">+</button>
+            <button id="searchButton">🔍</button>
+        </div>
+
+        <table th:each="workout : ${workouts}">
+            <tr>
+                <td><h1 th:text="${workout.name}">MyWorkout</h1></td>
+                <td><input type="button" value="Open" id="open-btn"></td>
+            </tr>
+            <tr>
+                <td><span>MuscleGroups: </span></td>
+                <td><span th:text="${workout.muscleGroups}">WorkoutMuscleGroups</span></td>
+            </tr>
+        </table>
+
+
+    </body>
+</html>

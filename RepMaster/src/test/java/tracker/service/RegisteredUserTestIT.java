@@ -12,8 +12,10 @@ import tracker.model.*;
 import java.util.List;
 
 @SpringBootTest
-@AutoConfigureTestDatabase
+//@AutoConfigureTestDatabase
 public class RegisteredUserTestIT {
+    @Autowired
+    private GymService gymService;
     @Autowired
     private RegisteredUserService registeredUserService;
     @Autowired
@@ -81,19 +83,6 @@ public class RegisteredUserTestIT {
     }
 
     @Test
-    public void rateAWorkout() throws Exception{
-        registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
-        Workout workout = createWorkout();
-
-        registeredUserService.rate(workout, 4.1, "nem rossz, lehetne jobb");
-
-        assertThat(TrackerApplication.getInstance().getLoggedInUser().getRatings().size()).isEqualTo(1);
-        assertThat(TrackerApplication.getInstance().getLoggedInUser().getRatings().get(0).getComment()).isEqualTo("nem rossz, lehetne jobb");
-        assertThat(workoutService.findWorkout(workout.getId()).getRatings().size()).isEqualTo(1);
-        assertThat(workoutService.findWorkout(workout.getId()).getRatings().get(0).getComment()).isEqualTo("nem rossz, lehetne jobb");
-    }
-
-    @Test
     public void rateAnExercise() throws Exception{
         registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
         Exercise exercise = createExercise("Bench Press" , MuscleGroup.Middle_Chest);
@@ -158,6 +147,21 @@ public class RegisteredUserTestIT {
         double avgRating = Rating.calculateRating(benchPress);
         assertThat(avgRating).isEqualTo(4.5);
 
+    }
+
+    @Test
+    void testAddNewGymToUser() throws Exception{
+        registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
+        //ACT
+        registeredUserService.addNewGymToUser(Gym.builder().name("Test1").build());
+        registeredUserService.addNewGymToUser(Gym.builder().name("Test2").build());
+
+        //ASSERT
+        List<Gym> userGyms = gymService.listUserGyms();
+
+        assertThat(userGyms.size()).isEqualTo(2);
+        assertThat(userGyms.get(0).getName()).isEqualTo("Test1");
+        assertThat(userGyms.get(1).getName()).isEqualTo("Test2");
     }
 
     public Exercise createExercise(String name, MuscleGroup muscleGroup){

@@ -28,9 +28,6 @@ public class RegisteredUser implements User{
     @ManyToMany(mappedBy = "registeredUsers")
     private List<Workout> userWorkouts;*/
 
-    public RegisteredUser(String username, String password) {
-        this.password = password;
-    }
 
     /*private void createWorkoutListIfEmpty() {
         if(userWorkouts == null) userWorkouts = new ArrayList<>();
@@ -38,6 +35,7 @@ public class RegisteredUser implements User{
 
     public void addGym(Gym g) {
         if(userGyms == null) userGyms = new ArrayList<>();
+        g.addRegisteredUser(this);
         userGyms.add(g);
     }
 

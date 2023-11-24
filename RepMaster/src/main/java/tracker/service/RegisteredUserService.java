@@ -5,10 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import tracker.TrackerApplication;
 import tracker.model.*;
-import tracker.repository.ExerciseRepository;
-import tracker.repository.RatingRepository;
-import tracker.repository.RegisteredUserRepository;
-import tracker.repository.WorkoutRepository;
+import tracker.repository.*;
 
 import java.util.*;
 
@@ -19,6 +16,7 @@ public class RegisteredUserService {
     private final WorkoutRepository workoutRepository;
     private final RatingRepository ratingRepository;
     private final ExerciseRepository exerciseRepository;
+    private final GymRepository gymRepository;
 
     private boolean userNameDoesntExist(String userName){
         return findUserByName(userName) == null;
@@ -30,6 +28,13 @@ public class RegisteredUserService {
 
     public RegisteredUser findUserByName(String userName){
         return registeredUserRepository.findByUserName(userName).size()==0 ? null : registeredUserRepository.findByUserName(userName).get(0);
+    }
+
+    @Transactional
+    public void addNewGymToUser(Gym gym){
+        Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(TrackerApplication.getInstance().getLoggedInUser().getId());
+        gymRepository.save(gym);
+        registeredUser.get().addGym(gym);
     }
 
     @Transactional

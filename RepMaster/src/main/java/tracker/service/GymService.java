@@ -3,9 +3,11 @@ package tracker.service;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import tracker.TrackerApplication;
 import tracker.model.*;
 import tracker.repository.GymRepository;
 import tracker.repository.RatingRepository;
+import tracker.repository.RegisteredUserRepository;
 import tracker.repository.WorkoutRepository;
 
 import java.util.List;
@@ -16,7 +18,7 @@ import java.util.Optional;
 public class GymService {
     private final GymRepository gymRepository;
     private final WorkoutRepository workoutRepository;
-    private final RatingRepository ratingRepository;
+    private final RegisteredUserRepository registeredUserRepository;
 
     @Transactional
     public Gym saveGym(Gym gym){
@@ -36,6 +38,11 @@ public class GymService {
 
     public List<Gym> listGyms() {
         return gymRepository.findAll();
+    }
+
+    public List<Gym> listUserGyms(){
+        Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(TrackerApplication.getInstance().getLoggedInUser().getId());
+        return registeredUser.get().getUserGyms();
     }
 
     @Transactional

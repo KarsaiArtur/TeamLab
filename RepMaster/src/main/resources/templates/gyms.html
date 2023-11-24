@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gyms</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .toolbar {
+            background-color: green;
+            color: white;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .toolbar button {
+            background-color: lightgreen;
+            border: none;
+            cursor: pointer;
+        }
+        #addButton{
+            color: darkgreen;
+            font-size: 25px;
+            padding: 20px 30px;
+        }
+        #searchButton{
+            font-size: 15px;
+            padding: 20px 25px;
+        }
+        #name{
+            font-size: 30px;
+            padding: 20px 25px;
+        }
+    </style>
+</head>
+    <body>
+        <div class="toolbar">
+            <form th:action="@{/add}" method="post" th:object="${add}">
+                 <input method="post" type="submit" value="+" id="addButton">
+            </form>
+            <td><span th:text="${userName}" id="name"></span></td>
+            <a href="/search">
+                <button id="searchButton">🔍</button>
+            </a>
+        </div>
+
+        <table th:each="gym : ${gyms}">
+            <tr>
+                <td><h1 th:text="${gym.name}">MyGym</h1></td>
+                <a href="/workouts">
+                    <td><input type="button" value="Open" id="open-btn"></td>
+                </a>
+            </tr>
+            <tr>
+                <td><span>Location: </span></td>
+                <td><span th:text="${gym.location}">GymLocation</span></td>
+            </tr>
+            <tr>
+                <td><span>Split: </span></td>
+                <td><span th:text="${gym.split}">GymSplit</span></td>
+            </tr>
+            <tr>
+                <td><span>Equipment level: </span></td>
+                <td><span th:text="${gym.howEquipped}">GymHowEquipped</span></td>
+            </tr>
+        </table>
+
+
+    </body>
+</html>

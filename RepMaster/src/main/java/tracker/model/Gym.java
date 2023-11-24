@@ -2,6 +2,7 @@ package tracker.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import tracker.repository.RegisteredUserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,10 +39,10 @@ public class Gym implements Rateable{
     )
     private List<Workout> workouts;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(
             name = "registered_user_connection",
-            joinColumns = @JoinColumn(name = "ru_id"),
+            joinColumns = @JoinColumn(name = "registeredUser_id"),
             inverseJoinColumns = @JoinColumn(name = "gym_id")
     )
     private List<RegisteredUser> registeredUsers;
@@ -51,6 +52,13 @@ public class Gym implements Rateable{
             workouts = new ArrayList<>();
 
         workouts.add(w);
+    }
+
+    public void addRegisteredUser(RegisteredUser rU){
+        if(registeredUsers == null)
+            registeredUsers = new ArrayList<>();
+
+        registeredUsers.add(rU);
     }
 
     @Override

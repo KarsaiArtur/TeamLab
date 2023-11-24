@@ -23,11 +23,20 @@
 
   <table>
     <tr th:each="gym : ${gyms}">
-      <td><span th:text="${gym.id}">1</span></td>
-      <td><span th:text="${gym.name}">MyGym</span></td>
-      <td><span th:text="${gym.location}">GymLocation</span></td>
-      <td><span th:text="${gym.split}">GymSplit</span></td>
-      <td><span th:text="${gym.howEquipped}">GymHowEquipped</span></td>
+      <td><h1 th:text="${gym.name}">MyGym</h1></td>
+      <td><a th:text="${gym.id}">1</a></td>
+    </tr>
+    <tr>
+    <td><span>Location: </span></td>
+    <td><span th:text="${gym.location}">GymLocation</span></td>
+    </tr>
+    <tr>
+    <td><span>Split: </span></td>
+    <td><span th:text="${gym.split}">GymSplit</span></td>
+    </tr>
+    <tr>
+    <td><span>Equipment level: </span></td>
+    <td><span th:text="${gym.howEquipped}">GymHowEquipped</span></td>
     </tr>
   </table>
 

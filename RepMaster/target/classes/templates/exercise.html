@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercise</title>
+        <style>
+          body {
+            margin: 0;
+            padding: 0;
+          }
+
+          .toolbar {
+            background-color: green;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .toolbar button {
+            background-color: lightgreen;
+            color: green;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+          }
+        </style>
+    </head>
+
+    <body>
+        <div class="toolbar">
+            <button id="zoomInButton">+</button>
+            <button id="searchButton">🔍</button>
+        </div>
+
+        <table th:each="exercise : ${exercises}">
+            <tr>
+                <td><h1 th:text="${exercise.name}">MyExercise</h1></td>
+                <td><input type="button" value="Open" id="open-btn"></td>
+            </tr>
+            <tr>
+                <td><span>Set count: </span></td>
+                <td><span th:text="${exercise.set_count}">exerciseSetCount</span></td>
+            </tr>
+            <tr>
+                <td><span>Rep count: </span></td>
+                <td><span th:text="${exercise.repetition_count}">exerciseRepCount</span></td>
+            </tr>
+            <tr>
+                <td><span>Compound: </span></td>
+                <td><span th:text="${exercise.isCompound}">exerciseCompound</span></td>
+            </tr>
+            <tr>
+                <td><span>Primary muscle group: </span></td>
+                <td><span th:text="${exercise.primaryMuscleGroup}">exercisePrimaryMuscleGroup</span></td>
+            </tr>
+        </table>
+    </body>
+</html>
