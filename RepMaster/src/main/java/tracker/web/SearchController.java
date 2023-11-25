@@ -12,6 +12,7 @@ import tracker.model.RegisteredUser;
 import tracker.service.GymService;
 import tracker.service.RegisteredUserService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +26,7 @@ public class SearchController {
 
     @GetMapping("/search")
     public String search(Map<String, Object> model){
-        if(!searched) rateableList = registeredUserService.SearchGymBySplit(null, null);
+        if(!searched) rateableList = new ArrayList<>();
         model.put("elements", rateableList);
         model.put("search", new Search());
         return "search";
@@ -34,7 +35,18 @@ public class SearchController {
     @PostMapping("/search")
     public String r_desc(Search search) {
         searched=true;
-        rateableList = registeredUserService.SearchGymBySplit(search.searchBar, search.order);
+        if("GymSplit".equals(search.searchType)){
+            rateableList = registeredUserService.SearchGymBySplit(search.searchBar, search.order);
+        }
+        else if("WorkoutName".equals(search.searchType)){
+            rateableList = registeredUserService.SearchWorkoutByName(search.searchBar, search.order);
+        }
+        else if("ExerciseMuscle".equals(search.searchType)){
+            rateableList = registeredUserService.SearchExerciseByMuscleGroup(search.searchBar, search.order);
+        }
+        else{
+            rateableList = new ArrayList<>();
+        }
         return "redirect:/search";
     }
 
@@ -43,5 +55,7 @@ public class SearchController {
     class Search{
         private String searchBar;
         private String order;
+        private String searchType;
+
     }
 }

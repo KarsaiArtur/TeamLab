@@ -97,7 +97,7 @@ public class Exercise extends Rateable{
 
     @Override
     public String toString(){
-        return name;
+        return name+" "+primaryMuscleGroup.toString().replace("_", " ");
     }
 
     @Override

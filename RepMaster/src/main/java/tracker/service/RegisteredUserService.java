@@ -69,18 +69,26 @@ public class RegisteredUserService {
         rUser.addRating(rateable, new_rating);
     }
 
-    public List<Rateable> SearchExerciseByMuscleGroup(MuscleGroup muscleGroup, String sortMode){
-        List<Exercise> exercises = exerciseRepository.findByPrimaryMuscleGroup(muscleGroup);
-        if(muscleGroup == null){
-            exercises = exerciseRepository.findAll();
+    public List<Rateable> SearchExerciseByMuscleGroup(String muscleGroup, String sortMode){
+        List<Exercise> exercises = exerciseRepository.findAll();
+        if(muscleGroup != null){
+            exercises = exercises.stream().filter(a -> a.getPrimaryMuscleGroup().toString().toUpperCase().contains(muscleGroup.toUpperCase())).collect(Collectors.toList());
         }
-        if(sortMode == "RatingDesc"){
+        if("RatingDesc".equals(sortMode)){
             Collections.sort(exercises,
                     (o1, o2) -> Rating.calculateRating(o1) > Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) < Rating.calculateRating(o2)) ? 1 : 0);
         }
-        if(sortMode == "RatingAsc"){
+        if("RatingAsc".equals(sortMode)){
             Collections.sort(exercises,
                     (o1, o2) -> Rating.calculateRating(o1) < Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) > Rating.calculateRating(o2)) ? 1 : 0);
+        }
+        if("NameAsc".equals(sortMode)){
+            Collections.sort(exercises,
+                    (o1, o2) -> o1.getName().compareTo(o2.getName()));
+        }
+        if("NameDesc".equals(sortMode)){
+            Collections.sort(exercises,
+                    (o1, o2) -> o2.getName().compareTo(o1.getName()));
         }
         List<Rateable> rateables = new ArrayList<>();
         for (Exercise e: exercises) {
@@ -92,7 +100,7 @@ public class RegisteredUserService {
     public List<Rateable> SearchGymBySplit(String split, String sortMode){
         List<Gym> gyms = gymRepository.findAll();
         if(split != null){
-            gyms = gyms.stream().filter(a -> a.getSplit().getName().toString().contains(split)).collect(Collectors.toList());
+            gyms = gyms.stream().filter(a -> a.getSplit().getName().toString().toUpperCase().contains(split.toUpperCase())).collect(Collectors.toList());
         }
         if("RatingDesc".equals(sortMode)){
             Collections.sort(gyms,
@@ -119,16 +127,24 @@ public class RegisteredUserService {
 
     public List<Rateable> SearchWorkoutByName(String name, String sortMode){
         List<Workout> workouts = workoutRepository.findAll();
-        if(name != null){
-            workouts = workoutRepository.findByName(name);
+        if(name != "" && name != null){
+            workouts = workouts.stream().filter(a -> a.getName().toUpperCase().contains(name.toUpperCase())).collect(Collectors.toList());
         }
-        if(sortMode == "RatingDesc"){
+        if("RatingDesc".equals(sortMode)){
             Collections.sort(workouts,
                     (o1, o2) -> Rating.calculateRating(o1) > Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) < Rating.calculateRating(o2)) ? 1 : 0);
         }
-        if(sortMode == "RatingAsc"){
+        if("RatingAsc".equals(sortMode)){
             Collections.sort(workouts,
                     (o1, o2) -> Rating.calculateRating(o1) < Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) > Rating.calculateRating(o2)) ? 1 : 0);
+        }
+        if("NameAsc".equals(sortMode)){
+            Collections.sort(workouts,
+                    (o1, o2) -> o1.getName().compareTo(o2.getName()));
+        }
+        if("NameDesc".equals(sortMode)){
+            Collections.sort(workouts,
+                    (o1, o2) -> o2.getName().compareTo(o1.getName()));
         }
         List<Rateable> rateables = new ArrayList<>();
         for (Workout w: workouts) {

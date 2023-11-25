@@ -99,7 +99,7 @@ public class RegisteredUserTestIT {
     public void searchExerciseByMuscleGroup() throws Exception {
         createExercise("Bench Press" , MuscleGroup.Middle_Chest);
         Exercise cableFly = createExercise("Cable Fly" , MuscleGroup.Middle_Chest);
-        List<Rateable> exercises = registeredUserService.SearchExerciseByMuscleGroup(MuscleGroup.Middle_Chest, null);
+        List<Rateable> exercises = registeredUserService.SearchExerciseByMuscleGroup("Middle_Chest", null);
 
 
         assertThat(exercises.size()).isEqualTo(2);
@@ -116,7 +116,7 @@ public class RegisteredUserTestIT {
         registeredUserService.rate(benchPress, 4, "almost it");
         registeredUserService.rate(cableFly, 5, "best");
         String sortMode = "RatingDesc";
-        List<Rateable> exercises = registeredUserService.SearchExerciseByMuscleGroup(MuscleGroup.Middle_Chest, sortMode);
+        List<Rateable> exercises = registeredUserService.SearchExerciseByMuscleGroup("Middle_Chest", sortMode);
 
         assertThat(exercises.get(0).getName()).isEqualTo("Cable Fly");
         assertThat(exercises.get(1).getName()).isEqualTo("Bench Press");
@@ -204,6 +204,14 @@ public class RegisteredUserTestIT {
         Gym gym2 = createGym("Ac", Split.SplitType.Body_Part);
         Gym gym3 = createGym("Wc", Split.SplitType.Full_Body);
         Gym gym4 = createGym("Fc", Split.SplitType.Full_Body);
+        Exercise exercise = createExercise("Dc_e", MuscleGroup.Middle_Chest);
+        Exercise exercise2 = createExercise("Ac_e", MuscleGroup.Middle_Chest);
+        Exercise exercise3 = createExercise("Wc_e", MuscleGroup.Biceps);
+        Exercise exercise4 = createExercise("Fc_e", MuscleGroup.Biceps);
+        Workout workout = createWorkout("Dc_w");
+        Workout workout2 = createWorkout("Ac_w");
+        Workout workout3 = createWorkout("Wc_w");
+        Workout workout4 = createWorkout("Fc_w");
     }
 
     public Exercise createExercise(String name, MuscleGroup muscleGroup){
@@ -221,5 +229,9 @@ public class RegisteredUserTestIT {
         return gym;
     }
 
-
+    private Workout createWorkout(String name) {
+        Workout workout = Workout.builder().name(name).build();
+        workoutService.saveWorkout(workout);
+        return workout;
+    }
 }

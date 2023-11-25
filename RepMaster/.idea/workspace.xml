@@ -4,33 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="html 3.0">
+    <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="html 4.2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/TrackerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/TrackerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Exercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Exercise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Gym.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Gym.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Rateable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Rateable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/repository/GymRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/GymRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/repository/WorkoutRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/repository/WorkoutRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/GymTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/GymTLController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/AddGymTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/AddGymTLController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/SearchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tracker/service/RegisteredUserTestIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tracker/service/RegisteredUserTestIT.java" afterDir="false" />
     </list>
     <list id="2aaffac0-ec3d-4794-9b6a-4c3104a99dc6" name="Changes by latix" comment="html 2.1" />
-    <list id="56897fc9-469f-4d70-af09-fb66036daf3a" name="Changes by szilva07" comment="html 3.1">
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Exercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Exercise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/ExerciseResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/ExerciseResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Gym.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Gym.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/RegisteredUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/RegisteredUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Set.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Set.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/ExerciseResultTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/ExerciseResultTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/GymTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/GymTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/exerciseResults.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/exerciseResults.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/gyms.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/gyms.html" afterDir="false" />
+    <list id="b1da4595-029f-4ec1-acbc-bdd42aced874" name="Changes by szilva07" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/AddGymTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/AddGymTLController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addGym.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addGym.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,34 +49,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/tracker/web/GymTLController.java">
+    <file path="$PROJECT_DIR$/src/main/java/tracker/web/AddGymTLController.java">
       <ranges>
-        <range start1="6" end1="7" start2="6" end2="6" changelist="56897fc9-469f-4d70-af09-fb66036daf3a" />
-        <range start1="12" end1="13" start2="11" end2="11" changelist="56897fc9-469f-4d70-af09-fb66036daf3a" />
-        <range start1="14" end1="15" start2="12" end2="12" changelist="56897fc9-469f-4d70-af09-fb66036daf3a" />
-        <range start1="19" end1="20" start2="16" end2="16" changelist="56897fc9-469f-4d70-af09-fb66036daf3a" />
-        <range start1="39" end1="45" start2="35" end2="39" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/tracker/model/Exercise.java">
-      <ranges>
-        <range start1="1" end1="2" start2="1" end2="1" changelist="56897fc9-469f-4d70-af09-fb66036daf3a" />
-        <range start1="16" end1="17" start2="15" end2="16" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="97" end1="97" start2="96" end2="106" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java">
-      <ranges>
-        <range start1="3" end1="4" start2="3" end2="3" changelist="56897fc9-469f-4d70-af09-fb66036daf3a" />
-        <range start1="16" end1="17" start2="15" end2="16" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="90" end1="90" start2="89" end2="98" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/tracker/model/Gym.java">
-      <ranges>
-        <range start1="4" end1="5" start2="4" end2="4" changelist="56897fc9-469f-4d70-af09-fb66036daf3a" />
-        <range start1="16" end1="17" start2="15" end2="16" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="85" end1="85" start2="84" end2="95" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="2" end1="2" start2="2" end2="3" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
+        <range start1="3" end1="3" start2="4" end2="5" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
+        <range start1="7" end1="7" start2="9" end2="10" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
+        <range start1="24" end1="25" start2="27" end2="28" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
+        <range start1="29" end1="31" start2="32" end2="41" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
+        <range start1="34" end1="34" start2="44" end2="54" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
       </ranges>
     </file>
   </component>
@@ -204,21 +170,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkoutServiceTestTDD.testAddNewExerciseToWorkout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RepMaster" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tracker.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tracker.service" />
-      <option name="MAIN_CLASS_NAME" value="tracker.service.WorkoutServiceTestTDD" />
-      <option name="METHOD_NAME" value="testAddNewExerciseToWorkout" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="search.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/RepMaster/templates/search.html" useBuiltInWebServerPort="true">
+      <method v="2" />
     </configuration>
     <configuration name="TrackerApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="webshop" />
@@ -238,9 +191,9 @@
       <list>
         <item itemvalue="JUnit.RegisteredUserTestIT.add" />
         <item itemvalue="JUnit.RegisteredUserTestIT (1)" />
+        <item itemvalue="JavaScript Debug.search.html" />
         <item itemvalue="JUnit.RegisteredUserTestIT.searchGymBySplitNameAsc" />
         <item itemvalue="JUnit.RegisteredUserTestIT.testAddNewGymToUser" />
-        <item itemvalue="JUnit.WorkoutServiceTestTDD.testAddNewExerciseToWorkout" />
       </list>
     </recent_temporary>
   </component>
@@ -277,28 +230,8 @@
       <workItem from="1700823893971" duration="12517000" />
       <workItem from="1700862799507" duration="5659000" />
       <workItem from="1700868698967" duration="166000" />
-      <workItem from="1700909795681" duration="9152000" />
-    </task>
-    <task id="LOCAL-00006" summary="gymtests">
-      <created>1699746739452</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1699746739452</updated>
-    </task>
-    <task id="LOCAL-00007" summary="gymtests">
-      <created>1699746749761</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1699746749761</updated>
-    </task>
-    <task id="LOCAL-00008" summary="workouttests">
-      <created>1699746764358</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1699746764358</updated>
+      <workItem from="1700909795681" duration="9212000" />
+      <workItem from="1700952620003" duration="3573000" />
     </task>
     <task id="LOCAL-00009" summary="gymservicetest még tdd kell">
       <created>1699834767338</created>
@@ -622,7 +555,28 @@
       <option name="project" value="LOCAL" />
       <updated>1700868859523</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="html 4.0">
+      <created>1700920871187</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1700920871187</updated>
+    </task>
+    <task id="LOCAL-00056" summary="html 4.1">
+      <created>1700920890389</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1700920890389</updated>
+    </task>
+    <task id="LOCAL-00057" summary="html 4.2">
+      <created>1700920901037</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1700920901037</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -640,9 +594,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="tdd17" />
-    <MESSAGE value="tdd18" />
-    <MESSAGE value="tdd19" />
     <MESSAGE value="tdd20" />
     <MESSAGE value="tdd21" />
     <MESSAGE value="tdd22" />
@@ -665,7 +616,10 @@
     <MESSAGE value="html 2.2" />
     <MESSAGE value="html 3.0" />
     <MESSAGE value="html 3.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="html 3.1" />
+    <MESSAGE value="html 4.0" />
+    <MESSAGE value="html 4.1" />
+    <MESSAGE value="html 4.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="html 4.2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

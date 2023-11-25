@@ -27,9 +27,26 @@ public class AddGymTLController {
     }
 
     @PostMapping("/add")
-    public String add(Gym gym) {
-        gym = Gym.builder().name("TEST").build();
+    public String add(GymCopy gymCopy) {
+        Gym gym = Gym.builder()
+                .name(gymCopy.getName())
+                .location(gymCopy.getLocation())
+                .howEquipped(Equipment.valueOf(gymCopy.getHowEquipped()))
+                .split(Split.builder()
+                        .name(Split.SplitType.valueOf(gymCopy.getSplitType()))
+                        .numberOfDays(gymCopy.getNumberOfDays())
+                        .build()).build();
         registeredUserService.addNewGymToUser(gym);
         return "redirect:/gyms";
+    }
+
+    @Setter
+    @Getter
+    class GymCopy{
+        private String name;
+        private String location;
+        private int numberOfDays;
+        private String splitType;
+        private String howEquipped;
     }
 }
