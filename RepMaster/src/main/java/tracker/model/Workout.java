@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Workout implements Rateable{
+public class Workout extends Rateable{
     @Id
     @GeneratedValue
     private int id;
@@ -88,4 +88,13 @@ public class Workout implements Rateable{
         return ratings;
     }
 
+    @Override
+    public String toString(){
+        return name;
+    }
+
+    @Override
+    public String getName(){
+        return name;
+    }
 }

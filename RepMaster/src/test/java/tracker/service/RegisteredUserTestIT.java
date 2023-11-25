@@ -12,7 +12,7 @@ import tracker.model.*;
 import java.util.List;
 
 @SpringBootTest
-@AutoConfigureTestDatabase
+//@AutoConfigureTestDatabase
 public class RegisteredUserTestIT {
     @Autowired
     private GymService gymService;
@@ -99,7 +99,7 @@ public class RegisteredUserTestIT {
     public void searchExerciseByMuscleGroup() throws Exception {
         createExercise("Bench Press" , MuscleGroup.Middle_Chest);
         Exercise cableFly = createExercise("Cable Fly" , MuscleGroup.Middle_Chest);
-        List<Exercise> exercises = registeredUserService.SearchExerciseByMuscleGroup(MuscleGroup.Middle_Chest, null);
+        List<Rateable> exercises = registeredUserService.SearchExerciseByMuscleGroup(MuscleGroup.Middle_Chest, null);
 
 
         assertThat(exercises.size()).isEqualTo(2);
@@ -116,7 +116,7 @@ public class RegisteredUserTestIT {
         registeredUserService.rate(benchPress, 4, "almost it");
         registeredUserService.rate(cableFly, 5, "best");
         String sortMode = "RatingDesc";
-        List<Exercise> exercises = registeredUserService.SearchExerciseByMuscleGroup(MuscleGroup.Middle_Chest, sortMode);
+        List<Rateable> exercises = registeredUserService.SearchExerciseByMuscleGroup(MuscleGroup.Middle_Chest, sortMode);
 
         assertThat(exercises.get(0).getName()).isEqualTo("Cable Fly");
         assertThat(exercises.get(1).getName()).isEqualTo("Bench Press");
@@ -130,11 +130,45 @@ public class RegisteredUserTestIT {
 
         registeredUserService.rate(benchPress, 4, "almost it");
         registeredUserService.rate(deadlift, 5, "best");
-        List<Exercise> exercises = registeredUserService.SearchExerciseByMuscleGroup(null, null);
+        List<Rateable> exercises = registeredUserService.SearchExerciseByMuscleGroup(null, null);
 
         assertThat(exercises.size()).isEqualTo(2);
         assertThat(exercises.get(0).getName()).isEqualTo("Bench Press");
         assertThat(exercises.get(1).getName()).isEqualTo("Deadlift");
+    }
+
+    @Test
+    public void searchGymBySplit() throws Exception {
+        Gym gym = Gym.builder().name("test")
+                .split(Split.builder().name(Split.SplitType.Body_Part).build())
+                .build();
+
+        gymService.saveGym(gym);
+        List<Rateable> gyms = registeredUserService.SearchGymBySplit("Body_Part", null);
+
+
+        assertThat(gyms.size()).isEqualTo(1);
+        assertThat(gyms.get(0).getName()).isEqualTo("test");
+    }
+
+    @Test
+    public void searchGymBySplitNameAsc() throws Exception {
+        Gym gym = Gym.builder().name("www")
+                .split(Split.builder().name(Split.SplitType.Body_Part).build())
+                .build();
+
+        Gym gym2 = Gym.builder().name("abc")
+                .split(Split.builder().name(Split.SplitType.Body_Part).build())
+                .build();
+
+        gymService.saveGym(gym);
+        gymService.saveGym(gym2);
+        List<Rateable> gyms = registeredUserService.SearchGymBySplit("Body_Part", "NameAsc");
+
+
+        assertThat(gyms.size()).isEqualTo(2);
+        assertThat(gyms.get(0).getName()).isEqualTo("abc");
+        assertThat(gyms.get(1).getName()).isEqualTo("www");
     }
 
     @Test
@@ -164,6 +198,14 @@ public class RegisteredUserTestIT {
         assertThat(userGyms.get(1).getName()).isEqualTo("Test2");
     }
 
+    @Test
+    void add(){
+        Gym gym1 = createGym("Dc", Split.SplitType.Body_Part);
+        Gym gym2 = createGym("Ac", Split.SplitType.Body_Part);
+        Gym gym3 = createGym("Wc", Split.SplitType.Full_Body);
+        Gym gym4 = createGym("Fc", Split.SplitType.Full_Body);
+    }
+
     public Exercise createExercise(String name, MuscleGroup muscleGroup){
         Exercise exercise = Exercise.builder().name(name)
                 .primaryMuscleGroup(muscleGroup)
@@ -173,10 +215,10 @@ public class RegisteredUserTestIT {
         return exercise;
     }
 
-    private Workout createWorkout() {
-        Workout workout = Workout.builder().build();
-        workoutService.saveWorkout(workout);
-        return workout;
+    private Gym createGym(String name, Split.SplitType split) {
+        Gym gym = Gym.builder().name(name).split(Split.builder().name(split).build()).build();
+        gymService.saveGym(gym);
+        return gym;
     }
 
 

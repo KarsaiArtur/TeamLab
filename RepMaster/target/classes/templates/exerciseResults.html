@@ -1,52 +1,56 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Result</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
+    <head>
+        <meta charset="UTF-8">
+        <title>Result</title>
+        <style>
+          body {
+            margin: 0;
+            padding: 0;
+          }
 
-      .toolbar {
-        background-color: green;
-        color: white;
-        padding: 10px;
-        display: flex;
-        justify-content: space-between;
-      }
+          .toolbar {
+            background-color: green;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+          }
 
-      .toolbar button {
-        background-color: lightgreen;
-        color: green;
-        padding: 5px 10px;
-        border: none;
-        cursor: pointer;
-      }
-    </style>
-</head>
+          .toolbar button {
+            background-color: lightgreen;
+            color: green;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+          }
+        </style>
+    </head>
 
-<body>
+    <body>
 
-    <div class="toolbar">
-      <button id="zoomInButton">+</button>
-      <button id="searchButton">🔍</button>
-    </div>
+        <div class="toolbar">
+          <button id="zoomInButton">+</button>
+          <button id="searchButton">🔍</button>
+        </div>
 
-    <table th:each="exerciseResult : ${exerciseResults}">
-      <tr>
-        <td><h1 th:text="${exerciseResult.exercise.name}">MyResult</h1></td>
-      </tr>
-      <tr>
-        <td><span>Date: </span></td>
-        <td><span th:text="${exerciseResult.date}">ResultDate</span></td>
-      </tr>
-      <tr>
-        <td><span>Total volume: </span></td>
-        <td><span th:text="${exerciseResult.totalVolume}">ResultVolume</span></td>
-      </tr>
-    </table>
+        <table th:each="exerciseResult : ${exerciseResults}">
+          <tr>
+            <td><h1 th:text="${exerciseResult.exercise.name}">MyResult</h1></td>
+          </tr>
+          <tr>
+            <td><span>Date: </span></td>
+            <td><span th:text="${exerciseResult.date}">ResultDate</span></td>
+          </tr>
+          <tr>
+            <td><span>Total volume: </span></td>
+            <td><span th:text="${exerciseResult.totalVolume}">ResultVolume</span></td>
+          </tr>
+            <tr>
+                <td><span>Max volume set: </span></td>
+                <td><span th:text="${exerciseResult.findMaxVolumeWithinSets().toString()}">MaxVolumeSet</span></td>
+            </tr>
+        </table>
 
-</body>
+    </body>
 </html>

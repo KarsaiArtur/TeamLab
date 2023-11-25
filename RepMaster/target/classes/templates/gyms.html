@@ -41,9 +41,10 @@
 </head>
     <body>
         <div class="toolbar">
-            <form th:action="@{/add}" method="post" th:object="${add}">
-                 <input method="post" type="submit" value="+" id="addButton">
-            </form>
+
+            <a href="/addGym">
+                <button id="addButton">+</button>
+            </a>
             <td><span th:text="${userName}" id="name"></span></td>
             <a href="/search">
                 <button id="searchButton">🔍</button>
@@ -65,14 +66,13 @@
             </tr>
             <tr>
                 <td><span>Split: </span></td>
-                <td><span th:text="${gym.split}">GymSplit</span></td>
+                <td><span th:text="${gym.split.getName()}">GymSplit</span></td>
             </tr>
             <tr>
                 <td><span>Equipment level: </span></td>
                 <td><span th:text="${gym.howEquipped}">GymHowEquipped</span></td>
             </tr>
         </table>
-
 
     </body>
 </html>

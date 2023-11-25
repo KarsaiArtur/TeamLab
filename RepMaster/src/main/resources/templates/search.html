@@ -28,26 +28,27 @@
 <body>
     <div class="toolbar"></div>
 
-    <form th:action="@{/search}" method="get">
-        <input type="text" id="searchQuery" name="query" th:value="${query}" />
-        <button type="submit">Search</button>
+    <form th:action="@{/search}" th:object="${search}" method="post">
+        <input type="text" th:field="*{searchBar}"/>
+        <div class="input-group-btn" data-toggle="buttons">
+            <label class="btn btn-primary active">
+                <input type="radio" name="options" id="r_desc" checked th:value="RatingDesc" th:field="*{order}">Rating Descending
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="options" id="r_asc" th:value="RatingAsc" th:field="*{order}">Rating Ascending
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="options" id="n_desc" th:value="NameDesc" th:field="*{order}">Name Descending
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="options" id="n_asc" th:value="NameAsc" th:field="*{order}">Name Ascending
+            </label>
+        </div>
+        <input type="submit" value="Search"/>
     </form>
-    <div class="input-group-btn" data-toggle="buttons">
-        <label class="btn btn-primary active">
-            <input type="radio" name="options" id="r_desc" checked>Rating Descending
-        </label>
-        <label class="btn btn-primary">
-            <input type="radio" name="options" id="r_asc">Rating Ascending
-        </label>
-        <label class="btn btn-primary">
-            <input type="radio" name="options" id="n_desc">Name Descending
-        </label>
-        <label class="btn btn-primary">
-            <input type="radio" name="options" id="n_asc">Name Descending
-        </label>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
@@ -63,7 +64,7 @@
 
     <table th:each="element : ${elements}">
         <tr>
-            <td><h1 th:text="${element.name}">MyGym</h1></td>
+            <td><h1 th:text="${element.toString}">MyGym</h1></td>
         </tr>
     </table>
 

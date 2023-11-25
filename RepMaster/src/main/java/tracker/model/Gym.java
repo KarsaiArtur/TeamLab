@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Gym implements Rateable{
+public class Gym extends Rateable{
     @Id
     @GeneratedValue
     private int id;
@@ -83,4 +83,15 @@ public class Gym implements Rateable{
     public void removeWorkout(Workout w){
         workouts.remove(w);
     }
+
+    @Override
+    public String toString(){
+        return name +" "+split.getName().toString().replace("_", " ");
+    }
+
+    @Override
+    public String getName(){
+        return name;
+    }
+
 }

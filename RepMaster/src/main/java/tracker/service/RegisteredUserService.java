@@ -2,12 +2,14 @@ package tracker.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.jdbc.Work;
 import org.springframework.stereotype.Service;
 import tracker.TrackerApplication;
 import tracker.model.*;
 import tracker.repository.*;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -67,20 +69,72 @@ public class RegisteredUserService {
         rUser.addRating(rateable, new_rating);
     }
 
-    public List<Exercise> SearchExerciseByMuscleGroup(MuscleGroup muscleGroup, String sortMode){
+    public List<Rateable> SearchExerciseByMuscleGroup(MuscleGroup muscleGroup, String sortMode){
         List<Exercise> exercises = exerciseRepository.findByPrimaryMuscleGroup(muscleGroup);
         if(muscleGroup == null){
             exercises = exerciseRepository.findAll();
         }
         if(sortMode == "RatingDesc"){
-            Collections.sort(exercises, new Comparator<Exercise>() {
-                @Override
-                public int compare(Exercise o1, Exercise o2) {
-                    return Rating.calculateRating(o1) > Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) < Rating.calculateRating(o2)) ? 1 : 0;
-                }
-            });
+            Collections.sort(exercises,
+                    (o1, o2) -> Rating.calculateRating(o1) > Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) < Rating.calculateRating(o2)) ? 1 : 0);
         }
-        return exercises;
+        if(sortMode == "RatingAsc"){
+            Collections.sort(exercises,
+                    (o1, o2) -> Rating.calculateRating(o1) < Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) > Rating.calculateRating(o2)) ? 1 : 0);
+        }
+        List<Rateable> rateables = new ArrayList<>();
+        for (Exercise e: exercises) {
+            rateables.add(e);
+        }
+        return rateables;
+    }
+
+    public List<Rateable> SearchGymBySplit(String split, String sortMode){
+        List<Gym> gyms = gymRepository.findAll();
+        if(split != null){
+            gyms = gyms.stream().filter(a -> a.getSplit().getName().toString().contains(split)).collect(Collectors.toList());
+        }
+        if("RatingDesc".equals(sortMode)){
+            Collections.sort(gyms,
+                    (o1, o2) -> Rating.calculateRating(o1) > Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) < Rating.calculateRating(o2)) ? 1 : 0);
+        }
+        if("RatingAsc".equals(sortMode)){
+            Collections.sort(gyms,
+                    (o1, o2) -> Rating.calculateRating(o1) < Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) > Rating.calculateRating(o2)) ? 1 : 0);
+        }
+        if("NameAsc".equals(sortMode)){
+            Collections.sort(gyms,
+                    (o1, o2) -> o1.getName().compareTo(o2.getName()));
+        }
+        if("NameDesc".equals(sortMode)){
+            Collections.sort(gyms,
+                    (o1, o2) -> o2.getName().compareTo(o1.getName()));
+        }
+        List<Rateable> rateables = new ArrayList<>();
+        for (Gym g: gyms) {
+            rateables.add(g);
+        }
+        return rateables;
+    }
+
+    public List<Rateable> SearchWorkoutByName(String name, String sortMode){
+        List<Workout> workouts = workoutRepository.findAll();
+        if(name != null){
+            workouts = workoutRepository.findByName(name);
+        }
+        if(sortMode == "RatingDesc"){
+            Collections.sort(workouts,
+                    (o1, o2) -> Rating.calculateRating(o1) > Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) < Rating.calculateRating(o2)) ? 1 : 0);
+        }
+        if(sortMode == "RatingAsc"){
+            Collections.sort(workouts,
+                    (o1, o2) -> Rating.calculateRating(o1) < Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) > Rating.calculateRating(o2)) ? 1 : 0);
+        }
+        List<Rateable> rateables = new ArrayList<>();
+        for (Workout w: workouts) {
+            rateables.add(w);
+        }
+        return rateables;
     }
 
     public List<RegisteredUser> listUsers(){
@@ -92,5 +146,6 @@ public class RegisteredUserService {
         registeredUserRepository.deleteAllInBatch();
         workoutRepository.deleteAll();
         exerciseRepository.deleteAllInBatch();
+        gymRepository.deleteAllInBatch();
     }
 }
