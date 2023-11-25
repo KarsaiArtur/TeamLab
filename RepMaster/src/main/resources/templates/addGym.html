@@ -32,7 +32,7 @@
     <body>
         <div class="toolbar">
             <td><span th:text="${userName}" id="userName"></span></td>
-            <a href="/" >
+            <a href="/gyms" >
                 <input type="button" value="Back" id="back-btn">
             </a>
         </div>
@@ -47,26 +47,24 @@
                 <label for="location">Location:</label>
                 <input th:field="*{location}" id="location" required><br/>
 
-                <label for="split-type">Split type:</label>
-                <select th:field="*{split.name}" id="split-type" required>
-                    <option value="Split.SplitType.Body_Part">Body Part</option>
-                    <option value="Split.SplitType.Upper_Lower_Body">Upper Lower Body</option>
-                    <option value="Split.SplitType.Push_Pull_Legs">Push Pull Legs</option>
-                    <option value="Split.SplitType.Full_Body">Full Body</option>
-                    <option value="Split.SplitType.Arnold">Arnold</option>
-                    <option value="Split.SplitType.Other">Other</option>
-                    </option>
+                <label for="splitType">Split type:</label>
+                <select th:field="*{splitType}" id="splitType" required>
+                    <option value=Body_Part>Body Part</option>
+                    <option value=Upper_Lower_Body>Upper Lower Body</option>
+                    <option value=Push_Pull_Legs>Push Pull Legs</option>
+                    <option value=Full_Body>Full Body</option>
+                    <option value=Arnold>Arnold</option>
+                    <option value=Other>Other</option>
                 </select><br/>
 
                 <label for="numberOfDays">Split number of days:</label>
-                <input th:field="*{split.numberOfDays}" id="numberOfDays" required><br/>
+                <input th:field="*{numberOfDays}" id="numberOfDays" required><br/>
 
                 <label for="howEquipped">How equipped:</label>
                 <select th:field="*{howEquipped}" id="howEquipped" required>
-                    <option value="Equipment.Fully_Equipped">Fully Equipped</option>
-                    <option value="Equipment.Well_Equipped">Well Equipped</option>
-                    <option value="Equipment.Poorly_Equipped">Poorly Equipped</option>
-                    </option>
+                    <option value=Fully_Equipped>Fully Equipped</option>
+                    <option value=Well_Equipped>Well Equipped</option>
+                    <option value=Poorly_Equipped>Poorly Equipped</option>
                 </select><br/>
 
                 <input type="submit" value="Done" id="done-btn">

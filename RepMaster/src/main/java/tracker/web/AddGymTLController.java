@@ -1,10 +1,13 @@
 package tracker.web;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import tracker.TrackerApplication;
+import tracker.model.Equipment;
 import tracker.model.Gym;
 import tracker.model.Split;
 import tracker.service.GymService;
@@ -15,14 +18,13 @@ import java.util.Map;
 @Controller
 @RequiredArgsConstructor
 public class AddGymTLController {
-    private final GymService gymService;
     private final RegisteredUserService registeredUserService;
     private String userName = "";
 
     @GetMapping("/addGym")
     public String addGym(Map<String, Object> model){
         userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
-        model.put("add", new Gym());
+        model.put("add", new GymCopy());
         return "addGym";
     }
 
