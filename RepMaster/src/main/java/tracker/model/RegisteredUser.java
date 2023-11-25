@@ -21,11 +21,12 @@ public class RegisteredUser implements User{
     private String password;
     @ManyToMany(mappedBy = "registeredUsers", fetch = FetchType.EAGER)
     private List<Gym> userGyms;
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "registeredUser")
-    private List<Rating> ratings;
     @ManyToMany(mappedBy = "registeredUsers", fetch = FetchType.EAGER)
     private List<Workout> userWorkouts;
-
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "registeredUser")
+    private List<Rating> ratings;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "registeredUser")
+    private List<ExerciseResult> exerciseResults;
 
     private void createWorkoutListIfEmpty() {
         if(userWorkouts == null) userWorkouts = new ArrayList<>();
@@ -37,6 +38,11 @@ public class RegisteredUser implements User{
         userGyms.add(g);
     }
 
+    public void addExerciseResult(ExerciseResult eR) {
+        if(exerciseResults == null) exerciseResults = new ArrayList<>();
+        eR.setRegisteredUser(this);
+        exerciseResults.add(eR);
+    }
 
     public void addWorkoutToUser(Workout w) {
         createWorkoutListIfEmpty();
@@ -62,5 +68,4 @@ public class RegisteredUser implements User{
     public void removeRating(Rating rating) throws Exception{
         ratings.remove(rating);
     }
-
 }

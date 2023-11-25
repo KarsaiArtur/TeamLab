@@ -2,7 +2,6 @@ package tracker.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import tracker.repository.RegisteredUserRepository;
 
 import java.util.ArrayList;
 import java.util.List;

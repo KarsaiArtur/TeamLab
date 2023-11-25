@@ -4,20 +4,16 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import tracker.TrackerApplication;
 import tracker.model.Gym;
 import tracker.service.GymService;
 import tracker.service.RegisteredUserService;
 
-import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 @Controller
 @RequiredArgsConstructor
 public class GymTLController {
-
     private final GymService gymService;
     private final RegisteredUserService registeredUserService;
     private String userName = "";

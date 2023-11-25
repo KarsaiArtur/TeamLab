@@ -1,7 +1,6 @@
 package tracker.model;
 
 import jakarta.persistence.*;
-import jakarta.transaction.Transactional;
 import lombok.*;
 
 import java.util.ArrayList;

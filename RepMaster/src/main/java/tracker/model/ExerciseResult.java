@@ -25,6 +25,9 @@ public class ExerciseResult {
     @ManyToOne
     private Exercise exercise;
 
+    @ManyToOne
+    private RegisteredUser registeredUser;
+
     @OneToMany(mappedBy = "exerciseResult")
     private List<Set> sets;
 

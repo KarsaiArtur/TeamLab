@@ -30,4 +30,8 @@ public class Set{
         this.weight = weight;
         this.volume = repetition_count * weight;
     }
+
+    public String toString(){
+        return repetition_count + " x " + weight;
+    }
 }
