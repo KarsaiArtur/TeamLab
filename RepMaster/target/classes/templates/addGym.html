@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gyms</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .toolbar {
+                background-color: green;
+                color: white;
+                padding: 30px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            #back-btn {
+                background-color: #FFFFFF;
+                color: #000;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 17px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="toolbar">
+            <td><span th:text="${userName}" id="userName"></span></td>
+            <a href="/" >
+                <input type="button" value="Back" id="back-btn">
+            </a>
+        </div>
+
+        <div id="add-container">
+            <h2>Add gym</h2>
+
+            <form th:action="@{/add}" method="post" th:object="${add}">
+                <label for="name">name:</label>
+                <input th:field="*{name}" id="name" required><br/>
+
+                <label for="location">Location:</label>
+                <input th:field="*{location}" id="location" required><br/>
+
+                <label for="split-type">Split type:</label>
+                <select th:field="*{split.name}" id="split-type" required>
+                    <option value="Split.SplitType.Body_Part">Body Part</option>
+                    <option value="Split.SplitType.Upper_Lower_Body">Upper Lower Body</option>
+                    <option value="Split.SplitType.Push_Pull_Legs">Push Pull Legs</option>
+                    <option value="Split.SplitType.Full_Body">Full Body</option>
+                    <option value="Split.SplitType.Arnold">Arnold</option>
+                    <option value="Split.SplitType.Other">Other</option>
+                    </option>
+                </select><br/>
+
+                <label for="numberOfDays">Split number of days:</label>
+                <input th:field="*{split.numberOfDays}" id="numberOfDays" required><br/>
+
+                <label for="howEquipped">How equipped:</label>
+                <select th:field="*{howEquipped}" id="howEquipped" required>
+                    <option value="Equipment.Fully_Equipped">Fully Equipped</option>
+                    <option value="Equipment.Well_Equipped">Well Equipped</option>
+                    <option value="Equipment.Poorly_Equipped">Poorly Equipped</option>
+                    </option>
+                </select><br/>
+
+                <input type="submit" value="Done" id="done-btn">
+            </form>
+        </div>
+
+    </body>
+</html>
