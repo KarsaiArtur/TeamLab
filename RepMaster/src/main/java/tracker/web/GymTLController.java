@@ -16,7 +16,6 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class GymTLController {
     private final GymService gymService;
-    private final RegisteredUserService registeredUserService;
     private String userName = "";
 
     @GetMapping("/gyms")
@@ -34,9 +33,4 @@ public class GymTLController {
         TrackerApplication.getInstance().setCurrentGym(gym);
         return "redirect:/workouts";
     }
-
-    /*@PostMapping("/addNewGym")
-    public String addNewGym() {
-        return "redirect:/addGym";
-    }*/
 }

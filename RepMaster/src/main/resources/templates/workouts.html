@@ -37,9 +37,9 @@
             <tr>
                 <td><h1 th:text="${workout.name}">MyWorkout</h1></td>
                 <td>
-                    <a href="/exercises">
-                        <input type="button" value="Open" id="open-btn">
-                    </a>
+                    <form th:action="@{/exercises}" th:object="${workout}" method="post">
+                        <input type="submit" value="Open" id="open-btn">
+                    </form>
                 </td>
             </tr>
             <tr>

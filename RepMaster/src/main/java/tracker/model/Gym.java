@@ -51,14 +51,12 @@ public class Gym extends Rateable{
     public void addWorkout(Workout w){
         if(workouts == null)
             workouts = new ArrayList<>();
-
         workouts.add(w);
     }
 
     public void addRegisteredUser(RegisteredUser rU){
         if(registeredUsers == null)
             registeredUsers = new ArrayList<>();
-
         registeredUsers.add(rU);
     }
 

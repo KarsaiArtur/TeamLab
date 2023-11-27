@@ -69,4 +69,8 @@ public class RegisteredUser implements User{
     public void removeRating(Rating rating) throws Exception{
         ratings.remove(rating);
     }
+
+    public String getName(){
+        return userName;
+    }
 }

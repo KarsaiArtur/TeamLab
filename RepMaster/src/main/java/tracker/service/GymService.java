@@ -10,6 +10,7 @@ import tracker.repository.RatingRepository;
 import tracker.repository.RegisteredUserRepository;
 import tracker.repository.WorkoutRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +20,7 @@ public class GymService  implements RateableService{
     private final GymRepository gymRepository;
     private final WorkoutRepository workoutRepository;
     private final RegisteredUserRepository registeredUserRepository;
+    private final RegisteredUserService registeredUserService;
 
     @Transactional
     public Gym saveGym(Gym gym){
@@ -31,6 +33,13 @@ public class GymService  implements RateableService{
         gymRepository.delete(gym.get());
     }
 
+    public List<Rateable> getPossibleContainers(){
+        return null;
+    }
+
+    public void addRateable(int idTo, int id){
+        registeredUserService.addExistingGymToUser(id);
+    }
 
     public Gym findGym(int id) {
         return gymRepository.findById(id).isEmpty() ? null : gymRepository.findById(id).get();
@@ -50,6 +59,7 @@ public class GymService  implements RateableService{
         Optional<Gym> gym = gymRepository.findById(id);
         workoutRepository.save(workout);
         gym.get().addWorkout(workout);
+        registeredUserService.addExistingWorkoutToUser(workout.getId());
     }
 
     @Transactional
@@ -57,6 +67,7 @@ public class GymService  implements RateableService{
         Optional<Gym> gym = gymRepository.findById(id);
         Optional<Workout> workout = workoutRepository.findById(workout_id);
         gym.get().addWorkout(workout.get());
+        registeredUserService.addExistingWorkoutToUser(workout_id);
     }
 
     @Transactional

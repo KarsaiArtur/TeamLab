@@ -30,15 +30,9 @@ public class WorkoutTLController {
     }
 
     @PostMapping("/exercises")
-    public String exercise(Workout workout) {
+    public String exercises(Workout workout) {
         TrackerApplication.getInstance().setCurrentWorkout(workout);
         return "redirect:/exercises";
     }
-
-    /*@PostMapping("/newGym")
-    public String create(Gym gym) {
-        gymService.saveGym(gym);
-        return "redirect:/gyms";
-    }*/
 }
 

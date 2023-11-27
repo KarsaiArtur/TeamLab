@@ -18,6 +18,7 @@ public class RegisteredUserService {
     private final WorkoutRepository workoutRepository;
     private final RatingRepository ratingRepository;
     private final ExerciseRepository exerciseRepository;
+    private final ExerciseResultRepository exerciseResultRepository;
     private final GymRepository gymRepository;
 
     private boolean userNameDoesntExist(String userName){
@@ -74,11 +75,13 @@ public class RegisteredUserService {
         if(wrongPassword(userName, password))
             return "Login failed: wrong password";
         TrackerApplication.getInstance().setLoggedInUser(findUserByName(userName));
+        TrackerApplication.getInstance().setLoggedIn(true);
         return "Login successful as "+userName;
     }
 
     public void singOutUser(){
         TrackerApplication.getInstance().setLoggedInUser(RegisteredUser.builder().build());
+        TrackerApplication.getInstance().setLoggedIn(false);
     }
 
     @Transactional

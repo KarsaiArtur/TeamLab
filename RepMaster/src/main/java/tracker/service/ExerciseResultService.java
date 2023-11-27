@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import tracker.model.Exercise;
 import tracker.model.ExerciseResult;
 import tracker.model.Set;
+import tracker.model.Workout;
+import tracker.repository.ExerciseRepository;
 import tracker.repository.ExerciseResultRepository;
 import tracker.repository.SetRepository;
 
@@ -17,7 +19,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Service
 public class ExerciseResultService {
-
+    private final ExerciseRepository exerciseRepository;
     private final ExerciseResultRepository exerciseResultRepository;
     private final SetRepository setRepository;
 
@@ -30,9 +32,8 @@ public class ExerciseResultService {
     }
 
     public List<ExerciseResult> listExerciseResultsByExerciseId(int exerciseId) {
-        List<ExerciseResult> exerciseResults = exerciseResultRepository.findAll();
-        exerciseResults = exerciseResults.stream().filter(eR -> eR.getExercise().getId() == exerciseId).collect(Collectors.toList());
-        return exerciseResults;
+        Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
+        return exercise.get().getExerciseResults();
     }
 
     @Transactional

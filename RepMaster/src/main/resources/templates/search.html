@@ -1,128 +1,130 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Radio Buttons</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Radio Buttons</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
 
-        .toolbar {
-            background-color: green;
-            color: white;
-            padding: 30px;
-            display: flex;
-            justify-content: space-between;
-        }
+            .toolbar {
+                background-color: green;
+                color: white;
+                padding: 30px;
+                display: flex;
+                justify-content: space-between;
+            }
 
-        #back-btn {
-            background-color: #FFFFFF;
-            color: #000;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 17px;
-        }
+            #back-btn {
+                background-color: #FFFFFF;
+                color: #000;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 17px;
+            }
 
-        .input-group-btn .btn-order,
-        .input-group-btn .btn-searchtype{
-            border: 1px solid #ccc;
-            background-color: #fff;
-            color: #333;
-        }
+            .input-group-btn .btn-order,
+            .input-group-btn .btn-searchtype{
+                border: 1px solid #ccc;
+                background-color: #fff;
+                color: #333;
+            }
 
-        .input-group-btn .btn-order.active,
-        .input-group-btn .btn-order:active,
-        .input-group-btn .btn-order:focus,
-        .input-group-btn .btn-searchtype.active,
-        .input-group-btn .btn-searchtype:active,
-        .input-group-btn .btn-searchtype:focus{
-            border: 2px solid #337ab7;
-            background-color: #337ab7;
-            color: #fff;
-        }
+            .input-group-btn .btn-order.active,
+            .input-group-btn .btn-order:active,
+            .input-group-btn .btn-order:focus,
+            .input-group-btn .btn-searchtype.active,
+            .input-group-btn .btn-searchtype:active,
+            .input-group-btn .btn-searchtype:focus{
+                border: 2px solid #337ab7;
+                background-color: #337ab7;
+                color: #fff;
+            }
 
-        .input-group-btn .btn-order input[type="radio"],
-        .input-group-btn .btn-searchtype input[type="radio"]{
-            display: none;
-        }
+            .input-group-btn .btn-order input[type="radio"],
+            .input-group-btn .btn-searchtype input[type="radio"]{
+                display: none;
+            }
 
 
-    </style>
-</head>
-<body>
-    <div class="toolbar">
-        <td><span th:text="${userName}" id="userName"></span></td>
-        <a href="/gyms" >
-            <input type="button" value="Back" id="back-btn">
-        </a>
-    </div>
-
-    <form th:action="@{/search}" th:object="${search}" method="post">
-        <input type="text" th:field="*{searchBar}"/>
-        <div class="input-group-btn" data-toggle="buttons">
-            <label class="btn btn-order">
-                <input type="radio" name="options" id="r_desc" th:value="RatingDesc" th:field="*{order}" th:checked="${true}">Rating Descending
-            </label>
-            <label class="btn btn-order">
-                <input type="radio" name="options" id="r_asc" th:value="RatingAsc" th:field="*{order}">Rating Ascending
-            </label>
-            <label class="btn btn-order">
-                <input type="radio" name="options" id="n_desc" th:value="NameDesc" th:field="*{order}">Name Descending
-            </label>
-            <label class="btn btn-order">
-                <input type="radio" name="options" id="n_asc" th:value="NameAsc" th:field="*{order}">Name Ascending
-            </label>
+        </style>
+    </head>
+    <body>
+        <div class="toolbar">
+            <a href="/gyms" >
+                <input type="button" value="Back" id="back-btn">
+            </a>
         </div>
-        <div class="input-group-btn" data-toggle="buttons">
-            <label class="btn btn-searchtype">
-                <input type="radio" name="options" id="gym_split" th:value="GymSplit" th:field="*{searchType}" th:checked="${true}">Gyms By Split
-            </label>
-            <label class="btn btn-searchtype">
-                <input type="radio" name="options" id="workout_name" th:value="WorkoutName" th:field="*{searchType}">Workout By Name
-            </label>
-            <label class="btn btn-searchtype">
-                <input type="radio" name="options" id="exercise_muscle" th:value="ExerciseMuscle" th:field="*{searchType}">Exercises By Muscle Group
-            </label>
-        </div>
-        <input type="submit" value="Search"/>
-    </form>
+
+        <form th:action="@{/search}" th:object="${search}" method="post">
+            <input type="text" th:field="*{searchBar}"/>
+            <div class="input-group-btn" data-toggle="buttons">
+                <label class="btn btn-order">
+                    <input type="radio" name="options" id="r_desc" th:value="RatingDesc" th:field="*{order}" th:checked="${true}">Rating Descending
+                </label>
+                <label class="btn btn-order">
+                    <input type="radio" name="options" id="r_asc" th:value="RatingAsc" th:field="*{order}">Rating Ascending
+                </label>
+                <label class="btn btn-order">
+                    <input type="radio" name="options" id="n_desc" th:value="NameDesc" th:field="*{order}">Name Descending
+                </label>
+                <label class="btn btn-order">
+                    <input type="radio" name="options" id="n_asc" th:value="NameAsc" th:field="*{order}">Name Ascending
+                </label>
+            </div>
+            <div class="input-group-btn" data-toggle="buttons">
+                <label class="btn btn-searchtype">
+                    <input type="radio" name="options" id="gym_split" th:value="GymSplit" th:field="*{searchType}" th:checked="${true}">Gyms By Split
+                </label>
+                <label class="btn btn-searchtype">
+                    <input type="radio" name="options" id="workout_name" th:value="WorkoutName" th:field="*{searchType}">Workout By Name
+                </label>
+                <label class="btn btn-searchtype">
+                    <input type="radio" name="options" id="exercise_muscle" th:value="ExerciseMuscle" th:field="*{searchType}">Exercises By Muscle Group
+                </label>
+            </div>
+            <input type="submit" value="Search"/>
+        </form>
 
 
 
 
-    <table th:each="element : ${elements}">
-        <tr>
-            <td><h1 th:text="${element.toString}">MyGym</h1></td>
-        </tr>
-    </table>
+        <table th:each="element : ${elements}">
+            <tr>
+                <td><h1 th:text="${element.toString}">MyGym</h1></td>
+                <td>
+                    <form th:action="@{/rateableopen}" method="post">
+                        <input type="hidden" th:name="elementId" th:value="${element.id}" />
+                        <input type="submit" value="Open" id="open-btn">
+                    </form>
+                </td>
+            </tr>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.btn-searchtype').on('click', function () {
-                // Töröljük az összes gombról az 'active' osztályt
-                $('.btn-searchtype').removeClass('active');
-                // Adjuk hozzá az 'active' osztályt csak a kiválasztott gombhoz
-                $(this).addClass('active');
+        </table>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('.btn-searchtype').on('click', function () {
+                    $('.btn-searchtype').removeClass('active');
+                    $(this).addClass('active');
+                });
             });
-        });
-        $(document).ready(function () {
-            $('.btn-order').on('click', function () {
-                // Töröljük az összes gombról az 'active' osztályt
-                $('.btn-order').removeClass('active');
-                // Adjuk hozzá az 'active' osztályt csak a kiválasztott gombhoz
-                $(this).addClass('active');
+            $(document).ready(function () {
+                $('.btn-order').on('click', function () {
+                    $('.btn-order').removeClass('active');
+                    $(this).addClass('active');
+                });
             });
-        });
-    </script>
+        </script>
 
-</body>
+    </body>
 </html>

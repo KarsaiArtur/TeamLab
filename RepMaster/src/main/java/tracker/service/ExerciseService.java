@@ -6,20 +6,36 @@ import org.springframework.stereotype.Service;
 import tracker.model.*;
 import tracker.repository.ExerciseRepository;
 import tracker.repository.ExerciseResultRepository;
+import tracker.repository.WorkoutRepository;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
-public class ExerciseService {
+public class ExerciseService implements RateableService{
+    private final WorkoutRepository workoutRepository;
     private final ExerciseRepository exerciseRepository;
     private final ExerciseResultRepository exerciseResultRepository;
+    private final WorkoutService workoutService;
 
     public Exercise findExercise(int id) {
         return exerciseRepository.findById(id).isEmpty() ? null : exerciseRepository.findById(id).get();
+    }
+
+    public List<Rateable> getPossibleContainers(){
+        List<Rateable> rateables = new ArrayList<>();
+        for (Workout workout: workoutService.listUserWorkouts()) {
+            rateables.add(workout);
+        }
+        return rateables;
+    }
+
+    public void addRateable(int idTo, int id){
+        workoutService.addExistingExerciseToWorkout(idTo, id);
     }
 
     public List<Exercise> listExercises() {
@@ -27,9 +43,8 @@ public class ExerciseService {
     }
 
     public List<Exercise> listExercisesByWorkoutId(int workoutId) {
-        List<Exercise> exercises = exerciseRepository.findAll();
-        exercises = exercises.stream().filter(e -> e.getWorkouts().contains(workoutId)).collect(Collectors.toList());
-        return exercises;
+        Optional<Workout> workout = workoutRepository.findById(workoutId);
+        return workout.get().getExercises();
     }
 
     @Transactional

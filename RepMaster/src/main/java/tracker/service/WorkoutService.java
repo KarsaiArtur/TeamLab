@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import tracker.TrackerApplication;
 import tracker.model.*;
 import tracker.repository.*;
 
@@ -20,6 +21,8 @@ public class WorkoutService implements RateableService {
     private final WorkoutRepository workoutRepository;
     private final ExerciseRepository exerciseRepository;
     private final RatingRepository ratingRepository;
+    private final GymService gymService;
+    private final RegisteredUserRepository registeredUserRepository;
 
     @Transactional
     public void saveWorkout(Workout workout) {
@@ -32,6 +35,18 @@ public class WorkoutService implements RateableService {
         workoutRepository.delete(workout.get());
     }
 
+    public List<Rateable> getPossibleContainers(){
+        List<Rateable> rateables = new ArrayList<>();
+        for (Gym gym: gymService.listUserGyms()) {
+            rateables.add(gym);
+        }
+        return rateables;
+    }
+
+    public void addRateable(int idTo, int id){
+        gymService.addExistingWorkoutToGym(idTo, id);
+    }
+
     public Workout findWorkout(int id) {
         return workoutRepository.findById(id).isEmpty() ? null : workoutRepository.findById(id).get();
     }
@@ -41,9 +56,13 @@ public class WorkoutService implements RateableService {
     }
 
     public List<Workout> listWorkoutsByGymId(int gymId) {
-        List<Workout> workouts = workoutRepository.findAll();
-        workouts= workouts.stream().filter(w -> w.getGyms().contains(gymId)).collect(Collectors.toList());
-        return workouts;
+        Optional<Gym> gym = gymRepository.findById(gymId);
+        return gym.get().getWorkouts();
+    }
+
+    public List<Workout> listUserWorkouts() {
+        Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(TrackerApplication.getInstance().getLoggedInUser().getId());
+        return registeredUser.get().getUserWorkouts();
     }
 
     public List<Exercise> listExercises(int id) {
