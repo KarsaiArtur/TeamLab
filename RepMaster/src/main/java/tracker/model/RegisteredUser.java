@@ -44,8 +44,9 @@ public class RegisteredUser implements User{
         exerciseResults.add(eR);
     }
 
-    public void addWorkoutToUser(Workout w) {
+    public void addWorkout(Workout w) {
         createWorkoutListIfEmpty();
+        w.addRegisteredUser(this);
         userWorkouts.add(w);
     }
 

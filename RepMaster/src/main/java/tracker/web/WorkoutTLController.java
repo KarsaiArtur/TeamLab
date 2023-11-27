@@ -23,7 +23,8 @@ public class WorkoutTLController {
     @GetMapping("/workouts")
     public String workouts(Map<String, Object> model){
         userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
-        model.put("workouts", workoutService.listWorkoutsByGymId(TrackerApplication.getInstance().getCurrentGym().getId()));
+        Gym gym = TrackerApplication.getInstance().getCurrentGym();
+        model.put("workouts", workoutService.listWorkoutsByGymId(gym.getId()));
         model.put("userName", userName+"'s workouts");
         return "workouts";
     }

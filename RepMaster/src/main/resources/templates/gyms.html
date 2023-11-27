@@ -55,9 +55,10 @@
             <tr>
                 <td><h1 th:text="${gym.name}">MyGym</h1></td>
                 <td>
-                    <a href="/workouts">
-                        <input type="button" value="Open" id="open-btn">
-                    </a>
+                    <form th:action="@{/workouts}" method="post">
+                        <input type="hidden" th:name="gymId" th:value="${gym.id}" />
+                        <input type="submit" value="Open" id="open-btn">
+                    </form>
                 </td>
             </tr>
             <tr>

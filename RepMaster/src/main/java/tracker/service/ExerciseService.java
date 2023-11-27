@@ -161,6 +161,9 @@ public class ExerciseService {
         return maxResult;
     }
 
-
+    @Override
+    public Rateable findById(int id) {
+        return exerciseRepository.findById(id).get();
+    }
 
 }

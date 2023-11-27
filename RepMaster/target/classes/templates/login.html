@@ -75,8 +75,9 @@
                 <input method="post" type="submit" value="Login" id="login-btn">
             </form>
 
-            <input type="submit" value="Just visit" id="visit-btn">
-
+            <form th:action="@{/visitor}" method="post" th:object="${visitor}">
+                <input type="submit" value="Just visit" id="visit-btn">
+            </form>
             <a href="registration">
                 <input type="button" value="Registration" id="registration-btn">
             </a>

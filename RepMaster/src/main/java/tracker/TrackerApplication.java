@@ -20,6 +20,7 @@ public class TrackerApplication implements CommandLineRunner{
     private Gym currentGym = Gym.builder().build();
     private Workout currentWorkout = Workout.builder().build();
     private Exercise currentExercise = Exercise.builder().build();
+    private Rateable currentRateable = Gym.builder().build();
 
     public static TrackerApplication getInstance() { return INSTANCE; }
 

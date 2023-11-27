@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
-public class GymService {
+public class GymService  implements RateableService{
     private final GymRepository gymRepository;
     private final WorkoutRepository workoutRepository;
     private final RegisteredUserRepository registeredUserRepository;
@@ -75,4 +75,10 @@ public class GymService {
     public void deleteAll(){
         gymRepository.deleteAllInBatch();
     }
+
+    @Override
+    public Rateable findById(int id) {
+        return gymRepository.findById(id).get();
+    }
+
 }

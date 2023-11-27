@@ -2,6 +2,7 @@ package tracker.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import tracker.web.RateableDetailTLController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +25,8 @@ public class Workout extends Rateable{
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(
             name = "workout_exercise_connection",
-            joinColumns = @JoinColumn(name = "exercise_id"),
-            inverseJoinColumns = @JoinColumn(name = "workout_id")
+            joinColumns = @JoinColumn(name = "workout_id"),
+            inverseJoinColumns = @JoinColumn(name = "exercise_id")
     )
     private List<Exercise> exercises;
 
@@ -41,8 +42,8 @@ public class Workout extends Rateable{
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "registered_user_workout_connection",
-            joinColumns = @JoinColumn(name = "ru_id"),
-            inverseJoinColumns = @JoinColumn(name = "workout_id")
+            joinColumns = @JoinColumn(name = "workout_id"),
+            inverseJoinColumns = @JoinColumn(name = "registeredUser_id")
     )
     private List<RegisteredUser> registeredUsers;
 
@@ -76,6 +77,13 @@ public class Workout extends Rateable{
         r.setWorkout(this);
     }
 
+    public void addRegisteredUser(RegisteredUser rU){
+        if(registeredUsers == null)
+            registeredUsers = new ArrayList<>();
+
+        registeredUsers.add(rU);
+    }
+
     @Override
     public void removeRating(Rating r) {
         ratings.remove(r);
@@ -95,5 +103,12 @@ public class Workout extends Rateable{
     @Override
     public String getName(){
         return name;
+    }
+
+    @Override
+    public List<RateableDetailTLController.Details> details(){
+        double rating = Rating.calculateRating(this);
+        List<RateableDetailTLController.Details> details = new ArrayList<>();
+        return details;
     }
 }

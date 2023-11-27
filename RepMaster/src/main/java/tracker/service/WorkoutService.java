@@ -5,9 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tracker.model.*;
-import tracker.repository.ExerciseRepository;
-import tracker.repository.RatingRepository;
-import tracker.repository.WorkoutRepository;
+import tracker.repository.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,18 +15,19 @@ import java.util.stream.Collectors;
 @Builder
 @RequiredArgsConstructor
 @Service
-public class WorkoutService {
+public class WorkoutService implements RateableService {
+    private final GymRepository gymRepository;
     private final WorkoutRepository workoutRepository;
     private final ExerciseRepository exerciseRepository;
     private final RatingRepository ratingRepository;
 
     @Transactional
-    public void saveWorkout(Workout workout){
+    public void saveWorkout(Workout workout) {
         workoutRepository.save(workout);
     }
 
     @Transactional
-    public void deleteWorkout(int id){
+    public void deleteWorkout(int id) {
         Optional<Workout> workout = workoutRepository.findById(id);
         workoutRepository.delete(workout.get());
     }
@@ -47,23 +46,23 @@ public class WorkoutService {
         return workouts;
     }
 
-    public List<Exercise> listExercises(int id){
+    public List<Exercise> listExercises(int id) {
         Optional<Workout> workout = workoutRepository.findById(id);
         return workout.get().getExercises();
     }
 
-    public List<MuscleGroup> listMuscleGroups(int id){
+    public List<MuscleGroup> listMuscleGroups(int id) {
         Optional<Workout> workout = workoutRepository.findById(id);
         return workout.get().getMuscleGroups();
     }
 
     @Transactional
-    public void deleteAll(){
+    public void deleteAll() {
         workoutRepository.deleteAllInBatch();
     }
 
     @Transactional
-    public void addNewExerciseToWorkout(int workoutId, Exercise exercise){
+    public void addNewExerciseToWorkout(int workoutId, Exercise exercise) {
         Optional<Workout> workout = workoutRepository.findById(workoutId);
         exerciseRepository.save(exercise);
         workout.get().addExercise(exercise);
@@ -71,7 +70,7 @@ public class WorkoutService {
     }
 
     @Transactional
-    public void addExistingExerciseToWorkout(int workoutId, int exerciseId){
+    public void addExistingExerciseToWorkout(int workoutId, int exerciseId) {
         Optional<Workout> workout = workoutRepository.findById(workoutId);
         Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
         workout.get().addExercise(exercise.get());
@@ -79,13 +78,13 @@ public class WorkoutService {
     }
 
     @Transactional
-    public void addMuscleGroupToWorkout(Workout workout, MuscleGroup muscleGroup){
-        if(!workout.getMuscleGroups().contains(muscleGroup))
+    public void addMuscleGroupToWorkout(Workout workout, MuscleGroup muscleGroup) {
+        if (!workout.getMuscleGroups().contains(muscleGroup))
             workout.addMuscleGroup(muscleGroup);
     }
 
     @Transactional
-    public void removeExerciseFromWorkout(int workoutId, int exerciseId){
+    public void removeExerciseFromWorkout(int workoutId, int exerciseId) {
         Optional<Workout> workout = workoutRepository.findById(workoutId);
         Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
         workout.get().removeExercise(exercise.get());
@@ -94,11 +93,16 @@ public class WorkoutService {
     }
 
     @Transactional
-    public void removeMuscleGroupFromWorkout(Workout workout, MuscleGroup muscleGroup){
-        for(Exercise ex: listExercises(workout.getId()))
-            if(ex.getPrimaryMuscleGroup() == muscleGroup)
+    public void removeMuscleGroupFromWorkout(Workout workout, MuscleGroup muscleGroup) {
+        for (Exercise ex : listExercises(workout.getId()))
+            if (ex.getPrimaryMuscleGroup() == muscleGroup)
                 return;
         workout.removeMuscleGroup(muscleGroup);
+    }
+
+    @Override
+    public Rateable findById(int id) {
+        return workoutRepository.findById(id).get();
     }
 
 }

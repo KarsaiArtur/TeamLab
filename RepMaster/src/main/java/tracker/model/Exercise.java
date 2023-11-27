@@ -2,6 +2,7 @@ package tracker.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import tracker.web.RateableDetailTLController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -103,5 +104,13 @@ public class Exercise extends Rateable{
     @Override
     public String getName(){
         return name;
+    }
+
+
+    @Override
+    public List<RateableDetailTLController.Details> details(){
+        double rating = Rating.calculateRating(this);
+        List<RateableDetailTLController.Details> details = new ArrayList<>();
+        return details;
     }
 }

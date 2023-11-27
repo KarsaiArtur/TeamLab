@@ -2,6 +2,8 @@ package tracker.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.thymeleaf.util.StringUtils;
+import tracker.web.RateableDetailTLController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,9 +42,9 @@ public class Gym extends Rateable{
 
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(
-            name = "registered_user_connection",
-            joinColumns = @JoinColumn(name = "registeredUser_id"),
-            inverseJoinColumns = @JoinColumn(name = "gym_id")
+            name = "registered_user_gym_connection",
+            joinColumns = @JoinColumn(name = "gym_id"),
+            inverseJoinColumns = @JoinColumn(name = "registeredUser_id")
     )
     private List<RegisteredUser> registeredUsers;
 
@@ -93,4 +95,17 @@ public class Gym extends Rateable{
         return name;
     }
 
+    @Override
+    public List<RateableDetailTLController.Details> details(){
+        double rating = Rating.calculateRating(this);
+        String s_rating = (rating == 0.0) ? "Not rated yet" : rating+"";
+        List<RateableDetailTLController.Details> details = new ArrayList<>();
+        details.add(new RateableDetailTLController.Details("Gym name: ", name));
+        details.add(new RateableDetailTLController.Details(howEquipped.toString(), ""));
+        details.add(new RateableDetailTLController.Details("Split: ",split.getName()+" - "+split.getNumberOfDays()+" days"));
+        details.add(new RateableDetailTLController.Details("Location: ", location));
+        details.add(new RateableDetailTLController.Details("Average rating: ", s_rating+  StringUtils.repeat("⭐", (int)rating)));
+        details.add(new RateableDetailTLController.Details("Users: ",""+registeredUsers.size()));
+        return details;
+    }
 }

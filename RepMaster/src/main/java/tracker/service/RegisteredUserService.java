@@ -40,6 +40,27 @@ public class RegisteredUserService {
     }
 
     @Transactional
+    public void addExistingGymToUser(int gym_id){
+        Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(TrackerApplication.getInstance().getLoggedInUser().getId());
+        Optional<Gym> gym = gymRepository.findById(gym_id);
+        registeredUser.get().addGym(gym.get());
+    }
+
+    @Transactional
+    public void addExistingWorkoutToUser(int workout_id){
+        Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(TrackerApplication.getInstance().getLoggedInUser().getId());
+        Optional<Workout> workout = workoutRepository.findById(workout_id);
+        registeredUser.get().addWorkout(workout.get());
+    }
+
+    @Transactional
+    public void addExerciseResultToUser(int exerciseResult_id){
+        Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(TrackerApplication.getInstance().getLoggedInUser().getId());
+        Optional<ExerciseResult> exerciseResult = exerciseResultRepository.findById(exerciseResult_id);
+        registeredUser.get().addExerciseResult(exerciseResult.get());
+    }
+
+    @Transactional
     public String addRegisteredUser(RegisteredUser rUser) {
         if(!userNameDoesntExist(rUser.getUserName()))
             return "Account creation failed: username already exists";

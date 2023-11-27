@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .toolbar {
+                background-color: green;
+                color: white;
+                padding: 30px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            #back-btn {
+                background-color: #FFFFFF;
+                color: #000;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 17px;
+            }
+            table {
+                width: 400px;
+                margin: auto;
+                border-collapse: collapse;
+                list-style-type: none;
+                padding: 0;
+                background: #4caf50;
+            }
+            td {
+                margin-bottom: 10px;
+                padding: 10px;
+            }
+            #feature{
+                font-size: 25px;
+                font-weight: bold;
+            }
+            #data{
+                font-size: 15px;
+            }
+            .container {
+                display: flex;
+            }
+            #ratings{
+                padding-left: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="toolbar">
+            <a href="/search">
+                <input type="button" value="Back" id="back-btn">
+            </a>
+        </div>
+
+        <table th:each="detail : ${details}">
+            <tr>
+                <td>
+                    <label th:text="${detail.feature}" id="feature">MyGym</label>
+                    <label th:text="${detail.data}" id="data">MyGym</label>
+                </td>
+            </tr>
+        </table>
+
+
+
+
+
+
+
+        <div class="container">
+            <div class="element" id="ratings">
+                <table th:each="rating : ${ratings}">
+                    <tr>
+                        <td>
+                            <label th:text="${rating.toString}">MyGym</label>
+                        </td>
+                    </tr>
+                </table>
+
+                <form th:action="@{/addRating}" method="post" th:object="${addRating}">
+
+                    <label for="comment">comment:</label>
+                    <input th:field="*{comment}" id="comment"><br/>
+
+                    <label for="rating">Rating:</label>
+                    <select th:field="*{rating}" id="rating" required>
+                        <option value=1>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5</option>
+                    </select><br/>
+
+                    <input th:object="${loggedIn}" th:disabled="${!loggedIn}" type="submit" value="Rate" id="done-btn">
+                </form>
+            </div>
+            <div class="container2">
+                <div class="element2">
+                    <form th:action="@{/addTo}" method="post" th:object="${addTo}">
+                        <div>
+                            <select th:field="*{id}" id="id">
+                                <option th:each="element : ${elements}" th:name="elementId" th:value="${element.id}" th:text="${element.getName}"></option>
+                            </select>
+                        </div>
+                        <input th:object="${loggedIn}" th:disabled="${!loggedIn}" type="submit" value="Add" id="add-btn">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

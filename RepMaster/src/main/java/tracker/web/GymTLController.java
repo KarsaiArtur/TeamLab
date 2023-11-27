@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import tracker.TrackerApplication;
 import tracker.model.Gym;
 import tracker.service.GymService;
@@ -23,12 +24,13 @@ public class GymTLController {
         userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
         model.put("gyms", gymService.listUserGyms());
         model.put("userName", userName+"'s gyms");
-        model.put("add", new Gym());
+        model.put("workouts", 0);
         return "gyms";
     }
 
     @PostMapping("/workouts")
-    public String workouts(Gym gym) {
+    public String workouts(@RequestParam("gymId") int id) {
+        Gym gym = gymService.findGym(id);
         TrackerApplication.getInstance().setCurrentGym(gym);
         return "redirect:/workouts";
     }

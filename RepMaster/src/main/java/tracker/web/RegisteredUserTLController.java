@@ -39,6 +39,7 @@ public class RegisteredUserTLController {
     public String login(Map<String, Object> model){
         model.put("msg", msg);
         model.put("loginUser", new RegisteredUser());
+        model.put("visitor", null);
         msg="";
         return "login";
     }
@@ -49,6 +50,12 @@ public class RegisteredUserTLController {
         if(msg.contains("failed"))
             return "redirect:/";
         return "redirect:/gyms";
+    }
+
+    @PostMapping("/visitor")
+    public String visitor() {
+        registeredUserService.singOutUser();
+        return "redirect:/search";
     }
 
 }

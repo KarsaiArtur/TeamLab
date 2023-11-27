@@ -1,0 +1,75 @@
+package tracker.web;
+
+import lombok.Builder;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import org.springframework.boot.autoconfigure.web.servlet.ConditionalOnMissingFilterBean;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import tracker.TrackerApplication;
+import tracker.model.*;
+import tracker.service.GymService;
+import tracker.service.RateableService;
+import tracker.service.RegisteredUserService;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+@Controller
+@RequiredArgsConstructor
+public class RateableDetailTLController {
+    private Rateable rateable;
+    private final RegisteredUserService registeredUserService;
+    private static RateableService rateableService;
+
+    public static void setRateableService(RateableService rS){
+        rateableService = rS;
+    }
+
+    @GetMapping("/detail")
+    public String detail(Map<String, Object> model){
+        rateable = TrackerApplication.getInstance().getCurrentRateable();
+        model.put("details", rateable.details());
+        model.put("ratings", rateable.getRatings());
+        model.put("addRating", new Rating());
+        model.put("addTo", new Gym());
+        model.put("loggedIn", TrackerApplication.getInstance().isLoggedIn());
+        if(rateableService.getPossibleContainers() == null)
+        {
+            List<RegisteredUser> users = new ArrayList<>();
+            users.add(TrackerApplication.getInstance().getLoggedInUser());
+            model.put("elements", users);
+        }
+        else
+            model.put("elements", rateableService.getPossibleContainers());
+        return "rateableDetail";
+    }
+
+    @PostMapping("/addRating")
+    public String addRating(Rating rating) {
+        registeredUserService.rate(rateable,rating.getRating(), rating.getComment());
+        return "redirect:/detail";
+    }
+
+    @PostMapping("/addTo")
+    public String addTo(Gym gym) {
+        rateableService.addRateable(gym.getId(), rateable.getId());
+        return "redirect:/detail";
+    }
+
+    @Getter
+    @Setter
+    public static class Details{
+        private String feature;
+        private String data;
+
+        public Details(String f, String d){
+            feature = f;
+            data = d;
+        }
+    }
+}

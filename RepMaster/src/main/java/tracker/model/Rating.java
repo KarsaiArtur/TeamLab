@@ -2,6 +2,7 @@ package tracker.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.thymeleaf.util.StringUtils;
 
 @Getter
 @Setter
@@ -34,9 +35,13 @@ public class Rating {
             ratingsCnt++;
             sum += currentRating.getRating();
         }
+        if(ratingsCnt == 0) return 0;
         return (sum / (double)ratingsCnt);
     }
 
-
+    @Override
+    public String toString(){
+        return comment+" "+StringUtils.repeat("⭐", (int)rating)+ " by "+registeredUser.getUserName();
+    }
 }
 

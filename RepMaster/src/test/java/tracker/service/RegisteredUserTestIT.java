@@ -200,6 +200,7 @@ public class RegisteredUserTestIT {
 
     @Test
     void add(){
+        registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
         Gym gym1 = createGym("Dc", Split.SplitType.Body_Part);
         Gym gym2 = createGym("Ac", Split.SplitType.Body_Part);
         Gym gym3 = createGym("Wc", Split.SplitType.Full_Body);
@@ -212,6 +213,11 @@ public class RegisteredUserTestIT {
         Workout workout2 = createWorkout("Ac_w");
         Workout workout3 = createWorkout("Wc_w");
         Workout workout4 = createWorkout("Fc_w");
+        registeredUserService.addExistingGymToUser(gym3.getId());
+        gymService.addExistingWorkoutToGym(gym3.getId(), workout2.getId());
+        gymService.addExistingWorkoutToGym(gym3.getId(), workout3.getId());
+        gymService.addExistingWorkoutToGym(gym3.getId(), workout4.getId());
+        workoutService.addExistingExerciseToWorkout(workout3.getId(), exercise2.getId());
     }
 
     public Exercise createExercise(String name, MuscleGroup muscleGroup){
