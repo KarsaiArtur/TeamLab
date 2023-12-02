@@ -29,10 +29,15 @@
     </head>
 
     <body>
-        <div class="toolbar">
-            <button id="zoomInButton">+</button>
-            <button id="searchButton">🔍</button>
-        </div>
+    <div class="toolbar">
+        <a href="/workouts" >
+            <input type="button" value="Back" id="back-btn">
+        </a>
+        <a href="/addExercise">
+            <button id="addButton">+</button>
+        </a>
+        <td><span th:text="${userName}" id="name"></span></td>
+    </div>
 
         <table th:each="exercise : ${exercises}">
             <tr>

@@ -94,8 +94,7 @@ public class RegisteredUserService {
     }
 
     public void singOutUser(){
-        TrackerApplication.getInstance().setLoggedInUser(RegisteredUser.builder().build());
-        TrackerApplication.getInstance().setLoggedIn(false);
+        TrackerApplication.getInstance().reset();
     }
 
     @Transactional
@@ -105,6 +104,13 @@ public class RegisteredUserService {
 
         ratingRepository.save(new_rating);
         rUser.addRating(rateable, new_rating);
+    }
+
+    @Transactional
+    public void deleteRating(Rateable rateable, int ratingId){
+        Optional<Rating> rating = ratingRepository.findById(ratingId);
+        rateable.removeRating(rating.get());
+        ratingRepository.deleteById(ratingId);
     }
 
     public List<Rateable> SearchExerciseByMuscleGroup(String muscleGroup, String sortMode){

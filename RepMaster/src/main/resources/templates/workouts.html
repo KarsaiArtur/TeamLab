@@ -13,24 +13,44 @@
             .toolbar {
                 background-color: green;
                 color: white;
-                padding: 10px;
+                padding: 30px;
                 display: flex;
                 justify-content: space-between;
             }
 
-            .toolbar button {
+            #back-btn {
+                background-color: #FFFFFF;
+                color: #000;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 17px;
+            }
+
+            #addButton{
                 background-color: lightgreen;
-                color: green;
-                padding: 5px 10px;
                 border: none;
                 cursor: pointer;
+                color: darkgreen;
+                font-size: 25px;
+                padding: 20px 30px;
+                margin-left: 0px;
+            }
+
+            #name{
+                width: 700px;
+                font-size: 30px;
+                padding: 20px 500px;
             }
         </style>
     </head>
     <body>
 
     <div class="toolbar">
-
+        <a href="/gyms" >
+            <input type="button" value="Back" id="back-btn">
+        </a>
         <a href="/addWorkout">
             <button id="addButton">+</button>
         </a>

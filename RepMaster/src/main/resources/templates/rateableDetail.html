@@ -82,6 +82,12 @@
                         <td>
                             <label th:text="${rating.toString}">MyGym</label>
                         </td>
+                        <td>
+                            <form th:action="@{/deleteRating}" method="post" th:object="${deleteRating}">
+                                <input type="hidden" th:name="ratingId" th:value="${rating.id}"/>
+                                <input th:if="${rating.registeredUser.id == loggedInUserId}" type="submit" value="Delete" id="delete-btn">
+                            </form>
+                        </td>
                     </tr>
                 </table>
 

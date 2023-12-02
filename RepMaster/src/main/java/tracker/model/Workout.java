@@ -102,7 +102,8 @@ public class Workout extends Rateable{
 
     @Override
     public String toString(){
-        return name;
+        double rating = Rating.calculateRating(this);
+        return name + (rating==0.0 ? " Not rated": " AVG rating "+rating+"/5.0");
     }
 
     @Override

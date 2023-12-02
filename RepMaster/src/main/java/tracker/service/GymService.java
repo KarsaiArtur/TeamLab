@@ -114,6 +114,11 @@ public class GymService  implements RateableService{
                         .build())
                 .howEquipped(gym.getHowEquipped())
                 .build();
+        newGym.setSplit(Split.builder()
+                .name(Split.SplitType.valueOf(gym.getSplit().getName().toString()))
+                .numberOfDays(gym.getSplit().getNumberOfDays())
+                .gym(newGym)
+                .build());
         for(Workout workouts: gym.getWorkouts()){
             addExistingWorkoutToGym(newGym.getId(), workouts.getId());
         }

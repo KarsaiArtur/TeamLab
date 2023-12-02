@@ -13,24 +13,44 @@
             .toolbar {
                 background-color: green;
                 color: white;
-                padding: 10px;
+                padding: 30px;
                 display: flex;
                 justify-content: space-between;
             }
 
-            .toolbar button {
+            #back-btn {
+                background-color: #FFFFFF;
+                color: #000;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 17px;
+            }
+
+            #addButton{
                 background-color: lightgreen;
-                color: green;
-                padding: 5px 10px;
                 border: none;
                 cursor: pointer;
+                color: darkgreen;
+                font-size: 25px;
+                padding: 20px 30px;
+                margin-left: 0px;
+            }
+
+            #name{
+                width: 700px;
+                font-size: 30px;
+                padding: 20px 500px;
             }
         </style>
     </head>
     <body>
 
     <div class="toolbar">
-
+        <a href="/gyms" >
+            <input type="button" value="Back" id="back-btn">
+        </a>
         <a href="/addWorkout">
             <button id="addButton">+</button>
         </a>
@@ -42,7 +62,14 @@
                 <td><h1 th:text="${workout.name}">MyWorkout</h1></td>
                 <td>
                     <form th:action="@{/exercises}" th:object="${workout}" method="post">
+                        <input type="hidden" th:name="workoutId" th:value="${workout.id}" />
                         <input type="submit" value="Open" id="open-btn">
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{/deleteWorkout}" method="post">
+                        <input type="hidden" th:name="workoutId" th:value="${workout.id}" />
+                        <input type="submit" value="Delete" id="delete-btn">
                     </form>
                 </td>
             </tr>

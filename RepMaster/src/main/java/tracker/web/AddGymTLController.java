@@ -36,10 +36,12 @@ public class AddGymTLController {
                 .publiclyAvailable(gymCopy.publiclyAvailable.equals("Yes"))
                 .location(gymCopy.getLocation())
                 .howEquipped(Equipment.valueOf(gymCopy.getHowEquipped()))
-                .split(Split.builder()
-                        .name(Split.SplitType.valueOf(gymCopy.getSplitType()))
-                        .numberOfDays(gymCopy.getNumberOfDays())
-                        .build()).build();
+                .build();
+        gym.setSplit(Split.builder()
+                .name(Split.SplitType.valueOf(gymCopy.getSplitType()))
+                .numberOfDays(gymCopy.getNumberOfDays())
+                .gym(gym)
+                .build());
         registeredUserService.addNewGymToUser(gym);
         return "redirect:/gyms";
     }

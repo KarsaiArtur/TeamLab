@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercises</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .toolbar {
+      background-color: green;
+      color: white;
+      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #back-btn {
+      background-color: #FFFFFF;
+      color: #000;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 17px;
+    }
+  </style>
+</head>
+<body>
+<div class="toolbar">
+  <td><span th:text="${userName}" id="userName"></span></td>
+  <a href="/exercises" >
+    <input type="button" value="Back" id="back-btn">
+  </a>
+</div>
+
+<div id="add-container">
+  <h2>Add result</h2>
+
+  <form th:action="@{/addER}" method="post" th:object="${addER}">
+    <label for="repetition_count">Number of reps:</label>
+    <input th:field="*{repetition_count}" id="repetition_count" required><br/>
+
+    <label for="weight">Weight:</label>
+    <input th:field="*{weight}" id="weight" required><br/>
+
+    <label for="sets">name:</label>
+    <input th:field="*{sets}" id="sets" required><br/>
+
+    <label for="date">Publicly available:</label>
+    <input  type="date" th:field="*{date}" id="date" required value="2023-12-10"/>
+
+    <input type="submit" value="Done" id="done-btn">
+  </form>
+</div>
+
+</body>
+</html>

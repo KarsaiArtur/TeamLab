@@ -34,4 +34,13 @@ public class TrackerApplication implements CommandLineRunner{
         SpringApplication.run(TrackerApplication.class, args);
     }
 
+    public void reset(){
+        setLoggedInUser(RegisteredUser.builder().build());
+        setLoggedIn(false);
+        setCurrentRateable(null);
+        setCurrentGym(null);
+        setCurrentWorkout(null);
+        setCurrentExercise(null);
+    }
+
 }

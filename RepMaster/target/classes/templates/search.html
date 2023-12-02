@@ -58,7 +58,7 @@
     <body>
         <div class="toolbar">
             <a href="/gyms" >
-                <input type="button" value="Back" id="back-btn">
+                <input th:object="${loggedIn}" th:disabled="${!loggedIn}" type="submit" value="Back to gyms" id="back-btn">
             </a>
         </div>
 

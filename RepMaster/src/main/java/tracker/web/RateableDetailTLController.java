@@ -6,14 +6,17 @@ import lombok.Setter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import tracker.TrackerApplication;
 import tracker.model.*;
+import tracker.repository.RatingRepository;
 import tracker.service.RateableService;
 import tracker.service.RegisteredUserService;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -34,6 +37,8 @@ public class RateableDetailTLController {
         model.put("addRating", new Rating());
         model.put("addTo", new Gym());
         model.put("loggedIn", TrackerApplication.getInstance().isLoggedIn());
+        model.put("loggedInUserId", TrackerApplication.getInstance().getLoggedInUser().getId());
+        model.put("deleteRating", 0);
         if(rateableService.getPossibleContainers() == null && TrackerApplication.getInstance().isLoggedIn())
         {
             List<RegisteredUser> users = new ArrayList<>();
@@ -54,6 +59,12 @@ public class RateableDetailTLController {
     @PostMapping("/addTo")
     public String addTo(Gym gym) {
         rateableService.addRateable(gym.getId(), rateable.getId());
+        return "redirect:/detail";
+    }
+
+    @PostMapping("/deleteRating")
+    public String deleteRating(@RequestParam("ratingId") int id) {
+        registeredUserService.deleteRating(rateable, id);
         return "redirect:/detail";
     }
 

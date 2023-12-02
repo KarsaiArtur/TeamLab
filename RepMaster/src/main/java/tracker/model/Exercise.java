@@ -104,7 +104,8 @@ public class Exercise extends Rateable{
 
     @Override
     public String toString(){
-        return name+" "+primaryMuscleGroup.toString().replace("_", " ");
+        double rating = Rating.calculateRating(this);
+        return name+" ("+primaryMuscleGroup.toString().replace("_", " ")+") "+ (rating==0.0 ? "Not rated": "AVG rating "+rating+"/5.0");
     }
 
     @Override

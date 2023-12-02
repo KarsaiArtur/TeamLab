@@ -32,6 +32,8 @@ public class SearchTLController {
         model.put("elements", rateableList);
         model.put("search", new Search());
         model.put("rateableopen", 0);
+        model.put("loggedIn", TrackerApplication.getInstance().isLoggedIn());
+        searched=false;
         return "search";
     }
 

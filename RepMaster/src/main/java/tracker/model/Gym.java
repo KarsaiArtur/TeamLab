@@ -89,7 +89,8 @@ public class Gym extends Rateable{
 
     @Override
     public String toString(){
-        return name +" "+split.getName().toString().replace("_", " ");
+        double rating = Rating.calculateRating(this);
+        return name +" ("+split.getName().toString().replace("_", " ")+" "+split.getNumberOfDays()+" days) "+ (rating==0.0 ? "Not rated": "AVG rating "+rating+"/5.0");
     }
 
     @Override
