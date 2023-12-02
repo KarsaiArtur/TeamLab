@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Workout extends Rateable{
+public class Workout extends Rateable {
     @Id
     @GeneratedValue
     private int id;

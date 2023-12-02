@@ -49,6 +49,9 @@ public class Exercise extends Rateable{
     )
     private List<RegisteredUser> registeredUsers;
 
+    @ManyToOne
+    private RegisteredUser owner;
+
     public Exercise(int set_count) {
         this.set_count = set_count;
     }

@@ -38,7 +38,7 @@ public class AddWorkoutTLController {
 
     @Setter
     @Getter
-    class WorkoutCopy{
+    class WorkoutCopy {
         private String name;
         private String publiclyAvailable;
     }
