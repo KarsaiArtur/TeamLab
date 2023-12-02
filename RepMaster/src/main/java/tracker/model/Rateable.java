@@ -11,4 +11,5 @@ public abstract class Rateable {
     public abstract String getName();
     public abstract int getId();
     public abstract List<RateableDetailTLController.Details> details();
+    public abstract boolean isPubliclyAvailable();
 }

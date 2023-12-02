@@ -43,6 +43,14 @@ public class Exercise extends Rateable{
     @ManyToMany(mappedBy = "exercises", fetch = FetchType.EAGER)
     private List<Workout> workouts;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "registered_user_exercise_connection",
+            joinColumns = @JoinColumn(name = "exercise_id"),
+            inverseJoinColumns = @JoinColumn(name = "registeredUser_id")
+    )
+    private List<RegisteredUser> registeredUsers;
+
     public Exercise(int set_count) {
         this.set_count = set_count;
     }

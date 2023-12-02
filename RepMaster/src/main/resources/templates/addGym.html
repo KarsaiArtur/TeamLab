@@ -67,6 +67,12 @@
                     <option value=Poorly_Equipped>Poorly Equipped</option>
                 </select><br/>
 
+                <label for="publiclyAvailable">Publicly available:</label>
+                <select th:field="*{publiclyAvailable}" id="publiclyAvailable" required>
+                    <option value=No>No</option>
+                    <option value=Yes>Yes</option>
+                </select><br/>
+
                 <input type="submit" value="Done" id="done-btn">
             </form>
         </div>

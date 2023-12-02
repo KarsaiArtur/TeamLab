@@ -12,7 +12,7 @@ import tracker.model.*;
 import java.util.List;
 
 @SpringBootTest
-//@AutoConfigureTestDatabase
+@AutoConfigureTestDatabase
 public class RegisteredUserTestIT {
     @Autowired
     private GymService gymService;
@@ -140,6 +140,7 @@ public class RegisteredUserTestIT {
     @Test
     public void searchGymBySplit() throws Exception {
         Gym gym = Gym.builder().name("test")
+                .publiclyAvailable(true)
                 .split(Split.builder().name(Split.SplitType.Body_Part).build())
                 .build();
 
@@ -155,10 +156,12 @@ public class RegisteredUserTestIT {
     public void searchGymBySplitNameAsc() throws Exception {
         Gym gym = Gym.builder().name("www")
                 .split(Split.builder().name(Split.SplitType.Body_Part).build())
+                .publiclyAvailable(true)
                 .build();
 
         Gym gym2 = Gym.builder().name("abc")
                 .split(Split.builder().name(Split.SplitType.Body_Part).build())
+                .publiclyAvailable(true)
                 .build();
 
         gymService.saveGym(gym);
@@ -222,6 +225,7 @@ public class RegisteredUserTestIT {
 
     public Exercise createExercise(String name, MuscleGroup muscleGroup){
         Exercise exercise = Exercise.builder().name(name)
+                .publiclyAvailable(true)
                 .primaryMuscleGroup(muscleGroup)
                 .build();
 
@@ -230,13 +234,13 @@ public class RegisteredUserTestIT {
     }
 
     private Gym createGym(String name, Split.SplitType split) {
-        Gym gym = Gym.builder().name(name).split(Split.builder().name(split).build()).build();
+        Gym gym = Gym.builder().name(name).publiclyAvailable(true).split(Split.builder().name(split).build()).build();
         gymService.saveGym(gym);
         return gym;
     }
 
     private Workout createWorkout(String name) {
-        Workout workout = Workout.builder().name(name).build();
+        Workout workout = Workout.builder().publiclyAvailable(true).name(name).build();
         workoutService.saveWorkout(workout);
         return workout;
     }

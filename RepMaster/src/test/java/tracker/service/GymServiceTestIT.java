@@ -22,19 +22,24 @@ public class GymServiceTestIT {
     private GymService gymService;
     @Autowired
     private WorkoutService workoutService;
+    @Autowired
+    private RegisteredUserService registeredUserService;
 
     private Gym gym;
     private Gym gym2;
-    Workout workout1;
-    Workout workout2;
-    Workout workout3;
+    private Workout workout1;
+    private Workout workout2;
+    private Workout workout3;
+    private RegisteredUser rUser;
 
     @BeforeEach
     public void clearAndInitDb() {
         workoutService.deleteAll();
         gymService.deleteAll();
+        registeredUserService.deleteAll();
 
         //ARRANGE
+        initUser();
         initGyms();
         initWorkouts();
     }
@@ -61,6 +66,7 @@ public class GymServiceTestIT {
 
     @Test
     void testAddNewWorkoutsToGyms() throws Exception{
+        registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
         //ACT
         gymService.addNewWorkoutToGym(gym.getId(), workout1);
         gymService.addNewWorkoutToGym(gym.getId(), workout2);
@@ -79,6 +85,7 @@ public class GymServiceTestIT {
 
     @Test
     void testAddExistingWorkoutsToGyms() {
+        registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
         //ACT
         gymService.addNewWorkoutToGym(gym.getId(), workout1);
         gymService.addNewWorkoutToGym(gym.getId(), workout2);
@@ -101,6 +108,7 @@ public class GymServiceTestIT {
 
     @Test()
     void testRemoveWorkoutFromGym () throws Exception{
+        registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
         //ACT
         gymService.addNewWorkoutToGym(gym.getId(), workout1);
         gymService.addNewWorkoutToGym(gym.getId(), workout2);
@@ -124,12 +132,14 @@ public class GymServiceTestIT {
     void initGyms(){
         gym = gymService.saveGym(
                 Gym.builder().name("TestGym1")
+                        .owner(rUser)
                         .location("Budapest")
                         .split(Split.builder().name(Split.SplitType.Body_Part).numberOfDays(5).build())
                         .howEquipped(Equipment.Well_Equipped).build()
         );
         gym2 = gymService.saveGym(
                 Gym.builder().name("TestGym2")
+                        .owner(rUser)
                         .location("Velence")
                         .split(Split.builder().name(Split.SplitType.Body_Part).numberOfDays(5).build())
                         .howEquipped(Equipment.Fully_Equipped).build()
@@ -137,9 +147,14 @@ public class GymServiceTestIT {
     }
 
     void initWorkouts(){
-        workout1 = Workout.builder().name("Back").muscleGroups(new ArrayList<MuscleGroup>(Arrays.asList(MuscleGroup.Upper_Back, MuscleGroup.Lower_Back))).build();
-        workout2 = Workout.builder().name("Biceps").muscleGroups(new ArrayList<MuscleGroup>(Arrays.asList(MuscleGroup.Biceps))).build();
-        workout3 = Workout.builder().name("Triceps").muscleGroups(new ArrayList<MuscleGroup>(Arrays.asList(MuscleGroup.Triceps))).build();
+        workout1 = Workout.builder().owner(rUser).name("Back").muscleGroups(new ArrayList<MuscleGroup>(Arrays.asList(MuscleGroup.Upper_Back, MuscleGroup.Lower_Back))).build();
+        workout2 = Workout.builder().owner(rUser).name("Biceps").muscleGroups(new ArrayList<MuscleGroup>(Arrays.asList(MuscleGroup.Biceps))).build();
+        workout3 = Workout.builder().owner(rUser).name("Triceps").muscleGroups(new ArrayList<MuscleGroup>(Arrays.asList(MuscleGroup.Triceps))).build();
+    }
+
+    void initUser(){
+        rUser = RegisteredUser.builder().userName("TestUser").password("abc123").build();
+        registeredUserService.addRegisteredUser(rUser);
     }
 }
 

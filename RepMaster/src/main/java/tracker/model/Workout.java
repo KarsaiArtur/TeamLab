@@ -47,6 +47,9 @@ public class Workout extends Rateable{
     )
     private List<RegisteredUser> registeredUsers;
 
+    @ManyToOne
+    private RegisteredUser owner;
+
     public void addExercise(Exercise e){
         if(exercises == null)
             exercises = new ArrayList<>();

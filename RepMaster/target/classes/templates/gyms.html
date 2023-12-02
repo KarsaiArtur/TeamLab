@@ -18,6 +18,16 @@
             justify-content: space-between;
         }
 
+        #logOut-btn {
+            background-color: #FFFFFF;
+            color: #000;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
         #addButton{
             background-color: lightgreen;
             border: none;
@@ -25,6 +35,7 @@
             color: darkgreen;
             font-size: 25px;
             padding: 20px 30px;
+            margin-left: 0px;
         }
         #searchButton{
             background-color: lightgreen;
@@ -34,18 +45,22 @@
             padding: 20px 25px;
         }
         #name{
+            width: 700px;
             font-size: 30px;
-            padding: 20px 25px;
+            padding: 20px 500px;
         }
     </style>
 </head>
     <body>
         <div class="toolbar">
 
+            <a href="/" >
+                <input type="button" value="Log Out" id="logOut-btn">
+            </a>
             <a href="/addGym">
                 <button id="addButton">+</button>
             </a>
-            <td><span th:text="${userName}" id="name"></span></td>
+            <span th:text="${userName}" id="name">Nmae</span>
             <a href="/search">
                 <button id="searchButton">🔍</button>
             </a>

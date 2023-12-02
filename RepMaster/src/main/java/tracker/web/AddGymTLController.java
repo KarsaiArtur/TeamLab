@@ -31,7 +31,9 @@ public class AddGymTLController {
     @PostMapping("/add")
     public String add(GymCopy gymCopy) {
         Gym gym = Gym.builder()
+                .owner(TrackerApplication.getInstance().getLoggedInUser())
                 .name(gymCopy.getName())
+                .publiclyAvailable(gymCopy.publiclyAvailable.equals("Yes"))
                 .location(gymCopy.getLocation())
                 .howEquipped(Equipment.valueOf(gymCopy.getHowEquipped()))
                 .split(Split.builder()
@@ -46,6 +48,7 @@ public class AddGymTLController {
     @Getter
     class GymCopy{
         private String name;
+        private String publiclyAvailable;
         private String location;
         private int numberOfDays;
         private String splitType;

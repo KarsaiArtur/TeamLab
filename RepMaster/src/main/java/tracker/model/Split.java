@@ -19,7 +19,7 @@ public class Split {
 
     @Enumerated(EnumType.STRING)
     private SplitType name;
-    @OneToOne(mappedBy = "split")
+    @OneToOne
     private Gym gym;
 
     public enum SplitType{

@@ -98,26 +98,11 @@ public class RegisteredUserService {
         if(muscleGroup != null){
             exercises = exercises.stream().filter(a -> a.getPrimaryMuscleGroup().toString().toUpperCase().contains(muscleGroup.toUpperCase())).collect(Collectors.toList());
         }
-        if("RatingDesc".equals(sortMode)){
-            Collections.sort(exercises,
-                    (o1, o2) -> Rating.calculateRating(o1) > Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) < Rating.calculateRating(o2)) ? 1 : 0);
-        }
-        if("RatingAsc".equals(sortMode)){
-            Collections.sort(exercises,
-                    (o1, o2) -> Rating.calculateRating(o1) < Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) > Rating.calculateRating(o2)) ? 1 : 0);
-        }
-        if("NameAsc".equals(sortMode)){
-            Collections.sort(exercises,
-                    (o1, o2) -> o1.getName().compareTo(o2.getName()));
-        }
-        if("NameDesc".equals(sortMode)){
-            Collections.sort(exercises,
-                    (o1, o2) -> o2.getName().compareTo(o1.getName()));
-        }
         List<Rateable> rateables = new ArrayList<>();
         for (Exercise e: exercises) {
             rateables.add(e);
         }
+        rateables = sortMode(rateables, sortMode);
         return rateables;
     }
 
@@ -126,26 +111,11 @@ public class RegisteredUserService {
         if(split != null){
             gyms = gyms.stream().filter(a -> a.getSplit().getName().toString().toUpperCase().contains(split.toUpperCase())).collect(Collectors.toList());
         }
-        if("RatingDesc".equals(sortMode)){
-            Collections.sort(gyms,
-                    (o1, o2) -> Rating.calculateRating(o1) > Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) < Rating.calculateRating(o2)) ? 1 : 0);
-        }
-        if("RatingAsc".equals(sortMode)){
-            Collections.sort(gyms,
-                    (o1, o2) -> Rating.calculateRating(o1) < Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) > Rating.calculateRating(o2)) ? 1 : 0);
-        }
-        if("NameAsc".equals(sortMode)){
-            Collections.sort(gyms,
-                    (o1, o2) -> o1.getName().compareTo(o2.getName()));
-        }
-        if("NameDesc".equals(sortMode)){
-            Collections.sort(gyms,
-                    (o1, o2) -> o2.getName().compareTo(o1.getName()));
-        }
         List<Rateable> rateables = new ArrayList<>();
         for (Gym g: gyms) {
             rateables.add(g);
         }
+        rateables = sortMode(rateables, sortMode);
         return rateables;
     }
 
@@ -154,27 +124,33 @@ public class RegisteredUserService {
         if(name != "" && name != null){
             workouts = workouts.stream().filter(a -> a.getName().toUpperCase().contains(name.toUpperCase())).collect(Collectors.toList());
         }
-        if("RatingDesc".equals(sortMode)){
-            Collections.sort(workouts,
-                    (o1, o2) -> Rating.calculateRating(o1) > Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) < Rating.calculateRating(o2)) ? 1 : 0);
-        }
-        if("RatingAsc".equals(sortMode)){
-            Collections.sort(workouts,
-                    (o1, o2) -> Rating.calculateRating(o1) < Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) > Rating.calculateRating(o2)) ? 1 : 0);
-        }
-        if("NameAsc".equals(sortMode)){
-            Collections.sort(workouts,
-                    (o1, o2) -> o1.getName().compareTo(o2.getName()));
-        }
-        if("NameDesc".equals(sortMode)){
-            Collections.sort(workouts,
-                    (o1, o2) -> o2.getName().compareTo(o1.getName()));
-        }
         List<Rateable> rateables = new ArrayList<>();
         for (Workout w: workouts) {
             rateables.add(w);
         }
+        rateables = sortMode(rateables, sortMode);
         return rateables;
+    }
+
+    public List<Rateable> sortMode(List<Rateable> rateable, String sortMode){
+        rateable = rateable.stream().filter(a -> a.isPubliclyAvailable()).collect(Collectors.toList());
+        if("RatingDesc".equals(sortMode)){
+            Collections.sort(rateable,
+                    (o1, o2) -> Rating.calculateRating(o1) > Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) < Rating.calculateRating(o2)) ? 1 : 0);
+        }
+        if("RatingAsc".equals(sortMode)){
+            Collections.sort(rateable,
+                    (o1, o2) -> Rating.calculateRating(o1) < Rating.calculateRating(o2) ? -1 : (Rating.calculateRating(o1) > Rating.calculateRating(o2)) ? 1 : 0);
+        }
+        if("NameAsc".equals(sortMode)){
+            Collections.sort(rateable,
+                    (o1, o2) -> o1.getName().compareTo(o2.getName()));
+        }
+        if("NameDesc".equals(sortMode)){
+            Collections.sort(rateable,
+                    (o1, o2) -> o2.getName().compareTo(o1.getName()));
+        }
+        return rateable;
     }
 
     public List<RegisteredUser> listUsers(){

@@ -6,8 +6,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import tracker.TrackerApplication;
 import tracker.model.*;
 import tracker.repository.GymRepository;
+import tracker.repository.RegisteredUserRepository;
 import tracker.repository.WorkoutRepository;
 
 import java.util.ArrayList;
@@ -27,15 +29,21 @@ public class GymServiceTest {
     GymRepository gymRepository;
     @Mock
     WorkoutRepository workoutRepository;
+    @Mock
+    RegisteredUserService registeredUserService;
+    @Mock
+    TrackerApplication trackerApplication;
     private Gym gym;
     private Gym gym2;
-    Workout workout1;
-    Workout workout2;
-    Workout workout3;
+    private Workout workout1;
+    private Workout workout2;
+    private Workout workout3;
+    private RegisteredUser rUser;
 
     @BeforeEach
     public void createWorkout(){
         //ARRANGE
+        initUser();
         initGyms();
         initWorkouts();
     }
@@ -81,18 +89,25 @@ public class GymServiceTest {
 
     void initGyms(){
         gym = Gym.builder().name("TestGym1")
-                        .location("Budapest")
-                        .split(Split.builder().name(Split.SplitType.Body_Part).numberOfDays(5).build())
-                        .howEquipped(Equipment.Well_Equipped).build();
+                .owner(rUser)
+                .location("Budapest")
+                .split(Split.builder().name(Split.SplitType.Body_Part).numberOfDays(5).build())
+                .howEquipped(Equipment.Well_Equipped).build();
         gym2 = Gym.builder().name("TestGym2")
-                        .location("Velence")
-                        .split(Split.builder().name(Split.SplitType.Body_Part).numberOfDays(5).build())
-                        .howEquipped(Equipment.Fully_Equipped).build();
+                .owner(rUser)
+                .location("Velence")
+                .split(Split.builder().name(Split.SplitType.Body_Part).numberOfDays(5).build())
+                .howEquipped(Equipment.Fully_Equipped).build();
     }
 
     void initWorkouts(){
         workout1 = Workout.builder().name("Back").muscleGroups(new ArrayList<MuscleGroup>(Arrays.asList(MuscleGroup.Upper_Back, MuscleGroup.Lower_Back))).build();
         workout2 = Workout.builder().name("Biceps").muscleGroups(new ArrayList<MuscleGroup>(Arrays.asList(MuscleGroup.Biceps))).build();
         workout3 = Workout.builder().name("Triceps").muscleGroups(new ArrayList<MuscleGroup>(Arrays.asList(MuscleGroup.Triceps))).build();
+    }
+
+    void initUser(){
+        rUser = RegisteredUser.builder().userName("TestUser").password("abc123").build();
+        registeredUserService.addRegisteredUser(rUser);
     }
 }
