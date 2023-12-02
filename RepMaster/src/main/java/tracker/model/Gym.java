@@ -21,6 +21,7 @@ public class Gym extends Rateable{
     private int id;
     private String name;
     private String location;
+    private boolean publiclyAvailable = true;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "gym")
     private List<Rating> ratings;

@@ -1,17 +1,13 @@
 package tracker.web;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import org.springframework.boot.autoconfigure.web.servlet.ConditionalOnMissingFilterBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import tracker.TrackerApplication;
 import tracker.model.*;
-import tracker.service.GymService;
 import tracker.service.RateableService;
 import tracker.service.RegisteredUserService;
 
@@ -38,13 +34,13 @@ public class RateableDetailTLController {
         model.put("addRating", new Rating());
         model.put("addTo", new Gym());
         model.put("loggedIn", TrackerApplication.getInstance().isLoggedIn());
-        if(rateableService.getPossibleContainers() == null)
+        if(rateableService.getPossibleContainers() == null && TrackerApplication.getInstance().isLoggedIn())
         {
             List<RegisteredUser> users = new ArrayList<>();
             users.add(TrackerApplication.getInstance().getLoggedInUser());
             model.put("elements", users);
         }
-        else
+        else if(TrackerApplication.getInstance().isLoggedIn())
             model.put("elements", rateableService.getPossibleContainers());
         return "rateableDetail";
     }

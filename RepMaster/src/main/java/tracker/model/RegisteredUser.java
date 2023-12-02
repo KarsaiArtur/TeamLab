@@ -46,6 +46,10 @@ public class RegisteredUser implements User{
         userGyms.add(g);
     }
 
+    public void removeGym(Gym gym) {
+        userGyms.remove(gym);
+    }
+
     public void addExerciseResult(ExerciseResult eR) {
         if(exerciseResults == null) exerciseResults = new ArrayList<>();
         eR.setRegisteredUser(this);
@@ -56,6 +60,10 @@ public class RegisteredUser implements User{
         createWorkoutListIfEmpty();
         w.addRegisteredUser(this);
         userWorkouts.add(w);
+    }
+
+    public void removeWorkout(Workout w) {
+        userWorkouts.remove(w);
     }
 
     public void addWorkoutsFromUsersGyms() {

@@ -48,6 +48,20 @@ public class RegisteredUserService {
     }
 
     @Transactional
+    public void removeGymFromUser(int gym_id){
+        Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(TrackerApplication.getInstance().getLoggedInUser().getId());
+        Optional<Gym> gym = gymRepository.findById(gym_id);
+        registeredUser.get().removeGym(gym.get());
+    }
+
+    @Transactional
+    public void removeWorkoutFromUser(int workout_id){
+        Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(TrackerApplication.getInstance().getLoggedInUser().getId());
+        Optional<Workout> workout = workoutRepository.findById(workout_id);
+        registeredUser.get().removeWorkout(workout.get());
+    }
+
+    @Transactional
     public void addExistingWorkoutToUser(int workout_id){
         Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(TrackerApplication.getInstance().getLoggedInUser().getId());
         Optional<Workout> workout = workoutRepository.findById(workout_id);

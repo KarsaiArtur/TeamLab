@@ -18,15 +18,14 @@ public class Exercise extends Rateable{
     @Id
     @GeneratedValue
     private int id;
-
     private String name;
     private int set_count;
     private int repetition_count;
     private boolean isCompound;
+    private boolean publiclyAvailable = true;
 
     @Enumerated(EnumType.STRING)
     private MuscleGroup primaryMuscleGroup;
-
 
     @ElementCollection
     @CollectionTable(name="secondary_muscle_groups")
@@ -38,7 +37,6 @@ public class Exercise extends Rateable{
     private List<Rating> ratings;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "exercise")
     private List<ExerciseResult> exerciseResults;
-
 
     @ManyToMany(mappedBy = "exercises", fetch = FetchType.EAGER)
     private List<Workout> workouts;

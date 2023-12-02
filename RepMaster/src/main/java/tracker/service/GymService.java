@@ -58,23 +58,70 @@ public class GymService  implements RateableService{
     public void addNewWorkoutToGym(int id, Workout workout){
         Optional<Gym> gym = gymRepository.findById(id);
         workoutRepository.save(workout);
-        gym.get().addWorkout(workout);
-        registeredUserService.addExistingWorkoutToUser(workout.getId());
+
+        if(gym.get().getOwner().getId() == TrackerApplication.getInstance().getLoggedInUser().getId()) {
+            gym.get().addWorkout(workout);
+            registeredUserService.addExistingWorkoutToUser(workout.getId());
+        }
+        else{
+            Gym newGym = workoutChanged(gym.get());
+            newGym.addWorkout(workout);
+            registeredUserService.addExistingWorkoutToUser(workout.getId());
+        }
     }
 
     @Transactional
     public void addExistingWorkoutToGym(int id, int workout_id){
         Optional<Gym> gym = gymRepository.findById(id);
         Optional<Workout> workout = workoutRepository.findById(workout_id);
-        gym.get().addWorkout(workout.get());
-        registeredUserService.addExistingWorkoutToUser(workout_id);
+
+        if(gym.get().getOwner().getId() == TrackerApplication.getInstance().getLoggedInUser().getId()) {
+            gym.get().addWorkout(workout.get());
+            registeredUserService.addExistingWorkoutToUser(workout_id);
+        }
+        else{
+            Gym newGym = workoutChanged(gym.get());
+            newGym.addWorkout(workout.get());
+            registeredUserService.addExistingWorkoutToUser(workout_id);
+        }
     }
 
     @Transactional
     public void removeWorkoutFromGym(int id, int workout_id){
         Optional<Gym> gym = gymRepository.findById(id);
         Optional<Workout> workout = workoutRepository.findById(workout_id);
-        gym.get().removeWorkout(workout.get());
+
+        if(gym.get().getOwner().getId() == TrackerApplication.getInstance().getLoggedInUser().getId()) {
+            gym.get().removeWorkout(workout.get());
+            registeredUserService.removeWorkoutFromUser(workout_id);
+        }
+        else{
+            Gym newGym = workoutChanged(gym.get());
+            newGym.removeWorkout(workout.get());
+            registeredUserService.removeWorkoutFromUser(workout_id);
+        }
+    }
+
+    public Gym workoutChanged(Gym gym){
+        Gym newGym = Gym.builder()
+                .owner(TrackerApplication.getInstance().getLoggedInUser())
+                .name(gym.getName())
+                .location(gym.getLocation())
+                .publiclyAvailable(false)
+                .split(Split.builder()
+                        .name(Split.SplitType.valueOf(gym.getSplit().getName().toString()))
+                        .numberOfDays(gym.getSplit().getNumberOfDays())
+                        .build())
+                .howEquipped(gym.getHowEquipped())
+                .build();
+        for(Workout workouts: gym.getWorkouts()){
+            addExistingWorkoutToGym(newGym.getId(), workouts.getId());
+        }
+
+        registeredUserService.addNewGymToUser(newGym);
+        registeredUserService.removeGymFromUser(gym.getId());
+
+        return newGym;
     }
 
     public List<Workout> listWorkouts(int id){

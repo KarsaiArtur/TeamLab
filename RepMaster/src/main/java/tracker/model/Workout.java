@@ -19,6 +19,8 @@ public class Workout extends Rateable{
     @GeneratedValue
     private int id;
     private String name;
+    private boolean publiclyAvailable = true;
+
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "workout")
     private List<Rating> ratings;
 

@@ -97,18 +97,18 @@ public class WorkoutService implements RateableService {
     }
 
     @Transactional
-    public void addMuscleGroupToWorkout(Workout workout, MuscleGroup muscleGroup) {
-        if (!workout.getMuscleGroups().contains(muscleGroup))
-            workout.addMuscleGroup(muscleGroup);
-    }
-
-    @Transactional
     public void removeExerciseFromWorkout(int workoutId, int exerciseId) {
         Optional<Workout> workout = workoutRepository.findById(workoutId);
         Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
         workout.get().removeExercise(exercise.get());
         exercise.get().removeWorkout(workout.get());
         removeMuscleGroupFromWorkout(workout.get(), exercise.get().getPrimaryMuscleGroup());
+    }
+
+    @Transactional
+    public void addMuscleGroupToWorkout(Workout workout, MuscleGroup muscleGroup) {
+        if (!workout.getMuscleGroups().contains(muscleGroup))
+            workout.addMuscleGroup(muscleGroup);
     }
 
     @Transactional
