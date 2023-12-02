@@ -23,6 +23,7 @@ public class WorkoutService implements RateableService {
     private final RatingRepository ratingRepository;
     private final GymService gymService;
     private final RegisteredUserRepository registeredUserRepository;
+    private final RegisteredUserService registeredUserService;
 
     @Transactional
     public void saveWorkout(Workout workout) {
@@ -32,6 +33,14 @@ public class WorkoutService implements RateableService {
     @Transactional
     public void deleteWorkout(int id) {
         Optional<Workout> workout = workoutRepository.findById(id);
+        if(workout.get().getRatings() != null) {
+            int size = workout.get().getRatings().size();
+            for (int i = 0; i < size; i++) {
+                registeredUserService.deleteRating(workout.get(), workout.get().getRatings().get(0).getId());
+            }
+        }
+        registeredUserService.removeWorkoutFromUser(id);
+        gymService.removeWorkoutFromGym(TrackerApplication.getInstance().getCurrentGym().getId(), id);
         workoutRepository.delete(workout.get());
     }
 
@@ -84,25 +93,66 @@ public class WorkoutService implements RateableService {
     public void addNewExerciseToWorkout(int workoutId, Exercise exercise) {
         Optional<Workout> workout = workoutRepository.findById(workoutId);
         exerciseRepository.save(exercise);
-        workout.get().addExercise(exercise);
-        addMuscleGroupToWorkout(workout.get(), exercise.getPrimaryMuscleGroup());
+
+        if(workout.get().getOwner().getId() == TrackerApplication.getInstance().getLoggedInUser().getId()){
+            workout.get().addExercise(exercise);
+            addMuscleGroupToWorkout(workout.get(), exercise.getPrimaryMuscleGroup());
+        }
+        else{
+            Workout newWorkout = workoutChanged(workout.get());
+            newWorkout.addExercise(exercise);
+        }
     }
 
     @Transactional
     public void addExistingExerciseToWorkout(int workoutId, int exerciseId) {
         Optional<Workout> workout = workoutRepository.findById(workoutId);
         Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
-        workout.get().addExercise(exercise.get());
-        addMuscleGroupToWorkout(workout.get(), exercise.get().getPrimaryMuscleGroup());
+
+        if(workout.get().getOwner().getId() == TrackerApplication.getInstance().getLoggedInUser().getId()){
+            workout.get().addExercise(exercise.get());
+            addMuscleGroupToWorkout(workout.get(), exercise.get().getPrimaryMuscleGroup());
+        }
+        else{
+            Workout newWorkout = workoutChanged(workout.get());
+            newWorkout.addExercise(exercise.get());
+        }
     }
 
     @Transactional
     public void removeExerciseFromWorkout(int workoutId, int exerciseId) {
         Optional<Workout> workout = workoutRepository.findById(workoutId);
         Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
-        workout.get().removeExercise(exercise.get());
-        exercise.get().removeWorkout(workout.get());
-        removeMuscleGroupFromWorkout(workout.get(), exercise.get().getPrimaryMuscleGroup());
+
+        if(workout.get().getOwner().getId() == TrackerApplication.getInstance().getLoggedInUser().getId()) {
+            workout.get().removeExercise(exercise.get());
+            exercise.get().removeWorkout(workout.get());
+            removeMuscleGroupFromWorkout(workout.get(), exercise.get().getPrimaryMuscleGroup());
+        }
+        else{
+            Workout newWorkout = workoutChanged(workout.get());
+            newWorkout.removeExercise(exercise.get());
+            exercise.get().removeWorkout(newWorkout);
+            removeMuscleGroupFromWorkout(newWorkout, exercise.get().getPrimaryMuscleGroup());
+        }
+    }
+
+    @Transactional
+    public Workout workoutChanged(Workout workout){
+        Workout newWorkout = Workout.builder()
+                .owner(TrackerApplication.getInstance().getLoggedInUser())
+                .name(workout.getName())
+                .publiclyAvailable(false)
+                .build();
+        for(Exercise exercises: workout.getExercises()){
+            addExistingExerciseToWorkout(newWorkout.getId(), exercises.getId());
+        }
+
+        gymService.addNewWorkoutToGym(TrackerApplication.getInstance().getCurrentGym().getId(), newWorkout);
+        gymService.removeWorkoutFromGym(TrackerApplication.getInstance().getCurrentGym().getId(), workout.getId());
+
+        TrackerApplication.getInstance().setCurrentWorkout(newWorkout);
+        return newWorkout;
     }
 
     @Transactional

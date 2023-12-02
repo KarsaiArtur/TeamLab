@@ -6,11 +6,9 @@ import org.springframework.stereotype.Service;
 import tracker.TrackerApplication;
 import tracker.model.*;
 import tracker.repository.GymRepository;
-import tracker.repository.RatingRepository;
 import tracker.repository.RegisteredUserRepository;
 import tracker.repository.WorkoutRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +28,13 @@ public class GymService  implements RateableService{
     @Transactional
     public void deleteGym(int id){
         Optional<Gym> gym = gymRepository.findById(id);
+        if(gym.get().getRatings() != null) {
+            int size = gym.get().getRatings().size();
+            for (int i = 0; i < size; i++) {
+                registeredUserService.deleteRating(gym.get(), gym.get().getRatings().get(0).getId());
+            }
+        }
+        registeredUserService.removeGymFromUser(id);
         gymRepository.delete(gym.get());
     }
 
@@ -64,7 +69,7 @@ public class GymService  implements RateableService{
             registeredUserService.addExistingWorkoutToUser(workout.getId());
         }
         else{
-            Gym newGym = workoutChanged(gym.get());
+            Gym newGym = gymChanged(gym.get());
             newGym.addWorkout(workout);
             registeredUserService.addExistingWorkoutToUser(workout.getId());
         }
@@ -80,7 +85,7 @@ public class GymService  implements RateableService{
             registeredUserService.addExistingWorkoutToUser(workout_id);
         }
         else{
-            Gym newGym = workoutChanged(gym.get());
+            Gym newGym = gymChanged(gym.get());
             newGym.addWorkout(workout.get());
             registeredUserService.addExistingWorkoutToUser(workout_id);
         }
@@ -96,22 +101,19 @@ public class GymService  implements RateableService{
             registeredUserService.removeWorkoutFromUser(workout_id);
         }
         else{
-            Gym newGym = workoutChanged(gym.get());
+            Gym newGym = gymChanged(gym.get());
             newGym.removeWorkout(workout.get());
             registeredUserService.removeWorkoutFromUser(workout_id);
         }
     }
 
-    public Gym workoutChanged(Gym gym){
+    @Transactional
+    public Gym gymChanged(Gym gym){
         Gym newGym = Gym.builder()
                 .owner(TrackerApplication.getInstance().getLoggedInUser())
                 .name(gym.getName())
                 .location(gym.getLocation())
                 .publiclyAvailable(false)
-                .split(Split.builder()
-                        .name(Split.SplitType.valueOf(gym.getSplit().getName().toString()))
-                        .numberOfDays(gym.getSplit().getNumberOfDays())
-                        .build())
                 .howEquipped(gym.getHowEquipped())
                 .build();
         newGym.setSplit(Split.builder()
@@ -125,7 +127,7 @@ public class GymService  implements RateableService{
 
         registeredUserService.addNewGymToUser(newGym);
         registeredUserService.removeGymFromUser(gym.getId());
-
+        TrackerApplication.getInstance().setCurrentGym(newGym);
         return newGym;
     }
 
@@ -143,5 +145,4 @@ public class GymService  implements RateableService{
     public Rateable findById(int id) {
         return gymRepository.findById(id).get();
     }
-
 }

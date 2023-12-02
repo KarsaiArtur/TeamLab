@@ -62,7 +62,14 @@
                 <td><h1 th:text="${workout.name}">MyWorkout</h1></td>
                 <td>
                     <form th:action="@{/exercises}" th:object="${workout}" method="post">
+                        <input type="hidden" th:name="workoutId" th:value="${workout.id}" />
                         <input type="submit" value="Open" id="open-btn">
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{/deleteWorkout}" method="post">
+                        <input type="hidden" th:name="workoutId" th:value="${workout.id}" />
+                        <input type="submit" value="Delete" id="delete-btn">
                     </form>
                 </td>
             </tr>

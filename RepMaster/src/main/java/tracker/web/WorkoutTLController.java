@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import tracker.TrackerApplication;
 import tracker.model.Gym;
 import tracker.model.Workout;
@@ -18,6 +19,7 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class WorkoutTLController {
     private final WorkoutService workoutService;
+    private final GymService gymService;
     private String userName = "";
 
     @GetMapping("/workouts")
@@ -30,9 +32,21 @@ public class WorkoutTLController {
     }
 
     @PostMapping("/exercises")
-    public String exercises(Workout workout) {
+    public String exercises(@RequestParam("workoutId") int id) {
+        Workout workout = workoutService.findWorkout(id);
         TrackerApplication.getInstance().setCurrentWorkout(workout);
         return "redirect:/exercises";
+    }
+
+    @PostMapping("/deleteWorkout")
+    public String deleteWorkout(@RequestParam("workoutId") int id) {
+        Workout workout = workoutService.findWorkout(id);
+        if(workout.isPubliclyAvailable()){
+            gymService.removeWorkoutFromGym(TrackerApplication.getInstance().getCurrentGym().getId(), id);
+        }
+        else
+            workoutService.deleteWorkout(id);
+        return "redirect:/workouts";
     }
 }
 

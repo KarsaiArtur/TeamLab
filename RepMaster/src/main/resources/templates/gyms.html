@@ -75,6 +75,12 @@
                         <input type="submit" value="Open" id="open-btn">
                     </form>
                 </td>
+                <td>
+                    <form th:action="@{/deleteGym}" method="post">
+                        <input type="hidden" th:name="gymId" th:value="${gym.id}" />
+                        <input type="submit" value="Delete" id="delete-btn">
+                    </form>
+                </td>
             </tr>
             <tr>
                 <td><span>Location: </span></td>

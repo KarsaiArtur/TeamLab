@@ -40,13 +40,14 @@ public class RegisteredUser implements User{
         if(userWorkouts == null) userWorkouts = new ArrayList<>();
     }
 
-    public void addGym(Gym g) {
+    public void addGym(Gym gym) {
         if(userGyms == null) userGyms = new ArrayList<>();
-        g.addRegisteredUser(this);
-        userGyms.add(g);
+        gym.addRegisteredUser(this);
+        userGyms.add(gym);
     }
 
     public void removeGym(Gym gym) {
+        gym.removeRegisteredUser(this);
         userGyms.remove(gym);
     }
 

@@ -16,6 +16,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class GymTLController {
     private final GymService gymService;
+    private final RegisteredUserService registeredUserService;
     private String userName = "";
 
     @GetMapping("/gyms")
@@ -32,5 +33,16 @@ public class GymTLController {
         Gym gym = gymService.findGym(id);
         TrackerApplication.getInstance().setCurrentGym(gym);
         return "redirect:/workouts";
+    }
+
+    @PostMapping("/deleteGym")
+    public String deleteGym(@RequestParam("gymId") int id) {
+        Gym gym = gymService.findGym(id);
+        if(gym.isPubliclyAvailable()){
+            registeredUserService.removeGymFromUser(id);
+        }
+        else
+            gymService.deleteGym(id);
+        return "redirect:/gyms";
     }
 }

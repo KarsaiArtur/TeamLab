@@ -78,6 +78,10 @@ public class Gym extends Rateable{
         r.setGym(null);
     }
 
+    public void removeRegisteredUser(RegisteredUser r) {
+        registeredUsers.remove(r);
+    }
+
     @Override
     public List<Rating> getRatings(){
         return ratings;
