@@ -2,6 +2,7 @@ package tracker.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.thymeleaf.util.StringUtils;
 import tracker.web.RateableDetailTLController;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class Exercise extends Rateable{
     @Enumerated(EnumType.STRING)
     private MuscleGroup primaryMuscleGroup;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name="secondary_muscle_groups")
     @Column(name="muscle_group")
     @Enumerated(EnumType.STRING)
@@ -40,15 +41,6 @@ public class Exercise extends Rateable{
 
     @ManyToMany(mappedBy = "exercises", fetch = FetchType.EAGER)
     private List<Workout> workouts;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "registered_user_exercise_connection",
-            joinColumns = @JoinColumn(name = "exercise_id"),
-            inverseJoinColumns = @JoinColumn(name = "registeredUser_id")
-    )
-    private List<RegisteredUser> registeredUsers;
-
     @ManyToOne
     private RegisteredUser owner;
 
@@ -120,7 +112,15 @@ public class Exercise extends Rateable{
     @Override
     public List<RateableDetailTLController.Details> details(){
         double rating = Rating.calculateRating(this);
+        String s_rating = (rating == 0.0) ? "Not rated yet" : rating+"";
         List<RateableDetailTLController.Details> details = new ArrayList<>();
+        details.add(new RateableDetailTLController.Details("Exercise name: ", name));
+        details.add(new RateableDetailTLController.Details("Set count: ", set_count+""));
+        details.add(new RateableDetailTLController.Details("Repetition count: ", repetition_count+""));
+        details.add(new RateableDetailTLController.Details(isCompound ? "Compound " : "Not compound", ""));
+        details.add(new RateableDetailTLController.Details("Primary Muscle group", primaryMuscleGroup.toString()));
+        details.add(new RateableDetailTLController.Details("Secoundary Muscle group", secondaryMuscleGroups.toString()));
+        details.add(new RateableDetailTLController.Details("Average rating: ", s_rating+  StringUtils.repeat("⭐", (int)rating)));
         return details;
     }
 }

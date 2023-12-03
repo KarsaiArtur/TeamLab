@@ -2,6 +2,7 @@ package tracker.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.thymeleaf.util.StringUtils;
 import tracker.web.RateableDetailTLController;
 
 import java.util.ArrayList;
@@ -114,7 +115,12 @@ public class Workout extends Rateable {
     @Override
     public List<RateableDetailTLController.Details> details(){
         double rating = Rating.calculateRating(this);
+        String s_rating = (rating == 0.0) ? "Not rated yet" : rating+"";
         List<RateableDetailTLController.Details> details = new ArrayList<>();
+        details.add(new RateableDetailTLController.Details("Workout name: ", name));
+        details.add(new RateableDetailTLController.Details("Worked musclegroups: ", muscleGroups.toString()));
+        details.add(new RateableDetailTLController.Details("Average rating: ", s_rating+  StringUtils.repeat("⭐", (int)rating)));
+        details.add(new RateableDetailTLController.Details("Users: ",""+registeredUsers.size()));
         return details;
     }
 }

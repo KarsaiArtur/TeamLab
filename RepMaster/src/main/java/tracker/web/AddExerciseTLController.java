@@ -7,24 +7,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import tracker.TrackerApplication;
-import tracker.model.Equipment;
 import tracker.model.Exercise;
 import tracker.model.MuscleGroup;
+import tracker.service.ExerciseService;
 import tracker.service.WorkoutService;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
 public class AddExerciseTLController {
-
     private final WorkoutService workoutService;
-    private String userName = "";
+    private final ExerciseService exerciseService;
+    private ExerciseCopy exerciseCopy_ = new ExerciseCopy();
 
     @GetMapping("/addExercise")
     public String addExercise(Map<String, Object> model){
-        userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
-        model.put("addE", new AddExerciseTLController.ExerciseCopy());
+        model.put("addE", exerciseCopy_);
+        model.put("muscle", new ExerciseCopy());
         return "addExercise";
     }
 
@@ -40,7 +42,18 @@ public class AddExerciseTLController {
                 .primaryMuscleGroup(MuscleGroup.valueOf(exerciseCopy.getPrimaryMuscleGroup()))
                 .build();
         workoutService.addNewExerciseToWorkout(TrackerApplication.getInstance().getCurrentWorkout().getId(), exercise);
+        System.out.println("OK");
+        for (String muscle: exerciseCopy_.getSecondaryMuscleGroups()) {
+            System.out.println(muscle);
+            exerciseService.addSecondaryMuscleGroup(exercise.getId(), MuscleGroup.valueOf(muscle));
+        }
         return "redirect:/exercises";
+    }
+
+    @PostMapping("/addSecondary")
+    public String addSecondary(ExerciseCopy exerciseCopy) {
+        exerciseCopy_.getSecondaryMuscleGroups().add(exerciseCopy.getPrimaryMuscleGroup());
+        return "redirect:/addExercise";
     }
 
     @Setter
@@ -52,5 +65,6 @@ public class AddExerciseTLController {
         private String isCompound;
         private String publiclyAvailable;
         private String primaryMuscleGroup;
+        private List<String> secondaryMuscleGroups = new ArrayList<>();
     }
 }

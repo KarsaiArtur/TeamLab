@@ -2,7 +2,6 @@ package tracker.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.jdbc.Work;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +23,6 @@ public class RegisteredUser implements User{
     private List<Gym> userGyms;
     @ManyToMany(mappedBy = "registeredUsers", fetch = FetchType.EAGER)
     private List<Workout> userWorkouts;
-    @ManyToMany(mappedBy = "registeredUsers", fetch = FetchType.EAGER)
-    private List<Exercise> userExercises;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "registeredUser")
     private List<Rating> ratings;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "registeredUser")

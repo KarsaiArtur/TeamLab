@@ -51,6 +51,9 @@
             #ratings{
                 padding-left: 50px;
             }
+            .element2{
+                margin-left: 500px;
+            }
         </style>
     </head>
     <body>
@@ -110,7 +113,7 @@
                                 <option th:each="element : ${elements}" th:name="elementId" th:value="${element.id}" th:text="${element.getName}"></option>
                             </select>
                         </div>
-                        <input th:object="${loggedIn}" th:disabled="${!loggedIn}" type="submit" value="Add" id="add-btn">
+                        <input th:object="${loggedIn}" th:disabled="${!loggedIn}" type="submit" value="Add to User" id="add-btn">
                     </form>
                 </div>
             </div>

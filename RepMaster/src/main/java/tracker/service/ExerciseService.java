@@ -3,6 +3,7 @@ package tracker.service;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import tracker.TrackerApplication;
 import tracker.model.*;
 import tracker.repository.ExerciseRepository;
 import tracker.repository.ExerciseResultRepository;
@@ -12,7 +13,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -21,6 +21,8 @@ public class ExerciseService implements RateableService{
     private final ExerciseRepository exerciseRepository;
     private final ExerciseResultRepository exerciseResultRepository;
     private final WorkoutService workoutService;
+    private final RegisteredUserService registeredUserService;
+    private final ExerciseResultService exerciseResultService;
 
     public Exercise findExercise(int id) {
         return exerciseRepository.findById(id).isEmpty() ? null : exerciseRepository.findById(id).get();
@@ -70,6 +72,19 @@ public class ExerciseService implements RateableService{
     @Transactional
     public void deleteExercise(int id){
         Optional<Exercise> exercise = exerciseRepository.findById(id);
+        if(exercise.get().getRatings() != null) {
+            int size = exercise.get().getRatings().size();
+            for (int i = 0; i < size; i++) {
+                registeredUserService.deleteRating(exercise.get(), exercise.get().getRatings().get(0).getId());
+            }
+        }
+        if(exercise.get().getExerciseResults() != null) {
+            int size = exercise.get().getExerciseResults().size();
+            for (int i = 0; i < size; i++) {
+                exerciseResultService.deleteResult(exercise.get().getExerciseResults().get(0).getId());
+            }
+        }
+        workoutService.removeExerciseFromWorkout(TrackerApplication.getInstance().getCurrentWorkout().getId(), id);
         exerciseRepository.delete(exercise.get());
     }
 
@@ -176,9 +191,14 @@ public class ExerciseService implements RateableService{
         return maxResult;
     }
 
+    @Transactional
+    public void addSecondaryMuscleGroup(int id, MuscleGroup muscleGroup){
+        Optional<Exercise> exercise = exerciseRepository.findById(id);
+        exercise.get().addSecondaryMuscleGroup(muscleGroup);
+    }
+
     @Override
     public Rateable findById(int id) {
         return exerciseRepository.findById(id).get();
     }
-
 }

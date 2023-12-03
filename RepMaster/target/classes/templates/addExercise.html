@@ -32,7 +32,7 @@
   <body>
     <div class="toolbar">
       <td><span th:text="${userName}" id="userName"></span></td>
-      <a href="/workouts" >
+      <a href="/exercises" >
         <input type="button" value="Back" id="back-btn">
       </a>
     </div>
@@ -86,6 +86,34 @@
 
         <input type="submit" value="Done" id="done-btn">
       </form>
+    </div>
+
+    <div id="add-secMusGro-container">
+        <h2>Add secondary muscle groups</h2>
+        <form th:action="@{/addSecondary}" method="post" th:object="${muscle}">
+            <label for="secondaryMuscleGroup">Secondary muscle group:</label>
+            <select th:field="*{primaryMuscleGroup}" id="secondaryMuscleGroup" required>
+                <option value=Forearms>Forearms</option>
+                <option value=Biceps>Biceps</option>
+                <option value=Triceps>Triceps</option>
+                <option value=Abdominals>Abdominals</option>
+                <option value=Obliques>Obliques</option>
+                <option value=Upper_Back>Upper Back</option>
+                <option value=Lower_Back>Lower Back</option>
+                <option value=Lats>Lats</option>
+                <option value=Hamstrings>Hamstrings</option>
+                <option value=Quadriceps>Quadriceps</option>
+                <option value=Calves>Calves</option>
+                <option value=Glutes>Glutes</option>
+                <option value=Lower_Chest>Lower Chest</option>
+                <option value=Middle_Chest>Middle Chest</option>
+                <option value=Upper_Chest>Upper Chest</option>
+                <option value=Anterior_Deltoids>Anterior Deltoids</option>
+                <option value=Lateral_Deltoids>Lateral Deltoids</option>
+                <option value=Posterior_Deltoids>Posterior Deltoids</option>
+            </select><br/>
+            <input type="submit" value="Add" id="add-btn">
+        </form>
     </div>
 
   </body>

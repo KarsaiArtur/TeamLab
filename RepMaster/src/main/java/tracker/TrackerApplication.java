@@ -6,14 +6,15 @@ import lombok.Setter;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Service;
 import tracker.model.*;
-import tracker.service.InitDbService;
 
 @RequiredArgsConstructor
 @SpringBootApplication
 @Getter
 @Setter
+/**
+ * Program osztaly
+ */
 public class TrackerApplication implements CommandLineRunner{
     private static final TrackerApplication INSTANCE = new TrackerApplication();
     private RegisteredUser loggedInUser = RegisteredUser.builder().build();
@@ -42,5 +43,4 @@ public class TrackerApplication implements CommandLineRunner{
         setCurrentWorkout(null);
         setCurrentExercise(null);
     }
-
 }

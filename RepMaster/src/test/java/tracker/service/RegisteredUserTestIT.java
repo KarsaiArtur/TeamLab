@@ -201,28 +201,6 @@ public class RegisteredUserTestIT {
         assertThat(userGyms.get(1).getName()).isEqualTo("Test2");
     }
 
-    @Test
-    void add(){
-        registeredUserService.loginUser(rUser.getUserName(), rUser.getPassword());
-        Gym gym1 = createGym("Dc", Split.SplitType.Body_Part);
-        Gym gym2 = createGym("Ac", Split.SplitType.Body_Part);
-        Gym gym3 = createGym("Wc", Split.SplitType.Full_Body);
-        Gym gym4 = createGym("Fc", Split.SplitType.Full_Body);
-        Exercise exercise = createExercise("Dc_e", MuscleGroup.Middle_Chest);
-        Exercise exercise2 = createExercise("Ac_e", MuscleGroup.Middle_Chest);
-        Exercise exercise3 = createExercise("Wc_e", MuscleGroup.Biceps);
-        Exercise exercise4 = createExercise("Fc_e", MuscleGroup.Biceps);
-        Workout workout = createWorkout("Dc_w");
-        Workout workout2 = createWorkout("Ac_w");
-        Workout workout3 = createWorkout("Wc_w");
-        Workout workout4 = createWorkout("Fc_w");
-        registeredUserService.addExistingGymToUser(gym3.getId());
-        gymService.addExistingWorkoutToGym(gym3.getId(), workout2.getId());
-        gymService.addExistingWorkoutToGym(gym3.getId(), workout3.getId());
-        gymService.addExistingWorkoutToGym(gym3.getId(), workout4.getId());
-        workoutService.addExistingExerciseToWorkout(workout3.getId(), exercise2.getId());
-    }
-
     public Exercise createExercise(String name, MuscleGroup muscleGroup){
         Exercise exercise = Exercise.builder().name(name)
                 .publiclyAvailable(true)

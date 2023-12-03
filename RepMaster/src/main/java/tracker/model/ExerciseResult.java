@@ -28,7 +28,7 @@ public class ExerciseResult {
     @ManyToOne
     private RegisteredUser registeredUser;
 
-    @OneToMany(mappedBy = "exerciseResult")
+    @OneToMany(mappedBy = "exerciseResult", fetch = FetchType.EAGER)
     private List<Set> sets;
 
     public void setExercise(Exercise exercise){
@@ -38,6 +38,7 @@ public class ExerciseResult {
 
     public void addResult(Set result){
         sets.add(result);
+        result.setExerciseResult(this);
     }
 
     public void removeResult(Set result){

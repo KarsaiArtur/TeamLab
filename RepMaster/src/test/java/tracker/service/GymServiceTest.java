@@ -9,7 +9,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import tracker.TrackerApplication;
 import tracker.model.*;
 import tracker.repository.GymRepository;
-import tracker.repository.RegisteredUserRepository;
 import tracker.repository.WorkoutRepository;
 
 import java.util.ArrayList;

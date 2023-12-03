@@ -32,13 +32,13 @@
   <body>
     <div class="toolbar">
       <td><span th:text="${userName}" id="userName"></span></td>
-      <a href="/gyms" >
+      <a href="/workouts" >
         <input type="button" value="Back" id="back-btn">
       </a>
     </div>
 
     <div id="add-container">
-      <h2>Add gym</h2>
+      <h2>Add workout</h2>
 
       <form th:action="@{/addW}" method="post" th:object="${addW}">
         <label for="name">name:</label>
