@@ -6,15 +6,12 @@ import org.springframework.stereotype.Service;
 import tracker.model.Exercise;
 import tracker.model.ExerciseResult;
 import tracker.model.Set;
-import tracker.model.Workout;
 import tracker.repository.ExerciseRepository;
 import tracker.repository.ExerciseResultRepository;
 import tracker.repository.SetRepository;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -51,6 +48,13 @@ public class ExerciseResultService {
     @Transactional
     public void deleteResult(int id){
         Optional<ExerciseResult> result = exerciseResultRepository.findById(id);
+        if(result.get().getSets() != null) {
+            int size = result.get().getSets().size();
+            for (int i = 0; i < size; i++) {
+                removeSetFromResult(result.get().getId(), result.get().getSets().get(0).getId());
+            }
+        }
+        result.get().getExercise().removeResult(result.get());
         exerciseResultRepository.delete(result.get());
     }
 
@@ -71,10 +75,14 @@ public class ExerciseResultService {
     }
 
     @Transactional
-    public void addNewSet(int id, Set set){
+    public void addNewSets(int id, List<Set> sets){
         Optional<ExerciseResult> result = exerciseResultRepository.findById(id);
-        setRepository.save(set);
-        result.get().addResult(set);
+        for(Set s : sets) {
+            s.countVolume();
+            setRepository.save(s);
+            result.get().addResult(s);
+        }
+        result.get().calculateTotalVolume();
     }
 
     @Transactional
@@ -89,12 +97,11 @@ public class ExerciseResultService {
         Optional<ExerciseResult> result = exerciseResultRepository.findById(id);
         Optional<Set> set = setRepository.findById(set_id);
         result.get().removeResult(set.get());
+        setRepository.delete(set.get());
     }
 
     public List<Set> listSets(int id){
         Optional<ExerciseResult> result = exerciseResultRepository.findById(id);
         return result.get().getSets();
     }
-
-
 }
