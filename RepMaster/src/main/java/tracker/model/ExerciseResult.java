@@ -21,8 +21,13 @@ public class ExerciseResult {
     @Id
     @GeneratedValue
     private int id;
-
+    /**
+     * eredmény rögzítésének dátuma
+     */
     private LocalDate date;
+    /**
+     * teljes edzés volumen(szett * ismétlés)
+     */
     private double totalVolume;
 
     /**
@@ -48,9 +53,13 @@ public class ExerciseResult {
         sets = new ArrayList<>();
     }
 
-    public void addResult(Set result){
-        sets.add(result);
-        result.setExerciseResult(this);
+    /**
+     * szett hozzáadása
+     * @param set szett, amit hozzáadunk
+     */
+    public void addSet(Set set){
+        sets.add(set);
+        set.setExerciseResult(this);
     }
 
     /**
@@ -73,6 +82,10 @@ public class ExerciseResult {
         return maxWeight;
     }
 
+    /**
+     * max teljesítményű szettet megtalálja
+     * @return max teljesítményű szett
+     */
     public Set findMaxVolumeWithinSets() {
         double maxVolume = 0;
         Set maxVolumeSet = new Set(0, 0);
@@ -85,6 +98,9 @@ public class ExerciseResult {
         return maxVolumeSet;
     }
 
+    /**
+     * a teljes edzés volument kiszámolja
+     */
     public void calculateTotalVolume() {
         for(Set s : sets) {
             totalVolume += s.getVolume();

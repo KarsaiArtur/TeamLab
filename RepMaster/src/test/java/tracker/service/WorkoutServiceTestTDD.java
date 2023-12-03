@@ -48,7 +48,7 @@ public class WorkoutServiceTestTDD {
         //Arrange
 
         //Act
-        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Bench_Press);
+        workoutService.addNewExerciseToW(pushWorkout.getId(), Bench_Press);
 
         //Assert
         assertThat(workoutService.listExercises(pushWorkout.getId()).get(0).getName()).isEqualTo("Bench Press");
@@ -66,7 +66,7 @@ public class WorkoutServiceTestTDD {
 
         //Act
         exerciseService.saveExercise(Lateral_raise);
-        workoutService.addExistingExerciseToWorkout(pushWorkout.getId(), Lateral_raise.getId());
+        workoutService.addExistingExerciseToW(pushWorkout.getId(), Lateral_raise.getId());
 
         //Assert
         assertThat(workoutService.listExercises(pushWorkout.getId()).get(0).getName()).isEqualTo("Lateral Raise");
@@ -76,10 +76,10 @@ public class WorkoutServiceTestTDD {
     @Test
     void testRemoveExerciseFromWorkout(){
         //Arrange
-        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Bench_Press);
+        workoutService.addNewExerciseToW(pushWorkout.getId(), Bench_Press);
 
         //Act
-        workoutService.removeExerciseFromWorkout(pushWorkout.getId(), Bench_Press.getId());
+        workoutService.removeExerciseFromW(pushWorkout.getId(), Bench_Press.getId());
 
         //Assert
         assertThat(workoutService.listExercises(pushWorkout.getId()).size()).isEqualTo(0);
@@ -88,10 +88,10 @@ public class WorkoutServiceTestTDD {
     @Test
     void testRemoveExerciseWithMuscleGroupFromWorkout(){
         //Arrange
-        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Bench_Press);
+        workoutService.addNewExerciseToW(pushWorkout.getId(), Bench_Press);
 
         //Act
-        workoutService.removeExerciseFromWorkout(pushWorkout.getId(), Bench_Press.getId());
+        workoutService.removeExerciseFromW(pushWorkout.getId(), Bench_Press.getId());
 
         //Assert
         assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).size()).isEqualTo(0);
@@ -105,11 +105,11 @@ public class WorkoutServiceTestTDD {
                 .primaryMuscleGroup(MuscleGroup.Middle_Chest)
                 .secondaryMuscleGroups(new ArrayList<>(Arrays.asList(MuscleGroup.Upper_Chest, MuscleGroup.Lower_Chest, MuscleGroup.Anterior_Deltoids)))
                 .build();
-        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Bench_Press);
-        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Pec_deck_Machine);
+        workoutService.addNewExerciseToW(pushWorkout.getId(), Bench_Press);
+        workoutService.addNewExerciseToW(pushWorkout.getId(), Pec_deck_Machine);
 
         //Act
-        workoutService.removeExerciseFromWorkout(pushWorkout.getId(), Bench_Press.getId());
+        workoutService.removeExerciseFromW(pushWorkout.getId(), Bench_Press.getId());
 
         //Assert
         assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).size()).isEqualTo(1);
@@ -123,12 +123,12 @@ public class WorkoutServiceTestTDD {
                 .primaryMuscleGroup(MuscleGroup.Middle_Chest)
                 .secondaryMuscleGroups(new ArrayList<>(Arrays.asList(MuscleGroup.Upper_Chest, MuscleGroup.Lower_Chest, MuscleGroup.Anterior_Deltoids)))
                 .build();
-        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Bench_Press);
-        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Pec_deck_Machine);
+        workoutService.addNewExerciseToW(pushWorkout.getId(), Bench_Press);
+        workoutService.addNewExerciseToW(pushWorkout.getId(), Pec_deck_Machine);
 
         //Act
-        workoutService.removeExerciseFromWorkout(pushWorkout.getId(), Bench_Press.getId());
-        workoutService.removeExerciseFromWorkout(pushWorkout.getId(), Pec_deck_Machine.getId());
+        workoutService.removeExerciseFromW(pushWorkout.getId(), Bench_Press.getId());
+        workoutService.removeExerciseFromW(pushWorkout.getId(), Pec_deck_Machine.getId());
 
         //Assert
         assertThat(workoutService.listMuscleGroups(pushWorkout.getId()).size()).isEqualTo(0);
@@ -139,7 +139,7 @@ public class WorkoutServiceTestTDD {
         //Arrange
 
         //Act
-        workoutService.addNewExerciseToWorkout(pushWorkout.getId(), Bench_Press);
+        workoutService.addNewExerciseToW(pushWorkout.getId(), Bench_Press);
 
         //Assert
         assertThat(workoutService.listExercises(pushWorkout.getId()).get(0).getName()).isEqualTo("Bench Press");

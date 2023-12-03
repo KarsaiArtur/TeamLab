@@ -76,7 +76,7 @@ public class WorkoutServiceTestIT {
         workoutService.saveWorkout(pushWorkout);
 
         //Act
-        workoutService.deleteWorkout(pushWorkout.getId());
+        workoutService.deleteW(pushWorkout.getId());
         List<Workout> workouts = workoutService.listWorkouts();
 
         //Assert

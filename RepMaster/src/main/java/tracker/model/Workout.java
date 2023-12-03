@@ -22,12 +22,24 @@ public class Workout extends Rateable {
     @Id
     @GeneratedValue
     private int id;
+    /**
+     * edzőterv neve
+     */
     private String name;
+    /**
+     * publikus-e
+     */
     private boolean publiclyAvailable = true;
 
+    /**
+     * edzőtervhez tartozó értékelések
+     */
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "workout")
     private List<Rating> ratings;
 
+    /**
+     * edzőtervhez tartozó gyakorlatok
+     */
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(
             name = "workout_exercise_connection",
@@ -36,15 +48,24 @@ public class Workout extends Rateable {
     )
     private List<Exercise> exercises;
 
+    /**
+     * edzőtervhez tartozó izomcsopotok
+     */
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name="muscle_groups")
     @Column(name="muscle_group")
     @Enumerated(EnumType.STRING)
     private List<MuscleGroup> muscleGroups;
 
+    /**
+     * edzőtermek, amikben szerepel az edzőterv
+     */
     @ManyToMany(mappedBy = "workouts", fetch = FetchType.EAGER)
     private List<Gym> gyms;
 
+    /**
+     * felhasználók, akikhez tartozik az edzőterv
+     */
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "registered_user_workout_connection",
@@ -53,9 +74,16 @@ public class Workout extends Rateable {
     )
     private List<RegisteredUser> registeredUsers;
 
+    /**
+     * felhasználó, aki létrehozta az edzőtervet
+     */
     @ManyToOne
     private RegisteredUser owner;
 
+    /**
+     * hozzáad gyakorlatot
+     * @param e gyakorlat, amit hozzáad
+     */
     public void addExercise(Exercise e){
         if(exercises == null)
             exercises = new ArrayList<>();
@@ -63,10 +91,18 @@ public class Workout extends Rateable {
         e.addWorkout(this);
     }
 
+    /**
+     * kivesz gyakorlatot
+     * @param e gyakorlat, amit kivesz
+     */
     public void removeExercise(Exercise e){
         exercises.remove(e);
     }
 
+    /**
+     * hozzáad izomcsoportot
+     * @param m izomcsoport, amit hozzáad
+     */
     public void addMuscleGroup(MuscleGroup m){
         if(muscleGroups == null)
             muscleGroups = new ArrayList<>();
@@ -74,6 +110,10 @@ public class Workout extends Rateable {
         muscleGroups.add(m);
     }
 
+    /**
+     * kivesz izomcsoportot
+     * @param m izomcsoport, amit kivesz
+     */
     public void removeMuscleGroup(MuscleGroup m){
         muscleGroups.remove(m);
     }

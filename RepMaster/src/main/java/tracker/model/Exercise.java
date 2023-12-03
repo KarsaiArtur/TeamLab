@@ -22,10 +22,25 @@ public class Exercise extends Rateable{
     @Id
     @GeneratedValue
     private int id;
+    /**
+     * gyakorlat neve
+     */
     private String name;
+    /**
+     * szettek száma
+     */
     private int set_count;
+    /**
+     * ismétlések száma
+     */
     private int repetition_count;
+    /**
+     * összetett gyakorlat-e
+     */
     private boolean isCompound;
+    /**
+     * publikus-e (megjelenik a keresésben és mások is használhatják)
+     */
     private boolean publiclyAvailable = true;
 
     /**
@@ -69,6 +84,10 @@ public class Exercise extends Rateable{
         this.set_count = set_count;
     }
 
+    /**
+     * másodlagos izomcsoport hozzáadása
+     * @param muscleGroup izomcsoport, amit hozzáadunk
+     */
     public void addSecondaryMuscleGroup(MuscleGroup muscleGroup){
         if(secondaryMuscleGroups == null){
             secondaryMuscleGroups = new ArrayList<>();
@@ -87,10 +106,18 @@ public class Exercise extends Rateable{
         workouts.add(workout);
     }
 
+    /**
+     * ki lett véve egy edzőtervből a gyakorlat. ez a függvény kiveszi a listájából ezt az edzőtervet
+     * @param workout edzőterv, amit kiveszünk
+     */
     public void removeWorkout(Workout workout){
         workouts.remove(workout);
     }
 
+    /**
+     * Új eredmény hozzáadása
+     * @param exerciseResult eredmény, amit hozzáadunk
+     */
     public void addNewResult(ExerciseResult exerciseResult){
         if(exerciseResults == null){
             exerciseResults = new ArrayList<>();
@@ -99,6 +126,10 @@ public class Exercise extends Rateable{
         exerciseResults.add(exerciseResult);
     }
 
+    /**
+     * eredmény kivétele
+     * @param r eredmény, amit kiveszünk
+     */
     public void removeResult(ExerciseResult r){
         exerciseResults.remove(r);
     }
@@ -115,6 +146,10 @@ public class Exercise extends Rateable{
         r.setExercise(this);
     }
 
+    /**
+     * értékelés kivétele
+     * @param r értékelés, amit kiveszünk
+     */
     @Override
     public void removeRating(Rating r) {
         ratings.remove(r);
@@ -141,7 +176,10 @@ public class Exercise extends Rateable{
         return name;
     }
 
-
+    /**
+     * stringgé alakítja az osztály tartalmát, majd beleteszi Details objektumokba, ahol különválasztja a tulajdonságot és a tulajdonság értéket
+     * @return az átalakított stringeket tároló Details lista
+     */
     @Override
     public List<RateableDetailTLController.Details> details(){
         double rating = Rating.calculateRating(this);

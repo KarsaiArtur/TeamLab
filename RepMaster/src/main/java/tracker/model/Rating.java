@@ -19,18 +19,41 @@ public class Rating {
     @GeneratedValue
     private int id;
 
+    /**
+     * értékelés értéke
+     */
     private double rating;
+    /**
+     * értékeléshez tartozó komment
+     */
     private String comment;
 
+    /**
+     * gyakorlat, amihez az értékelés tartozik
+     */
     @ManyToOne
     private Exercise exercise;
+    /**
+     * edzőterv, amihez az értékelés tartozik
+     */
     @ManyToOne
     private Workout workout;
+    /**
+     * edzőterem, amihez az értékelés tartozik
+     */
     @ManyToOne
     private Gym gym;
+    /**
+     * felhasználó, aki az értékelést csinálta
+     */
     @ManyToOne
     private RegisteredUser registeredUser;
 
+    /**
+     * értékelés értékének kiszámítása
+     * @param r értékelhető osztály
+     * @return kiszámított érték
+     */
     public static double calculateRating(Rateable r) {
         int sum = 0;
         int ratingsCnt = 0;

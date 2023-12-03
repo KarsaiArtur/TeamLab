@@ -22,8 +22,17 @@ public class Gym extends Rateable{
     @Id
     @GeneratedValue
     private int id;
+    /**
+     * edzőterem neve
+     */
     private String name;
+    /**
+     * edzőterem helye
+     */
     private String location;
+    /**
+     * publikus-e
+     */
     private boolean publiclyAvailable = true;
 
     /**
@@ -73,6 +82,10 @@ public class Gym extends Rateable{
     @ManyToOne
     private RegisteredUser owner;
 
+    /**
+     * edzőterv hozzáadása
+     * @param w edzőterv, amit hozzáad
+     */
     public void addWorkout(Workout w){
         if(workouts == null)
             workouts = new ArrayList<>();
@@ -111,6 +124,10 @@ public class Gym extends Rateable{
         r.setGym(null);
     }
 
+    /**
+     * egy felhasználó eltávolítása az edzőtermet használó felhasználók közül
+     * @param r az eltávolítandó felhasználó
+     */
     public void removeRegisteredUser(RegisteredUser r) {
         registeredUsers.remove(r);
     }

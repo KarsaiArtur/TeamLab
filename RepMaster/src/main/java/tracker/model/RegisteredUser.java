@@ -16,53 +16,99 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class RegisteredUser implements User{
+public class RegisteredUser{
     @Id
     @GeneratedValue
     private int id;
+    /**
+     * felhasználónév
+     */
     private String userName;
+    /**
+     * jelszó
+     */
     private String password;
+    /**
+     * felhasználóhoz tartozó edzőtermek
+     */
     @ManyToMany(mappedBy = "registeredUsers", fetch = FetchType.EAGER)
     private List<Gym> userGyms;
+    /**
+     * felhasználóhoz tartozó edzőtervek
+     */
     @ManyToMany(mappedBy = "registeredUsers", fetch = FetchType.EAGER)
     private List<Workout> userWorkouts;
+    /**
+     * felhasználóhoz tartozó értékelések
+     */
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "registeredUser")
     private List<Rating> ratings;
+    /**
+     * felhasználóhoz tartozó gyakorlat eredmények
+     */
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "registeredUser")
     private List<ExerciseResult> exerciseResults;
-
+    /**
+     * edzőterv, amit a felhasználó hozott létre
+     */
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "owner")
     private List<Workout> ownedWorkout;
+    /**
+     * edzőterem, amit a felhasználó hozott létre
+     */
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "owner")
     private List<Gym> ownedGym;
 
+    /**
+     * létrehozza az edzőterv listát ha üres
+     */
     private void createWorkoutListIfEmpty() {
         if(userWorkouts == null) userWorkouts = new ArrayList<>();
     }
 
+    /**
+     * hozzáad edzőtermet
+     * @param gym edzőterem, amit hozzáad
+     */
     public void addGym(Gym gym) {
         if(userGyms == null) userGyms = new ArrayList<>();
         gym.addRegisteredUser(this);
         userGyms.add(gym);
     }
 
+    /**
+     * kivesz edzőtermet
+     * @param gym edzőterem, amit kivesz
+     */
     public void removeGym(Gym gym) {
         gym.removeRegisteredUser(this);
         userGyms.remove(gym);
     }
 
+    /**
+     * hozzáad gyakorlat eredményt
+     * @param eR gyakorlat eredményt, amit hozzáad
+     */
     public void addExerciseResult(ExerciseResult eR) {
         if(exerciseResults == null) exerciseResults = new ArrayList<>();
         eR.setRegisteredUser(this);
         exerciseResults.add(eR);
     }
 
+    /**
+     * hozzáad edzőtervet
+     * @param w edzőterv, amit hozzáad
+     */
     public void addWorkout(Workout w) {
         createWorkoutListIfEmpty();
         w.addRegisteredUser(this);
         userWorkouts.add(w);
     }
 
+    /**
+     * kivesz edzőtermet
+     * @param w edzőterem, amit kivesz
+     */
     public void removeWorkout(Workout w) {
         userWorkouts.remove(w);
     }

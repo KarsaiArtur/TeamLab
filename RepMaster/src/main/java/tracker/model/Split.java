@@ -17,14 +17,25 @@ public class Split {
     @Id
     @GeneratedValue
     private int id;
-
+    /**
+     * hány napra van bontva
+     */
     private int numberOfDays;
 
+    /**
+     * izomcsoport bontás neve
+     */
     @Enumerated(EnumType.STRING)
     private SplitType name;
+    /**
+     * edzőterem, amihez az izomcsoport bontás tartozik
+     */
     @OneToOne
     private Gym gym;
 
+    /**
+     * izomcsoport bontás típus enum
+     */
     public enum SplitType{
         Body_Part,
         Upper_Lower_Body,

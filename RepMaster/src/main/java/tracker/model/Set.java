@@ -34,6 +34,9 @@ public class Set{
      * a szetthez tartozó edzés volumen
      */
     private double volume;
+    /**
+     * az eredmény, amelyhez tartozik a szett
+     */
     @ManyToOne
     private ExerciseResult exerciseResult;
 

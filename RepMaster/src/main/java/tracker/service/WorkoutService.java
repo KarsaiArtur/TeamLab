@@ -38,8 +38,13 @@ public class WorkoutService implements RateableService {
                 registeredUserService.deleteRating(workout.get(), workout.get().getRatings().get(0).getId());
             }
         }
-        //registeredUserService.removeWorkoutFromUser(id);
         gymService.removeWorkoutFromGym(TrackerApplication.getInstance().getCurrentGym().getId(), id);
+        workoutRepository.delete(workout.get());
+    }
+
+    @Transactional
+    public void deleteW(int id) {
+        Optional<Workout> workout = workoutRepository.findById(id);
         workoutRepository.delete(workout.get());
     }
 
@@ -142,6 +147,7 @@ public class WorkoutService implements RateableService {
                 .owner(TrackerApplication.getInstance().getLoggedInUser())
                 .name(workout.getName())
                 .publiclyAvailable(false)
+                .muscleGroups(new ArrayList<>())
                 .build();
 
         gymService.addNewWorkoutToGym(TrackerApplication.getInstance().getCurrentGym().getId(), newWorkout);
@@ -172,5 +178,30 @@ public class WorkoutService implements RateableService {
     @Override
     public Rateable findById(int id) {
         return workoutRepository.findById(id).get();
+    }
+
+    @Transactional
+    public void addNewExerciseToW(int workoutId, Exercise exercise) {
+        Optional<Workout> workout = workoutRepository.findById(workoutId);
+        exerciseRepository.save(exercise);
+        workout.get().addExercise(exercise);
+        addMuscleGroupToWorkout(workout.get(), exercise.getPrimaryMuscleGroup());
+    }
+
+    @Transactional
+    public void addExistingExerciseToW(int workoutId, int exerciseId) {
+        Optional<Workout> workout = workoutRepository.findById(workoutId);
+        Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
+        workout.get().addExercise(exercise.get());
+        addMuscleGroupToWorkout(workout.get(), exercise.get().getPrimaryMuscleGroup());
+    }
+
+    @Transactional
+    public void removeExerciseFromW(int workoutId, int exerciseId) {
+        Optional<Workout> workout = workoutRepository.findById(workoutId);
+        Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
+        workout.get().removeExercise(exercise.get());
+        exercise.get().removeWorkout(workout.get());
+        removeMuscleGroupFromWorkout(workout.get(), exercise.get().getPrimaryMuscleGroup());
     }
 }
