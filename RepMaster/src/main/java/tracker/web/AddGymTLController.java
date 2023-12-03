@@ -10,7 +10,6 @@ import tracker.TrackerApplication;
 import tracker.model.Equipment;
 import tracker.model.Gym;
 import tracker.model.Split;
-import tracker.service.GymService;
 import tracker.service.RegisteredUserService;
 
 import java.util.Map;

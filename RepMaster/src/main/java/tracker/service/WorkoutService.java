@@ -11,7 +11,6 @@ import tracker.repository.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Builder
 @RequiredArgsConstructor
@@ -39,7 +38,7 @@ public class WorkoutService implements RateableService {
                 registeredUserService.deleteRating(workout.get(), workout.get().getRatings().get(0).getId());
             }
         }
-        registeredUserService.removeWorkoutFromUser(id);
+        //registeredUserService.removeWorkoutFromUser(id);
         gymService.removeWorkoutFromGym(TrackerApplication.getInstance().getCurrentGym().getId(), id);
         workoutRepository.delete(workout.get());
     }
@@ -173,5 +172,4 @@ public class WorkoutService implements RateableService {
     public Rateable findById(int id) {
         return workoutRepository.findById(id).get();
     }
-
 }

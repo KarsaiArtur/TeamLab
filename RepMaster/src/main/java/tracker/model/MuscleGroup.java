@@ -1,6 +1,5 @@
 package tracker.model;
 
-
 public enum MuscleGroup {
     Forearms,
     Biceps,

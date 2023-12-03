@@ -22,11 +22,5 @@ public class ExerciseResultTLController {
         model.put("userName", userName+"'s results");
         return "exerciseResults";
     }
-
-    /*@PostMapping("/newExerciseResult")
-    public String create(ExerciseResult result) {
-        exerciseResultService.saveExerciseResult(result);
-        return "redirect:/results";
-    }*/
 }
 

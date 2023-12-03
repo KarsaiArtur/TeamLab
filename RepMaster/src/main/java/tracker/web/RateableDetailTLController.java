@@ -9,14 +9,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import tracker.TrackerApplication;
 import tracker.model.*;
-import tracker.repository.RatingRepository;
 import tracker.service.RateableService;
 import tracker.service.RegisteredUserService;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor

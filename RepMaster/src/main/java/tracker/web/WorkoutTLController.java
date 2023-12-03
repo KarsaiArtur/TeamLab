@@ -11,9 +11,7 @@ import tracker.model.Workout;
 import tracker.service.GymService;
 import tracker.service.WorkoutService;
 
-import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 @Controller
 @RequiredArgsConstructor

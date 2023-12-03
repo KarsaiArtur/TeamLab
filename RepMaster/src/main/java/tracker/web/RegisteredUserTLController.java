@@ -4,13 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import tracker.TrackerApplication;
-import tracker.model.Gym;
 import tracker.model.RegisteredUser;
-import tracker.service.GymService;
 import tracker.service.RegisteredUserService;
-import tracker.service.WorkoutService;
 
 import java.util.Map;
 
@@ -18,7 +13,6 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class RegisteredUserTLController {
     private final RegisteredUserService registeredUserService;
-    private final WorkoutService workoutService;
     private String msg = "";
 
     @GetMapping("/registration")
@@ -57,5 +51,4 @@ public class RegisteredUserTLController {
         registeredUserService.singOutUser();
         return "redirect:/search";
     }
-
 }
