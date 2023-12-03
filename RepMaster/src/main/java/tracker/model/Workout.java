@@ -8,6 +8,9 @@ import tracker.web.RateableDetailTLController;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Edzőterv osztály, rateableből származik le
+ */
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
@@ -74,7 +77,10 @@ public class Workout extends Rateable {
     public void removeMuscleGroup(MuscleGroup m){
         muscleGroups.remove(m);
     }
-
+    /**
+     * értékelés hozzáadása
+     * @param r értékelés, amit hozzáad
+     */
     @Override
     public void addRating(Rating r) {
         if(ratings == null)
@@ -82,14 +88,20 @@ public class Workout extends Rateable {
         ratings.add(r);
         r.setWorkout(this);
     }
-
+    /**
+     * felhasználó hozzáadása, akik használják ezt az edzőtervet
+     * @param rU a hozzáadott felhasználó
+     */
     public void addRegisteredUser(RegisteredUser rU){
         if(registeredUsers == null)
             registeredUsers = new ArrayList<>();
 
         registeredUsers.add(rU);
     }
-
+    /**
+     * egy értékelés eltávolítása az edzőtervhez tartozó értékelések közül
+     * @param r az eltávolítandó értékelés
+     */
     @Override
     public void removeRating(Rating r) {
         ratings.remove(r);
@@ -100,7 +112,10 @@ public class Workout extends Rateable {
     public List<Rating> getRatings(){
         return ratings;
     }
-
+    /**
+     * stringgé alakítja az osztály tartalmát
+     * @return az átalakított string
+     */
     @Override
     public String toString(){
         double rating = Rating.calculateRating(this);
@@ -111,7 +126,10 @@ public class Workout extends Rateable {
     public String getName(){
         return name;
     }
-
+    /**
+     * stringgé alakítja az osztály tartalmát, majd beleteszi Details objektumokba, ahol különválasztja a tulajdonságot és a tulajdonság értéket
+     * @return az átalakított stringeket tároló Details lista
+     */
     @Override
     public List<RateableDetailTLController.Details> details(){
         double rating = Rating.calculateRating(this);

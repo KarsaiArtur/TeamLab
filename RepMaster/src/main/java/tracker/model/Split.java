@@ -3,6 +3,9 @@ package tracker.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+/**
+ * Split(izomcsoport felbontás) osztály
+ */
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")

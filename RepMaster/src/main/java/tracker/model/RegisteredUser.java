@@ -6,6 +6,9 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * regisztrált felhasználó osztály
+ */
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
@@ -64,24 +67,17 @@ public class RegisteredUser implements User{
         userWorkouts.remove(w);
     }
 
-    public void addWorkoutsFromUsersGyms() {
-        createWorkoutListIfEmpty();
-        for(Gym g: userGyms) {
-            List<Workout> workouts = g.getWorkouts();
-            userWorkouts.addAll(workouts);
-        }
-    }
-
+    /**
+     * hozzáad értékelést
+     * @param rateable amihez hozzáadjuk
+     * @param r értékelés, amit hozzáadunk
+     */
     public void addRating(Rateable rateable, Rating r){
         if(ratings == null)
             ratings = new ArrayList<>();
         ratings.add(r);
         r.setRegisteredUser(this);
         rateable.addRating(r);
-    }
-
-    public void removeRating(Rating rating) throws Exception{
-        ratings.remove(rating);
     }
 
     public String getName(){

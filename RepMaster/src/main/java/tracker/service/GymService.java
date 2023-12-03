@@ -121,11 +121,12 @@ public class GymService  implements RateableService{
                 .numberOfDays(gym.getSplit().getNumberOfDays())
                 .gym(newGym)
                 .build());
+
+        registeredUserService.addNewGymToUser(newGym);
         for(Workout workouts: gym.getWorkouts()){
             addExistingWorkoutToGym(newGym.getId(), workouts.getId());
         }
 
-        registeredUserService.addNewGymToUser(newGym);
         registeredUserService.removeGymFromUser(gym.getId());
         TrackerApplication.getInstance().setCurrentGym(newGym);
         return newGym;

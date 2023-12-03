@@ -105,7 +105,7 @@ public class ExerciseService implements RateableService{
         ExerciseResult newResult = ExerciseResult.builder().build();
 
         for(int i = 0; i < exercise.get(0).getSet_count(); i++){
-            newResult.addResult(sets.get(i));
+            newResult.addSet(sets.get(i));
         }
         newResult.setDate(LocalDate.now());
         exercise.get(0).addNewResult(newResult);

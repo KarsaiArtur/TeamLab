@@ -1,5 +1,8 @@
 package tracker.model;
 
+/**
+ *  Enum osztály, amely tartalmazza az edzhető izmokat
+ */
 public enum MuscleGroup {
     Forearms,
     Biceps,

@@ -143,11 +143,12 @@ public class WorkoutService implements RateableService {
                 .name(workout.getName())
                 .publiclyAvailable(false)
                 .build();
+
+        gymService.addNewWorkoutToGym(TrackerApplication.getInstance().getCurrentGym().getId(), newWorkout);
         for(Exercise exercises: workout.getExercises()){
             addExistingExerciseToWorkout(newWorkout.getId(), exercises.getId());
         }
 
-        gymService.addNewWorkoutToGym(TrackerApplication.getInstance().getCurrentGym().getId(), newWorkout);
         gymService.removeWorkoutFromGym(TrackerApplication.getInstance().getCurrentGym().getId(), workout.getId());
 
         TrackerApplication.getInstance().setCurrentWorkout(newWorkout);

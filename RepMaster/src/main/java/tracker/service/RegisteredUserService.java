@@ -50,7 +50,8 @@ public class RegisteredUserService {
     public void removeGymFromUser(int gym_id){
         Optional<RegisteredUser> registeredUser = registeredUserRepository.findById(TrackerApplication.getInstance().getLoggedInUser().getId());
         Optional<Gym> gym = gymRepository.findById(gym_id);
-        registeredUser.get().removeGym(gym.get());
+        if(!registeredUser.isEmpty())
+            registeredUser.get().removeGym(gym.get());
     }
 
     @Transactional

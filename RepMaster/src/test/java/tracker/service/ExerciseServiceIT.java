@@ -3,7 +3,6 @@ package tracker.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Ignore;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -78,7 +77,7 @@ public class ExerciseServiceIT {
 
     }
 
-    @Ignore
+    /*@Ignore
     public void deleteResult() throws Exception {
         addNewResults();
         exerciseService.removeResultFromExercise(exercise1.getId(), result2.getId());
@@ -91,9 +90,9 @@ public class ExerciseServiceIT {
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
             exercise1Results.get(1).getId();
         });
-    }
+    }*/
 
-    @Ignore
+    /*@Ignore
     void testDeleteExercises() {
         exerciseService.saveExercise(exercise1);
 
@@ -101,7 +100,7 @@ public class ExerciseServiceIT {
         List<Exercise> exercises = exerciseService.listExercises();
 
         assertThat(exercises.size()).isEqualTo(0);
-    }
+    }*/
 
     private void initExercises() {
         exercise1 = exerciseService.saveExercise(

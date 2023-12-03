@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.thymeleaf.util.StringUtils;
 
+/**
+ * értékelés osztály
+ */
 @Getter
 @Setter
 @Builder
@@ -39,6 +42,10 @@ public class Rating {
         return (sum / (double)ratingsCnt);
     }
 
+    /**
+     * stringgé alakítja az osztály tartalmát
+     * @return az átalakított string
+     */
     @Override
     public String toString(){
         return comment+" "+StringUtils.repeat("⭐", (int)rating)+ " by "+registeredUser.getUserName();

@@ -23,7 +23,7 @@ public class ExerciseTLController {
     public String exercise(Map<String, Object> model){
         userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
         model.put("exercises", exerciseService.listExercisesByWorkoutId(TrackerApplication.getInstance().getCurrentWorkout().getId()));
-        model.put("userName", userName+"'s exercises");
+        model.put("userName", userName+"'s exercises in "+TrackerApplication.getInstance().getCurrentWorkout().getName()+" workout");
         return "exercises";
     }
 

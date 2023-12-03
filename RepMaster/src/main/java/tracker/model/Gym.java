@@ -8,6 +8,9 @@ import tracker.web.RateableDetailTLController;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Edzőterem osztály, rateableből származik le
+ */
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
@@ -23,16 +26,28 @@ public class Gym extends Rateable{
     private String location;
     private boolean publiclyAvailable = true;
 
+    /**
+     * értékelések
+     */
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "gym")
     private List<Rating> ratings;
 
+    /**
+     * edzőteremhez tartozó split(izomcsoport felbontás)
+     */
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "split_id", referencedColumnName = "id")
     private Split split;
 
+    /**
+     * mennyire felszerelt az edzőterem
+     */
     @Enumerated(EnumType.STRING)
     private Equipment howEquipped;
 
+    /**
+     * az edzőteremhez tartozó edzőtervek
+     */
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(
             name = "gym_workout_connection",
@@ -41,6 +56,9 @@ public class Gym extends Rateable{
     )
     private List<Workout> workouts;
 
+    /**
+     * felhasználók, akik használják az edzőtervet
+     */
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(
             name = "registered_user_gym_connection",
@@ -49,6 +67,9 @@ public class Gym extends Rateable{
     )
     private List<RegisteredUser> registeredUsers;
 
+    /**
+     * az edzőtermet létrehozó felhasználó
+     */
     @ManyToOne
     private RegisteredUser owner;
 
@@ -58,12 +79,20 @@ public class Gym extends Rateable{
         workouts.add(w);
     }
 
+    /**
+     * felhasználó hozzáadása, akik használják ezt az edzőtermet
+     * @param rU a hozzáadott felhasználó
+     */
     public void addRegisteredUser(RegisteredUser rU){
         if(registeredUsers == null)
             registeredUsers = new ArrayList<>();
         registeredUsers.add(rU);
     }
 
+    /**
+     * értékelés hozzáadása
+     * @param r értékelés, amit hozzáad
+     */
     @Override
     public void addRating(Rating r) {
         if(ratings == null)
@@ -72,6 +101,10 @@ public class Gym extends Rateable{
         r.setGym(this);
     }
 
+    /**
+     * egy értékelés eltávolítása az edzőtermhez tartozó értékelések közül
+     * @param r az eltávolítandó értékelés
+     */
     @Override
     public void removeRating(Rating r) {
         ratings.remove(r);
@@ -87,10 +120,18 @@ public class Gym extends Rateable{
         return ratings;
     }
 
+    /**
+     * az edzőteremből eltávolít egy adott edzőtervet
+     * @param w az eltávolított edzőterv
+     */
     public void removeWorkout(Workout w){
         workouts.remove(w);
     }
 
+    /**
+     * stringgé alakítja az osztály tartalmát
+     * @return az átalakított string
+     */
     @Override
     public String toString(){
         double rating = Rating.calculateRating(this);
@@ -102,6 +143,10 @@ public class Gym extends Rateable{
         return name;
     }
 
+    /**
+     * stringgé alakítja az osztály tartalmát, majd beleteszi Details objektumokba, ahol különválasztja a tulajdonságot és a tulajdonság értéket
+     * @return az átalakított stringeket tároló Details lista
+     */
     @Override
     public List<RateableDetailTLController.Details> details(){
         double rating = Rating.calculateRating(this);

@@ -8,6 +8,9 @@ import tracker.web.RateableDetailTLController;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Gyakorlat osztály, rateableből származik le
+ */
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
@@ -25,22 +28,40 @@ public class Exercise extends Rateable{
     private boolean isCompound;
     private boolean publiclyAvailable = true;
 
+    /**
+     * fő izomcsoport, amit edz
+     */
     @Enumerated(EnumType.STRING)
     private MuscleGroup primaryMuscleGroup;
 
+    /**
+     * másodlagos izomcsoportok, amiket edz
+     */
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name="secondary_muscle_groups")
     @Column(name="muscle_group")
     @Enumerated(EnumType.STRING)
     private List<MuscleGroup> secondaryMuscleGroups;
 
+    /**
+     * értékelések a gyakorlatról
+     */
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "exercise")
     private List<Rating> ratings;
+    /**
+     * gyakorlat eredményei
+     */
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "exercise")
     private List<ExerciseResult> exerciseResults;
 
+    /**
+     * edzőtervek, amik tartalmazzák a gyakorlatot
+     */
     @ManyToMany(mappedBy = "exercises", fetch = FetchType.EAGER)
     private List<Workout> workouts;
+    /**
+     * gyakorlatot létrehozó felhasználó
+     */
     @ManyToOne
     private RegisteredUser owner;
 
@@ -55,6 +76,10 @@ public class Exercise extends Rateable{
         secondaryMuscleGroups.add(muscleGroup);
     }
 
+    /**
+     * hozzá lett adva egy edzőtervhez a gyakorlat. ez a függvény hozzáadja a listájához ezt az edzőtervet
+     * @param workout edzőterv, amit hozzáadunk
+     */
     public void addWorkout(Workout workout){
         if(workouts == null){
             workouts = new ArrayList<>();
@@ -78,6 +103,10 @@ public class Exercise extends Rateable{
         exerciseResults.remove(r);
     }
 
+    /**
+     * értékelés hozzáadása a gyakorlatról
+     * @param r értékelés, amit hozzáadunk
+     */
     @Override
     public void addRating(Rating r) {
         if(ratings == null)
@@ -97,6 +126,10 @@ public class Exercise extends Rateable{
         return ratings;
     }
 
+    /**
+     * stringgé alakítja az osztály tartalmát
+     * @return az átalakított string
+     */
     @Override
     public String toString(){
         double rating = Rating.calculateRating(this);

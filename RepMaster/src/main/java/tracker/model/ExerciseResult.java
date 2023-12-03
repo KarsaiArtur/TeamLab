@@ -7,6 +7,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * gyakorlat eredmény osztály
+ */
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
@@ -22,12 +25,21 @@ public class ExerciseResult {
     private LocalDate date;
     private double totalVolume;
 
+    /**
+     * gyakorlat, amihez az eredmény tartozik
+     */
     @ManyToOne
     private Exercise exercise;
 
+    /**
+     * felhasználó, akihez, az eredmény tartozik
+     */
     @ManyToOne
     private RegisteredUser registeredUser;
 
+    /**
+     * az eredményhez tartozó szettek listája
+     */
     @OneToMany(mappedBy = "exerciseResult", fetch = FetchType.EAGER)
     private List<Set> sets;
 
@@ -41,18 +53,18 @@ public class ExerciseResult {
         result.setExerciseResult(this);
     }
 
-    public void removeResult(Set result){
+    /**
+     * szett kivétele
+     * @param result szett, amit kiveszünk
+     */
+    public void removeSet(Set result){
             sets.remove(result);
     }
 
-    public double getWeightByIndex(int index){
-        return sets.get(index).getWeight();
-    }
-
-    public int getRepCountByIndex(int index){
-        return sets.get(index).getRepetition_count();
-    }
-
+    /**
+     * az eredményhez tartozó szettek között megkeresi a legjobb teljesítményt (legnagyobb súly)
+     * @return a legnagyobb súly
+     */
     public double findPrWithinSets() {
         double maxWeight = 0;
         for(Set s : sets)

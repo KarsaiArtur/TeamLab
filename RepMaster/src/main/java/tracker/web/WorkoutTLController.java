@@ -25,7 +25,7 @@ public class WorkoutTLController {
         userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
         Gym gym = TrackerApplication.getInstance().getCurrentGym();
         model.put("workouts", workoutService.listWorkoutsByGymId(gym.getId()));
-        model.put("userName", userName+"'s workouts");
+        model.put("userName", userName+"'s workouts in "+TrackerApplication.getInstance().getCurrentGym().getName()+" gym");
         return "workouts";
     }
 

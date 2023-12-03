@@ -60,8 +60,8 @@ public class AddExerciseTLController {
     @Getter
     class ExerciseCopy {
         private String name;
-        private int set_count;
-        private int repetition_count;
+        private int set_count = 1;
+        private int repetition_count = 1;
         private String isCompound;
         private String publiclyAvailable;
         private String primaryMuscleGroup;

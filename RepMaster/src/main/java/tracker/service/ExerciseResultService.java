@@ -3,6 +3,7 @@ package tracker.service;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import tracker.TrackerApplication;
 import tracker.model.Exercise;
 import tracker.model.ExerciseResult;
 import tracker.model.Set;
@@ -12,6 +13,7 @@ import tracker.repository.SetRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -30,14 +32,9 @@ public class ExerciseResultService {
 
     public List<ExerciseResult> listExerciseResultsByExerciseId(int exerciseId) {
         Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
-        return exercise.get().getExerciseResults();
-    }
-
-    @Transactional
-    public void saveResult(double totalVolume){
-        List<ExerciseResult> results = exerciseResultRepository.findByTotalVolume(totalVolume);
-        for(ExerciseResult r: results)
-            exerciseResultRepository.save(r);
+        var results = exercise.get().getExerciseResults();
+        results = results.stream().filter(a -> a.getRegisteredUser().getId() == TrackerApplication.getInstance().getLoggedInUser().getId()).collect(Collectors.toList());
+        return results;
     }
 
     @Transactional
@@ -80,23 +77,17 @@ public class ExerciseResultService {
         for(Set s : sets) {
             s.countVolume();
             setRepository.save(s);
-            result.get().addResult(s);
+            result.get().addSet(s);
         }
         result.get().calculateTotalVolume();
     }
 
-    @Transactional
-    public void addExistingSetToResult(int id, int set_id){
-        Optional<ExerciseResult> result = exerciseResultRepository.findById(id);
-        Optional<Set> set = setRepository.findById(set_id);
-        result.get().addResult(set.get());
-    }
 
     @Transactional
     public void removeSetFromResult(int id, int set_id){
         Optional<ExerciseResult> result = exerciseResultRepository.findById(id);
         Optional<Set> set = setRepository.findById(set_id);
-        result.get().removeResult(set.get());
+        result.get().removeSet(set.get());
         setRepository.delete(set.get());
     }
 
