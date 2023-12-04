@@ -23,7 +23,7 @@ public abstract class Rateable {
     public abstract int getId();
     /**
      * absztrakt függvény, amely visszaadja az osztály részleteit/tulajdonságait
-     * @return
+     * @return osztály részletei/tulajdonságai
      */
     public abstract List<RateableDetailTLController.Details> details();
     public abstract boolean isPubliclyAvailable();

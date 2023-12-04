@@ -24,12 +24,17 @@ public class AddGymTLController {
      * regisztrált felhasználó service, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ
      */
     private final RegisteredUserService registeredUserService;
-    private String userName = "";
 
+    /**
+     * létrehozza a htmlt
+     * @param model model
+     * @return html neve
+     */
     @GetMapping("/addGym")
     public String addGym(Map<String, Object> model){
-        userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
+        String userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
         model.put("add", new GymCopy());
+        model.put("userName", userName +"'s gyms");
         return "addGym";
     }
 
@@ -62,11 +67,29 @@ public class AddGymTLController {
     @Setter
     @Getter
     class GymCopy{
+        /**
+         * edzőterem neve
+         */
         private String name;
+        /**
+         * publikus-e
+         */
         private String publiclyAvailable;
+        /**
+         * edzőterem helye
+         */
         private String location;
+        /**
+         * hány napra van bontva a split
+         */
         private int numberOfDays;
+        /**
+         * split típusa
+         */
         private String splitType;
+        /**
+         * mennyire felszerelt az edzőterem
+         */
         private String howEquipped;
     }
 }

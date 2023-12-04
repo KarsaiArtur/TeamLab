@@ -14,15 +14,21 @@ import java.util.Map;
 @Controller
 @RequiredArgsConstructor
 public class ExerciseResultTLController {
-
+    /**
+     * eredmények service, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ
+     */
     private final ExerciseResultService exerciseResultService;
-    private String userName = "";
 
+    /**
+     * létrehozza a htmlt, kilistázza a kiválasztott gyakorlathoz tartozó eredményeket, amelyeket a bejelentkezett felhasználó rögzített
+     * @param model model
+     * @return html neve
+     */
     @GetMapping("/exerciseResults")
     public String results(Map<String, Object> model){
-        userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
+        String userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
         model.put("exerciseResults", exerciseResultService.listExerciseResultsByExerciseId(TrackerApplication.getInstance().getCurrentExercise().getId()));
-        model.put("userName", userName+"'s results in "+TrackerApplication.getInstance().getCurrentExercise().getName()+" exercise");
+        model.put("userName", userName +"'s results in "+TrackerApplication.getInstance().getCurrentExercise().getName()+" exercise");
         return "exerciseResults";
     }
 }

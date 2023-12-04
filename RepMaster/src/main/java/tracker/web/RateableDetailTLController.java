@@ -16,17 +16,35 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Controller osztály a rateableDetail.hmtl-hez, amelyen látható egy értékelhető objektum(edzőterem, edzőterv, gyakorlat) részletei és értékelései, illetve itt tudja a felhasználó saját magához hozzáadni
+ */
 @Controller
 @RequiredArgsConstructor
 public class RateableDetailTLController {
+    /**
+     * értékelhető objektum(edzőterem, edzőterv, gyakorlat), aminek megjeleníti a részleteit
+     */
     private Rateable rateable;
+    /**
+     * a regisztrált felhasználó service, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ
+     */
     private final RegisteredUserService registeredUserService;
+    /**
+     * az értékelhető osztályok service, amelyben deklarálva vannak a komplexebb függvények, amelyeket a webes réteg használ
+     */
     private static RateableService rateableService;
 
     public static void setRateableService(RateableService rS){
         rateableService = rS;
     }
 
+    /**
+     * létrehozza a htmlt
+     * Attól függően, hogy milyen értékelhető objektum(edzőterem, edzőterv, gyakorlat) részleteit jeleníti meg, ad lehetőséget hozzáadni a felhasználóhoz/ felhasználó edzőtermeihez/felhasználó edzőterveihez
+     * @param model model
+     * @return html neve
+     */
     @GetMapping("/detail")
     public String detail(Map<String, Object> model){
         rateable = TrackerApplication.getInstance().getCurrentRateable();
@@ -87,7 +105,13 @@ public class RateableDetailTLController {
     @Getter
     @Setter
     public static class Details{
+        /**
+         * tulajdonság
+         */
         private String feature;
+        /**
+         * tulajdonság érték
+         */
         private String data;
 
         public Details(String f, String d){

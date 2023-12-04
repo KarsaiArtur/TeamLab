@@ -8,23 +8,41 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import tracker.model.*;
 
+/**
+ * A RepTracker program osztálya
+ */
 @RequiredArgsConstructor
 @SpringBootApplication
 @Getter
 @Setter
-/**
- * Program osztaly
- */
 public class TrackerApplication implements CommandLineRunner{
     /**
      * a program egyetlen példánya
      */
     private static final TrackerApplication INSTANCE = new TrackerApplication();
+    /**
+     * jelenleg bejelentkezett felhasználó
+     */
     private RegisteredUser loggedInUser = RegisteredUser.builder().build();
+    /**
+     * be vannak-e jelentkezve
+     */
     private boolean loggedIn = false;
+    /**
+     * jelenleg kiválasztott edzőterem
+     */
     private Gym currentGym = Gym.builder().build();
+    /**
+     * jelenleg kiválasztott edzőterv
+     */
     private Workout currentWorkout = Workout.builder().build();
+    /**
+     * jelenleg kiválasztott gyakorlat
+     */
     private Exercise currentExercise = Exercise.builder().build();
+    /**
+     * jelenleg kiválasztott értékelhető objektum(edzőterem, edzőterv, gyakorlat)
+     */
     private Rateable currentRateable = Gym.builder().build();
 
     /**

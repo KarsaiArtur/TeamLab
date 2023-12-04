@@ -26,13 +26,17 @@ public class ExerciseTLController {
      * edzőtervek service, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ
      */
     private final WorkoutService workoutService;
-    private String userName = "";
 
+    /**
+     * létrehozza a htmlt, kilistázza a kiválasztott edzőtervhez tartozó gyakorlatokat, amelyeket a bejelentkezett felhasználó adott hozzá
+     * @param model model
+     * @return html neve
+     */
     @GetMapping("/exercises")
     public String exercise(Map<String, Object> model){
-        userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
+        String userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
         model.put("exercises", exerciseService.listExercisesByWorkoutId(TrackerApplication.getInstance().getCurrentWorkout().getId()));
-        model.put("userName", userName+"'s exercises in "+TrackerApplication.getInstance().getCurrentWorkout().getName()+" workout");
+        model.put("userName", userName +"'s exercises in "+TrackerApplication.getInstance().getCurrentWorkout().getName()+" workout");
         return "exercises";
     }
 
@@ -48,6 +52,12 @@ public class ExerciseTLController {
         return "redirect:/exerciseResults";
     }
 
+    /**
+     * törli a kiválasztott gyakorlatot.
+     * Ha a gyakorlat publikus akkor csak a jelenlegi edzőtervből veszi ki, ha nem, akkor törli az adatbázisból
+     * @param id törölni kívánt gyakorlat id-ja
+     * @return átirányít a gyakorlatok oldalra, ahol most is vagyunk
+     */
     @PostMapping("/deleteExercise")
     public String deleteExercise(@RequestParam("exerciseId") int id) {
         Exercise exercise = exerciseService.findExercise(id);

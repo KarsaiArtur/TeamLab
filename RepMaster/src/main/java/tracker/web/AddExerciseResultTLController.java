@@ -23,14 +23,25 @@ import java.util.Map;
 @Controller
 @RequiredArgsConstructor
 public class AddExerciseResultTLController {
+    /**
+     * gyakorlatok service, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ
+     */
     private final ExerciseService exerciseService;
+    /**
+     * gyakorlat eredmény service osztálya, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ.
+     */
     private final ExerciseResultService exerciseResultService;
-    private String userName = "";
 
+    /**
+     * létrehozza a htmlt
+     * @param model model
+     * @return html neve
+     */
     @GetMapping("/addExerciseResult")
     public String addExerciseResult(Map<String, Object> model){
-        userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
+        String userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
         model.put("addER", new AddExerciseResultTLController.ExerciseResultCopy());
+        model.put("userName", userName +"'s gyms");
         return "addExerciseResult";
     }
 
@@ -57,6 +68,9 @@ public class AddExerciseResultTLController {
     @Setter
     @Getter
     class ExerciseResultCopy {
+        /**
+         * szettek listája
+         */
         private List<Set> sets;
 
         public ExerciseResultCopy(){
@@ -65,6 +79,5 @@ public class AddExerciseResultTLController {
                 sets.add(new Set());
             }
         }
-
     }
 }

@@ -15,21 +15,30 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * gyakorlat eredmény service osztálya, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ.
+ */
 @RequiredArgsConstructor
 @Service
 public class ExerciseResultService {
+    /**
+     * a gyakorlatokhoz tartozó repository, ezen keresztül tudunk kommunikálni (CRUD műveletekkel) az adatbázisban lévő gyakorlatokkal
+     */
     private final ExerciseRepository exerciseRepository;
+    /**
+     * az eremdényekhez tartozó repository, ezen keresztül tudunk kommunikálni (CRUD műveletekkel) az adatbázisban lévő eredményekkel
+     */
     private final ExerciseResultRepository exerciseResultRepository;
+    /**
+     * a szettekhez tartozó repository, ezen keresztül tudunk kommunikálni (CRUD műveletekkel) az adatbázisban lévő szettekkel
+     */
     private final SetRepository setRepository;
 
-    public ExerciseResult findResult(int id) {
-        return exerciseResultRepository.findById(id).isEmpty() ? null : exerciseResultRepository.findById(id).get();
-    }
-
-    public List<ExerciseResult> listResults() {
-        return exerciseResultRepository.findAll();
-    }
-
+    /**
+     * visszaadja az aktuális felhasználó adott gyakorlatához tartozó eredményeket
+     * @param exerciseId eredményeket tartalmazó gyakorlat id-ja
+     * @return eredmények
+     */
     public List<ExerciseResult> listExerciseResultsByExerciseId(int exerciseId) {
         Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
         var results = exercise.get().getExerciseResults();
@@ -37,11 +46,10 @@ public class ExerciseResultService {
         return results;
     }
 
-    @Transactional
-    public ExerciseResult saveResult(ExerciseResult r){
-        return exerciseResultRepository.save(r);
-    }
-
+    /**
+     * törli az adott id-jú eredményt és vele együtt a szettjeit
+     * @param id törölni kívánt eredmény id-ja
+     */
     @Transactional
     public void deleteResult(int id){
         Optional<ExerciseResult> result = exerciseResultRepository.findById(id);
@@ -55,22 +63,11 @@ public class ExerciseResultService {
         exerciseResultRepository.delete(result.get());
     }
 
-    @Transactional
-    public void deleteAll(){
-        exerciseResultRepository.deleteAllInBatch();
-    }
-
-    @Transactional
-    public void saveSetInResult(ExerciseResult r) {
-        Optional<ExerciseResult> result = exerciseResultRepository.findById(r.getId());
-        result.get().getSets().forEach(s -> setRepository.save(s));
-    }
-
-    public List<Set> listSets(ExerciseResult r){
-        Optional<ExerciseResult> result = exerciseResultRepository.findById(r.getId());
-        return result.get().getSets();
-    }
-
+    /**
+     * Új szetteket hozzáad az eredményhez és elmenti őket
+     * @param id eredmény id-ja, amihez a szetteket hozzáadjuk
+     * @param sets szettek listája, amit hozzáadunk az eredményhez
+     */
     @Transactional
     public void addNewSets(int id, List<Set> sets){
         Optional<ExerciseResult> result = exerciseResultRepository.findById(id);
@@ -83,16 +80,16 @@ public class ExerciseResultService {
     }
 
 
+    /**
+     * kiveszi és törli a szettet az eredményből
+     * @param id szettet tartalmazó eredmény id-ja
+     * @param set_id szett id-ja, amit törlünk
+     */
     @Transactional
     public void removeSetFromResult(int id, int set_id){
         Optional<ExerciseResult> result = exerciseResultRepository.findById(id);
         Optional<Set> set = setRepository.findById(set_id);
         result.get().removeSet(set.get());
         setRepository.delete(set.get());
-    }
-
-    public List<Set> listSets(int id){
-        Optional<ExerciseResult> result = exerciseResultRepository.findById(id);
-        return result.get().getSets();
     }
 }

@@ -9,7 +9,6 @@ import tracker.repository.ExerciseRepository;
 import tracker.repository.ExerciseResultRepository;
 import tracker.repository.WorkoutRepository;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -99,6 +98,10 @@ public class ExerciseService implements RateableService{
         });
     }
 
+    /**
+     * elmenti az adott nevű gyakorlatot
+     * @param name a gyakorlat neve
+     */
     @Transactional
     public void saveExercise(String name){
         List<Exercise> exercises = exerciseRepository.findByName(name);
@@ -106,11 +109,20 @@ public class ExerciseService implements RateableService{
             exerciseRepository.save(e);
     }
 
+    /**
+     * elmenti az adott gyakorlatot az adatbázisba
+     * @param ex gyakorlat, amit elmentünk
+     * @return gyakorlat amit elmentettünk
+     */
     @Transactional
     public Exercise saveExercise(Exercise ex){
         return exerciseRepository.save(ex);
     }
 
+    /**
+     * törli az adott id-jú gyakorlat értékeléseit, eredményeit, majd a gyakorlatot
+     * @param id törölni kívánt gyakorlat id-ja
+     */
     @Transactional
     public void deleteExercise(int id){
         Optional<Exercise> exercise = exerciseRepository.findById(id);
@@ -130,6 +142,9 @@ public class ExerciseService implements RateableService{
         exerciseRepository.delete(exercise.get());
     }
 
+    /**
+     * kitörli az összes eredményt és gyakorlatot az adatbázisból
+     */
     @Transactional
     public void deleteAll(){
         exerciseResultRepository.deleteAllInBatch();

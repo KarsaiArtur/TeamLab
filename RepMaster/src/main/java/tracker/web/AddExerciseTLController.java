@@ -42,6 +42,8 @@ public class AddExerciseTLController {
      */
     @GetMapping("/addExercise")
     public String addExercise(Map<String, Object> model){
+        String userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
+        model.put("userName", userName +"'s gyms");
         model.put("addE", exerciseCopy_);
         model.put("muscle", new ExerciseCopy());
         return "addExercise";
@@ -88,12 +90,33 @@ public class AddExerciseTLController {
     @Setter
     @Getter
     class ExerciseCopy {
+        /**
+         * gyakorlat neve
+         */
         private String name;
+        /**
+         * szettek száma
+         */
         private int set_count = 1;
+        /**
+         * ismétlések száma
+         */
         private int repetition_count = 1;
+        /**
+         * összetett gyakorlat-e
+         */
         private String isCompound;
+        /**
+         * publikus-e (megjelenik a keresésben és mások is használhatják)
+         */
         private String publiclyAvailable;
+        /**
+         * fő izomcsoport, amit edz
+         */
         private String primaryMuscleGroup;
+        /**
+         * másodlagos izomcsoportok, amiket edz
+         */
         private List<String> secondaryMuscleGroups = new ArrayList<>();
     }
 }

@@ -15,7 +15,13 @@ import java.util.Map;
 @Controller
 @RequiredArgsConstructor
 public class RegisteredUserTLController {
+    /**
+     * a regisztrált felhasználó service, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ
+     */
     private final RegisteredUserService registeredUserService;
+    /**
+     * rendszerüzenet, amit gombnyomások után kiír
+     */
     private String msg = "";
 
     /**

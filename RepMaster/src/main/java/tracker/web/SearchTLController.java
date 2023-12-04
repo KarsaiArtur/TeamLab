@@ -15,17 +15,46 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Controller osztály a search.hmtl-hez, amelyen lehet keresni edzőtermek, edzőtervek és gyakorlatok között
+ */
 @Controller
 @RequiredArgsConstructor
 public class SearchTLController {
+    /**
+     * az edzőtervek service, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ
+     */
     private final GymService gymService;
+    /**
+     * az edzőtermek service, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ. megvalósítja a RateableService interfészt
+     */
     private final WorkoutService workoutService;
+    /**
+     * gyakorlatok service, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ. megvalósítja a RateableService interfészt
+     */
     private final ExerciseService exerciseService;
+    /**
+     * a regisztrált felhasználó service, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ
+     */
     private final RegisteredUserService registeredUserService;
+    /**
+     * az értékelhető osztályok service, amelyben deklarálva vannak a komplexebb függvények, amelyeket a webes réteg használ
+     */
     private RateableService rateableService;
+    /**
+     * történt-e keresés
+     */
     private boolean searched = false;
+    /**
+     * értékelhető objektumok(edzőterem, edzőterv, gyakorlat) listája, amik megfeleltek a keresésnek
+     */
     private List<Rateable> rateableList;
 
+    /**
+     * létrehozza a htmlt, alapból a találatok listája üres. egy felhasználó erről az oldalról csak akkor mehet vissza, ha regisztrált
+     * @param model model
+     * @return html neve
+     */
     @GetMapping("/search")
     public String search(Map<String, Object> model){
         if(!searched) rateableList = new ArrayList<>();

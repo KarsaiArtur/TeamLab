@@ -18,11 +18,28 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 public class GymService  implements RateableService{
+    /**
+     * az edzőtermekhez tartozó repository, ezen keresztül tudunk kommunikálni (CRUD műveletekkel) az adatbázisban lévő edzőtermekkel
+     */
     private final GymRepository gymRepository;
+    /**
+     * az edzőtervekhez tartozó repository, ezen keresztül tudunk kommunikálni (CRUD műveletekkel) az adatbázisban lévő edzőtervekkel
+     */
     private final WorkoutRepository workoutRepository;
+    /**
+     * a regisztrált felhasználókhoz tartozó repository, ezen keresztül tudunk kommunikálni (CRUD műveletekkel) az adatbázisban lévő regisztrált felhasználókkal
+     */
     private final RegisteredUserRepository registeredUserRepository;
+    /**
+     * az regisztrált felhasználók service, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ.
+     */
     private final RegisteredUserService registeredUserService;
 
+    /**
+     * elment egy edzőtermet az adatbázisba
+     * @param gym az elmentett edzőterem
+     * @return az elmentett edzőterem
+     */
     @Transactional
     public Gym saveGym(Gym gym){
         return gymRepository.save(gym);
@@ -90,6 +107,13 @@ public class GymService  implements RateableService{
         return registeredUser.get().getUserGyms();
     }
 
+
+    /**
+     * hozzáadja az adott id-jú edzőteremhez ad adott edzőtervet.
+     * Ha az aktuális felhasználó nem egyezik az edzőtermet létrehozóval, akkor duplikálja az edzőtermet, és az újnak az aktuális felhasználó lesz a létrehozója és ebbe tevődik bele az új edzőterv.
+     * @param id edzőterem id-ja, amibe beletesszük
+     * @param workout edzőterv, amit beleteszünk
+     */
     @Transactional
     public void addNewWorkoutToGym(int id, Workout workout){
         Optional<Gym> gym = gymRepository.findById(id);
@@ -106,6 +130,12 @@ public class GymService  implements RateableService{
         }
     }
 
+    /**
+     * hozzáadja az adott id-jú edzőteremhez ad adott id-jú edzőtervet.
+     * Ha az aktuális felhasználó nem egyezik az edzőtermet létrehozóval, akkor duplikálja az edzőtermet, és az újnak az aktuális felhasználó lesz a létrehozója és ebbe tevődik bele az edzőterv.
+     * @param id edzőterem id-ja, amibe beletesszük
+     * @param workout_id edzőterv id-ja, amit beleteszünk
+     */
     @Transactional
     public void addExistingWorkoutToGym(int id, int workout_id){
         Optional<Gym> gym = gymRepository.findById(id);
@@ -122,6 +152,12 @@ public class GymService  implements RateableService{
         }
     }
 
+    /**
+     * kiveszi az adott id-jú edzőteremből ad adott id-jú edzőtervet.
+     * Ha az aktuális felhasználó nem egyezik az edzőtermet létrehozóval, akkor duplikálja az edzőtermet, és az újnak az aktuális felhasználó lesz a létrehozója és ebből veszi ki az edzőtervet.
+     * @param id edzőterem id-ja, amiből kiveszünk
+     * @param workout_id edzőterv id-ja, amit kiveszünk
+     */
     @Transactional
     public void removeWorkoutFromGym(int id, int workout_id){
         Optional<Gym> gym = gymRepository.findById(id);
@@ -138,6 +174,11 @@ public class GymService  implements RateableService{
         }
     }
 
+    /**
+     * duplikálja a megadott edzőtermet, annyi különbséggel, hogy az újnak az aktuális felhasználó lesz a létrehozója
+     * @param gym edzőterem, mait duplikál
+     * @return új duplikált edzőterem
+     */
     @Transactional
     public Gym gymChanged(Gym gym){
         Gym newGym = Gym.builder()

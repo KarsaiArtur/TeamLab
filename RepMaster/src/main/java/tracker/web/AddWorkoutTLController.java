@@ -22,12 +22,17 @@ public class AddWorkoutTLController {
      * edzőterem service, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ
      */
     private final GymService gymService;
-    private String userName = "";
 
+    /**
+     * létrehozza a htmlt
+     * @param model model
+     * @return html neve
+     */
     @GetMapping("/addWorkout")
     public String addGym(Map<String, Object> model){
-        userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
+        String userName = TrackerApplication.getInstance().getLoggedInUser().getUserName();
         model.put("addW", new WorkoutCopy());
+        model.put("userName", userName +"'s gyms");
         return "addWorkout";
     }
 
@@ -53,7 +58,13 @@ public class AddWorkoutTLController {
     @Setter
     @Getter
     class WorkoutCopy {
+        /**
+         * edzőterv neve
+         */
         private String name;
+        /**
+         * publikus-e
+         */
         private String publiclyAvailable;
     }
 }

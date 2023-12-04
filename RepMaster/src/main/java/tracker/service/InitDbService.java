@@ -9,13 +9,24 @@ import tracker.repository.GymRepository;
 import tracker.repository.RegisteredUserRepository;
 import tracker.repository.WorkoutRepository;
 
+/**
+ * fejlesztés során tesztelésre használt adatbázist inicializáló osztály
+ */
 @RequiredArgsConstructor
 @Service
 public class InitDbService {
+    /**
+     * az edzőtermekhez tartozó repository, ezen keresztül tudunk kommunikálni (CRUD műveletekkel) az adatbázisban lévő edzőtermekkel
+     */
     private final GymRepository gymRepository;
+    /**
+     * az edzőtervekhez tartozó repository, ezen keresztül tudunk kommunikálni (CRUD műveletekkel) az adatbázisban lévő edzőtervekkel
+     */
     private final WorkoutRepository workoutRepository;
-    private final RegisteredUserRepository registeredUserRepository;
 
+    /**
+     * adatbázist inicializálja
+     */
     @Transactional
     public void initDb(){
         Workout workout1 = createWorkout("workout1");
@@ -30,6 +41,11 @@ public class InitDbService {
         gym2.addWorkout(workout3);
     }
 
+    /**
+     * létrehoz egy új edzőtervet és visszatér vele
+     * @param name az edzőterv neve
+     * @return az új edzőterv
+     */
     public Workout createWorkout(String name){
         return workoutRepository.save(Workout.builder().name(name).build());
     }
