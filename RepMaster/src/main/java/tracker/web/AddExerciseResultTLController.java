@@ -17,6 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Controller osztály az addExerciseResult.hmtl-hez, amelyen egy eredmény hozzáadása történik
+ */
 @Controller
 @RequiredArgsConstructor
 public class AddExerciseResultTLController {
@@ -31,6 +34,11 @@ public class AddExerciseResultTLController {
         return "addExerciseResult";
     }
 
+    /**
+     * egy eredmény hozzáadása az adatbázisba a beolvasott értékek alapján
+     * @param exerciseResultCopy a böngészőben a felhasználó által megadott adatok
+     * @return az eredmény hozzáadása után visszamegyünk az eredmények oldalra
+     */
     @PostMapping("/addER")
     public String addER(ExerciseResultCopy exerciseResultCopy) {
         ExerciseResult result = ExerciseResult.builder()
@@ -43,11 +51,13 @@ public class AddExerciseResultTLController {
         return "redirect:/exerciseResults";
     }
 
+    /**
+     * belső osztály, a html-en ezen keresztül történik az adatok beolvasása
+     */
     @Setter
     @Getter
     class ExerciseResultCopy {
         private List<Set> sets;
-        private LocalDate date;
 
         public ExerciseResultCopy(){
             sets = new ArrayList<>();

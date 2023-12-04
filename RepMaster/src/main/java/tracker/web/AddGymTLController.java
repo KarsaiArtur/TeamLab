@@ -14,9 +14,15 @@ import tracker.service.RegisteredUserService;
 
 import java.util.Map;
 
+/**
+ * Controller osztály az addGym.hmtl-hez, amelyen egy edzőterem hozzáadása történik
+ */
 @Controller
 @RequiredArgsConstructor
 public class AddGymTLController {
+    /**
+     * regisztrált felhasználó service, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ
+     */
     private final RegisteredUserService registeredUserService;
     private String userName = "";
 
@@ -27,12 +33,17 @@ public class AddGymTLController {
         return "addGym";
     }
 
+    /**
+     * egy edzőterem hozzáadása az adatbázisba a beolvasott értékek alapján
+     * @param gymCopy a böngészőben a felhasználó által megadott adatok
+     * @return az edzőterem hozzáadása után visszamegyünk az edzőtermek oldalra
+     */
     @PostMapping("/add")
     public String add(GymCopy gymCopy) {
         Gym gym = Gym.builder()
                 .owner(TrackerApplication.getInstance().getLoggedInUser())
                 .name(gymCopy.getName())
-                .publiclyAvailable(gymCopy.publiclyAvailable.equals("Yes"))
+                .publiclyAvailable(gymCopy.getPubliclyAvailable().equals("Yes"))
                 .location(gymCopy.getLocation())
                 .howEquipped(Equipment.valueOf(gymCopy.getHowEquipped()))
                 .build();
@@ -45,6 +56,9 @@ public class AddGymTLController {
         return "redirect:/gyms";
     }
 
+    /**
+     * belső osztály, a html-en ezen keresztül történik az adatok beolvasása
+     */
     @Setter
     @Getter
     class GymCopy{

@@ -37,6 +37,12 @@ public class SearchTLController {
         return "search";
     }
 
+    /**
+     * a megadott keresési beállítások alapján a találatok listájának megadása.
+     * a rateableservice-eknek érteket adunk az alapján, hogy milyen típusú keresés történt
+     * @param search a felhasználó által megadott keresési beállítások
+     * @return visszairányít a keresés oldalra, ahol betölti a találatok listáját
+     */
     @PostMapping("/search")
     public String r_desc(Search search) {
         searched=true;
@@ -61,6 +67,11 @@ public class SearchTLController {
         return "redirect:/search";
     }
 
+    /**
+     * a keresésnek megfelelt értékelhető objektumok listájából egy kiválasztott találat részleteinek betöltése
+     * @param id a kiválaszott találat id-ja
+     * @return a találat részleteinek betöltése
+     */
     @PostMapping("/rateableopen")
     public String rateableOpen(@RequestParam("elementId") int id) {
         Rateable rateable = rateableService.findById(id);
@@ -68,11 +79,23 @@ public class SearchTLController {
         return "redirect:/detail";
     }
 
+    /**
+     * belső osztály, a html-en ezen keresztül történik a keresési adatok elmentése
+     */
     @Getter
     @Setter
     class Search{
+        /**
+         * a keresett szó
+         */
         private String searchBar;
+        /**
+         * a kiválasztott rendezési mód: RatingDesc, RatingAsc, NameDesc, NameAsc
+         */
         private String order;
+        /**
+         * a kiválasztott keresési típus: GymSplit, WorkoutName, ExerciseMuscle
+         */
         private String searchType;
 
     }

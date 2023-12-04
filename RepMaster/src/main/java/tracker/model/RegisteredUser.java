@@ -86,16 +86,6 @@ public class RegisteredUser{
     }
 
     /**
-     * hozzáad gyakorlat eredményt
-     * @param eR gyakorlat eredményt, amit hozzáad
-     */
-    public void addExerciseResult(ExerciseResult eR) {
-        if(exerciseResults == null) exerciseResults = new ArrayList<>();
-        eR.setRegisteredUser(this);
-        exerciseResults.add(eR);
-    }
-
-    /**
      * hozzáad edzőtervet
      * @param w edzőterv, amit hozzáad
      */

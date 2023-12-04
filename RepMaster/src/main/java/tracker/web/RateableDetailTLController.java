@@ -48,24 +48,42 @@ public class RateableDetailTLController {
         return "rateableDetail";
     }
 
+    /**
+     * hozzáad egy értékelést a jelenlegi értékelhető objektumról, a html-ben ezt csak akkor engedi egy felhasználónak, ha regisztrált és nem 'látogató'
+     * @param rating az értékelés
+     * @return visszamegyünk a részletek oldalra, ahol most is vagyunk
+     */
     @PostMapping("/addRating")
     public String addRating(Rating rating) {
         registeredUserService.rate(rateable,rating.getRating(), rating.getComment());
         return "redirect:/detail";
     }
 
+    /**
+     * hozzáadja a jelenleg értékelhető objektumot saját magához, a html-ben ezt csak akkor engedi egy felhasználónak, ha regisztrált és nem 'látogató'
+     * @param gym objektum amiből kinyeri a kiválasztott regisztrált felhasználó/gym/workout id-t, ez nem egy gym, csak az id attribútuma miatt van használva
+     * @return visszamegyünk a részletek oldalra, ahol most is vagyunk
+     */
     @PostMapping("/addTo")
     public String addTo(Gym gym) {
         rateableService.addRateable(gym.getId(), rateable.getId());
         return "redirect:/detail";
     }
 
+    /**
+     * kitöröli a kiválasztott értékelést, a html-ben ezt csak akkor engedi egy felhasználónak, ha ő hozta létre
+     * @param id a kiválasztott értékelés id-ja
+     * @return visszamegyünk a részletek oldalra, ahol most is vagyunk
+     */
     @PostMapping("/deleteRating")
     public String deleteRating(@RequestParam("ratingId") int id) {
         registeredUserService.deleteRating(rateable, id);
         return "redirect:/detail";
     }
 
+    /**
+     * belső osztály, a html-en ezen keresztül történik az adatok kiírása
+     */
     @Getter
     @Setter
     public static class Details{

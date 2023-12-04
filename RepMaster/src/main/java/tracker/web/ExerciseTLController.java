@@ -12,10 +12,19 @@ import tracker.service.WorkoutService;
 
 import java.util.Map;
 
+/**
+ * Controller osztály az exercises.hmtl-hez, amelyen egy edzőtervhez tartozó gyakorlatok kerülnek kilistázásra
+ */
 @Controller
 @RequiredArgsConstructor
 public class ExerciseTLController {
+    /**
+     * gyakorlatok service, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ
+     */
     private final ExerciseService exerciseService;
+    /**
+     * edzőtervek service, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ
+     */
     private final WorkoutService workoutService;
     private String userName = "";
 
@@ -27,6 +36,11 @@ public class ExerciseTLController {
         return "exercises";
     }
 
+    /**
+     * a felhasználó által kiválasztott gyakorlatot beállítja a program jelenlegi gyakorlataként, majd megnyitja az eredmények oldalt, ahol betölti a gyakorlathoz tartozó eredményeket
+     * @param id a kiválasztott gyakorlat id-ja
+     * @return átirányít az eredmények oldalra
+     */
     @PostMapping("/exerciseResults")
     public String exerciseResults(@RequestParam("exerciseId") int id) {
         Exercise exercise = exerciseService.findExercise(id);

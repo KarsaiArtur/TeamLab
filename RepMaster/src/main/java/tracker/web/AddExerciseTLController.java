@@ -16,13 +16,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Controller osztály az addExercise.hmtl-hez, amelyen egy gyakorlat hozzáadása történik
+ */
 @Controller
 @RequiredArgsConstructor
 public class AddExerciseTLController {
+    /**
+     * edzőterv service, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ
+     */
     private final WorkoutService workoutService;
+    /**
+     * gyakorlatok service, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ
+     */
     private final ExerciseService exerciseService;
+    /**
+     * gyakorlat másolata, ezen keresztül történik a böngészőben az adatok beolvasása
+     */
     private ExerciseCopy exerciseCopy_ = new ExerciseCopy();
 
+    /**
+     * létrehozza a htmlt
+     * @param model model
+     * @return html neve
+     */
     @GetMapping("/addExercise")
     public String addExercise(Map<String, Object> model){
         model.put("addE", exerciseCopy_);
@@ -30,6 +47,11 @@ public class AddExerciseTLController {
         return "addExercise";
     }
 
+    /**
+     * egy gyakorlat hozzáadása az adatbázisba a beolvasott értékek alapján
+     * @param exerciseCopy a böngészőben a felhasználó által megadott adatok
+     * @return a gyakorlat hozzáadása után visszamegyünk az gyakorlatok oldalra
+     */
     @PostMapping("/addE")
     public String addE(ExerciseCopy exerciseCopy) {
         Exercise exercise = Exercise.builder()
@@ -42,20 +64,27 @@ public class AddExerciseTLController {
                 .primaryMuscleGroup(MuscleGroup.valueOf(exerciseCopy.getPrimaryMuscleGroup()))
                 .build();
         workoutService.addNewExerciseToWorkout(TrackerApplication.getInstance().getCurrentWorkout().getId(), exercise);
-        System.out.println("OK");
+
         for (String muscle: exerciseCopy_.getSecondaryMuscleGroups()) {
-            System.out.println(muscle);
             exerciseService.addSecondaryMuscleGroup(exercise.getId(), MuscleGroup.valueOf(muscle));
         }
         return "redirect:/exercises";
     }
 
+    /**
+     * másodlagosan edzett izomcsoport hozzáadása az elmentendő gyakorlathoz
+     * @param exerciseCopy ez az objektum tárolja el a hozzáadandó izomcsoportot
+     * @return az izomcsoport hozzáadása után folytatjuk a gyakorlat adatainak kitöltését
+     */
     @PostMapping("/addSecondary")
     public String addSecondary(ExerciseCopy exerciseCopy) {
         exerciseCopy_.getSecondaryMuscleGroups().add(exerciseCopy.getPrimaryMuscleGroup());
         return "redirect:/addExercise";
     }
 
+    /**
+     * belső osztály, a html-en ezen keresztül történik az adatok beolvasása
+     */
     @Setter
     @Getter
     class ExerciseCopy {

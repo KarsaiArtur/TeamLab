@@ -175,11 +175,11 @@ public class WorkoutService implements RateableService {
         workout.removeMuscleGroup(muscleGroup);
     }
 
-    @Override
-    public Rateable findById(int id) {
-        return workoutRepository.findById(id).get();
-    }
-
+    /**
+     * hozzáadja az adott id-jú edzőtervhez az adott gyakorlatot
+     * @param workoutId edzőterv id-ja, amibe beletesszük
+     * @param exercise gyakorlat, amit beleteszünk
+     */
     @Transactional
     public void addNewExerciseToW(int workoutId, Exercise exercise) {
         Optional<Workout> workout = workoutRepository.findById(workoutId);
@@ -203,5 +203,15 @@ public class WorkoutService implements RateableService {
         workout.get().removeExercise(exercise.get());
         exercise.get().removeWorkout(workout.get());
         removeMuscleGroupFromWorkout(workout.get(), exercise.get().getPrimaryMuscleGroup());
+    }
+
+    /**
+     * megkeres egy edzőtervet az adatbázisban, majd Rateable-ként visszaadja
+     * @param id a keresett edzőterv id-ja
+     * @return a keresett edzőterv Rateableként
+     */
+    @Override
+    public Rateable findById(int id) {
+        return workoutRepository.findById(id).get();
     }
 }

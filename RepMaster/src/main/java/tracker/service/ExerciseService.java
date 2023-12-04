@@ -14,20 +14,51 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * gyakorlatok service osztálya, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ. megvalósítja a RateableService interfészt
+ */
 @RequiredArgsConstructor
 @Service
 public class ExerciseService implements RateableService{
+    /**
+     * az edzőtervekhez tartozó repository, ezen az osztályon keresztül tudunk kommunikálni (CRUD műveletekkel) az adatbázisban lévő edzőtervekkel
+     */
     private final WorkoutRepository workoutRepository;
+    /**
+     * a gyakorlatokhoz tartozó repository, ezen az osztályon keresztül tudunk kommunikálni (CRUD műveletekkel) az adatbázisban lévő gyakorlatokkal
+     */
     private final ExerciseRepository exerciseRepository;
+    /**
+     * az eremdényekhez tartozó repository, ezen az osztályon keresztül tudunk kommunikálni (CRUD műveletekkel) az adatbázisban lévő eredményekkel
+     */
     private final ExerciseResultRepository exerciseResultRepository;
+    /**
+     * edzőtervek service osztálya, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ
+     */
     private final WorkoutService workoutService;
+    /**
+     * regisztrált felhasználók service osztálya, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ
+     */
     private final RegisteredUserService registeredUserService;
+    /**
+     * eremdények service osztálya, amelyben meg vannak valósítva a komplexebb függvények, amelyeket a webes réteg használ
+     */
     private final ExerciseResultService exerciseResultService;
 
+    /**
+     * egy id alapján visszaadja a keresett gyakorlatot az adatbázisból
+     * @param id a keresett gyakorlat id-ja
+     * @return a keresett gyakorlat
+     */
     public Exercise findExercise(int id) {
         return exerciseRepository.findById(id).isEmpty() ? null : exerciseRepository.findById(id).get();
     }
 
+    /**
+     * visszaadja az aktuális felhasználó edzőterveit, amibe lehet gyakorlatot tenni
+     * @return aktuális felhasználó edzőtervei
+     */
+    @Override
     public List<Rateable> getPossibleContainers(){
         List<Rateable> rateables = new ArrayList<>();
         for (Workout workout: workoutService.listUserWorkouts()) {
@@ -36,19 +67,30 @@ public class ExerciseService implements RateableService{
         return rateables;
     }
 
+    /**
+     * hozzáad egy létező gyakorlatot egy létező edzőtervhez
+     * @param idTo a létező edzőterv id-ja
+     * @param id a létező gyakorlat id-ja
+     */
+    @Override
     public void addRateable(int idTo, int id){
         workoutService.addExistingExerciseToWorkout(idTo, id);
     }
 
-    public List<Exercise> listExercises() {
-        return exerciseRepository.findAll();
-    }
-
+    /**
+     * kilistázza egy edzőterv gyakorlatait
+     * @param workoutId a keresett edzőterv id-ja
+     * @return a gyakorlatok listája
+     */
     public List<Exercise> listExercisesByWorkoutId(int workoutId) {
         Optional<Workout> workout = workoutRepository.findById(workoutId);
         return workout.get().getExercises();
     }
 
+    /**
+     * elmenti az adott gyakorlathoz tartozó eredményeket
+     * @param exercise gyakorlat, aminek az eredményeit elmenti
+     */
     @Transactional
     public void saveExerciseResultInExercise(Exercise exercise) {
         List<Exercise> exercises = exerciseRepository.findByName(exercise.getName());
@@ -94,23 +136,11 @@ public class ExerciseService implements RateableService{
         exerciseRepository.deleteAllInBatch();
     }
 
-    public List<ExerciseResult> listExerciseResults(String name){
-        List<Exercise> exercise = exerciseRepository.findByName(name);
-        return exercise.get(0).getExerciseResults();
-    }
-
-    @Transactional
-    public void addNewResults(String id, List<Set> sets) {
-        List<Exercise> exercise = exerciseRepository.findByName(id);
-        ExerciseResult newResult = ExerciseResult.builder().build();
-
-        for(int i = 0; i < exercise.get(0).getSet_count(); i++){
-            newResult.addSet(sets.get(i));
-        }
-        newResult.setDate(LocalDate.now());
-        exercise.get(0).addNewResult(newResult);
-    }
-
+    /**
+     * egy az adatbázisban még nem szereplő eredményt hozzáad egy gyakorlathoz
+     * @param id a keresett gyakorlat id-ja
+     * @param result a hozzáadandó eredmény
+     */
     @Transactional
     public void addNewResult(int id, ExerciseResult result){
         Optional<Exercise> exercise = exerciseRepository.findById(id);
@@ -118,6 +148,11 @@ public class ExerciseService implements RateableService{
         exercise.get().addNewResult(result);
     }
 
+    /**
+     * egy már az adatbázisban szereplő eredményt hozzáad egy gyakorlathoz
+     * @param id a keresett gyakorlat id-ja
+     * @param result_id a hozzáadandó eredmény id-ja
+     */
     @Transactional
     public void addExistingResultToExercise(int id, int result_id){
         Optional<Exercise> exercise = exerciseRepository.findById(id);
@@ -125,18 +160,21 @@ public class ExerciseService implements RateableService{
         exercise.get().addNewResult(result.get());
     }
 
-    @Transactional
-    public void removeResultFromExercise(int id, int result_id){
-        Optional<Exercise> exercise = exerciseRepository.findById(id);
-        Optional<ExerciseResult> result = exerciseResultRepository.findById(result_id);
-        exercise.get().removeResult(result.get());
-    }
-
+    /**
+     * felsorolja egy gyakorlatról az eredményeket
+     * @param id a keresett gyakorlat id-ja
+     * @return a keresett eredmények listája
+     */
     public List<ExerciseResult> listResults(int id){
         Optional<Exercise> exercise = exerciseRepository.findById(id);
         return exercise.get().getExerciseResults();
     }
 
+    /**
+     * megkeresi egy gyakorlathoz tartozó legnagyobb súlyt, amit használt
+     * @param id a keresett gyakorlat id-ja
+     * @return a legnagyobb súly, amit használt
+     */
     public double findPR(int id) {
         Optional<Exercise> exercise = exerciseRepository.findById(id);
 
@@ -150,6 +188,11 @@ public class ExerciseService implements RateableService{
         return maxWeight;
     }
 
+    /**
+     * megkeresi egy gyakorlathoz tartozó legjobb szetten belüli edzési volument
+     * @param id a keresett gyakorlat id-ja
+     * @return a legjobb szett edzési volumenje
+     */
     public Set findMaxVolume(int id) {
         Optional<Exercise> exercise = exerciseRepository.findById(id);
         Set maxVolume = new Set(0, 0);
@@ -162,6 +205,11 @@ public class ExerciseService implements RateableService{
         return maxVolume;
     }
 
+    /**
+     * megkeresi egy gyakorlathoz tartozó legjobb eredmény edzési volumenjét
+     * @param id a keresett gyakorlat id-ja
+     * @return a legjobb eredmény edzési volumenje
+     */
     public double findMaxTotalVolume(int id) {
         Optional<Exercise> exercise = exerciseRepository.findById(id);
         double max = 0;
@@ -174,6 +222,12 @@ public class ExerciseService implements RateableService{
         return max;
     }
 
+
+    /**
+     * megkeresi egy gyakorlathoz tartozó legjobb eredményt (maximális edzés volumen)
+     * @param id a keresett gyakorlat id-ja
+     * @return a legjobb eredmény
+     */
     public ExerciseResult findMaxTotalVolumeExerciseResult(int id) {
         Optional<Exercise> exercise = exerciseRepository.findById(id);
         double max = 0;
@@ -191,12 +245,22 @@ public class ExerciseService implements RateableService{
         return maxResult;
     }
 
+    /**
+     * egy gyakorlathoz hozzáad másodlagosan edzett izomcsoportot
+     * @param id a keresett gyakorlat id-ja
+     * @param muscleGroup a hozzáadott izomcsoport
+     */
     @Transactional
     public void addSecondaryMuscleGroup(int id, MuscleGroup muscleGroup){
         Optional<Exercise> exercise = exerciseRepository.findById(id);
         exercise.get().addSecondaryMuscleGroup(muscleGroup);
     }
 
+    /**
+     * megkeres egy gyakorlatot az adatbázisban, majd Rateable-ként visszaadja
+     * @param id a keresett gyakorlat id-ja
+     * @return a keresett gyakorlat Rateableként
+     */
     @Override
     public Rateable findById(int id) {
         return exerciseRepository.findById(id).get();

@@ -8,6 +8,9 @@ import tracker.service.ExerciseResultService;
 
 import java.util.Map;
 
+/**
+ * Controller osztály az exerciseResults.hmtl-hez, amelyen egy gyakorlathoz tartozó eredmények kerülnek kilistázásra
+ */
 @Controller
 @RequiredArgsConstructor
 public class ExerciseResultTLController {
