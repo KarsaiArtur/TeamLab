@@ -36,7 +36,7 @@ public class Split {
     /**
      * izomcsoport bontás típus enum
      */
-    public enum SplitType{
+    public enum SplitType {
         Body_Part,
         Upper_Lower_Body,
         Push_Pull_Legs,

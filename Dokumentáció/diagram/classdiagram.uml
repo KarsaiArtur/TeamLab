@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>tracker.model.Split</OriginalElement>
+  <nodes>
+    <node x="778.9797884668085" y="776.9637164702334">tracker.model.Equipment</node>
+    <node x="2578.2765927852215" y="-676.8439918017352">tracker.model.RegisteredUser</node>
+    <node x="1206.2694140668086" y="349.1103181570147">tracker.model.Gym</node>
+    <node x="2801.6447614774215" y="349.1103181570147">tracker.model.ExerciseResult</node>
+    <node x="1148.017041543347" y="1544.9030243472293">tracker.model.Split.SplitType</node>
+    <node x="1558.8763786862041" y="1382.4981408246015">tracker.model.Split</node>
+    <node x="1999.0066097991062" y="1304.2540137275143">tracker.model.MuscleGroup</node>
+    <node x="3306.5356666561943" y="488.9038469494733">tracker.model.Set</node>
+    <node x="808.5384298695005" y="-391.96507718748717">tracker.model.Rating</node>
+    <node x="1712.1134529719184" y="349.1103181570147">tracker.model.Workout</node>
+    <node x="1770.6134529719184" y="-553.7453780601312">tracker.model.Rateable</node>
+    <node x="2298.713145989643" y="349.1103181570147">tracker.model.Exercise</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="tracker.model.Split" target="tracker.model.Split.SplitType" relationship="TO_ONE">
+      <point x="-5.141104878412079" y="78.55082540916464" />
+      <point x="1650.235273807792" y="1693.6621049350647" />
+      <point x="47.357222394315386" y="44.25908058783534" />
+    </edge>
+    <edge source="tracker.model.ExerciseResult" target="tracker.model.RegisteredUser" relationship="TO_ONE">
+      <point x="51.87264652257818" y="-315.35340569987227" />
+      <point x="2979.0174079999997" y="155.2228083710374" />
+      <point x="2704.7765927852215" y="155.2228083710374" />
+      <point x="-15.0" y="-434.5" />
+    </edge>
+    <edge source="tracker.model.Exercise" target="tracker.model.RegisteredUser" relationship="TO_ONE">
+      <point x="143.4476503532137" y="-517.3394116427294" />
+      <point x="-115.11579644236463" y="198.48205625887783" />
+    </edge>
+    <edge source="tracker.model.Gym" target="tracker.model.Rateable" relationship="GENERALIZATION">
+      <point x="-3.2263823749190124E-4" y="-478.5003966726663" />
+      <point x="1351.769091428571" y="311.7664457142855" />
+      <point x="1351.7694140668086" y="311.7664457142855" />
+      <point x="1351.7694140668086" y="-462.16232860259754" />
+      <point x="25.13820325665256" y="-1.4169505424663384" />
+    </edge>
+    <edge source="tracker.model.Workout" target="tracker.model.RegisteredUser" relationship="TO_MANY">
+      <point x="115.80777125665259" y="-449.97228752844364" />
+      <point x="1973.421224228571" y="67.88630674285685" />
+      <point x="-105.19982844236529" y="310.2302985445921" />
+    </edge>
+    <edge source="tracker.model.RegisteredUser" target="tracker.model.Workout" relationship="TO_MANY">
+      <point x="-86.59313221379352" y="387.05721511602064" />
+      <point x="2633.183460571428" y="29.706327771428732" />
+      <point x="1933.3600932571426" y="29.706327771428732" />
+      <point x="75.7466402852242" y="-224.75896272844352" />
+    </edge>
+    <edge source="tracker.model.RegisteredUser" target="tracker.model.ExerciseResult" relationship="TO_MANY">
+      <point x="102.79327601477826" y="385.66036208744924" />
+      <point x="2822.5698687999998" y="369.6065609142853" />
+      <point x="-94.79692147742207" y="-293.0037572427294" />
+    </edge>
+    <edge source="tracker.model.Workout" target="tracker.model.Gym" relationship="TO_MANY">
+      <point x="-145.5" y="0.0" />
+      <point x="1626.82342550466" y="805.6103181570147" />
+      <point x="1626.82342550466" y="805.6103181570148" />
+      <point x="145.5" y="-21.999999999999886" />
+    </edge>
+    <edge source="tracker.model.Gym" target="tracker.model.Workout" relationship="TO_MANY">
+      <point x="-117.76941406680862" y="478.4996818429852" />
+      <point x="1234.0" y="1071.0891867428572" />
+      <point x="1857.6130160294072" y="1071.0891867428572" />
+      <point x="-4.369425112145109E-4" y="456.49968184298507" />
+    </edge>
+    <edge source="tracker.model.ExerciseResult" target="tracker.model.Set" relationship="TO_MANY">
+      <point x="129.8218926940067" y="47.23226561441368" />
+      <point x="3179.125627367282" y="709.8425837714284" />
+      <point x="3179.125627367282" y="709.8425837714284" />
+      <point x="-118.23861431333762" y="-15.561263178044896" />
+    </edge>
+    <edge source="tracker.model.Set" target="tracker.model.ExerciseResult" relationship="TO_ONE">
+      <point x="-121.03232037048065" y="38.91600493624071" />
+      <point x="3179.8240538815676" y="764.319851885714" />
+      <point x="3179.8240538815676" y="764.319851885714" />
+      <point x="128.42503966543518" y="101.70953372869928" />
+    </edge>
+    <edge source="tracker.model.Gym" target="tracker.model.Equipment" relationship="TO_ONE">
+      <point x="-145.5" y="29.999603327333716" />
+      <point x="895.6894340987013" y="857.6099214843484" />
+      <point x="22.20964563189284" y="0.17736471418243127" />
+    </edge>
+    <edge source="tracker.model.Exercise" target="tracker.model.Workout" relationship="TO_MANY">
+      <point x="-162.50045981821359" y="-3.181570148171886E-4" />
+      <point x="2064.877" y="904.6099999999999" />
+      <point x="2064.877" y="904.6103181570147" />
+      <point x="1882.7563705436928" y="904.6103181570147" />
+      <point x="1882.7563705436928" y="1083.3601590785072" />
+      <point x="1857.6130160294072" y="1083.3601590785072" />
+      <point x="-4.369425112145109E-4" y="456.49968184298507" />
+    </edge>
+    <edge source="tracker.model.Workout" target="tracker.model.Exercise" relationship="TO_MANY">
+      <point x="145.5" y="0.0" />
+      <point x="-162.5" y="-99.0" />
+    </edge>
+    <edge source="tracker.model.Rating" target="tracker.model.Workout" relationship="TO_ONE">
+      <point x="37.839172873356574" y="214.79718233034396" />
+      <point x="1798.0051547428568" y="136.3321051428568" />
+      <point x="-59.608298229061575" y="-405.8551126713006" />
+    </edge>
+    <edge source="tracker.model.Exercise" target="tracker.model.Rating" relationship="TO_MANY">
+      <point x="-66.36888907535831" y="-546.1785814713008" />
+      <point x="2394.844256914285" y="-92.75179154285735" />
+      <point x="85.27974887335654" y="-14.28671435537018" />
+    </edge>
+    <edge source="tracker.model.Workout" target="tracker.model.Rating" relationship="TO_MANY">
+      <point x="-112.30585434334739" y="-455.55969964272936" />
+      <point x="1745.307598628571" y="169.85657782857106" />
+      <point x="68.56993950192793" y="248.32165501605823" />
+    </edge>
+    <edge source="tracker.model.Workout" target="tracker.model.MuscleGroup" relationship="TO_MANY">
+      <point x="14.999563057488785" y="456.4999999999999" />
+      <point x="1872.6130160294072" y="1457.3814026733128" />
+      <point x="100.5" y="-83.37261105420157" />
+    </edge>
+    <edge source="tracker.model.Exercise" target="tracker.model.MuscleGroup" relationship="TO_MANY">
+      <point x="122.22033149607068" y="558.3843917858421" />
+      <point x="2583.433477485714" y="1555.7544026733128" />
+      <point x="100.5" y="15.000388945798477" />
+    </edge>
+    <edge source="tracker.model.Workout" target="tracker.model.Rateable" relationship="GENERALIZATION">
+      <point x="15.0" y="-456.5" />
+      <point x="1872.6134529719184" y="8.387428571428472" />
+      <point x="1873.9702857142847" y="8.387428571428472" />
+      <point x="1.3568327423663504" y="96.3465164289623" />
+    </edge>
+    <edge source="tracker.model.Split.SplitType" target="tracker.model.Split" relationship="INNER_CLASS">
+      <point x="-51.254243579710646" y="-32.62443525632034" />
+      <point x="1619.9376822857141" y="1616.778589090909" />
+      <point x="-35.43869640049002" y="189.2904559546189" />
+    </edge>
+    <edge source="tracker.model.Gym" target="tracker.model.Split" relationship="TO_ONE">
+      <point x="-145.5" y="-412.3643966726663" />
+      <point x="1494.9457645714285" y="415.2459214843484" />
+      <point x="1494.9457645714285" y="1265.75465931292" />
+      <point x="1624.5978715087765" y="1265.75465931292" />
+      <point x="1624.5978715087765" y="1408.7648949655115" />
+      <point x="1628.507323677922" y="1408.7648949655115" />
+      <point x="-26.869055008282203" y="-143.742818227199" />
+    </edge>
+    <edge source="tracker.model.Split" target="tracker.model.Gym" relationship="TO_ONE">
+      <point x="-72.06809068620441" y="-179.8861090739524" />
+      <point x="1583.3082879999997" y="1408.7648949655115" />
+      <point x="1448.9037824" y="1408.7648949655115" />
+      <point x="1448.9037824" y="991.2210907428571" />
+      <point x="1316.2027446857142" y="991.2210907428571" />
+      <point x="-35.56666938109447" y="-184.81667975701487" />
+    </edge>
+    <edge source="tracker.model.Exercise" target="tracker.model.Rateable" relationship="GENERALIZATION">
+      <point x="0.0" y="-555.5" />
+      <point x="2461.213145989643" y="-460.7453780601312" />
+      <point x="102.0" y="0.0" />
+    </edge>
+    <edge source="tracker.model.RegisteredUser" target="tracker.model.Rating" relationship="TO_MANY">
+      <point x="-129.18583438522228" y="-98.05815128397933" />
+      <point x="882.3758281142855" y="-340.40214308571456" />
+      <point x="-51.662601755215064" y="286.0366867874868" />
+    </edge>
+    <edge source="tracker.model.Gym" target="tracker.model.RegisteredUser" relationship="TO_MANY">
+      <point x="86.60467324747697" y="-413.3044603284437" />
+      <point x="1438.3740873142856" y="-215.18011428571447" />
+      <point x="80.5291973862063" y="27.16387751602076" />
+    </edge>
+    <edge source="tracker.model.RegisteredUser" target="tracker.model.Gym" relationship="TO_MANY">
+      <point x="-47.981281242365185" y="65.7810185445922" />
+      <point x="1473.2954130285711" y="-176.56297325714303" />
+      <point x="121.52599896176253" y="-84.14188935701532" />
+    </edge>
+    <edge source="tracker.model.Exercise" target="tracker.model.ExerciseResult" relationship="TO_MANY">
+      <point x="76.39870498178516" y="-148.16284661415796" />
+      <point x="2537.6118509714283" y="637.3076662857143" />
+      <point x="2903.5873444571425" y="637.3076662857143" />
+      <point x="-23.55741702027899" y="138.53645030012774" />
+    </edge>
+    <edge source="tracker.model.Rating" target="tracker.model.RegisteredUser" relationship="TO_ONE">
+      <point x="72.58741515907082" y="-218.22725652679867" />
+      <point x="1377.2743881142853" y="-296.69233371428584" />
+      <point x="1377.2743881142853" y="-296.19758994285735" />
+      <point x="42.125381157635275" y="-53.85359814112212" />
+    </edge>
+    <edge source="tracker.model.ExerciseResult" target="tracker.model.Set" relationship="CREATE">
+      <point x="127.02818663686412" y="-74.29394787130059" />
+      <point x="3179.125627367282" y="588.3163702857141" />
+      <point x="3179.125627367282" y="588.3163702857141" />
+      <point x="-125.22287945619473" y="-137.08747666375916" />
+    </edge>
+    <edge source="tracker.model.Gym" target="tracker.model.Rating" relationship="TO_MANY">
+      <point x="145.4996773617625" y="-3.9667266628384823E-4" />
+      <point x="1224.753464685714" y="827.6099214843484" />
+      <point x="1224.753464685714" y="571.6299801142854" />
+      <point x="934.0381428571427" y="571.6299801142854" />
+      <point x="-2.870123578873063E-4" y="313.5000200446307" />
+    </edge>
+    <edge source="tracker.model.ExerciseResult" target="tracker.model.Exercise" relationship="TO_ONE">
+      <point x="-125.5" y="242.0" />
+      <point x="162.5" y="0.0" />
+    </edge>
+    <edge source="tracker.model.Rating" target="tracker.model.Gym" relationship="TO_ONE">
+      <point x="51.8077031590708" y="-23.162576298227293" />
+      <point x="985.8461330285713" y="537.1415460571426" />
+      <point x="-100.52120560966591" y="-290.4687720998721" />
+    </edge>
+    <edge source="tracker.model.Rating" target="tracker.model.Exercise" relationship="TO_ONE">
+      <point x="107.62939733049939" y="20.63461135891555" />
+      <point x="2352.9386660571417" y="-57.83046582857162" />
+      <point x="-108.27447993250144" y="-560.1471117570151" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.5983077060789307" showDependencies="true" x="1663.4648727272727" y="893.4816" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

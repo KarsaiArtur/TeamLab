@@ -7,48 +7,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="html 9.1">
+    <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="kommentek">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/TrackerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/TrackerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/RegisteredUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/RegisteredUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/GymService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/GymService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/AddExerciseResultTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/AddExerciseResultTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/AddExerciseTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/AddExerciseTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/AddGymTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/AddGymTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/AddWorkoutTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/AddWorkoutTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/ExerciseResultTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/ExerciseResultTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/ExerciseTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/ExerciseTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/RateableDetailTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/RateableDetailTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/RegisteredUserTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/RegisteredUserTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/SearchTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/SearchTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/ExerciseResultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/ExerciseResultService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Split.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Split.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/TrackerApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/TrackerApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/RegisteredUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/RegisteredUser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/ExerciseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/ExerciseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/GymService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/GymService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/InitDbService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/InitDbService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/RegisteredUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/RegisteredUserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService$WorkoutServiceBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService$WorkoutServiceBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/AddExerciseResultTLController$ExerciseResultCopy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/AddExerciseResultTLController$ExerciseResultCopy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/AddExerciseResultTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/AddExerciseResultTLController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/AddExerciseTLController$ExerciseCopy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/AddExerciseTLController$ExerciseCopy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/AddExerciseTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/AddExerciseTLController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/AddGymTLController$GymCopy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/AddGymTLController$GymCopy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/AddGymTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/AddGymTLController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/AddWorkoutTLController$WorkoutCopy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/AddWorkoutTLController$WorkoutCopy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/AddWorkoutTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/AddWorkoutTLController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/ExerciseResultTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/ExerciseResultTLController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/ExerciseTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/ExerciseTLController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/GymTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/GymTLController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/RateableDetailTLController$Details.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/RateableDetailTLController$Details.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/RateableDetailTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/RateableDetailTLController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/RegisteredUserTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/RegisteredUserTLController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/SearchTLController$Search.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/SearchTLController$Search.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/SearchTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/SearchTLController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/WorkoutTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/WorkoutTLController.class" afterDir="false" />
     </list>
     <list id="2aaffac0-ec3d-4794-9b6a-4c3104a99dc6" name="Changes by latix" comment="html 8.2" />
-    <list id="b1da4595-029f-4ec1-acbc-bdd42aced874" name="Changes by szilva07" comment="html 9.2">
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/TrackerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/TrackerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseResultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseResultService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/GymService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/GymService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/InitDbService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/InitDbService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/RateableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/RateableService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/AddExerciseResultTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/AddExerciseResultTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/AddExerciseTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/AddExerciseTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/AddGymTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/AddGymTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/AddWorkoutTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/AddWorkoutTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/ExerciseResultTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/ExerciseResultTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/ExerciseTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/ExerciseTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/GymTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/GymTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/RateableDetailTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/RateableDetailTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/RegisteredUserTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/RegisteredUserTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/SearchTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/SearchTLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/WorkoutTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/WorkoutTLController.java" afterDir="false" />
-    </list>
+    <list id="b1da4595-029f-4ec1-acbc-bdd42aced874" name="Changes by szilva07" comment="kommentek" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,251 +69,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/tracker/web/AddExerciseResultTLController.java">
-      <ranges>
-        <range start1="19" end1="19" start2="19" end2="22" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="22" end1="22" start2="25" end2="28" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="23" end1="23" start2="29" end2="32" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="24" end1="25" start2="33" end2="33" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="26" end1="26" start2="34" end2="39" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="28" end1="29" start2="41" end2="42" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="30" end1="30" start2="43" end2="44" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="33" end1="33" start2="47" end2="52" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="45" end1="45" start2="64" end2="67" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="48" end1="48" start2="70" end2="73" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="49" end1="50" start2="74" end2="74" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="57" end1="58" start2="81" end2="81" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/tracker/web/RegisteredUserTLController.java">
-      <ranges>
-        <range start1="11" end1="11" start2="11" end2="14" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="14" end1="14" start2="17" end2="20" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="15" end1="15" start2="21" end2="24" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="17" end1="17" start2="26" end2="31" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="25" end1="25" start2="39" end2="44" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="31" end1="31" start2="50" end2="55" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="40" end1="40" start2="64" end2="69" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="48" end1="48" start2="77" end2="81" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/tracker/web/AddWorkoutTLController.java">
-      <ranges>
-        <range start1="14" end1="14" start2="14" end2="17" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="17" end1="17" start2="20" end2="23" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="18" end1="19" start2="24" end2="24" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="20" end1="20" start2="25" end2="30" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="22" end1="23" start2="32" end2="33" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="24" end1="24" start2="34" end2="35" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="27" end1="27" start2="38" end2="43" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="38" end1="38" start2="54" end2="57" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="41" end1="41" start2="60" end2="63" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="42" end1="42" start2="64" end2="67" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/tracker/service/ExerciseService.java">
-      <ranges>
-        <range start1="11" end1="12" start2="11" end2="11" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="16" end1="16" start2="15" end2="18" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="19" end1="19" start2="21" end2="24" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="20" end1="20" start2="25" end2="28" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="21" end1="21" start2="29" end2="32" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="22" end1="22" start2="33" end2="36" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="23" end1="23" start2="37" end2="40" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="24" end1="24" start2="41" end2="44" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="26" end1="26" start2="46" end2="51" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="30" end1="30" start2="55" end2="60" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="38" end1="38" start2="68" end2="74" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="42" end1="46" start2="78" end2="83" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="51" end1="51" start2="88" end2="92" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="59" end1="59" start2="100" end2="104" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="66" end1="66" start2="111" end2="116" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="71" end1="71" start2="121" end2="125" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="90" end1="90" start2="144" end2="147" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="96" end1="113" start2="153" end2="158" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="120" end1="120" start2="165" end2="170" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="127" end1="134" start2="177" end2="182" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="139" end1="139" start2="187" end2="192" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="152" end1="152" start2="205" end2="210" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="164" end1="164" start2="222" end2="227" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="176" end1="176" start2="239" end2="245" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="193" end1="193" start2="262" end2="267" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="199" end1="199" start2="273" end2="278" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/tracker/web/ExerciseTLController.java">
-      <ranges>
-        <range start1="14" end1="14" start2="14" end2="17" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="17" end1="17" start2="20" end2="23" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="18" end1="18" start2="24" end2="27" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="19" end1="20" start2="28" end2="28" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="21" end1="21" start2="29" end2="34" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="23" end1="24" start2="36" end2="37" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="25" end1="26" start2="38" end2="39" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="29" end1="29" start2="42" end2="47" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="36" end1="36" start2="54" end2="60" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/tracker/web/AddExerciseTLController.java">
-      <ranges>
-        <range start1="18" end1="18" start2="18" end2="21" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="21" end1="21" start2="24" end2="27" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="22" end1="22" start2="28" end2="31" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="23" end1="23" start2="32" end2="35" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="25" end1="25" start2="37" end2="42" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="27" end1="27" start2="44" end2="46" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="32" end1="32" start2="51" end2="56" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="44" end1="45" start2="68" end2="69" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="46" end1="47" start2="70" end2="70" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="52" end1="52" start2="75" end2="80" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="58" end1="58" start2="86" end2="89" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="61" end1="61" start2="92" end2="95" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="62" end1="62" start2="96" end2="99" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="63" end1="63" start2="100" end2="103" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="64" end1="64" start2="104" end2="107" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="65" end1="65" start2="108" end2="111" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="66" end1="66" start2="112" end2="115" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="67" end1="67" start2="116" end2="119" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/tracker/web/ExerciseResultTLController.java">
-      <ranges>
-        <range start1="10" end1="10" start2="10" end2="13" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="13" end1="14" start2="16" end2="19" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="15" end1="16" start2="20" end2="20" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="17" end1="17" start2="21" end2="26" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="19" end1="20" start2="28" end2="29" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="21" end1="22" start2="30" end2="31" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/tracker/web/RateableDetailTLController.java">
-      <ranges>
-        <range start1="18" end1="18" start2="18" end2="21" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="21" end1="21" start2="24" end2="27" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="22" end1="22" start2="28" end2="31" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="23" end1="23" start2="32" end2="35" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="29" end1="29" start2="41" end2="47" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="50" end1="50" start2="68" end2="73" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="56" end1="56" start2="79" end2="84" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="62" end1="62" start2="90" end2="95" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="68" end1="68" start2="101" end2="104" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="71" end1="71" start2="107" end2="110" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="72" end1="72" start2="111" end2="114" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/tracker/TrackerApplication.java">
-      <ranges>
-        <range start1="10" end1="10" start2="10" end2="13" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="14" end1="17" start2="17" end2="17" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="18" end1="18" start2="18" end2="21" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="19" end1="19" start2="22" end2="25" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="20" end1="20" start2="26" end2="29" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="21" end1="21" start2="30" end2="33" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="22" end1="22" start2="34" end2="37" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="23" end1="23" start2="38" end2="41" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="24" end1="24" start2="42" end2="45" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="26" end1="26" start2="47" end2="51" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="28" end1="28" start2="53" end2="58" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="30" end1="31" start2="60" end2="60" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="33" end1="33" start2="62" end2="66" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="37" end1="37" start2="70" end2="73" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/tracker/service/GymService.java">
-      <ranges>
-        <range start1="14" end1="14" start2="14" end2="17" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="17" end1="17" start2="20" end2="23" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="18" end1="18" start2="24" end2="27" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="19" end1="19" start2="28" end2="31" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="20" end1="20" start2="32" end2="35" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="22" end1="22" start2="37" end2="42" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="27" end1="27" start2="47" end2="51" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="40" end1="40" start2="64" end2="69" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="44" end1="44" start2="73" end2="79" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="48" end1="48" start2="83" end2="88" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="52" end1="52" start2="92" end2="96" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="56" end1="56" start2="100" end2="104" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="61" end1="61" start2="109" end2="116" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="77" end1="77" start2="132" end2="138" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="93" end1="93" start2="154" end2="160" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="109" end1="109" start2="176" end2="181" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="134" end1="134" start2="206" end2="211" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="139" end1="139" start2="216" end2="219" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="144" end1="144" start2="224" end2="229" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/tracker/web/SearchTLController.java">
-      <ranges>
-        <range start1="17" end1="17" start2="17" end2="20" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="20" end1="20" start2="23" end2="26" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="21" end1="21" start2="27" end2="30" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="22" end1="22" start2="31" end2="34" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="23" end1="23" start2="35" end2="38" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="24" end1="24" start2="39" end2="42" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="25" end1="25" start2="43" end2="46" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="26" end1="26" start2="47" end2="50" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="39" end1="39" start2="63" end2="69" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="63" end1="63" start2="93" end2="98" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="70" end1="70" start2="105" end2="108" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="73" end1="73" start2="111" end2="114" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="74" end1="74" start2="115" end2="118" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="75" end1="75" start2="119" end2="122" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/tracker/service/WorkoutService.java">
-      <ranges>
-        <range start1="14" end1="14" start2="14" end2="17" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="18" end1="18" start2="21" end2="24" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="19" end1="19" start2="25" end2="28" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="20" end1="20" start2="29" end2="32" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="21" end1="21" start2="33" end2="36" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="22" end1="22" start2="37" end2="44" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="23" end1="24" start2="45" end2="48" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="26" end1="26" start2="50" end2="54" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="31" end1="31" start2="59" end2="63" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="44" end1="44" start2="76" end2="80" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="50" end1="50" start2="86" end2="91" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="58" end1="58" start2="99" end2="105" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="62" end1="62" start2="109" end2="114" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="66" end1="66" start2="118" end2="122" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="70" end1="70" start2="126" end2="131" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="75" end1="75" start2="136" end2="140" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="80" end1="80" start2="145" end2="150" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="85" end1="85" start2="155" end2="160" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="90" end1="90" start2="165" end2="168" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="95" end1="95" start2="173" end2="179" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="110" end1="110" start2="194" end2="200" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="125" end1="125" start2="215" end2="221" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="143" end1="143" start2="239" end2="244" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="163" end1="163" start2="264" end2="269" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="169" end1="169" start2="275" end2="280" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="177" end1="182" start2="288" end2="293" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="190" end1="190" start2="301" end2="306" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="198" end1="198" start2="314" end2="319" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="206" end1="206" start2="327" end2="337" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/tracker/web/AddGymTLController.java">
-      <ranges>
-        <range start1="16" end1="16" start2="16" end2="19" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="19" end1="19" start2="22" end2="25" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="20" end1="21" start2="26" end2="26" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="22" end1="22" start2="27" end2="32" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="24" end1="25" start2="34" end2="35" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="26" end1="26" start2="36" end2="37" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="29" end1="29" start2="40" end2="45" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="34" end1="35" start2="50" end2="51" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="47" end1="47" start2="63" end2="66" changelist="d7b132d7-1f74-47af-a1a1-618661a00044" />
-        <range start1="50" end1="50" start2="69" end2="72" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="51" end1="51" start2="73" end2="76" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="52" end1="52" start2="77" end2="80" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="53" end1="53" start2="81" end2="84" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="54" end1="54" start2="85" end2="88" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-        <range start1="55" end1="55" start2="89" end2="92" changelist="b1da4595-029f-4ec1-acbc-bdd42aced874" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -340,28 +85,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "last_opened_file_path": "C:/Users/artur/Desktop/egyetem/4. félév/szoplab/BEADOTT GRAFIKUS/beadando/ActionHandler.class",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propCompiler",
-    "spring.configuration.checksum": "ff4f702de67a1b253fa049521ea62868"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/artur/Desktop/egyetem/5.felev/temalab/TemaLab/TemaLab/RepMaster&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;ff4f702de67a1b253fa049521ea62868&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -370,7 +115,7 @@
       <recent name="tracker.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ExerciseServiceTest">
+  <component name="RunManager" selected="Spring Boot.TrackerApplication (1)">
     <configuration name="ExerciseServiceIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webshop" />
       <extension name="coverage">
@@ -512,21 +257,12 @@
       <workItem from="1701617181653" duration="9541000" />
       <workItem from="1701638640131" duration="1681000" />
       <workItem from="1701640898131" duration="6470000" />
-      <workItem from="1701691988377" duration="8940000" />
-    </task>
-    <task id="LOCAL-00022" summary="tdd10">
-      <created>1700049079740</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1700049079740</updated>
-    </task>
-    <task id="LOCAL-00023" summary="tdd11">
-      <created>1700049159769</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1700049159769</updated>
+      <workItem from="1701691988377" duration="9226000" />
+      <workItem from="1701948734656" duration="276000" />
+      <workItem from="1702471402087" duration="700000" />
+      <workItem from="1702472144991" duration="3748000" />
+      <workItem from="1702499690695" duration="3040000" />
+      <workItem from="1702505542605" duration="402000" />
     </task>
     <task id="LOCAL-00024" summary="tdd12">
       <created>1700049260739</created>
@@ -857,7 +593,21 @@
       <option name="project" value="LOCAL" />
       <updated>1701647384039</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="kommentek">
+      <created>1701702113068</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1701702113068</updated>
+    </task>
+    <task id="LOCAL-00072" summary="kommentek">
+      <created>1701702124834</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1701702124834</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -875,7 +625,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="tdd34" />
     <MESSAGE value="tdd35" />
     <MESSAGE value="html 1.0" />
     <MESSAGE value="html 2.0" />
@@ -900,7 +649,8 @@
     <MESSAGE value="html 9.1" />
     <MESSAGE value="html 8.3" />
     <MESSAGE value="html 9.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="html 9.2" />
+    <MESSAGE value="kommentek" />
+    <option name="LAST_COMMIT_MESSAGE" value="kommentek" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
