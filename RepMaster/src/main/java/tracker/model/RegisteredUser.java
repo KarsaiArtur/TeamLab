@@ -101,6 +101,7 @@ public class RegisteredUser{
      */
     public void removeWorkout(Workout w) {
         userWorkouts.remove(w);
+        w.removeRegisteredUser(this);
     }
 
     /**

@@ -9,36 +9,17 @@
   <component name="ChangeListManager">
     <list default="true" id="d7b132d7-1f74-47af-a1a1-618661a00044" name="Changes" comment="kommentek">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Split.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Split.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/TrackerApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/TrackerApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/RegisteredUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/RegisteredUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/model/Workout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/web/RateableDetailTLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/web/RateableDetailTLController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/tracker/model/RegisteredUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/model/RegisteredUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/ExerciseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/ExerciseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/GymService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/GymService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/InitDbService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/InitDbService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/RegisteredUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/RegisteredUserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService$WorkoutServiceBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService$WorkoutServiceBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/service/WorkoutService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/AddExerciseResultTLController$ExerciseResultCopy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/AddExerciseResultTLController$ExerciseResultCopy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/AddExerciseResultTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/AddExerciseResultTLController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/AddExerciseTLController$ExerciseCopy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/AddExerciseTLController$ExerciseCopy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/AddExerciseTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/AddExerciseTLController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/AddGymTLController$GymCopy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/AddGymTLController$GymCopy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/AddGymTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/AddGymTLController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/AddWorkoutTLController$WorkoutCopy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/AddWorkoutTLController$WorkoutCopy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/AddWorkoutTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/AddWorkoutTLController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/ExerciseResultTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/ExerciseResultTLController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/ExerciseTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/ExerciseTLController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/GymTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/GymTLController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/RateableDetailTLController$Details.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/RateableDetailTLController$Details.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/RateableDetailTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/RateableDetailTLController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/RegisteredUserTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/RegisteredUserTLController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/SearchTLController$Search.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/SearchTLController$Search.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/SearchTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/SearchTLController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tracker/web/WorkoutTLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tracker/web/WorkoutTLController.class" afterDir="false" />
     </list>
     <list id="2aaffac0-ec3d-4794-9b6a-4c3104a99dc6" name="Changes by latix" comment="html 8.2" />
-    <list id="b1da4595-029f-4ec1-acbc-bdd42aced874" name="Changes by szilva07" comment="kommentek" />
+    <list id="b1da4595-029f-4ec1-acbc-bdd42aced874" name="Changes by szilva07" comment="kommentek">
+      <change beforePath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tracker/service/RegisteredUserService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -207,8 +188,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ExerciseServiceTest" />
         <item itemvalue="JUnit.ExerciseServiceIT" />
+        <item itemvalue="JUnit.ExerciseServiceTest" />
         <item itemvalue="JUnit.GymServiceTest" />
         <item itemvalue="JUnit.GymServiceTestIT" />
         <item itemvalue="JUnit.RegisteredUserTestIT" />
@@ -262,7 +243,7 @@
       <workItem from="1702471402087" duration="700000" />
       <workItem from="1702472144991" duration="3748000" />
       <workItem from="1702499690695" duration="3040000" />
-      <workItem from="1702505542605" duration="402000" />
+      <workItem from="1702505542605" duration="2204000" />
     </task>
     <task id="LOCAL-00024" summary="tdd12">
       <created>1700049260739</created>

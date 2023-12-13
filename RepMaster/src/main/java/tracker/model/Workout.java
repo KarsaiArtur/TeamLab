@@ -100,6 +100,14 @@ public class Workout extends Rateable {
     }
 
     /**
+     * kivesz regisztrált felhasználót
+     * @param r felhasználó, amit kivesz
+     */
+    public void removeRegisteredUser(RegisteredUser r){
+        registeredUsers.remove(r);
+    }
+
+    /**
      * hozzáad izomcsoportot
      * @param m izomcsoport, amit hozzáad
      */

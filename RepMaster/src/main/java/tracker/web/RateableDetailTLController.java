@@ -55,14 +55,16 @@ public class RateableDetailTLController {
         model.put("loggedIn", TrackerApplication.getInstance().isLoggedIn());
         model.put("loggedInUserId", TrackerApplication.getInstance().getLoggedInUser().getId());
         model.put("deleteRating", 0);
-        if(rateableService.getPossibleContainers() == null && TrackerApplication.getInstance().isLoggedIn())
-        {
-            List<RegisteredUser> users = new ArrayList<>();
-            users.add(TrackerApplication.getInstance().getLoggedInUser());
-            model.put("elements", users);
+        if(TrackerApplication.getInstance().isLoggedIn()){
+            if(rateableService.getPossibleContainers() == null)
+            {
+                List<RegisteredUser> users = new ArrayList<>();
+                users.add(TrackerApplication.getInstance().getLoggedInUser());
+                model.put("elements", users);
+            }
+            else
+                model.put("elements", rateableService.getPossibleContainers());
         }
-        else if(TrackerApplication.getInstance().isLoggedIn())
-            model.put("elements", rateableService.getPossibleContainers());
         return "rateableDetail";
     }
 
